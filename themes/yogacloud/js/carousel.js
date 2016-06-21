@@ -1,237 +1,350 @@
-/* ========================================================================
- * Bootstrap: carousel.js v3.3.6
- * http://getbootstrap.com/javascript/#carousel
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
+(function ($) {
+
+  var methods = {
+
+    init : function(options) {
+      var defaults = {
+        time_constant: 200, // ms
+        dist: -100, // zoom scale TODO: make this more intuitive as an option
+        shift: 0, // spacing for center image
+        padding: 0, // Padding between non center items
+        full_width: false // Change to full width styles
+      };
+      options = $.extend(defaults, options);
+
+      return this.each(function() {
+
+        var images, offset, center, pressed, dim, count,
+            reference, referenceY, amplitude, target, velocity,
+            xform, frame, timestamp, ticker, dragged, vertical_dragged;
+
+        // Initialize
+        var view = $(this);
+        // Don't double initialize.
+        if (view.hasClass('initialized')) {
+          return true;
+        }
+
+        // Options
+        if (options.full_width) {
+          options.dist = 0;
+          imageHeight = view.find('.carousel-item img').first().load(function(){
+            view.css('height', $(this).height());
+          });
+        }
+
+        view.addClass('initialized');
+        pressed = false;
+        offset = target = 0;
+        images = [];
+        item_width = view.find('.carousel-item').first().innerWidth();
+        dim = item_width * 2 + options.padding;
+
+        view.find('.carousel-item').each(function () {
+          images.push($(this)[0]);
+        });
+
+        count = images.length;
 
 
-+function ($) {
-  'use strict';
+        function setupEvents() {
+          if (typeof window.ontouchstart !== 'undefined') {
+            view[0].addEventListener('touchstart', tap);
+            view[0].addEventListener('touchmove', drag);
+            view[0].addEventListener('touchend', release);
+          }
+          view[0].addEventListener('mousedown', tap);
+          view[0].addEventListener('mousemove', drag);
+          view[0].addEventListener('mouseup', release);
+          view[0].addEventListener('click', click);
+        }
 
-  // CAROUSEL CLASS DEFINITION
-  // =========================
+        function xpos(e) {
+          // touch event
+          if (e.targetTouches && (e.targetTouches.length >= 1)) {
+            return e.targetTouches[0].clientX;
+          }
 
-  var Carousel = function (element, options) {
-    this.$element    = $(element)
-    this.$indicators = this.$element.find('.carousel-indicators')
-    this.options     = options
-    this.paused      = null
-    this.sliding     = null
-    this.interval    = null
-    this.$active     = null
-    this.$items      = null
+          // mouse event
+          return e.clientX;
+        }
 
-    this.options.keyboard && this.$element.on('keydown.bs.carousel', $.proxy(this.keydown, this))
+        function ypos(e) {
+          // touch event
+          if (e.targetTouches && (e.targetTouches.length >= 1)) {
+            return e.targetTouches[0].clientY;
+          }
 
-    this.options.pause == 'hover' && !('ontouchstart' in document.documentElement) && this.$element
-      .on('mouseenter.bs.carousel', $.proxy(this.pause, this))
-      .on('mouseleave.bs.carousel', $.proxy(this.cycle, this))
-  }
+          // mouse event
+          return e.clientY;
+        }
 
-  Carousel.VERSION  = '3.3.6'
+        function wrap(x) {
+          return (x >= count) ? (x % count) : (x < 0) ? wrap(count + (x % count)) : x;
+        }
 
-  Carousel.TRANSITION_DURATION = 600
+        function scroll(x) {
+          var i, half, delta, dir, tween, el, alignment, xTranslation;
 
-  Carousel.DEFAULTS = {
-    interval: 5000,
-    pause: 'hover',
-    wrap: true,
-    keyboard: true
-  }
+          offset = (typeof x === 'number') ? x : offset;
+          center = Math.floor((offset + dim / 2) / dim);
+          delta = offset - center * dim;
+          dir = (delta < 0) ? 1 : -1;
+          tween = -dir * delta * 2 / dim;
 
-  Carousel.prototype.keydown = function (e) {
-    if (/input|textarea/i.test(e.target.tagName)) return
-    switch (e.which) {
-      case 37: this.prev(); break
-      case 39: this.next(); break
-      default: return
-    }
+          if (!options.full_width) {
+            alignment = 'translateX(' + (view[0].clientWidth - item_width) / 2 + 'px) ';
+            alignment += 'translateY(' + (view[0].clientHeight - item_width) / 2 + 'px)';
+          } else {
+            alignment = 'translateX(0)';
+          }
 
-    e.preventDefault()
-  }
+          // center
+          el = images[wrap(center)];
+          el.style[xform] = alignment +
+            ' translateX(' + (-delta / 2) + 'px)' +
+            ' translateX(' + (dir * options.shift * tween * i) + 'px)' +
+            ' translateZ(' + (options.dist * tween) + 'px)';
+          el.style.zIndex = 0;
+          if (options.full_width) { tweenedOpacity = 1; }
+          else { tweenedOpacity = 1 - 0.2 * tween; }
+          el.style.opacity = tweenedOpacity;
+          half = count >> 1;
 
-  Carousel.prototype.cycle = function (e) {
-    e || (this.paused = false)
-
-    this.interval && clearInterval(this.interval)
-
-    this.options.interval
-      && !this.paused
-      && (this.interval = setInterval($.proxy(this.next, this), this.options.interval))
-
-    return this
-  }
-
-  Carousel.prototype.getItemIndex = function (item) {
-    this.$items = item.parent().children('.item')
-    return this.$items.index(item || this.$active)
-  }
-
-  Carousel.prototype.getItemForDirection = function (direction, active) {
-    var activeIndex = this.getItemIndex(active)
-    var willWrap = (direction == 'prev' && activeIndex === 0)
-                || (direction == 'next' && activeIndex == (this.$items.length - 1))
-    if (willWrap && !this.options.wrap) return active
-    var delta = direction == 'prev' ? -1 : 1
-    var itemIndex = (activeIndex + delta) % this.$items.length
-    return this.$items.eq(itemIndex)
-  }
-
-  Carousel.prototype.to = function (pos) {
-    var that        = this
-    var activeIndex = this.getItemIndex(this.$active = this.$element.find('.item.active'))
-
-    if (pos > (this.$items.length - 1) || pos < 0) return
-
-    if (this.sliding)       return this.$element.one('slid.bs.carousel', function () { that.to(pos) }) // yes, "slid"
-    if (activeIndex == pos) return this.pause().cycle()
-
-    return this.slide(pos > activeIndex ? 'next' : 'prev', this.$items.eq(pos))
-  }
-
-  Carousel.prototype.pause = function (e) {
-    e || (this.paused = true)
-
-    if (this.$element.find('.next, .prev').length && $.support.transition) {
-      this.$element.trigger($.support.transition.end)
-      this.cycle(true)
-    }
-
-    this.interval = clearInterval(this.interval)
-
-    return this
-  }
-
-  Carousel.prototype.next = function () {
-    if (this.sliding) return
-    return this.slide('next')
-  }
-
-  Carousel.prototype.prev = function () {
-    if (this.sliding) return
-    return this.slide('prev')
-  }
-
-  Carousel.prototype.slide = function (type, next) {
-    var $active   = this.$element.find('.item.active')
-    var $next     = next || this.getItemForDirection(type, $active)
-    var isCycling = this.interval
-    var direction = type == 'next' ? 'left' : 'right'
-    var that      = this
-
-    if ($next.hasClass('active')) return (this.sliding = false)
-
-    var relatedTarget = $next[0]
-    var slideEvent = $.Event('slide.bs.carousel', {
-      relatedTarget: relatedTarget,
-      direction: direction
-    })
-    this.$element.trigger(slideEvent)
-    if (slideEvent.isDefaultPrevented()) return
-
-    this.sliding = true
-
-    isCycling && this.pause()
-
-    if (this.$indicators.length) {
-      this.$indicators.find('.active').removeClass('active')
-      var $nextIndicator = $(this.$indicators.children()[this.getItemIndex($next)])
-      $nextIndicator && $nextIndicator.addClass('active')
-    }
-
-    var slidEvent = $.Event('slid.bs.carousel', { relatedTarget: relatedTarget, direction: direction }) // yes, "slid"
-    if ($.support.transition && this.$element.hasClass('slide')) {
-      $next.addClass(type)
-      $next[0].offsetWidth // force reflow
-      $active.addClass(direction)
-      $next.addClass(direction)
-      $active
-        .one('bsTransitionEnd', function () {
-          $next.removeClass([type, direction].join(' ')).addClass('active')
-          $active.removeClass(['active', direction].join(' '))
-          that.sliding = false
-          setTimeout(function () {
-            that.$element.trigger(slidEvent)
-          }, 0)
-        })
-        .emulateTransitionEnd(Carousel.TRANSITION_DURATION)
-    } else {
-      $active.removeClass('active')
-      $next.addClass('active')
-      this.sliding = false
-      this.$element.trigger(slidEvent)
-    }
-
-    isCycling && this.cycle()
-
-    return this
-  }
+          for (i = 1; i <= half; ++i) {
+            // right side
+            if (options.full_width) {
+              zTranslation = options.dist;
+              tweenedOpacity = (i === half && delta < 0) ? 1 - tween : 1;
+            } else {
+              zTranslation = options.dist * (i * 2 + tween * dir);
+              tweenedOpacity = 1 - 0.2 * (i * 2 + tween * dir);
+            }
+            el = images[wrap(center + i)];
+            el.style[xform] = alignment +
+              ' translateX(' + (options.shift + (dim * i - delta) / 2) + 'px)' +
+              ' translateZ(' + zTranslation + 'px)';
+            el.style.zIndex = -i;
+            el.style.opacity = tweenedOpacity;
 
 
-  // CAROUSEL PLUGIN DEFINITION
-  // ==========================
+            // left side
+            if (options.full_width) {
+              zTranslation = options.dist;
+              tweenedOpacity = (i === half && delta > 0) ? 1 - tween : 1;
+            } else {
+              zTranslation = options.dist * (i * 2 - tween * dir);
+              tweenedOpacity = 1 - 0.2 * (i * 2 - tween * dir);
+            }
+            el = images[wrap(center - i)];
+            el.style[xform] = alignment +
+              ' translateX(' + (-options.shift + (-dim * i - delta) / 2) + 'px)' +
+              ' translateZ(' + zTranslation + 'px)';
+            el.style.zIndex = -i;
+            el.style.opacity = tweenedOpacity;
+          }
 
-  function Plugin(option) {
-    return this.each(function () {
-      var $this   = $(this)
-      var data    = $this.data('bs.carousel')
-      var options = $.extend({}, Carousel.DEFAULTS, $this.data(), typeof option == 'object' && option)
-      var action  = typeof option == 'string' ? option : options.slide
+          // center
+          el = images[wrap(center)];
+          el.style[xform] = alignment +
+            ' translateX(' + (-delta / 2) + 'px)' +
+            ' translateX(' + (dir * options.shift * tween) + 'px)' +
+            ' translateZ(' + (options.dist * tween) + 'px)';
+          el.style.zIndex = 0;
+          if (options.full_width) { tweenedOpacity = 1; }
+          else { tweenedOpacity = 1 - 0.2 * tween; }
+          el.style.opacity = tweenedOpacity;
+        }
 
-      if (!data) $this.data('bs.carousel', (data = new Carousel(this, options)))
-      if (typeof option == 'number') data.to(option)
-      else if (action) data[action]()
-      else if (options.interval) data.pause().cycle()
-    })
-  }
+        function track() {
+          var now, elapsed, delta, v;
 
-  var old = $.fn.carousel
+          now = Date.now();
+          elapsed = now - timestamp;
+          timestamp = now;
+          delta = offset - frame;
+          frame = offset;
 
-  $.fn.carousel             = Plugin
-  $.fn.carousel.Constructor = Carousel
+          v = 1000 * delta / (1 + elapsed);
+          velocity = 0.8 * v + 0.2 * velocity;
+        }
+
+        function autoScroll() {
+          var elapsed, delta;
+
+          if (amplitude) {
+            elapsed = Date.now() - timestamp;
+            delta = amplitude * Math.exp(-elapsed / options.time_constant);
+            if (delta > 2 || delta < -2) {
+                scroll(target - delta);
+                requestAnimationFrame(autoScroll);
+            } else {
+                scroll(target);
+            }
+          }
+        }
+
+        function click(e) {
+          // Disable clicks if carousel was dragged.
+          if (dragged) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+
+          } else if (!options.full_width) {
+            var clickedIndex = $(e.target).closest('.carousel-item').index();
+            var diff = (center % count) - clickedIndex;
+
+            // Account for wraparound.
+            if (diff < 0) {
+              if (Math.abs(diff + count) < Math.abs(diff)) { diff += count; }
+
+            } else if (diff > 0) {
+              if (Math.abs(diff - count) < diff) { diff -= count; }
+            }
+
+            // Call prev or next accordingly.
+            if (diff < 0) {
+              $(this).trigger('carouselNext', [Math.abs(diff)]);
+
+            } else if (diff > 0) {
+              $(this).trigger('carouselPrev', [diff]);
+            }
+          }
+        }
+
+        function tap(e) {
+          pressed = true;
+          dragged = false;
+          vertical_dragged = false;
+          reference = xpos(e);
+          referenceY = ypos(e);
+
+          velocity = amplitude = 0;
+          frame = offset;
+          timestamp = Date.now();
+          clearInterval(ticker);
+          ticker = setInterval(track, 100);
+
+        }
+
+        function drag(e) {
+          var x, delta, deltaY;
+          if (pressed) {
+            x = xpos(e);
+            y = ypos(e);
+            delta = reference - x;
+            deltaY = Math.abs(referenceY - y);
+            if (deltaY < 30 && !vertical_dragged) {
+              // If vertical scrolling don't allow dragging.
+              if (delta > 2 || delta < -2) {
+                dragged = true;
+                reference = x;
+                scroll(offset + delta);
+              }
+
+            } else if (dragged) {
+              // If dragging don't allow vertical scroll.
+              e.preventDefault();
+              e.stopPropagation();
+              return false;
+
+            } else {
+              // Vertical scrolling.
+              vertical_dragged = true;
+            }
+          }
+
+          if (dragged) {
+            // If dragging don't allow vertical scroll.
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+        }
+
+        function release(e) {
+          pressed = false;
+
+          clearInterval(ticker);
+          target = offset;
+          if (velocity > 10 || velocity < -10) {
+            amplitude = 0.9 * velocity;
+            target = offset + amplitude;
+          }
+          target = Math.round(target / dim) * dim;
+          amplitude = target - offset;
+          timestamp = Date.now();
+          requestAnimationFrame(autoScroll);
+
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+
+        xform = 'transform';
+        ['webkit', 'Moz', 'O', 'ms'].every(function (prefix) {
+          var e = prefix + 'Transform';
+          if (typeof document.body.style[e] !== 'undefined') {
+            xform = e;
+            return false;
+          }
+          return true;
+        });
 
 
-  // CAROUSEL NO CONFLICT
-  // ====================
 
-  $.fn.carousel.noConflict = function () {
-    $.fn.carousel = old
-    return this
-  }
+        window.onresize = scroll;
+
+        setupEvents();
+        scroll(offset);
+
+        $(this).on('carouselNext', function(e, n) {
+          if (n === undefined) {
+            n = 1;
+          }
+          target = offset + dim * n;
+          if (offset !== target) {
+            amplitude = target - offset;
+            timestamp = Date.now();
+            requestAnimationFrame(autoScroll);
+          }
+        });
+
+        $(this).on('carouselPrev', function(e, n) {
+          if (n === undefined) {
+            n = 1;
+          }
+          target = offset - dim * n;
+          if (offset !== target) {
+            amplitude = target - offset;
+            timestamp = Date.now();
+            requestAnimationFrame(autoScroll);
+          }
+        });
+
+      });
 
 
-  // CAROUSEL DATA-API
-  // =================
 
-  var clickHandler = function (e) {
-    var href
-    var $this   = $(this)
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) // strip for ie7
-    if (!$target.hasClass('carousel')) return
-    var options = $.extend({}, $target.data(), $this.data())
-    var slideIndex = $this.attr('data-slide-to')
-    if (slideIndex) options.interval = false
+    },
+    next : function(n) {
+      $(this).trigger('carouselNext', [n]);
+    },
+    prev : function(n) {
+      $(this).trigger('carouselPrev', [n]);
+    },
+  };
 
-    Plugin.call($target, options)
 
-    if (slideIndex) {
-      $target.data('bs.carousel').to(slideIndex)
-    }
-
-    e.preventDefault()
-  }
-
-  $(document)
-    .on('click.bs.carousel.data-api', '[data-slide]', clickHandler)
-    .on('click.bs.carousel.data-api', '[data-slide-to]', clickHandler)
-
-  $(window).on('load', function () {
-    $('[data-ride="carousel"]').each(function () {
-      var $carousel = $(this)
-      Plugin.call($carousel, $carousel.data())
-    })
-  })
-
-}(jQuery);
+    $.fn.carousel = function(methodOrOptions) {
+      if ( methods[methodOrOptions] ) {
+        return methods[ methodOrOptions ].apply( this, Array.prototype.slice.call( arguments, 1 ));
+      } else if ( typeof methodOrOptions === 'object' || ! methodOrOptions ) {
+        // Default to "init"
+        return methods.init.apply( this, arguments );
+      } else {
+        $.error( 'Method ' +  methodOrOptions + ' does not exist on jQuery.carousel' );
+      }
+    }; // Plugin end
+}( jQuery ));
