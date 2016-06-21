@@ -25,4 +25,11 @@ function print_title(){
 	}
 }
 
+
+/******************
+ * SCRIPTS CUERVO
+ *****************/
+
+require_once( 'inc/pages.php' );
+
 ?>
