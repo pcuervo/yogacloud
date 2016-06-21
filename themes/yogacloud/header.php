@@ -26,8 +26,6 @@
 			<script src="js/respond.min.js"></script>
 		<![endif]-->
 
-		 <!-- Compiled and minified JavaScript -->
-		<script src="<?php echo THEMEPATH; ?>js/materialize.js"></script>
 		<?php wp_head(); ?>
 
 	</head>

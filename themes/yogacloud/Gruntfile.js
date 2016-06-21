@@ -10,7 +10,7 @@ module.exports = function(grunt) {
                 separator: 'rnrn'
             },
             dist: {
-                src: ['assets/js/modules/module1.js', 'assets/js/modules/module2.js'],
+                src: ['assets/js/bin/materialize.js'],
                 dest: 'assets/js/main.js'
             }
         },

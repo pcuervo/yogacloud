@@ -14,33 +14,21 @@
 						<img src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram">
 					</div>
 				</div>
-				<div class="[ row ]">
-					<div class="col l4 s12">
-						<h5><img class="logo" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></h5>
-						<ul>
-							<li><a class="grey-text text-lighten-3" href="#!">Aviso Legal</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Política de Cookies</a></li>
-							<li><a class="grey-text text-lighten-3" href="#!">Política de Privacidad</a></li>
-						</ul>
-					</div>
+				<div class="col l4 s12">
+					<h5><img class="logo" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Aviso Legal</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Política de Cookies</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Política de Privacidad</a></li>
+					</ul>
 				</div>
-			</div>
-			<div class="footer-copyright">
-			<div class="container">
-			© Copyright 2016
-			</div>
+				<div class="[ white-text ]">
+					© Copyright 2016
+				</div>
 			</div>
 		</footer>
 
 		<?php wp_footer(); ?>
-
-		<script type="text/javascript">
-			
-  // Initialize collapse button
-  $(".button-collapse").sideNav();
-  // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-  //$('.collapsible').collapsible();
-		</script>
 	</body>
 
 </html>

@@ -37,6 +37,8 @@ $primary-color: color("primary", "lighten-1") !default;
 $secondary-color: color("secondary", "lighten-1") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
+$primary-transparent: color("primary","transparent")!default;
+$secondary-transparent: color("secondary","transparent")!default;
 
 $secondary-color: color("teal", "lighten-1") !default;
 $success-color: color("green", "base") !default;
@@ -187,6 +189,14 @@ $switch-radius: 15px !default;
 
 /* 11. Global
    ========================================================================== */
+
+// Box Model Base Sizes
+
+$padding-size: 20px !default;
+$margin-size: 20px !default;
+
+$padding-sides-size: 0 20px !default;
+$margin-sides-size: 0 20px !default;
 
 // Media Query Ranges
 $small-screen-up: 601px !default;
