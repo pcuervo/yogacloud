@@ -4,11 +4,11 @@
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
-					<div class="[ col s12 ][ white-text text-center ][ padding ]">
-						<h1>Yoga cloud cursos</h1>
-						<h5> Primum in nostrane potestate est quid meminerimus duo.</h5>
+					<div class="[ col s12 ][ white-text text-center ]">
+						<h1 class="[ padding ]">Yoga cloud cursos</h1>
+						<h5 class="[ padding ]"> Primum in nostrane potestate est quid meminerimus duo.</h5>
 						<div class="[ btn-main-cta ][ relative ][ padding ]">
-							<a class="[ btn btn-rounded ][ absolute ]">más info</a>
+							<a class="[ btn btn-rounded ][ absolute ]">ver cursos</a>
 						</div>
 					</div>	
 				</div>
