@@ -53,7 +53,7 @@
 		<div class="[ container ]">
 			<div class="[ row ]">
 				<div class="[ col s12 ][ white-text ]">
-					<h4 class="[ text-center ]">The Yoga Project</h4>
+					<h5 class="[ text-center ]">The Yoga Project</h5>
 					<p>¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
 				</div>
 				<div class="[ col s6 ]">
@@ -94,6 +94,19 @@
 				</div>
 			</li>
 		</ul>
+	</div>
+
+	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+		<div class="[ gradient-diagonal-opacity ]">
+			<div class="[ container ]">
+				<div class="[ row ][ padding-vertical ]">
+					<div class="[ col s12 ][ white-text ][ text-center ][ padding ]">
+						<h5>Regístrate y obtén lecciones gratis.</h5>
+						<a class="[ btn btn-rounded btn-light ]">registrarme</a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 <?php get_footer(); ?>
