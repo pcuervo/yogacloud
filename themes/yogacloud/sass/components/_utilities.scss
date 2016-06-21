@@ -31,3 +31,6 @@
 .gradient-diagonal{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
+//Border
+
+.border-right--dark { border-right: 1px solid $dark-color; }
