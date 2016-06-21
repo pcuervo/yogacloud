@@ -192,12 +192,11 @@ $switch-radius: 15px !default;
 
 // Box Model Base Sizes
 
-$padding: 20px !default;
-$margin: 20px !default;
+$padding-size: 20px !default;
+$margin-size: 20px !default;
 
-$padding-sides: 0 20px !default;
-$margin-sides: 0 20px !default;
-
+$padding-sides-size: 0 20px !default;
+$margin-sides-size: 0 20px !default;
 
 // Media Query Ranges
 $small-screen-up: 601px !default;

@@ -1,3 +1,12 @@
+//Box Model
+
+.padding{padding:$padding-size;}
+.margin{margin:$margin-size;}
+
+.padding-sides{padding:$padding-sides-size;}
+.margin-sides{margin:$margin-sides-size;}
+
+
 //Position
 
 .absolute{ position: absolute; }
@@ -6,12 +15,10 @@
 
 .left-30{ left: 30%}
 
-
 //Colors
 
 .color-primary{ color: $primary-color; }
 .color-secondary{ color: $secondary-color; }
-
 
 //Background
 
@@ -21,6 +28,6 @@
 
 .gradient-linear{ @include linear-gradient( $primary-color, $secondary-color); }
 .gradient-linear-opacity{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
-.gradient-primary{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
+.gradient-diagonal{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
+.gradient-diagonal-opacity{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
-.padding{padding:$padding;}
