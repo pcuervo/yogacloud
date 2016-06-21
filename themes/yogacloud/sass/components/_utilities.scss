@@ -1,20 +1,26 @@
+//Position
+
+.absolute{ position: absolute; }
+.relative{ position: relative; }
+.fixed{ position: fixed; }
+
+.left-30{ left: 30%}
+
 
 //Colors
 
-.color-light{ color: $light-color; }
+.color-primary{ color: $primary-color; }
+.color-secondary{ color: $secondary-color; }
+
 
 //Background
 
 .bg-primary{ background: $primary-color;}
-.bg-primary-gradient{
-  background: $primary-color; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(45deg, $secondary-color, $primary-color); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(45deg, $secondary-color, $primary-color); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(45deg, $secondary-color, $primary-color); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(45deg, $secondary-color, $primary-color); /* Standard syntax */
-}
 
+//Gradients
 
-//Images
+.gradient-linear{ @include linear-gradient( $primary-color, $secondary-color); }
+.gradient-linear-opacity{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
+.gradient-primary{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 
-.img-responsive{ max-width: 100% }
+.padding{padding:$padding;}

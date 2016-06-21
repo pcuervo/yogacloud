@@ -1,54 +1,66 @@
 <?php get_header(); ?>
 
-	<div class="[ custom-banner ]">
-		<img style="width: 100%;" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="Logo yogacloud">
+	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+		<div class="[ gradient-linear-opacity ]">
+			<div class="[ container ]">
+				<div class="[ row ]">
+					<div class="[ col s12 ][ white-text text-center ][ padding ]">
+						<h1>Yoga cloud cursos</h1>
+						<h5> Primum in nostrane potestate est quid meminerimus duo.</h5>
+						<div class="[ btn-main-cta ][ relative ][ padding ]">
+							<a class="[ btn btn-rounded ][ absolute ]">más info</a>
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<div class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ col s12 ]">
-				<div class="card">
-					<div class="card-image">
-					<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
-					<span class="card-title">Título del curso</span>
+				<div class="[ card ]">
+					<div class="[ card-image ]">
+						<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
+						<span class="[ card-title ]">Título del curso</span>
 					</div>
-					<div class="card-content">
+					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="card-action">
-						<a class="btn btn-rounded">más información</a>
+					<div class="[ card-action ]">
+						<a class="[ btn btn-rounded ][ absolute ][ left-30 ]">más info</a>
 					</div>
 				</div>
 			</div>
 			<div class="[ col s12 ]">
 				<div class="card">
-					<div class="card-image">
+					<div class="[ card-image ]">
 					<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
-					<span class="card-title">Título del curso</span>
+					<span class="[ card-title ]">Título del curso</span>
 					</div>
-					<div class="card-content">
+					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="card-action">
-						<a class="btn btn-rounded">más información</a>
+					<div class="[ card-action ]">
+						<a class="[ btn btn-rounded ][ absolute ][ left-30 ]">más info</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<section class="[ bg-primary-gradient ]" >
+	<section class="[ gradient-primary ]" >
 		<div class="[ container ]">
 			<div class="[ row ]">
-				<div class="[ col s12 ][ color-light ]">
-					<h3 class="[ text-center ]">The Yoga Project</h3>
+				<div class="[ col s12 ][ white-text ]">
+					<h4 class="[ text-center ]">The Yoga Project</h4>
 					<p>¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
 				</div>
 				<div class="[ col s6 ]">
-					<img class="[ img-responsive ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 				</div>
 				<div class="[ col s6 ]">
-					<img class="[ img-responsive ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 				</div>
 			</div>
 		</div>
@@ -85,9 +97,3 @@
 	</div>
 
 <?php get_footer(); ?>
-
-<script type="text/javascript">
-	    $(document).ready(function(){
-      $('.slider').slider({full_width: true});
-    });
-</script>
