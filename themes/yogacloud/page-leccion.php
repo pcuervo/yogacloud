@@ -20,7 +20,7 @@
 		<article>
 			<h4 class="[ text-center ]">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</h4>
 			<p>Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam ceteros. Si enim ad populum me vocas, eum. Sed residamus, inquit, si placet. Cave putes quicquam esse verius. Duo Reges: constructio interrete.</p>
-			<img class="[ margin-auto ]" src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
+			<img class="[ margin-auto ][ block ]" src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
 			<p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quid, si non sensus modo ei sit datus, verum etiam animus hominis? Quamvis enim depravatae non sint, pravae tamen esse possunt. Egone quaeris, inquit, quid sentiam? [redacted]tilio Rufo.</p>
 			<div class="[ text-center ]">
 				<a class="[ btn btn-rounded ]">

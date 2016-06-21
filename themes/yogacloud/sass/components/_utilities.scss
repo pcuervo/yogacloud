@@ -2,7 +2,7 @@
 
 .padding		{padding:$padding-size;}
 .margin			{margin:$margin-size;}
-.margin-auto 	{ margin: auto;}
+.margin-auto	{ margin: auto;}
 
 .padding-sides	{padding:$padding-sides-size;}
 .margin-sides	{margin:$margin-sides-size;}
@@ -52,6 +52,7 @@
 .gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
 //Borders
-
 .border-right--dark 	{ border-right: 1px solid $dark-color; }
 .border-bottom--dark 	{ border-bottom: 1px solid $dark-color; }
+
+// .border-radius--8 { border-radius: 8px; }
