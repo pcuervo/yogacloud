@@ -32,7 +32,7 @@
 			</div>
 			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 			<div class="[ text-center ]">
-				<a class="[ btn btn-rounded ][ text-center ]">regalar curso</a>
+				<a class="[ btn btn-rounded btn-primary-hollow ][ text-center ]">regalar curso</a>
 			</div>
 		</article>
 		<article class="[ text-center ]">
@@ -40,11 +40,11 @@
 			<div class="[ row ]">
 				<div class="[ col s6 ]">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded ]">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
 				</div>
 				<div class="[ col s6 ]">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded ]">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
 				</div>
 			</div>
 		</article>
@@ -53,8 +53,8 @@
 			<div class="[ border-bottom--dark ]">
 				<h5>Módulo 1</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				<div class="[ text-center ]">
-					<a class="[ btn btn-rounded ]">ver más</a>
+				<div class="[ padding-vertical ]">
+					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
 				</div>
 			</div>
 			<div class="[ border-bottom--dark ]">

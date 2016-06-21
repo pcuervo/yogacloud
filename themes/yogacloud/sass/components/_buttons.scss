@@ -210,4 +210,13 @@ button.btn-floating {
   }
 }
 
-.btn-light{ background-color: $light-color; color: $primary-color;}
+.btn-light{ 
+  background-color: $light-color; 
+  color: $primary-color;
+}
+
+.btn-primary-hollow{
+  border: solid 1px $primary-color; 
+  background-color: $light-color; 
+  color: $primary-color;
+}
