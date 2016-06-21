@@ -5,7 +5,6 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						<div class="[ btn-main-cta ][ relative ][ padding ]">
 							<a class="[ btn btn-rounded ][ absolute ]">tomar curso - $1200</a>
 						</div>
@@ -32,9 +31,11 @@
 				</div>
 			</div>
 			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-			<a class="[ btn btn-rounded ]">regalar curso</a>
+			<div class="[ text-center ]">
+				<a class="[ btn btn-rounded ][ text-center ]">regalar curso</a>
+			</div>
 		</article>
-		<article>
+		<article class="[ text-center ]">
 			<h5 class="[ text-center ]">Impartido por</h5>
 			<div class="[ row ]">
 				<div class="[ col s6 ]">
@@ -49,29 +50,31 @@
 		</article>
 		<article>
 			<h4 class="[ text-center ]">Módulos</h4>
-			<div>
+			<div class="[ border-bottom--dark ]">
 				<h5>Módulo 1</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				<a class="[ btn btn-rounded ]">ver más</a>
+				<div class="[ text-center ]">
+					<a class="[ btn btn-rounded ]">ver más</a>
+				</div>
 			</div>
-			<div>
+			<div class="[ border-bottom--dark ]">
 				<h5>Módulo 2</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 			</div>
-			<div>
+			<div class="[ border-bottom--dark ]">
 				<h5>Módulo 3</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 			</div>
-			<div>
+			<div class="[ border-bottom--dark ]">
 				<h5>Módulo 4</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 			</div>
 		</article>
-		<article>
+		<article class="[ text-center ]">
 			<h4 class="[ text-center ]">Rating</h4>
 			<a class="[ btn btn-rounded ]">ver comentarios</a>
 		</article>
-		<article>
+		<article class="[ text-center ]">
 			<h4 class="[ text-center ]">Compartelo</h4>
 		</article>
 	</section>
