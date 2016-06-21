@@ -31,6 +31,7 @@
 //Gradients
 
 .gradient-linear			{ @include linear-gradient( $primary-color, $secondary-color); }
+.gradient-linear-secondary	{ @include linear-gradient( transparent, $secondary-transparent); }
 .gradient-linear-opacity	{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
 .gradient-diagonal			{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }

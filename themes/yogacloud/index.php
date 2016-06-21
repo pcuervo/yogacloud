@@ -97,14 +97,10 @@
 	</div>
 
 	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
-		<div class="[ gradient-diagonal-opacity ]">
-			<div class="[ container ]">
-				<div class="[ row ][ padding-vertical ]">
-					<div class="[ col s12 ][ white-text ][ text-center ][ padding ]">
-						<h5>Regístrate y obtén lecciones gratis.</h5>
-						<a class="[ btn btn-rounded btn-light ]">registrarme</a>
-					</div>
-				</div>
+		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
+			<div class="[ white-text ][ text-center ][ padding ]">
+				<h5>Regístrate y obtén lecciones gratis.</h5>
+				<a class="[ btn btn-rounded btn-light ]">registrarme</a>
 			</div>
 		</div>
 	</div>
