@@ -5,6 +5,7 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
+						<img src="<?php echo THEMEPATH; ?>images/play-button.png" alt="play button">
 						<div class="[ btn-main-cta ][ relative ][ padding ]">
 							<a class="[ btn btn-rounded ][ absolute ]">tomar curso - $1200</a>
 						</div>
