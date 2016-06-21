@@ -5,7 +5,6 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						<div class="[ btn-main-cta ][ relative ][ padding ]">
 							<a class="[ btn btn-rounded ][ absolute ]">tomar curso - $1200</a>
 						</div>

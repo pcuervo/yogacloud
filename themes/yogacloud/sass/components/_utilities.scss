@@ -9,6 +9,8 @@
 .padding-vertical	{padding:$padding-vertical-size;}
 .margin-vertical	{margin:$margin-vertical-size;}
 
+.no-margin-bottom	{ margin: 0px; }
+
 
 //Position
 
@@ -21,6 +23,7 @@
 
 .color-primary		{ color: $primary-color; }
 .color-secondary	{ color: $secondary-color; }
+.color-secondary--transparent	{ color: $secondary-transparent; }
 
 //Background
 
