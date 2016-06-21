@@ -1,33 +1,37 @@
 //Box Model
 
-.padding{padding:$padding-size;}
-.margin{margin:$margin-size;}
+.padding	{padding:$padding-size;}
+.margin		{margin:$margin-size;}
 
-.padding-sides{padding:$padding-sides-size;}
-.margin-sides{margin:$margin-sides-size;}
+.padding-sides	{padding:$padding-sides-size;}
+.margin-sides	{margin:$margin-sides-size;}
+
+.padding-vertical	{padding:$padding-vertical-size;}
+.margin-vertical	{margin:$margin-vertical-size;}
 
 
 //Position
 
-.absolute{ position: absolute; }
-.relative{ position: relative; }
-.fixed{ position: fixed; }
+.absolute	{ position: absolute; }
+.relative	{ position: relative; }
+.fixed		{ position: fixed; }
 
-.left-30{ left: 30%}
 
 //Colors
 
-.color-primary{ color: $primary-color; }
-.color-secondary{ color: $secondary-color; }
+.color-primary		{ color: $primary-color; }
+.color-secondary	{ color: $secondary-color; }
 
 //Background
 
-.bg-primary{ background: $primary-color;}
+.bg-primary		{ background: $primary-color;}
+.bg-secondary	{ background: $secondary-color;}
+.bg-light		{ background: $light-color;}
 
 //Gradients
 
-.gradient-linear{ @include linear-gradient( $primary-color, $secondary-color); }
-.gradient-linear-opacity{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
-.gradient-diagonal{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
-.gradient-diagonal-opacity{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
+.gradient-linear			{ @include linear-gradient( $primary-color, $secondary-color); }
+.gradient-linear-opacity	{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
+.gradient-diagonal			{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
+.gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
