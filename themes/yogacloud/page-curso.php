@@ -72,7 +72,7 @@
 		</article>
 		<article class="[ text-center ]">
 			<h4 class="[ text-center ]">Rating</h4>
-			<a class="[ btn btn-rounded ]">ver comentarios</a>
+			<a class="[ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
 		</article>
 		<article class="[ text-center ]">
 			<h4 class="[ text-center ]">Compartelo</h4>
