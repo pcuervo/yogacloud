@@ -13,6 +13,8 @@
 .margin-bottom--xsmall		{ margin-bottom: ($margin-size/4); }
 .margin-bottom--small		{ margin-bottom: ($margin-size/2); }
 .margin-bottom				{ margin-bottom: $margin-size; }
+.margin-bottom--large				{ margin-bottom: ($margin-size*1.5); }
+.margin-bottom--xlarge				{ margin-bottom: ($margin-size*2); }
 
 .no-margin-top				{ margin-top: 0px; }
 .margin-top--xsmall			{ margin-top: ($margin-size/4); }
@@ -74,6 +76,7 @@
 .color-primary		{ color: $primary-color; }
 .color-secondary	{ color: $secondary-color; }
 .color-secondary--transparent	{ color: $secondary-transparent; }
+.color-secondary--transparent--light	{ color: $secondary-transparent--light; }
 
 //Background
 

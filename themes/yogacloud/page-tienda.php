@@ -1,6 +1,6 @@
 <?php get_header(); the_post();  ?>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
+	<div class="[ main-banner ][ margin-bottom--xlarge ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 	<section class="[ container ]">
-		<h4 class="[ text-center ]">Lo más vendido</h4>
+		<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
 		<article>
 			<div class="[ card-image ][ relative ]">
 				<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/tienda1.png" alt="Tienda Yogacloud">
@@ -54,7 +54,7 @@
 			</div>
 		</article>
 	</section>
-	<article class="[ gradient-diagonal ][ padding ]">
+	<article class="[ gradient-diagonal ][ padding ][ no-margin-bottom ]">
 		<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las más mas exclusivas</h5>
 		<div class="[ row ][ margin-bottom ]">
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
