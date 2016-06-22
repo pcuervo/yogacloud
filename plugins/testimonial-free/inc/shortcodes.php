@@ -74,13 +74,13 @@ function sp_testimonial_free_shortcode( $atts ) {
 			$tf_designation = esc_html( get_post_meta( get_the_ID(), 'tf_designation', true ) );
 
 
-				$outline .= '<div class="testimonial-free text-center">';
+				$outline .= '<div class="testimonial-free">';
 				if ( has_post_thumbnail( $que->post->ID ) ) {
 					$outline .= '<div class="tf-client-image">';
 					$outline .= get_the_post_thumbnail( $que->post->ID, 'tf-client-image-size', array( 'class' => "tf-client-img" ) );
 					$outline .= '</div>';
 				}
-				$outline .= '<div class="tf-client-testimonial">';
+				$outline .= '<img class="[ responsive-img ]" src="wp-content/themes/yogacloud/icons/quote.png" alt="quotes testimonials"><div class="tf-client-testimonial">';
 				$outline .= get_the_content();
 				$outline .= '</div>';
 				$outline .= '<h2 class="tf-client-name">';
