@@ -8,7 +8,7 @@
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a href="<?php echo site_url('/'); ?>#cursos" class="[ btn btn-rounded ]">ver cursos</a>
+							<a href="<?php echo site_url('/'); ?>#cursos" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded ]">ver cursos</a>
 						</div>
 					</div>
 				</div>
