@@ -17,6 +17,10 @@ main {
   // flex: 1 0 auto;
 }
 
+article {
+  margin-bottom: $margin-size;
+}
+
 ul {
   &.browser-default {
     list-style-type: initial;

@@ -55,7 +55,7 @@
 		</article>
 	</section>
 	<article class="[ gradient-diagonal ][ padding ]">
-		<h5 class="[ text-center ][ white-text ]">Las más mas exclusivas</h5>
+		<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las más mas exclusivas</h5>
 		<div class="[ row ][ margin-bottom ]">
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
 				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
