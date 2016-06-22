@@ -1,6 +1,7 @@
 //Box Model
 .margin-auto				{ margin: auto;}
 .margin						{margin:$margin-size;}
+.no-margin			{ margin: 0px; }
 
 .margin-sides				{margin-left:$margin-size; margin-right:$margin-size;}
 
@@ -33,6 +34,10 @@
 .padding-bottom--small	{padding-bottom:($padding-size/2);}
 .padding-bottom			{padding-bottom:$padding-size;}
 
+//Box size
+
+.width--100 { width: 100%; }
+
 //Display
 
 .block			{ display: block;}
@@ -45,6 +50,8 @@
 .fixed		{ position: fixed; }
 
 .top--0 { top: 0px; }
+.top--15 { top: 15px; }
+.bottom--20 { bottom: 20px; }
 
 //Alingment
 
