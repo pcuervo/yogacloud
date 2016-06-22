@@ -59,7 +59,7 @@
 					<div class="[ col s12 ][ color-secondary--transparent--light text-center ]">
 						<h2 class="[ padding-sides ]">
 							Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.
-							<img src="<?php echo THEMEPATH; ?>images/lock.png" alt="lock icon">
+							<img src="<?php echo THEMEPATH; ?>icons/lock.png" alt="lock icon">
 						</h2>
 					</div>
 				</div>
