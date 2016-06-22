@@ -56,50 +56,50 @@
 	</section>
 	<article class="[ gradient-diagonal ][ padding ]">
 		<h5 class="[ text-center ][ white-text ]">Las más mas exclusivas</h5>
-		<div class="[ row ]">
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+		<div class="[ row ][ margin-bottom ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
-					<p class="[ no-margin-bottom ]">logo</p>
-				</div>
-			</div>
-		</div>
-		<div class="[ row ]">
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
-					<p class="[ no-margin-bottom ]">logo</p>
-				</div>
-			</div>
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>
 		</div>
-		<div class="[ row ]">
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+		<div class="[ row ][ margin-bottom ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>
 		</div>
-		<div class="[ row ]">
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+		<div class="[ row ][ margin-bottom ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>
-			<div class="[ col s6 ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
+					<p class="[ no-margin-bottom ]">logo</p>
+				</div>
+			</div>
+		</div>
+		<div class="[ row ][ margin-bottom ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
+					<p class="[ no-margin-bottom ]">logo</p>
+				</div>
+			</div>
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
 					<p class="[ no-margin-bottom ]">logo</p>
 				</div>
 			</div>

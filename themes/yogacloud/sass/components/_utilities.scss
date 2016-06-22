@@ -1,16 +1,29 @@
 //Box Model
+.margin-auto				{ margin: auto;}
+.margin						{margin:$margin-size;}
 
-.padding		{padding:$padding-size;}
-.margin			{margin:$margin-size;}
-.margin-auto	{ margin: auto;}
+.margin-sides				{margin-left:$margin-size; margin-right:$margin-size;}
 
-.padding-sides	{padding:$padding-sides-size;}
-.margin-sides	{margin:$margin-sides-size;}
+.margin-vertical--xsmall	{margin-top:($margin-size/4); margin-bottom:($margin-size/4);}
+.margin-vertical--small		{margin-top:($margin-size/2); margin-bottom:($margin-size/2);}
+.margin-vertical			{margin-top:$margin-size; margin-bottom:$margin-size;}
 
-.padding-vertical	{padding:$padding-vertical-size;}
-.margin-vertical	{margin:$margin-vertical-size;}
+.no-margin-bottom			{ margin: 0px; }
+.margin-bottom--small		{ margin-bottom: ($margin-size/2); }
+.margin-bottom				{ margin-bottom: $margin-size; }
 
-.no-margin-bottom	{ margin: 0px; }
+
+.padding--xsmall			{padding:($padding-size/4);}
+.padding--small				{padding:($padding-size/2);}
+.padding					{padding:$padding-size;}
+
+.padding-sides--xsmall		{padding-left:($padding-size/4)!important; padding-right:($padding-size/4)!important;}
+.padding-sides--small		{padding-left:($padding-size/2); padding-right:($padding-size/2);}
+.padding-sides				{padding-left:$padding-size; padding-right:$padding-size;}
+
+.padding-vertical--xsmall	{padding-top:($padding-size/4); padding-bottom:($padding-size/4);}
+.padding-vertical--small	{padding-top:($padding-size/2); padding-bottom:($padding-size/2);}
+.padding-vertical			{padding-top:$padding-size; padding-bottom:$padding-size;}
 
 //Display
 
@@ -28,7 +41,6 @@
 //Alingment
 
 .middle		{ vertical-align: middle;}
-
 
 //Colors
 
