@@ -55,6 +55,8 @@
 .width--80 { width: 80px; }
 .width---100 { width: 100%; }
 
+.height---100 { height: 100%; }
+
 //Display
 
 .block			{ display: block;}
@@ -92,8 +94,12 @@
 .gradient-linear			{ @include linear-gradient( $primary-color, $secondary-color); }
 .gradient-linear-secondary	{ @include linear-gradient( transparent, $secondary-transparent); }
 .gradient-linear-opacity	{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
+.gradient-linear-opacity--light	{ @include linear-gradient( $light-transparent-color, $secondary-transparent); }
+.gradient-linear-opacity--light-2	{ @include linear-gradient( $secondary-transparent, $light-transparent-color); }
 .gradient-diagonal			{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
+
+
 
 //Borders
 .border-right--dark 	{ border-right: 1px solid $dark-color; }

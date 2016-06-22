@@ -18,11 +18,14 @@
 
 	<section class="[ container ]">
 		<div class="[ row ]">
-			<article class="[ col s12 ]">
+			<div class="[ col s12 ]">
 				<div class="[ card ]">
 					<div class="[ card-image ]">
-						<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
-						<span class="[ card-title ]">Título del curso</span>
+						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
+								<span class="[ card-title ]">Título del curso</span>
+							</div>
+						</div>
 					</div>
 					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
@@ -31,12 +34,15 @@
 						<a class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
-			</article>
-			<article class="[ col s12 ]">
+			</div>
+			<div class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
-					<img src="<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg" alt="Cursos Yogacloud">
-					<span class="[ card-title ]">Título del curso</span>
+					<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+						<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
+							<span class="[ card-title ]">Título del curso</span>
+						</div>
+					</div>
 					</div>
 					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
@@ -45,7 +51,7 @@
 						<a class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
-			</article>
+			</div>
 		</div>
 	</section>
 

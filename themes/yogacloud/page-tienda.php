@@ -19,8 +19,11 @@
 		<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda1.png" alt="Tienda Yogacloud">
-				<span class="[ title-image ]">Título del producto</span>
+				<div style="height: 250px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
+					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+						<span class="[ title-image ]">Título del producto</span>
+					</div>
+				</div>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
 				<a class="[ btn btn-rounded ]">comprar - $900</a>
@@ -28,8 +31,11 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda2.png" alt="Tienda Yogacloud">
-				<span class="[ title-image ]">Título del producto</span>
+				<div style="height: 250px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+						<span class="[ title-image ]">Título del producto</span>
+					</div>
+				</div>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
 				<a class="[ btn btn-rounded ]">comprar - $900</a>
@@ -37,8 +43,11 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda3.png" alt="Tienda Yogacloud">
-				<span class="[ title-image ]">Título del producto</span>
+				<div style="height: 250px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda3.png)">
+					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+						<span class="[ title-image ]">Título del producto</span>
+					</div>
+				</div>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
 				<a class="[ btn btn-rounded ]">comprar - $900</a>
@@ -46,8 +55,11 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda4.png" alt="Tienda Yogacloud">
-				<span class="[ title-image ]">Título del producto</span>
+				<div style="height: 250px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+						<span class="[ title-image ]">Título del producto</span>
+					</div>
+				</div>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
 				<a class="[ btn btn-rounded ]">comprar - $900</a>
