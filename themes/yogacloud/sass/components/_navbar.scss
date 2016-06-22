@@ -174,7 +174,8 @@ nav {
 
 //Nav Mobile
 
-.nav-mobile{
+.nav-mobile,
+.user-mobile{
   width: 100vw; height: 100vh; max-height: 100vh;
   background-color: $primary-color;
   position: fixed; top: 0px;

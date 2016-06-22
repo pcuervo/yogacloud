@@ -38,24 +38,89 @@
 						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 					</a>
 					<div class="[ inline-block ][ float-right ]">
-						<a href="" class="[ block ][ float-left ][ margin-right ]">
-							<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="user menu">
-						</a>
+						<!-- btn user menu -->
+						<div class="[ block ][ float-left ][ margin-right ]">
+							<div id="js-btn-user">
+								<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="user menu">
+							</div>
+						</div>
+
+						<!-- User menu -->
+						<div class="[ js-hidden ][ user-mobile right-767 ]">
+
+							<div class="container [ padding-bottom padding-top--small ][ white-text ]">
+								<!-- header User -->
+								<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
+									<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+								</a>
+								<div class="[ inline-block ][ float-right ]">
+									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
+										<div id="js-btn-nav--user">
+											<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
+										</div>
+									</div>
+									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xxsmall ]">
+										<div id="js-hide-user">
+											<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu">
+										</div>
+									</div>
+								</div>
+								<!-- end Header User -->
+								<div class="[ clearfix ]"></div>
+								<div class="[ margin-bottom--xlarge ]">
+									<?php if ( is_user_logged_in() ){ ?>
+										<h5><a class="[ white-text ]" href="">Raúl De Zamacona</a></h5>
+										<h5><a class="[ white-text ]" href="">Mis cursos</a></h5>
+										<h5><a class="[ white-text ]" href="">Sing out</a></h5>
+									<?php } ?>
+									<?php if ( ! is_user_logged_in() ){ ?>
+										<h5><a class="[ white-text ]" href="">Login</a></h5>
+										<h5><a class="[ white-text ]" href="">Sing up</a></h5>
+									<?php } ?>
+								</div>
+								<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
+									<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+								</div>
+								<div>
+									<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+								</div>
+							</div>
+						</div>
+						<!-- end user menu -->
+
+						<!-- btn Menú -->
 						<div class="[ block ][ float-right ][ line-height--48 ]">
 							<div id="js-btn-nav">
 								<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
 							</div>
 						</div>
 
-						<!-- Menú -->
+						<!-- Menu -->
 						<div class="[ js-hidden ][ nav-mobile right-767 ]">
 
-							<div class="container [ padding-vertical ][ white-text ]">
-								<div href="" class="[ block ][ float-right ]">
-									<div id="js-hide-nav">
-										<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu">
+							<div class="container [ padding-bottom padding-top--small ][ white-text ]">
+								<!-- header menu -->
+								<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
+									<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+								</a>
+								<div class="[ inline-block ][ float-right ]">
+									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
+										<div id="js-btn-user--nav">
+											<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="menu">
+										</div>
+									</div>
+									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xsmall ]">
+										<div id="js-hide-nav">
+											<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="close">
+										</div>
 									</div>
 								</div>
+								<!-- end Header menu -->
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<h5><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
