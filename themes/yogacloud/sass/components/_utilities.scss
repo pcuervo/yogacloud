@@ -1,10 +1,10 @@
 //Box Model
 .margin-auto				{ margin: auto;}
 .margin						{margin:$margin-size;}
-.no-margin			{ margin: 0px; }
+.no-margin					{ margin: 0px; }
 
-.margin-sides--xsmall				{margin-left:($margin-size/4); margin-right:($margin-size/4);}
-.margin-sides--small				{margin-left:($margin-size/2); margin-right:($margin-size/2);}
+.margin-sides--xsmall		{margin-left:($margin-size/4); margin-right:($margin-size/4);}
+.margin-sides--small		{margin-left:($margin-size/2); margin-right:($margin-size/2);}
 .margin-sides				{margin-left:$margin-size; margin-right:$margin-size;}
 
 .margin-vertical--xsmall	{margin-top:($margin-size/4); margin-bottom:($margin-size/4);}
@@ -15,8 +15,8 @@
 .margin-bottom--xsmall		{ margin-bottom: ($margin-size/4); }
 .margin-bottom--small		{ margin-bottom: ($margin-size/2); }
 .margin-bottom				{ margin-bottom: $margin-size; }
-.margin-bottom--large				{ margin-bottom: ($margin-size*1.5); }
-.margin-bottom--xlarge				{ margin-bottom: ($margin-size*2); }
+.margin-bottom--large		{ margin-bottom: ($margin-size*1.5); }
+.margin-bottom--xlarge		{ margin-bottom: ($margin-size*2); }
 
 .no-margin-top				{ margin-top: 0px; }
 .margin-top--xxsmall		{ margin-top: ($margin-size/6); }
@@ -47,20 +47,20 @@
 .padding-vertical--small	{padding-top:($padding-size/2); padding-bottom:($padding-size/2);}
 .padding-vertical			{padding-top:$padding-size; padding-bottom:$padding-size;}
 
-.padding-bottom--xsmall	{padding-bottom:($padding-size/4);}
-.padding-bottom--small	{padding-bottom:($padding-size/2);}
-.padding-bottom			{padding-bottom:$padding-size;}
+.padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
+.padding-bottom--small		{padding-bottom:($padding-size/2);}
+.padding-bottom				{padding-bottom:$padding-size;}
 
-.padding-top--xsmall	{padding-top:($padding-size/4);}
-.padding-top--small	{padding-top:($padding-size/2);}
-.padding-top			{padding-top:$padding-size;}
+.padding-top--xsmall		{padding-top:($padding-size/4);}
+.padding-top--small			{padding-top:($padding-size/2);}
+.padding-top				{padding-top:$padding-size;}
 
 //Box size
 
-.width--80 { width: 80px; }
-.width---100 { width: 100%; }
+.width--80 		{ width: 80px; }
+.width---100 	{ width: 100%; }
 
-.height---100 { height: 100%; }
+.height---100 	{ height: 100%; }
 
 //Display
 
@@ -69,8 +69,8 @@
 
 //Float
 
-.float-right { float: right; }
-.float-left { float: left; }
+.float-right 	{ float: right; }
+.float-left 	{ float: left; }
 
 //Position
 
@@ -78,12 +78,12 @@
 .relative	{ position: relative; }
 .fixed		{ position: fixed; }
 
-.top--0 { top: 0px; }
-.top--15 { top: 15px; }
+.top--0 	{ top: 0px; }
+.top--15 	{ top: 15px; }
 
 .bottom--20 { bottom: 20px; }
 
-.right-767{ right: -767px;}
+.right-767	{ right: -767px;}
 
 //Alingment
 
@@ -91,26 +91,26 @@
 
 //Colors
 
-.color-primary		{ color: $primary-color; }
-.color-secondary	{ color: $secondary-color; }
-.color-secondary--transparent	{ color: $secondary-transparent; }
+.color-primary							{ color: $primary-color; }
+.color-secondary						{ color: $secondary-color; }
+.color-secondary--transparent			{ color: $secondary-transparent; }
 .color-secondary--transparent--light	{ color: $secondary-transparent--light; }
 
 //Background
 
-.bg-primary		{ background: $primary-color;}
-.bg-secondary	{ background: $secondary-color;}
-.bg-light		{ background: $light-color;}
+.bg-primary			{ background: $primary-color;}
+.bg-secondary		{ background: $secondary-color;}
+.bg-light			{ background: $light-color;}
 
 //Gradients
 
-.gradient-linear			{ @include linear-gradient( $primary-color, $secondary-color); }
-.gradient-linear-secondary	{ @include linear-gradient( transparent, $secondary-transparent); }
-.gradient-linear-opacity	{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
-.gradient-linear-opacity--light	{ @include linear-gradient( $light-transparent-color, $secondary-transparent); }
+.gradient-linear					{ @include linear-gradient( $primary-color, $secondary-color); }
+.gradient-linear-secondary			{ @include linear-gradient( transparent, $secondary-transparent); }
+.gradient-linear-opacity			{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
+.gradient-linear-opacity--light		{ @include linear-gradient( $light-transparent-color, $secondary-transparent); }
 .gradient-linear-opacity--light-2	{ @include linear-gradient( $secondary-transparent, $light-transparent-color); }
-.gradient-diagonal			{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
-.gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
+.gradient-diagonal					{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
+.gradient-diagonal-opacity			{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
 //Borders
 .border-right--dark 	{ border-right: 1px solid $dark-color; }
@@ -119,9 +119,9 @@
 
 .border-right--light	{border-right: 1px solid #fff;}
 
-.border-radius--8 { border-radius: 8px; }
-.border-radius---50 { border-radius: 50%;}
+.border-radius--8 		{ border-radius: 8px; }
+.border-radius---50 	{ border-radius: 50%;}
 
 //Overflow
 
-.overflow-hidden { overflow: hidden; }
+.overflow-hidden 		{ overflow: hidden; }
