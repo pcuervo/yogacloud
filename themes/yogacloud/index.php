@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+	<div class="[ main-banner ][ margin-bottom--xlarge ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">

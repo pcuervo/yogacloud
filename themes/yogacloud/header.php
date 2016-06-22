@@ -34,19 +34,28 @@
 		<header>
 
 			<nav>
-				<div class="nav-wrapper">
-					<a href="<?php echo site_url('/'); ?>"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
-					<a href="<?php echo site_url('/'); ?>" data-activates="mobile-demo" class="button-collapse"><img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu"></a>
-					<ul class="right hide-on-med-and-down">
-						<li><a href="sass.html">Cursos</a></li>
-						<li><a href="badges.html">Tienda</a></li>
-						<li><a href="collapsible.html">Buscar</a></li>
-					</ul>
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="sass.html">Cursos</a></li>
-						<li><a href="badges.html">Tienda</a></li>
-						<li><a href="collapsible.html">Buscar</a></li>
-					</ul>
+				<div class="nav-wrapper [ container ]">
+					<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
+						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					</a>
+					<div class="[ inline-block ][ float-right ]">
+						<a href="" class="[ block ][ float-left ][ margin-right ]">
+							<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="user menu">
+						</a>
+						<a href="" data-activates="mobile-demo" class="[ block ][ float-right ][ line-height--48 ]">
+							<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
+						</a>
+						<ul class="right hide-on-med-and-down">
+							<li><a href="sass.html">Cursos</a></li>
+							<li><a href="badges.html">Tienda</a></li>
+							<li><a href="collapsible.html">Buscar</a></li>
+						</ul>
+						<ul class="side-nav" id="mobile-demo">
+							<li><a href="sass.html">Cursos</a></li>
+							<li><a href="badges.html">Tienda</a></li>
+							<li><a href="collapsible.html">Buscar</a></li>
+						</ul>
+					</div>
 				</div>
 			</nav>
 
