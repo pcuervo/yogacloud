@@ -78,16 +78,18 @@
 										<h5><a class="[ white-text ]" href="">Sing up</a></h5>
 									<?php } ?>
 								</div>
-								<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
-									<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
-								</div>
-								<div>
-									<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+								<div class="[ footer-menu ]">
+									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
+										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+									</div>
+									<div>
+										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -131,16 +133,18 @@
 										<a class="[ white-text ][ text-bold ]" href="">ES</a>
 									</h5>
 								</div>
-								<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
-									<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
-								</div>
-								<div>
-									<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
-									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+								<div class="[ footer-menu ]">
+									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
+										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+									</div>
+									<div>
+										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
+										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+									</div>
 								</div>
 							</div>
 						</div>
