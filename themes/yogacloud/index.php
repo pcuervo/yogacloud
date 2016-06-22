@@ -1,24 +1,24 @@
 <?php get_header(); ?>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+	<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<div class="[ btn-main-cta ][ relative ][ padding ]">
-							<a class="[ btn btn-rounded ][ absolute ]">ver cursos</a>
+						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
+							<a class="[ btn btn-rounded ]">ver cursos</a>
 						</div>
-					</div>	
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="[ container ]">
+	<section class="[ container ]">
 		<div class="[ row ]">
-			<div class="[ col s12 ]">
+			<article class="[ col s12 ]">
 				<div class="[ card ]">
 					<div class="[ card-image ]">
 						<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
@@ -27,27 +27,27 @@
 					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="[ card-action ]">
-						<a class="[ btn btn-rounded ][ absolute ][ left-30 ]">más info</a>
+					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
+						<a class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
-			</div>
-			<div class="[ col s12 ]">
+			</article>
+			<article class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
-					<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
+					<img src="<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg" alt="Cursos Yogacloud">
 					<span class="[ card-title ]">Título del curso</span>
 					</div>
 					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="[ card-action ]">
-						<a class="[ btn btn-rounded ][ absolute ][ left-30 ]">más info</a>
+					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
+						<a class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
-			</div>
+			</article>
 		</div>
-	</div>
+	</section>
 
 	<section class="[ gradient-diagonal ]" >
 		<div class="[ container ]">
