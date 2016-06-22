@@ -8,9 +8,13 @@
 .margin-vertical--small		{margin-top:($margin-size/2); margin-bottom:($margin-size/2);}
 .margin-vertical			{margin-top:$margin-size; margin-bottom:$margin-size;}
 
-.no-margin-bottom			{ margin: 0px; }
+.no-margin-bottom			{ margin-bottom: 0px; }
 .margin-bottom--small		{ margin-bottom: ($margin-size/2); }
 .margin-bottom				{ margin-bottom: $margin-size; }
+
+.no-margin-top			{ margin-top: 0px; }
+.margin-top--small		{ margin-top: ($margin-size/2); }
+.margin-top				{ margin-top: $margin-size; }
 
 
 .padding--xsmall			{padding:($padding-size/4);}
@@ -24,6 +28,10 @@
 .padding-vertical--xsmall	{padding-top:($padding-size/4); padding-bottom:($padding-size/4);}
 .padding-vertical--small	{padding-top:($padding-size/2); padding-bottom:($padding-size/2);}
 .padding-vertical			{padding-top:$padding-size; padding-bottom:$padding-size;}
+
+.padding-bottom--xsmall	{padding-bottom:($padding-size/4);}
+.padding-bottom--small	{padding-bottom:($padding-size/2);}
+.padding-bottom			{padding-bottom:$padding-size;}
 
 //Display
 
@@ -65,5 +73,6 @@
 //Borders
 .border-right--dark 	{ border-right: 1px solid $dark-color; }
 .border-bottom--dark 	{ border-bottom: 1px solid $dark-color; }
+.border-bottom--light	{border-bottom: 1px solid $light-color;}
 
 .border-radius--8 { border-radius: 8px; }
