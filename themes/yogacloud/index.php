@@ -16,6 +16,32 @@
 		</div>
 	</div>
 
+	<div class="[ bg-primary ][ text-center ]">
+		<div class="container [ padding-vertical ][ white-text ]">
+			<div class="[ margin-bottom ]">
+				<h5><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
+				<h5><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
+				<h5><a class="[ white-text ]" href="">Buscar</a></h5>
+				<h5>
+					<a class="[ white-text ]" href="">EN</a> /
+					<a class="[ white-text ][ text-bold ]" href="">ES</a>
+				</h5>
+			</div>
+			<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
+				<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+				<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+				<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+			</div>
+			<div>
+				<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+				<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
+				<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
+				<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+			</div>
+		</div>
+	</div>
+
+
 	<section class="[ container ]" id="cursos">
 		<div class="[ row ]">
 			<div class="[ col s12 ]">
