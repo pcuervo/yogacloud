@@ -32,7 +32,6 @@
 
 	<body>
 		<header>
-
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
@@ -42,23 +41,47 @@
 						<a href="" class="[ block ][ float-left ][ margin-right ]">
 							<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="user menu">
 						</a>
-						<a href="" data-activates="mobile-demo" class="[ block ][ float-right ][ line-height--48 ]">
-							<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
-						</a>
-						<ul class="right hide-on-med-and-down">
-							<li><a href="sass.html">Cursos</a></li>
-							<li><a href="badges.html">Tienda</a></li>
-							<li><a href="collapsible.html">Buscar</a></li>
-						</ul>
-						<ul class="side-nav" id="mobile-demo">
-							<li><a href="sass.html">Cursos</a></li>
-							<li><a href="badges.html">Tienda</a></li>
-							<li><a href="collapsible.html">Buscar</a></li>
-						</ul>
+						<div class="[ block ][ float-right ][ line-height--48 ]">
+							<div id="js-btn-nav">
+								<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
+							</div>
+						</div>
+
+						<!-- Menú -->
+						<div class="[ js-hidden ][ nav-mobile right-767 ]">
+
+							<div class="container [ padding-vertical ][ white-text ]">
+								<div href="" class="[ block ][ float-right ]">
+									<div id="js-hide-nav">
+										<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu">
+									</div>
+								</div>
+								<div class="[ clearfix ]"></div>
+								<div class="[ margin-bottom--xlarge ]">
+									<h5><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
+									<h5><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
+									<h5><a class="[ white-text ]" href="">Buscar</a></h5>
+									<h5>
+										<a class="[ white-text ]" href="">EN</a> /
+										<a class="[ white-text ][ text-bold ]" href="">ES</a>
+									</h5>
+								</div>
+								<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
+									<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+								</div>
+								<div>
+									<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/twitter.png" alt="twitter"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/facebook.png" alt="facebook"></a>
+									<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/instagram.png" alt="instagram"></a>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</nav>
-
 		</header>
 
 

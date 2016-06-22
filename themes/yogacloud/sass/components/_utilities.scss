@@ -75,7 +75,10 @@
 
 .top--0 { top: 0px; }
 .top--15 { top: 15px; }
+
 .bottom--20 { bottom: 20px; }
+
+.right-767{ right: -767px;}
 
 //Alingment
 
@@ -104,8 +107,6 @@
 .gradient-diagonal			{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity	{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 
-
-
 //Borders
 .border-right--dark 	{ border-right: 1px solid $dark-color; }
 .border-bottom--dark 	{ border-bottom: 1px solid $dark-color; }
@@ -115,3 +116,7 @@
 
 .border-radius--8 { border-radius: 8px; }
 .border-radius---50 { border-radius: 50%;}
+
+//Overflow
+
+.overflow-hidden { overflow: hidden; }

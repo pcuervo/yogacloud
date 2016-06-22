@@ -170,3 +170,17 @@ nav {
     height: $navbar-height;
   }
 }
+
+
+//Nav Mobile
+
+.nav-mobile{
+  width: 100vw; height: 100vh; max-height: 100vh;
+  background-color: $primary-color;
+  position: fixed; top: 0px;
+  z-index: 10000;
+  box-shadow: 6px 0px 15px 1px $secondary-color;
+  overflow: scroll;
+  overflow-x:hidden;
+  text-align: center
+}
