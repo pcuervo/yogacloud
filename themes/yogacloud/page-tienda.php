@@ -1,6 +1,6 @@
 <?php get_header(); the_post();  ?>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
@@ -19,7 +19,7 @@
 		<h4 class="[ text-center ]">Lo más vendido</h4>
 		<article class="[ card ][ box-shadow--none ]">
 			<div class="[ card-image ]">
-				<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="Cursos Yogacloud">
+				<img src="<?php echo THEMEPATH; ?>images/tienda1.png" alt="Cursos Yogacloud">
 				<span class="[ card-title top--0 ]">Título del producto</span>
 			</div>
 			<div class="[ card-action ]">
@@ -28,7 +28,7 @@
 		</article>
 		<article class="[ card ][ box-shadow--none ]">
 			<div class="[ card-image ]">
-				<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="productos Yogacloud">
+				<img src="<?php echo THEMEPATH; ?>images/tienda2.png" alt="productos Yogacloud">
 				<span class="[ card-title top--0 ]">Título del curso</span>
 			</div>
 			<div class="[ card-action ]">
@@ -37,7 +37,7 @@
 		</article>
 		<article class="[ card ][ box-shadow--none ]">
 			<div class="[ card-image ]">
-				<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="productos Yogacloud">
+				<img src="<?php echo THEMEPATH; ?>images/tienda3.png" alt="productos Yogacloud">
 				<span class="[ card-title top--0 ]">Título del curso</span>
 			</div>
 			<div class="[ card-action ]">
@@ -46,7 +46,7 @@
 		</article>
 		<article class="[ card ][ box-shadow--none ]">
 			<div class="[ card-image ]">
-				<img src="<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg" alt="productos Yogacloud">
+				<img src="<?php echo THEMEPATH; ?>images/tienda4.png" alt="productos Yogacloud">
 				<span class="[ card-title top--0 ]">Título del curso</span>
 			</div>
 			<div class="[ card-action ]">

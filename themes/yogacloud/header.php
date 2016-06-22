@@ -11,7 +11,7 @@
 		<!-- Compatibility -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta http-equiv="cleartype" content="on">
-		<!-- Favicon - generated with http://www.favicomatic.com/ 
+		<!-- Favicon - generated with http://www.favicomatic.com/
 		<link rel="shortcut icon" href="<?php echo THEMEPATH; ?>images/favicon.ico">-->
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="<?php echo THEMEPATH; ?>style.css">
@@ -35,8 +35,8 @@
 
 			<nav>
 				<div class="nav-wrapper">
-					<a href="#!"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
-					<a href="#" data-activates="mobile-demo" class="button-collapse"><img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu"></a>
+					<a href="<?php echo site_url('/'); ?>"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
+					<a href="<?php echo site_url('/'); ?>" data-activates="mobile-demo" class="button-collapse"><img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu"></a>
 					<ul class="right hide-on-med-and-down">
 						<li><a href="sass.html">Cursos</a></li>
 						<li><a href="badges.html">Tienda</a></li>
