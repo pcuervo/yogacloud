@@ -3,6 +3,8 @@
 .margin						{margin:$margin-size;}
 .no-margin			{ margin: 0px; }
 
+.margin-sides--xsmall				{margin-left:($margin-size/4); margin-right:($margin-size/4);}
+.margin-sides--small				{margin-left:($margin-size/2); margin-right:($margin-size/2);}
 .margin-sides				{margin-left:$margin-size; margin-right:$margin-size;}
 
 .margin-vertical--xsmall	{margin-top:($margin-size/4); margin-bottom:($margin-size/4);}
@@ -50,7 +52,8 @@
 
 //Box size
 
-.width--100 { width: 100%; }
+.width--80 { width: 80px; }
+.width---100 { width: 100%; }
 
 //Display
 
@@ -100,3 +103,4 @@
 .border-right--light	{border-right: 1px solid #fff;}
 
 .border-radius--8 { border-radius: 8px; }
+.border-radius---50 { border-radius: 50%;}

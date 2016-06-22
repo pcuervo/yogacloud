@@ -19,7 +19,7 @@
 		<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/tienda1.png" alt="Tienda Yogacloud">
+				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda1.png" alt="Tienda Yogacloud">
 				<span class="[ title-image ]">Título del producto</span>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
@@ -28,7 +28,7 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/tienda2.png" alt="Tienda Yogacloud">
+				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda2.png" alt="Tienda Yogacloud">
 				<span class="[ title-image ]">Título del producto</span>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
@@ -37,7 +37,7 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/tienda3.png" alt="Tienda Yogacloud">
+				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda3.png" alt="Tienda Yogacloud">
 				<span class="[ title-image ]">Título del producto</span>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
@@ -46,7 +46,7 @@
 		</article>
 		<article>
 			<div class="[ card-image ][ relative ]">
-				<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/tienda4.png" alt="Tienda Yogacloud">
+				<img class="[ width---100 ]" src="<?php echo THEMEPATH; ?>images/tienda4.png" alt="Tienda Yogacloud">
 				<span class="[ title-image ]">Título del producto</span>
 			</div>
 			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
