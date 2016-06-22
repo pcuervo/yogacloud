@@ -8,7 +8,7 @@
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a class="[ btn btn-rounded ]">ver cursos</a>
+							<a href="<?php echo site_url('/'); ?>#cursos" class="[ btn btn-rounded ]">ver cursos</a>
 						</div>
 					</div>
 				</div>
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 
-	<section class="[ container ]">
+	<section class="[ container ]" id="cursos">
 		<div class="[ row ]">
 			<div class="[ col s12 ]">
 				<div class="[ card ]">
@@ -31,7 +31,7 @@
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
 					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a class="[ btn btn-rounded ]">más info</a>
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
 					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a class="[ btn btn-rounded ]">más info</a>
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
 					</div>
 				</div>
 			</div>

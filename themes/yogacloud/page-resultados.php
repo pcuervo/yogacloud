@@ -41,7 +41,7 @@
 						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 						</div>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-							<a class="[ btn btn-rounded ]">más info</a>
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 						</div>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-							<a class="[ btn btn-rounded ]">más info</a>
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
 						</div>
 					</div>
 				</div>

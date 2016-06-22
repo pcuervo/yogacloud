@@ -57,7 +57,7 @@
 				<h5>Módulo 1</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 				<div class="[ padding-bottom ]">
-					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
+					<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
 				</div>
 			</div>
 			<div class="[ border-bottom--dark ]">
