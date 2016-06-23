@@ -75,40 +75,37 @@
 		</div>
 	</section>
 
-	<article>
+	<article id="testimonials">
 		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
-		<?php  echo do_shortcode('[testimonial-free id="01"]'); ?>
+		<div class="slider">
+			<ul class="slides">
+				<li>
+					<div class="caption center-align">
+					<h3>This is our big Tagline!</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					</div>
+				</li>
+				<li>
+					<div class="caption left-align">
+					<h3>Left Aligned Caption</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					</div>
+				</li>
+				<li>
+					<div class="caption right-align">
+					<h3>Right Aligned Caption</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					</div>
+				</li>
+				<li>
+					<div class="caption center-align">
+					<h3>This is our big Tagline!</h3>
+					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					</div>
+				</li>
+			</ul>
+		</div>
 	</article>
-
-
-<!-- 	<div class="slider">
-		<ul class="slides">
-			<li>
-				<div class="caption center-align">
-				<h3>This is our big Tagline!</h3>
-				<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-				</div>
-			</li>
-			<li>
-				<div class="caption left-align">
-				<h3>Left Aligned Caption</h3>
-				<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-				</div>
-			</li>
-			<li>
-				<div class="caption right-align">
-				<h3>Right Aligned Caption</h3>
-				<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-				</div>
-			</li>
-			<li>
-				<div class="caption center-align">
-				<h3>This is our big Tagline!</h3>
-				<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-				</div>
-			</li>
-		</ul>
-	</div> -->
 
 	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">

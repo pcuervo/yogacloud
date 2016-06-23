@@ -75,19 +75,24 @@
 		</article>
 		<article class="[ text-center ][ margin-bottom--xlarge ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
-			<a class="[ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
+			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
 		</article>
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 			<div>
 				<a href="">
-					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter.png" alt="compartir con twitter">
+					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter.png" alt="compartir con twitter">
+					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter-hover.png" alt="compartir con twitter">
+					 -->
+					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-twitter-bird.svg" alt="icon twitter">
 				</a>
 				<a href="">
-					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-facebook.png" alt="compartir con facebook">
+					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-facebook.png" alt="compartir con facebook"> -->
+					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-facebook.svg" alt="icon facebook">
 				</a>
 				<a href="">
-				<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-mail.png" alt="compartir con mail">
+				<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-mail.png" alt="compartir con mail"> -->
+				<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-email.svg" alt="icon mail">
 				</a>
 			</div>
 		</article>

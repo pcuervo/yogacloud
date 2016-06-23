@@ -222,4 +222,7 @@ button.btn-floating {
   background-color: $light-color;
   color: $primary-color;
   box-shadow: none;
+  &:hover {
+    color: $light-color;
+  }
 }
