@@ -23,8 +23,8 @@
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ][ no-margin-bottom ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<h2 class="[ padding-sides ]">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas. </h2>
+					<div class="[ col s12 ][ text-center ]">
+						<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
 					</div>
 				</div>
 			</div>
@@ -34,8 +34,8 @@
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ][ no-margin-bottom ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<h2 class="[ padding-sides ]">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas. </h2>
+					<div class="[ col s12 ][ text-center ]">
+						<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
 					</div>
 				</div>
 			</div>
@@ -45,8 +45,8 @@
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ][ no-margin-bottom ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<h2 class="[ padding-sides ]">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas. </h2>
+					<div class="[ col s12 ][ text-center ]">
+						<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
 					</div>
 				</div>
 			</div>
@@ -56,8 +56,8 @@
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ][ no-margin-bottom ]">
-					<div class="[ col s12 ][ color-secondary--transparent--light text-center ]">
-						<h2 class="[ padding-sides ]">
+					<div class="[ col s12 ][ text-center ]">
+						<h2 class="[ padding-sides ][ color-secondary--transparent--light ]">
 							Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.
 							<img src="<?php echo THEMEPATH; ?>icons/lock.png" alt="lock icon">
 						</h2>

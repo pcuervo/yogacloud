@@ -225,3 +225,11 @@ button.btn-floating {
   box-shadow: none;
   &:hover { color: $light-color; }
 }
+
+.btn-light-hollow{
+  border: solid 1px $light-color;
+  background-color: $primary-color;
+  color: $light-color;
+  box-shadow: none;
+  &:hover { color: $primary-color; }
+}
