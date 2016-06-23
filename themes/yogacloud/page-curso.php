@@ -75,7 +75,7 @@
 		</article>
 		<article class="[ text-center ][ margin-bottom--xlarge ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
-			<a class="[ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
+			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
 		</article>
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>

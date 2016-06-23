@@ -75,7 +75,7 @@
 		</div>
 	</section>
 
-	<article>
+	<article id="testimonials">
 		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
 		<div class="slider">
 			<ul class="slides">
