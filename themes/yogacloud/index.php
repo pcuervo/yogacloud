@@ -77,30 +77,54 @@
 
 	<article id="testimonials">
 		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
-		<div class="slider">
+		<div class="slider testimonials">
 			<ul class="slides">
 				<li>
-					<div class="caption center-align">
-					<h3>This is our big Tagline!</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div class="caption left-align">
-					<h3>Left Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div class="caption right-align">
-					<h3>Right Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div class="caption center-align">
-					<h3>This is our big Tagline!</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 			</ul>
@@ -115,5 +139,7 @@
 			</div>
 		</div>
 	</div>
+
+
 
 <?php get_footer(); ?>

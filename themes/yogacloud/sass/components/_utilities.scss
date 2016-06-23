@@ -95,9 +95,12 @@
 //Colors
 
 .color-primary							{ color: $primary-color; }
+.color-primary-base						{ color: $primary-color-base; }
 .color-secondary						{ color: $secondary-color; }
 .color-secondary--transparent			{ color: $secondary-transparent; }
 .color-secondary--transparent--light	{ color: $secondary-transparent--light; }
+.color-secondary--dark					{ color: $secondary-color-dark; }
+.color-dark 							{ color:$dark-color; }
 
 //Background
 

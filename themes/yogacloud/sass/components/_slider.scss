@@ -2,6 +2,11 @@
   position: relative;
   height: 400px;
   width: 100%;
+  &.testimonials {
+    height: 310px!important;
+
+    .slides { height: 310px!important; }
+  }
 
   // Fullscreen slider
   &.fullscreen {
@@ -24,7 +29,7 @@
   }
 
   .slides {
-    background-color: $slider-bg-color;
+    background-color: $light-color;;
     margin: 0;
     height: 400px;
 
@@ -43,17 +48,33 @@
         width: 100%;
         background-size: cover;
         background-position: center;
+        &.profile { width: 90px; }
+        &.quote {
+          width: 22px; height: 18px;
+          position: absolute
+        }
       }
 
       .caption {
         color: #fff;
         position: absolute;
-        top: 15%;
+        top: 5%;
         left: 15%;
         width: 70%;
         opacity: 0;
 
-        p { color: $slider-bg-color-light; }
+        .content-testimonial {
+          padding-left: 30px;
+            p {
+              color: $dark-color;
+              margin-top: 0px;
+            }
+
+            h6 {
+              font-size: 1.2rem;
+              font-weight: 600;
+            }
+          }
       }
 
       &.active {
@@ -75,16 +96,17 @@
       display: inline-block;
       position: relative;
       cursor: pointer;
-      height: 16px;
-      width: 16px;
-      margin: 0 12px;
-      background-color: $slider-bg-color-light;
+      height: 20px;
+      width: 20px;
+      margin: 0 5px;
+      background-color: $light-color;
+      border: 1px solid $primary-color-base;
 
       transition: background-color .3s;
       border-radius: 50%;
 
       &.active {
-        background-color: $slider-indicator-color;
+        background-color: $primary-color-base;
       }
     }
   }

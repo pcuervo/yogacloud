@@ -42,9 +42,11 @@
 				 * On ready
 				**/
 				imgToSvg();
+				$('.slider').slider({
+					interval: 4000
+				});
 			});
 		</script>
 		<?php wp_footer(); ?>
 	</body>
-
 </html>

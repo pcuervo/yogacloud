@@ -84,7 +84,7 @@
 					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter.png" alt="compartir con twitter">
 					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter-hover.png" alt="compartir con twitter">
 					 -->
-					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-twitter-bird.svg" alt="icon twitter">
+					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-secondary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-twitter-bird.svg" alt="icon twitter">
 				</a>
 				<a href="">
 					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-facebook.png" alt="compartir con facebook"> -->
