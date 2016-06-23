@@ -79,8 +79,8 @@
 								<div class="[ footer-menu ]">
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
-										<a href=""><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
+										<a href="tel:+525552555555"><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/phone.png" alt="télefono"></a>
+										<a href="mailto:contacto@yogacloud.com"><img class="[ padding-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/mail.png" alt="correo"></a>
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
