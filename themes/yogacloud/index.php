@@ -75,11 +75,6 @@
 		</div>
 	</section>
 
-	<article>
-		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
-		<?php  echo do_shortcode('[testimonial-free id="01"]'); ?>
-	</article>
-
 
 	<div class="slider">
 		<ul class="slides">

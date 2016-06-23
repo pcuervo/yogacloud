@@ -58,7 +58,6 @@ $('#js-btn-user--nav').on('click', function(event){
     toggleUser();
 })
 
-
 function toggleMenu(){
     if( $('.nav-mobile').hasClass('js-hidden') ){
         $( ".nav-mobile" ).animate({

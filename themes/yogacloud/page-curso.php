@@ -82,6 +82,7 @@
 			<div>
 				<a href="">
 					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter.png" alt="compartir con twitter">
+					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter-hover.png" alt="compartir con twitter">
 				</a>
 				<a href="">
 					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-facebook.png" alt="compartir con facebook">
