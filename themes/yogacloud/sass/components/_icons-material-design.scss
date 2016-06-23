@@ -3,3 +3,56 @@
   text-rendering: optimizeLegibility;
   font-feature-settings: 'liga';
 }
+
+//Streamline icons
+
+.icon{
+  display: inline-block; vertical-align: middle;
+  margin-right: .2em; margin-left: .2em;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition:    all 0.3s ease;
+  -ms-transition:     all 0.3s ease;
+  -o-transition:      all 0.3s ease;
+}
+
+/*------------------------------------*\
+    #SIZES
+\*------------------------------------*/
+
+.icon--responsive{ width: 100%; height: auto; }
+
+.icon--iconed{width: 40px; height: 40px;}
+
+/*------------------------------------*\
+  #COLOR
+\*------------------------------------*/
+
+/**
+ * Fill
+**/
+.icon--fill path,
+.icon--fill line,
+.icon--fill rect,
+.icon--fill circle,
+.icon--fill ellipse,
+.icon--fill polyline,
+.icon--fill polygon{ fill: currentColor; }
+
+
+/**
+ * Stroke
+**/
+.icon--stroke{ stroke-width: 1.5; }
+
+.icon--thickness-05{ stroke-width: 0.5; }
+.icon--thickness-1{ stroke-width: 1; }
+.icon--thickness-2{ stroke-width: 2; }
+.icon--thickness-3{ stroke-width: 3; }
+
+.icon--stroke path,
+.icon--stroke line,
+.icon--stroke rect,
+.icon--stroke circle,
+.icon--stroke ellipse,
+.icon--stroke polyline,
+.icon--stroke polygon{ stroke: currentColor; }
