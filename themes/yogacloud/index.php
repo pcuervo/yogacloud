@@ -81,7 +81,7 @@
 	</article>
 
 
-	<div class="slider">
+<!-- 	<div class="slider">
 		<ul class="slides">
 			<li>
 				<div class="caption center-align">
@@ -108,7 +108,7 @@
 				</div>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 
 	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">

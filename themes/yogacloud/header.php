@@ -11,14 +11,12 @@
 		<!-- Compatibility -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta http-equiv="cleartype" content="on">
-		<!-- Favicon - generated with http://www.favicomatic.com/
-		<link rel="shortcut icon" href="<?php echo THEMEPATH; ?>images/favicon.ico">-->
-		<!-- CSS -->
-		<link rel="stylesheet" type="text/css" href="<?php echo THEMEPATH; ?>style.css">
+
+		<!-- Favicon - generated with http://www.favicomatic.com/ -->
+		<link rel="shortcut icon" href="<?php echo THEMEPATH; ?>images/favicon.ico">
+
 		<!-- Google font(s) -->
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
-		<!-- Font awesome -->
-		<!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
