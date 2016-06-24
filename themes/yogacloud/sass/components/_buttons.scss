@@ -215,6 +215,7 @@ button.btn-floating {
 .btn-light{
   background-color: $light-color;
   color: $primary-color;
+  &:hover { color: $light-color; }
 }
 
 .btn-primary-hollow{
@@ -222,7 +223,16 @@ button.btn-floating {
   background-color: $light-color;
   color: $primary-color;
   box-shadow: none;
+  &:hover { color: $light-color; }
+}
+
+.btn-light-hollow{
+  border: solid 1px $light-color;
+  background-color: $primary-color;
+  color: $light-color;
+  box-shadow: none;
   &:hover {
-    color: $light-color;
+    color: $primary-color;
+    background-color: $light-color;
   }
 }

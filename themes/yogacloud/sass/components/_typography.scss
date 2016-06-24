@@ -42,11 +42,15 @@ h6 { font-size: $h6-fontsize; line-height: 110%; margin: ($h6-fontsize / 2) 0 ($
 }
 
 // Text Styles
-em { font-style: italic; }
-strong { font-weight: 500; }
+em, .font-italic { font-style: italic; }
+
 small { font-size: 75%; }
+
 .light { font-weight: 300; }
 .thin { font-weight: 200; }
+strong { font-weight: 500; }
+
+.text-uppercase { text-transform: uppercase; }
 
 // Alingments
 
@@ -86,3 +90,11 @@ small { font-size: 75%; }
 //font weight
 
 .text-bold { font-weight: bold; }
+
+//Style text
+
+#title-search-nav.animate-text {
+  font-size: 15px;
+  text-align: left;
+  padding-left: 10px;
+}

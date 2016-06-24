@@ -239,3 +239,10 @@ textarea {
   overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
   padding-top: 1.2rem; /* prevents text jump on Enter keypress */
 }
+
+//Input search
+
+.input-search-nav {
+  border-bottom: 1px solid #fff!important;
+  width: 60%!important;
+}

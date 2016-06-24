@@ -78,6 +78,7 @@ function toggleMenu(){
     });
 }
 
+//Icons SVG
 
 function imgToSvg(){
     $('img.svg').each(function(){
@@ -109,3 +110,34 @@ function imgToSvg(){
 
     });
 } //imgToSvg
+
+//Search Navegator
+
+$('#title-search-nav').on('click', function(event){
+    event.preventDefault();
+    toggleSearch();
+})
+
+function toggleSearch(){
+    if( $('#form-search-nav').hasClass('hidden') ){
+        $( "#title-search-nav" ).animate({
+            fontSize: 15
+        }, 500, function() {
+            // Animation complete.
+            // $( "#title-search-nav" ).addClass('text-left');
+        });
+        $( "#form-search-nav" ).show("slow", function() {
+            $( "#form-search-nav" ).removeClass('hidden');
+        });
+        return;
+    }
+    $( "#title-search-nav" ).animate({
+        fontSize: 23
+    }, 500, function() {
+        // Animation complete.
+        // $( "#title-search-nav" ).removeClass('text-left');
+    });
+    $( "#form-search-nav" ).hide("slow", function() {
+        $( "#form-search-nav" ).addClass('hidden');
+    });
+}

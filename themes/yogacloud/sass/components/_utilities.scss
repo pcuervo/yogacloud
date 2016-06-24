@@ -67,6 +67,8 @@
 .block			{ display: block;}
 .inline-block	{ display: inline-block;}
 
+.hidden { display: none;}
+
 //Float
 
 .float-right 	{ float: right; }
@@ -95,9 +97,12 @@
 //Colors
 
 .color-primary							{ color: $primary-color; }
+.color-primary-base						{ color: $primary-color-base; }
 .color-secondary						{ color: $secondary-color; }
 .color-secondary--transparent			{ color: $secondary-transparent; }
 .color-secondary--transparent--light	{ color: $secondary-transparent--light; }
+.color-secondary--dark					{ color: $secondary-color-dark; }
+.color-dark 							{ color:$dark-color; }
 
 //Background
 
