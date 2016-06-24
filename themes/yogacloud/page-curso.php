@@ -98,18 +98,13 @@
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 			<div>
 				<a href="">
-					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter.png" alt="compartir con twitter">
-					<img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-twitter-hover.png" alt="compartir con twitter">
-					 -->
 					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-secondary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-twitter-bird.svg" alt="icon twitter">
 				</a>
 				<a href="">
-					<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-facebook.png" alt="compartir con facebook"> -->
 					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-facebook.svg" alt="icon facebook">
 				</a>
 				<a href="">
-				<!-- <img class="[ margin-sides--xsmall ]" src="<?php echo THEMEPATH; ?>icons/compartir-mail.png" alt="compartir con mail"> -->
-				<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-email.svg" alt="icon mail">
+					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-email.svg" alt="icon mail">
 				</a>
 			</div>
 		</article>
