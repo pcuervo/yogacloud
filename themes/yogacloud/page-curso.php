@@ -91,14 +91,6 @@
 		</article>
 		<article class="[ text-center ][ margin-bottom--xlarge ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
-			<!-- <div class="rating-stars [ text-center ]">
-				<input type="radio" name="example" class="rating" value="1" />
-				<input type="radio" name="example" class="rating" value="2" />
-				<input type="radio" name="example" class="rating" value="3" />
-				<input type="radio" name="example" class="rating" value="4" />
-				<input type="radio" name="example" class="rating" value="5" />
-			</div> -->
-			<!-- <div id="star" class="rating">&nbsp;</div> -->
 			<div class="rating"></div>
 			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
 		</article>
