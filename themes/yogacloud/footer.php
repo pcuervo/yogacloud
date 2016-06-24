@@ -45,6 +45,7 @@
 				$('.slider').slider({
 					interval: 4000
 				});
+				$('.scrollspy').scrollSpy();
 			});
 		</script>
 		<?php wp_footer(); ?>
