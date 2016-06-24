@@ -120,15 +120,22 @@ $('#title-search-nav').on('click', function(event){
 
 function toggleSearch(){
     if( $('#form-search-nav').hasClass('hidden') ){
+        $( "#title-search-nav" ).animate({
+            fontSize: 15
+        }, 500, function() {
+            // Animation complete.
+        });
         $( "#form-search-nav" ).show("slow", function() {
             $( "#form-search-nav" ).removeClass('hidden');
-            // $( "#title-search-nav" ).addClass('animate-text');
         });
         return;
     }
-
+    $( "#title-search-nav" ).animate({
+        fontSize: 23
+    }, 500, function() {
+        // Animation complete.
+    });
     $( "#form-search-nav" ).hide("slow", function() {
         $( "#form-search-nav" ).addClass('hidden');
-        // $( "#title-search-nav" ).removeClass('animate-text');
     });
 }
