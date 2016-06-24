@@ -39,7 +39,7 @@
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ][ margin-right ]">
 							<div id="js-btn-user">
-								<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="user menu">
+								<i class="[ icon-account-circle ]"></i>
 							</div>
 						</div>
 
@@ -54,7 +54,7 @@
 								<div class="[ inline-block ][ float-right ]">
 									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
 										<div id="js-btn-nav--user">
-											<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
+											<i class="[ icon-account-circle ]"></i>
 										</div>
 									</div>
 									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xxsmall ]">
