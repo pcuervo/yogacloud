@@ -16,7 +16,7 @@
   will-change: top, opacity;
 
   @media #{$medium-and-down} {
-   width: 95%;
+   width: 98%;
   }
 
   h1,h2,h3,h4 {
@@ -25,7 +25,7 @@
 
   .modal-content {
     padding: 10px;
-    &.video {
+    &.video-leccion {
       padding:0px;
       position: relative;
       top: -1px;
