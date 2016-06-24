@@ -133,3 +133,10 @@
 //Overflow
 
 .overflow-hidden 		{ overflow: hidden; }
+
+.title-left {
+	text-align: left;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 12s;
+	transition: width 8s cubic-bezier(0, 0.35, 0, 1.15);
+}
