@@ -5,12 +5,24 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
+						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
 							<a class="[ btn btn-rounded ]">tomar curso - $1200</a>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Structure 1-->
+	<div id="modal1" class="modal">
+		<div class="modal-header">
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+		</div>
+		<div class="modal-content [ video-leccion ]">
+			<div class="video-container [ width---100 ]">
+				<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
