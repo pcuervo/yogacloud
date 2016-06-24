@@ -35,7 +35,9 @@
 		</footer>
 
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="<?php echo THEMEPATH; ?>js/functions.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/rating.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/functions.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
 		<script>
 			$( document ).ready(function() {
 				/**
@@ -48,6 +50,9 @@
 				});
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
+				// rating();
+				// $('#star').rating('advote.php', {maxvalue: 5, curvalue:1, id:11});
+				$('.rating').addRating();
 			});
 		</script>
 		<?php wp_footer(); ?>

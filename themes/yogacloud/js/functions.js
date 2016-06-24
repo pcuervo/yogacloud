@@ -155,3 +155,9 @@ $('#next').on('click', function(event){
     // Next slide
     $('.slider').slider('prev');    //error materialize
 })
+
+//Rating
+
+// function rating(){
+//     $('.rating-stars').rating();
+// }
