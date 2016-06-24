@@ -43,6 +43,7 @@
 				**/
 				imgToSvg();
 				$('.slider').slider({
+					indicators: true,
 					interval: 4000
 				});
 			});

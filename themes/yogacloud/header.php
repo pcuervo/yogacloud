@@ -123,7 +123,7 @@
 								<!-- end Header menu -->
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
-									<h5 class="[ no-margin padding-bottom ]"><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
+									<h5 class="[ no-margin padding-bottom ]" id="cursos-nav"><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
 									<h5 class="[ no-margin padding-bottom ]"><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
 									<h5 id="title-search-nav" class="[ white-text ][ no-margin padding-bottom ]">Buscar</h5>
 									<form id="form-search-nav" class="hidden">

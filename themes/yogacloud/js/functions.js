@@ -6,14 +6,12 @@ $('#js-btn-user').click(function(e){
 
 $('#js-hide-user').on('click', function(event){
     event.preventDefault();
-    console.log('entrar');
     toggleUser();
 })
 
 
 $('#js-btn-nav--user').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleUser();
     toggleMenu();
 })
@@ -47,15 +45,19 @@ $('#js-btn-nav').click(function(e){
 
 $('#js-hide-nav').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleMenu();
 })
 
 $('#js-btn-user--nav').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleMenu();
     toggleUser();
+})
+
+$('#cursos-nav').on('click', function(event){
+    if($("#cursos").length > 0) {
+        toggleMenu();
+    }
 })
 
 function toggleMenu(){
