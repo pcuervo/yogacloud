@@ -7,16 +7,14 @@
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a href="<?php echo site_url('/'); ?>#cursos" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded ]">ver cursos</a>
-						</div>
+						<a href="#cursos" class="[ white-text ][ btn btn-rounded  btn-main-cta  ][ relative ][ top--15 ]">ver cursos</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<section class="[ container ]" id="cursos">
+	<section class="[ container scrollspy ]" id="cursos">
 		<div class="[ row ]">
 			<div class="[ col s12 ]">
 				<div class="[ card ]">
@@ -139,7 +137,6 @@
 			</div>
 		</div>
 	</div>
-
 
 
 <?php get_footer(); ?>

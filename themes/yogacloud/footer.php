@@ -47,6 +47,7 @@
 					interval: 4000
 				});
 				$('.modal-trigger').leanModal();
+				$('.scrollspy').scrollSpy();
 			});
 		</script>
 		<?php wp_footer(); ?>

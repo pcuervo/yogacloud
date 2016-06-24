@@ -78,18 +78,18 @@
 	</div>
 
 	<section class="[ container ]">
-		<article>
-			<h5 class="[ text-center ]">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</h5>
+		<article class="[ content-user ]">
+			<h5>Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</h5>
 			<p>Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam ceteros. Si enim ad populum me vocas, eum. Sed residamus, inquit, si placet. Cave putes quicquam esse verius. Duo Reges: constructio interrete.</p>
-			<img class="[ margin-auto ][ block ]" src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
+			<img src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
 			<p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quid, si non sensus modo ei sit datus, verum etiam animus hominis? Quamvis enim depravatae non sint, pravae tamen esse possunt. Egone quaeris, inquit, quid sentiam? [redacted]tilio Rufo.</p>
-			<div class="[ text-center ]">
-				<a class="[ btn btn-rounded ]">
-					<img class="[ middle inline-blok ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
-					<span class="[ middle inline-blok ]">descargar notas</span>
-				</a>
-			</div>
 		</article>
+		<div class="[ text-center ][ margin-bottom--large ]">
+			<a class="[ btn btn-rounded ]">
+				<img class="[ middle inline-blok ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+				<span class="[ middle inline-blok ]">descargar notas</span>
+			</a>
+		</div>
 	</section>
 
 <?php get_footer(); ?>
