@@ -8,8 +8,9 @@
     .slides { height: 310px!important; }
   }
   &.video-leccion {
-      height: 295px!important;
+      height: 260px!important;
       .slides { height: 260px!important; }
+      & .indicators { display: none; }
   }
   // Fullscreen slider
   &.fullscreen {

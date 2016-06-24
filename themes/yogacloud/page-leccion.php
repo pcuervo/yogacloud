@@ -25,7 +25,7 @@
 								<div class="[ col s12 ][ white-text text-center ]">
 									<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 									<!-- Modal Trigger -->
-									<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+									<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal2"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 								</div>
 							</div>
 						</div>
@@ -50,7 +50,7 @@
 		</ul>
 	</div>
 
-	<!-- Modal Structure -->
+	<!-- Modal Structure 1-->
 	<div id="modal1" class="modal">
 		<div class="modal-header">
 			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
@@ -64,13 +64,13 @@
 
 	<div class="[ row ][ text-center ]">
 		<div class="[ col s6 ][ bg-primary ][ border-right--light ]">
-			<a href="" class="[ padding-vertical--small ][ white-text ][ block ]">
+			<a href="" id="prev" class="[ padding-vertical--small ][ white-text ][ block ]">
 				<img class="[ margin-right ][ inline-block middle ]" src="<?php echo THEMEPATH; ?>icons/left-arrow.png" alt="">
 				<span class="[ inline-block middle ]">anterior</span>
 			</a>
 		</div>
 		<div class="[ col s6 ][ bg-primary ]">
-			<a href="" class="[ padding-vertical--small ][ white-text ][ block ]">
+			<a href="" id="next" class="[ padding-vertical--small ][ white-text ][ block ]">
 				<span class="[ inline-block middle ]">siguiente</span>
 				<img class="[ margin-left ][ inline-block middle ]" src="<?php echo THEMEPATH; ?>icons/right-arrow.png" alt="">
 			</a>

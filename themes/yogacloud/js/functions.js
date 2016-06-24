@@ -141,3 +141,17 @@ function toggleSearch(){
         $( "#form-search-nav" ).addClass('hidden');
     });
 }
+
+//Slider Videos
+
+$('#prev').on('click', function(event){
+    event.preventDefault();
+    // Next slide
+    $('.slider').slider('next');    //error materialize
+})
+
+$('#next').on('click', function(event){
+    event.preventDefault();
+    // Next slide
+    $('.slider').slider('prev');    //error materialize
+})
