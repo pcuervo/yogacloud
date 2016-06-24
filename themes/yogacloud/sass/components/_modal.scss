@@ -16,7 +16,7 @@
   will-change: top, opacity;
 
   @media #{$medium-and-down} {
-   width: 80%;
+   width: 95%;
   }
 
   h1,h2,h3,h4 {
@@ -24,10 +24,27 @@
   }
 
   .modal-content {
-    padding: 24px;
+    padding: 10px;
+    &.video {
+      padding:0px;
+      position: relative;
+      top: -1px;
+    }
   }
   .modal-close {
     cursor: pointer;
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    padding: 10px;
+    height: 45px;
+    width: 100%;
+
+    .btn, .btn-flat {
+      float: right;
+      padding:0px;
+    }
   }
 
   .modal-footer {

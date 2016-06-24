@@ -46,6 +46,7 @@
 					indicators: true,
 					interval: 4000
 				});
+				$('.modal-trigger').leanModal();
 			});
 		</script>
 		<?php wp_footer(); ?>
