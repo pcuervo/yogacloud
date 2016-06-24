@@ -78,6 +78,7 @@ function toggleMenu(){
     });
 }
 
+//Icons SVG
 
 function imgToSvg(){
     $('img.svg').each(function(){
@@ -109,3 +110,25 @@ function imgToSvg(){
 
     });
 } //imgToSvg
+
+//Search Navegator
+
+$('#title-search-nav').on('click', function(event){
+    event.preventDefault();
+    toggleSearch();
+})
+
+function toggleSearch(){
+    if( $('#form-search-nav').hasClass('hidden') ){
+        $( "#form-search-nav" ).show("slow", function() {
+            $( "#form-search-nav" ).removeClass('hidden');
+            // $( "#title-search-nav" ).addClass('animate-text');
+        });
+        return;
+    }
+
+    $( "#form-search-nav" ).hide("slow", function() {
+        $( "#form-search-nav" ).addClass('hidden');
+        // $( "#title-search-nav" ).removeClass('animate-text');
+    });
+}
