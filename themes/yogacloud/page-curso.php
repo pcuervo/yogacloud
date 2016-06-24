@@ -5,7 +5,7 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger [ white-text ]" href="#modal1"><i class="[ icon icon-play-button icon-xxlarge ][ relative bottom-2 ]"></i></a>
+						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
 							<a class="[ btn btn-rounded ]">tomar curso - $1200</a>
 						</div>
