@@ -5,12 +5,24 @@
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
+						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger [ white-text ]" href="#modal1"><i class="[ icon icon-play-button icon-xxlarge ][ relative bottom-2 ]"></i></a>
 						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
 							<a class="[ btn btn-rounded ]">tomar curso - $1200</a>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Structure 1-->
+	<div id="modal1" class="modal">
+		<div class="modal-header">
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat [ white-text ]"><i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-2 ]"></i></a>
+		</div>
+		<div class="modal-content [ video-leccion ]">
+			<div class="video-container [ width---100 ]">
+				<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 	</div>
@@ -99,13 +111,13 @@
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 			<div>
 				<a href="">
-					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-secondary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-twitter-bird.svg" alt="icon twitter">
+					<i class="[ icon icon-logo-circle-twitter-bird icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-facebook.svg" alt="icon facebook">
+					<i class="[ icon icon-logo-circle-facebook icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<img class="[ svg icon icon--iconed icon--thickness-1 icon--fill ][ color-primary ]" src="<?php echo THEMEPATH; ?>icons/logo-circle-email.svg" alt="icon mail">
+					<i class="[ icon icon-email-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 			</div>
 		</article>
