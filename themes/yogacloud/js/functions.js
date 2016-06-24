@@ -6,14 +6,12 @@ $('#js-btn-user').click(function(e){
 
 $('#js-hide-user').on('click', function(event){
     event.preventDefault();
-    console.log('entrar');
     toggleUser();
 })
 
 
 $('#js-btn-nav--user').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleUser();
     toggleMenu();
 })
@@ -47,15 +45,19 @@ $('#js-btn-nav').click(function(e){
 
 $('#js-hide-nav').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleMenu();
 })
 
 $('#js-btn-user--nav').on('click', function(event){
     event.preventDefault();
-    console.log('salir');
     toggleMenu();
     toggleUser();
+})
+
+$('#cursos-nav').on('click', function(event){
+    if($("#cursos").length > 0) {
+        toggleMenu();
+    }
 })
 
 function toggleMenu(){
@@ -111,7 +113,7 @@ function imgToSvg(){
     });
 } //imgToSvg
 
-//Search Navegator
+//Search Nav
 
 $('#title-search-nav').on('click', function(event){
     event.preventDefault();
@@ -121,10 +123,9 @@ $('#title-search-nav').on('click', function(event){
 function toggleSearch(){
     if( $('#form-search-nav').hasClass('hidden') ){
         $( "#title-search-nav" ).animate({
-            fontSize: 15
+            fontSize: 15,
         }, 500, function() {
             // Animation complete.
-            // $( "#title-search-nav" ).addClass('text-left');
         });
         $( "#form-search-nav" ).show("slow", function() {
             $( "#form-search-nav" ).removeClass('hidden');
@@ -135,9 +136,20 @@ function toggleSearch(){
         fontSize: 23
     }, 500, function() {
         // Animation complete.
-        // $( "#title-search-nav" ).removeClass('text-left');
     });
     $( "#form-search-nav" ).hide("slow", function() {
         $( "#form-search-nav" ).addClass('hidden');
     });
 }
+
+//Slider Videos
+
+$('#prev').on('click', function(event){
+    event.preventDefault();
+    $('.slider').slider('next');    //error materialize
+})
+
+$('#next').on('click', function(event){
+    event.preventDefault();
+    $('.slider').slider('prev');    //error materialize
+})

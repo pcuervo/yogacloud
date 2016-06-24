@@ -123,14 +123,14 @@
 								<!-- end Header menu -->
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
-									<h5><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
-									<h5><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
-									<h5 id="title-search-nav" class="[ white-text ]">Buscar</h5>
+									<h5 class="[ no-margin padding-bottom ]" id="cursos-nav"><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
+									<h5 class="[ no-margin padding-bottom ]"><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
+									<h5 id="title-search-nav" class="[ white-text ][ no-margin padding-bottom ]">Buscar</h5>
 									<form id="form-search-nav" class="hidden">
 										<input class="[ input-search-nav ]" id="search" type="search" required>
 										<button class="btn [ btn-rounded btn-light-hollow ] waves-effect waves-light" type="submit" name="action">Buscar</button>
 									</form>
-									<h5>
+									<h5 class="[ no-margin padding-bottom ]">
 										<a class="[ white-text ]" href="">EN</a> /
 										<a class="[ white-text ][ text-bold ]" href="">ES</a>
 									</h5>

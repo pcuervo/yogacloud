@@ -16,18 +16,45 @@
   will-change: top, opacity;
 
   @media #{$medium-and-down} {
-   width: 80%;
+   width: 98%;
   }
 
   h1,h2,h3,h4 {
     margin-top: 0;
   }
 
+  &.maestros {
+    min-height: 98vh;
+    top: 1vh!important;
+    img {
+      display: block;
+      margin: 0 auto 20px;
+    }
+    .modal-content { padding: 20px; }
+  }
+
   .modal-content {
-    padding: 24px;
+    padding: 10px;
+    &.video-leccion {
+      padding:0px;
+      position: relative;
+      top: -1px;
+    }
   }
   .modal-close {
     cursor: pointer;
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    padding: 10px;
+    height: 45px;
+    width: 100%;
+
+    .btn, .btn-flat {
+      float: right;
+      padding:0px;
+    }
   }
 
   .modal-footer {

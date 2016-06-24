@@ -35,7 +35,8 @@
 		</footer>
 
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="<?php echo THEMEPATH; ?>js/functions.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/functions.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js//jquery.star.rating.js"></script>
 		<script>
 			$( document ).ready(function() {
 				/**
@@ -43,9 +44,12 @@
 				**/
 				imgToSvg();
 				$('.slider').slider({
+					indicators: true,
 					interval: 4000
 				});
+				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
+				$('.rating').addRating();
 			});
 		</script>
 		<?php wp_footer(); ?>
