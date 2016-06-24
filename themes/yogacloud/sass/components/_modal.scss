@@ -23,6 +23,16 @@
     margin-top: 0;
   }
 
+  &.maestros {
+    min-height: 98vh;
+    top: 1vh!important;
+    img {
+      display: block;
+      margin: 0 auto 20px;
+    }
+    .modal-content { padding: 20px; }
+  }
+
   .modal-content {
     padding: 10px;
     &.video-leccion {
