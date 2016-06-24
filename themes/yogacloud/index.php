@@ -82,7 +82,7 @@
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
 							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
@@ -94,7 +94,7 @@
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
 							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
@@ -106,7 +106,7 @@
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
 							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
@@ -118,7 +118,7 @@
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-						<img class="[ quote ]" src="<?php echo THEMEPATH; ?>icons/quote.png" alt="">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
 							<p class="[ font-italic ]">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>

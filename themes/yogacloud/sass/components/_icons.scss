@@ -21,34 +21,34 @@
   }
 }
 */
- 
+
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
+
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
- 
+
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-     
+
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
+
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   margin-left: .2em;
- 
+
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
+
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
@@ -70,8 +70,10 @@
 .icon-hamburger-menu-1:before { content: '\e80f'; } /* '' */
 .icon-logo-twitter-bird:before { content: '\e810'; } /* '' */
 
-
+.icon-xsmall{ font-size: 1em}
+.icon--small{ font-size: 1.2em}
 .icon-small{ font-size: 1.5em}
-.icon-large{ font-size: 3em}
-.icon-xlarge{ font-size: 3.5em}
+.icon-iconed{ font-size: 2em}
+.icon-large{ font-size: 2.5em}
+.icon-xlarge{ font-size: 3em}
 

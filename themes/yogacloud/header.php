@@ -39,7 +39,7 @@
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ][ margin-right ]">
 							<div id="js-btn-user">
-								<i class="[ icon-account-circle ]"></i>
+								<i class="[ icon icon-account-circle icon-iconed ][ color-light ][ relative bottom-2 ]"></i>
 							</div>
 						</div>
 
@@ -54,12 +54,12 @@
 								<div class="[ inline-block ][ float-right ]">
 									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
 										<div id="js-btn-nav--user">
-											<i class="[ icon-account-circle ]"></i>
+											<i class="[ icon icon-hamburger-menu-1 icon--small ][ color-light ]"></i>
 										</div>
 									</div>
 									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xxsmall ]">
 										<div id="js-hide-user">
-											<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu">
+											<i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-2 ]"></i>
 										</div>
 									</div>
 								</div>
@@ -96,7 +96,7 @@
 						<!-- btn Menú -->
 						<div class="[ block ][ float-right ][ line-height--48 ]">
 							<div id="js-btn-nav">
-								<img src="<?php echo THEMEPATH; ?>icons/hamburguer-menu.png" alt="menu">
+								<i class="[ icon icon-hamburger-menu-1 icon--small ][ color-light ][ relative bottom-3 ]"></i>
 							</div>
 						</div>
 
@@ -111,12 +111,12 @@
 								<div class="[ inline-block ][ float-right ]">
 									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
 										<div id="js-btn-user--nav">
-											<img src="<?php echo THEMEPATH; ?>icons/account-circle-1.png" alt="menu">
+											<i class="[ icon icon-account-circle icon-iconed ][ color-light ]"></i>
 										</div>
 									</div>
 									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xsmall ]">
 										<div id="js-hide-nav">
-											<img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="close">
+											<i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-5 ]"></i>
 										</div>
 									</div>
 								</div>
