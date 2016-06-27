@@ -54,7 +54,7 @@
 								<div class="[ inline-block ][ float-right ]">
 									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
 										<div id="js-btn-nav--user">
-											<i class="[ icon icon-hamburger-menu-1 icon--small ][ color-light ]"></i>
+											<i class="[ icon icon-hamburger-menu icon--small ][ color-light ]"></i>
 										</div>
 									</div>
 									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xxsmall ]">
@@ -96,7 +96,7 @@
 						<!-- btn Menú -->
 						<div class="[ block ][ float-right ][ line-height--48 ]">
 							<div id="js-btn-nav">
-								<i class="[ icon icon-hamburger-menu-1 icon--small ][ color-light ][ relative bottom-3 ]"></i>
+								<i class="[ icon icon-hamburger-menu icon--small ][ color-light ][ relative bottom-3 ]"></i>
 							</div>
 						</div>
 
