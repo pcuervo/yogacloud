@@ -59,7 +59,7 @@
 				<div class="[ col s6 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
 				</div>
 			</div>
 		</article>
@@ -76,6 +76,25 @@
 				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<p>
 				<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+			</div>
+		</div>
+
+		<!-- Modal Structure -->
+		<div id="maestro2" class="modal [ maestros maestros-transparent ][ white-text ]">
+			<div class="modal-header">
+			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+			</div>
+			<div class="modal-content">
+				<h5 class="[ text-center ]">Juan O'Donoju</h5>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<p>
+				<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+				<div class="[ text-center ]">
+					<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+					<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+					<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+				</div>
 			</div>
 		</div>
 
@@ -109,15 +128,15 @@
 		</article>
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
-			<div>
+			<div class="[ icon-comparte ]">
 				<a href="">
-					<i class="[ icon icon-twitter-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-twitter-circle icon-xlarge ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<i class="[ icon icon-facebook-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-facebook-circle icon-xlarge ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-primary ][ relative bottom-2 ]"></i>
 				</a>
 			</div>
 		</article>

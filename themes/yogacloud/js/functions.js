@@ -153,3 +153,11 @@ $('#next').on('click', function(event){
     event.preventDefault();
     $('.slider').slider('prev');    //error materialize
 })
+
+//Modal
+
+function modalMaestros(){
+    if( $('.modal.maestros.maestros-transparent').hasClass('open') ){
+        $( ".lean-overlay" ).addClass('modal-primary');
+    }
+}
