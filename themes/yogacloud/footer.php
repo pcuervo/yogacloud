@@ -51,7 +51,6 @@
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
 				$('.rating').addRating();
-				modalMaestros();
 			});
 		</script>
 		<?php wp_footer(); ?>

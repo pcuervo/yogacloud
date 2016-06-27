@@ -70,49 +70,49 @@
 		<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las más mas exclusivas</h5>
 		<div class="[ row ][ margin-bottom ]">
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
 				</div>
 			</div>
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
-				</div>
-			</div>
-		</div>
-		<div class="[ row ][ margin-bottom ]">
-			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
-				</div>
-			</div>
-			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
 				</div>
 			</div>
 		</div>
 		<div class="[ row ][ margin-bottom ]">
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
 				</div>
 			</div>
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
 				</div>
 			</div>
 		</div>
 		<div class="[ row ][ margin-bottom ]">
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
 				</div>
 			</div>
 			<div class="[ col s6 ][ padding-sides--xsmall ]">
-				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ]">
-					<p class="[ no-margin ]">logo</p>
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
+				</div>
+			</div>
+		</div>
+		<div class="[ row ][ margin-bottom ]">
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
+				</div>
+			</div>
+			<div class="[ col s6 ][ padding-sides--xsmall ]">
+				<div class="[ bg-light ][ text-center color-primary ][ border-radius--8 ][ padding--xsmall ][ height--90 ]">
+					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
 				</div>
 			</div>
 		</div>
@@ -142,7 +142,7 @@
 			<div style="height: auto; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
 				<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ]">
 					<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">10% en toda la tienda con el código</h4>
-					<a class="[ btn btn-rounded btn-light ]">ver productos</a>
+					<a class="[ btn btn-rounded btn-light ]">yogclouder16</a>
 				</div>
 			</div>
 		</div>

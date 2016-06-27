@@ -65,7 +65,7 @@
 		</article>
 
 		<!-- Modal Structure -->
-		<div id="maestro1" class="modal [ maestros maestros-transparent ][ white-text ]">
+		<div id="maestro1" class="modal [ maestros-transparent ][ white-text ]">
 			<div class="modal-content">
 				<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
 				<h5 class="[ text-center ]">Juan O'Donoju</h5>
