@@ -81,10 +81,8 @@
 
 		<!-- Modal Structure -->
 		<div id="maestro2" class="modal [ maestros maestros-transparent ][ white-text ]">
-			<div class="modal-header">
-			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat"><img src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-			</div>
 			<div class="modal-content">
+				<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
 				<h5 class="[ text-center ]">Juan O'Donoju</h5>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>

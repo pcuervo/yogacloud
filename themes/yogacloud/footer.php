@@ -44,7 +44,6 @@
 				 * On ready
 				**/
 				imgToSvg();
-				modalMaestros();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
@@ -52,6 +51,7 @@
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
 				$('.rating').addRating();
+				modalMaestros();
 			});
 		</script>
 		<?php wp_footer(); ?>

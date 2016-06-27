@@ -35,8 +35,11 @@
     width: 100%;
     top: 0px!important;
     background-color: transparent;
-    & .modal-header,
-    & .modal-content { background-color: transparent; }
+    & .modal-content {
+      // background-color: rgba(19,194,172,0.8);
+      background: linear-gradient(180deg, rgba(19,194,172,0.8),rgba(18,144,229,0.8));
+      min-height: 100vh;
+    }
   }
 
     .modal-content { padding: 20px; }
