@@ -44,7 +44,6 @@
 				 * On ready
 				**/
 				imgToSvg();
-				modalMaestros();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
