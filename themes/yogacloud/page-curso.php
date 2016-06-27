@@ -111,13 +111,13 @@
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 			<div>
 				<a href="">
-					<i class="[ icon icon-logo-circle-twitter-bird icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-twitter-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<i class="[ icon icon-logo-circle-facebook icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-facebook-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 				<a href="">
-					<i class="[ icon icon-email-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
+					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 			</div>
 		</article>
