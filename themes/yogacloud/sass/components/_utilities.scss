@@ -46,6 +46,8 @@
 .padding-vertical--xsmall	{padding-top:($padding-size/4); padding-bottom:($padding-size/4);}
 .padding-vertical--small	{padding-top:($padding-size/2); padding-bottom:($padding-size/2);}
 .padding-vertical			{padding-top:$padding-size; padding-bottom:$padding-size;}
+.padding-vertical--large	{padding-top:($padding-size*2); padding-bottom:($padding-size*2);}
+.padding-vertical--xlarge	{padding-top:($padding-size*4); padding-bottom:($padding-size*4);}
 
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
