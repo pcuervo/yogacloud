@@ -6,8 +6,8 @@
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
 						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a class="[ btn btn-rounded ]">tomar curso - $1200</a>
+						<div class="[ relative ][ top--15 ]">
+							<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
 						</div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 			</div>
 			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 			<div class="[ text-center ]">
-				<a class="[ btn btn-rounded btn-primary-hollow ][ text-center ]">regalar curso</a>
+				<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
 			</div>
 		</article>
 		<article class="[ text-center ][ margin-bottom--xlarge ]">
@@ -54,12 +54,12 @@
 				<div class="[ col s6 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
 				</div>
 				<div class="[ col s6 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
 				</div>
 			</div>
 		</article>
@@ -104,7 +104,7 @@
 				<h5>Módulo 1</h5>
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 				<div class="[ padding-bottom ]">
-					<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
+					<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver más</a>
 				</div>
 			</div>
 			<div class="[ border-bottom--dark ]">
@@ -124,7 +124,7 @@
 			<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 			<!-- Rating -->
 			<div class="rating"></div>
-			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow ]">ver comentarios</a>
+			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
 		</article>
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>

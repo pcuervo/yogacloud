@@ -11,17 +11,17 @@
 				<div class="[ col s4 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ][ waves-effect waves-light ]">ver más</a>
 				</div>
 				<div class="[ col s4 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ][ waves-effect waves-light ]">ver más</a>
 				</div>
 				<div class="[ col s4 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ]">ver más</a>
+					<a class="[ btn btn-rounded btn-primary-hollow ][ waves-effect waves-light ]">ver más</a>
 				</div>
 			</div>
 		</article>
@@ -40,8 +40,8 @@
 						<div class="[ card-content ]">
 						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 						</div>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
+						<div class="[ relative ][ top--15 ][ text-center ]">
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">más info</a>
 						</div>
 					</div>
 				</div>
@@ -57,8 +57,8 @@
 						<div class="[ card-content ]">
 						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 						</div>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
+						<div class="[ relative ][ top--15 ][ text-center ]">
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">más info</a>
 						</div>
 					</div>
 				</div>

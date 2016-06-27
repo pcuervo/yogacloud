@@ -63,13 +63,13 @@
 	</div>
 
 	<div class="[ row ][ text-center ]">
-		<div class="[ col s6 ][ bg-primary ][ border-right--light ]">
+		<div class="[ col s6 ][ bg-primary ][ border-right--light ][ waves-effect waves-light ]">
 			<a href="" id="prev" class="[ padding-vertical--small ][ white-text ][ block ]">
 				<img class="[ margin-right ][ inline-block middle ]" src="<?php echo THEMEPATH; ?>icons/left-arrow.png" alt="">
 				<span class="[ inline-block middle ]">anterior</span>
 			</a>
 		</div>
-		<div class="[ col s6 ][ bg-primary ]">
+		<div class="[ col s6 ][ bg-primary ][ waves-effect waves-light ]">
 			<a href="" id="next" class="[ padding-vertical--small ][ white-text ][ block ]">
 				<span class="[ inline-block middle ]">siguiente</span>
 				<img class="[ margin-left ][ inline-block middle ]" src="<?php echo THEMEPATH; ?>icons/right-arrow.png" alt="">
@@ -85,7 +85,7 @@
 			<p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quid, si non sensus modo ei sit datus, verum etiam animus hominis? Quamvis enim depravatae non sint, pravae tamen esse possunt. Egone quaeris, inquit, quid sentiam? [redacted]tilio Rufo.</p>
 		</article>
 		<div class="[ text-center ][ margin-bottom--large ]">
-			<a class="[ btn btn-rounded ]">
+			<a class="[ btn btn-rounded ][ waves-effect waves-light ]">
 				<img class="[ middle inline-blok ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
 				<span class="[ middle inline-blok ]">descargar notas</span>
 			</a>

@@ -5,18 +5,19 @@
 			<div class="[ container ]">
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
-						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
+						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<a href="#cursos" class="[ white-text ][ btn btn-rounded  btn-main-cta  ][ relative ][ top--15 ]">ver cursos</a>
+						<a href="#cursos" class="[ white-text ][ btn btn-rounded btn-main-cta waves-effect waves-light ][ relative ][ top--15 ]">ver cursos</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<section class="[ container ]">
+	<section class="[ container ][ scrollspy ]" id="cursos">
 		<div class="[ row ]">
-			<div class="[ col s12 scrollspy ]" id="cursos">
+			<div class="[ col s12 ]">
 				<div class="[ card ]">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
@@ -29,7 +30,7 @@
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
 					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
 			</div>
@@ -49,7 +50,7 @@
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
 					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
 			</div>
@@ -133,7 +134,7 @@
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>
-				<a class="[ btn btn-rounded btn-light ]">registrarme</a>
+				<a class="[ btn btn-rounded btn-light waves-effect waves-light ]">registrarme</a>
 			</div>
 		</div>
 	</div>

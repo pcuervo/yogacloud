@@ -1,7 +1,7 @@
 <?php get_header(); the_post();  ?>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-		<div class="[ gradient-linear-opacity ]">
+	<div class="[ main-banner ][ relative ]">
+		<iframe src="https://player.vimeo.com/video/97989105?color=00ddb3&title=0&byline=0&portrait=0" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			<div class="[ container ]">
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">

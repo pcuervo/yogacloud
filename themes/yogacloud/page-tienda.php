@@ -7,8 +7,8 @@
 					<div class="[ col s12 ][ white-text text-center ]">
 						<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a class="[ btn btn-rounded ]">ver todos los productos</a>
+						<div class="[ relative ][ top--15 ]">
+							<a class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
 						</div>
 					</div>
 				</div>
@@ -25,8 +25,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
-				<a class="[ btn btn-rounded ]">comprar - $900</a>
+			<div class="[ relative ][ bottom--20 ][ text-center ]">
+				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 			</div>
 		</article>
 		<article>
@@ -37,8 +37,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
-				<a class="[ btn btn-rounded ]">comprar - $900</a>
+			<div class="[ relative ][ bottom--20 ][ text-center ]">
+				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 			</div>
 		</article>
 		<article>
@@ -49,8 +49,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
-				<a class="[ btn btn-rounded ]">comprar - $900</a>
+			<div class="[ relative ][ bottom--20 ][ text-center ]">
+				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 			</div>
 		</article>
 		<article>
@@ -61,8 +61,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="[ btn-main-cta ][ relative ][ bottom--20 ][ text-center ]">
-				<a class="[ btn btn-rounded ]">comprar - $900</a>
+			<div class="[ relative ][ bottom--20 ][ text-center ]">
+				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 			</div>
 		</article>
 	</section>

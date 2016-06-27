@@ -38,6 +38,7 @@ $primary-color-base: color("primary", "base") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 $primary-transparent: color("primary","transparent")!default;
+$primary-transparent--light: color("primary","transparent-light")!default;
 $secondary-color: color("secondary", "lighten-1") !default;
 $secondary-transparent: color("secondary","transparent")!default;
 $secondary-transparent--light: color("secondary","transparent-light")!default;
