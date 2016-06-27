@@ -37,7 +37,7 @@
 					</a>
 					<div class="[ inline-block ][ float-right ]">
 						<!-- btn user menu -->
-						<div class="[ block ][ float-left ][ margin-right ]">
+						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
 								<i class="[ icon icon-account-circle icon-iconed ][ color-light ][ relative bottom-2 ]"></i>
 							</div>
@@ -52,12 +52,12 @@
 									<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 								</a>
 								<div class="[ inline-block ][ float-right ]">
-									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
+									<div class="[ block ][ float-left ][ margin-right--small ][ line-height--32 ]">
 										<div id="js-btn-nav--user">
 											<i class="[ icon icon-hamburger-menu icon--small ][ color-light ]"></i>
 										</div>
 									</div>
-									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xxsmall ]">
+									<div class="[ block ][ float-right ][ margin-top--xxsmall ]">
 										<div id="js-hide-user">
 											<i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-2 ]"></i>
 										</div>
@@ -109,12 +109,12 @@
 									<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 								</a>
 								<div class="[ inline-block ][ float-right ]">
-									<div class="[ block ][ float-left ][ margin-right ][ line-height--48 ]">
+									<div class="[ block ][ float-left ][ line-height--35 ]">
 										<div id="js-btn-user--nav">
 											<i class="[ icon icon-account-circle icon-iconed ][ color-light ]"></i>
 										</div>
 									</div>
-									<div class="[ block ][ float-right ][ line-height--48 ][ margin-top--xsmall ]">
+									<div class="[ block ][ float-right ][ line-height--39 ][ margin-top--xsmall ]">
 										<div id="js-hide-nav">
 											<i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-5 ]"></i>
 										</div>

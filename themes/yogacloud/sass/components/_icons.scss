@@ -21,34 +21,34 @@
   }
 }
 */
- 
+
  [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
+
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
- 
+
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-     
+
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
+
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   margin-left: .2em;
- 
+
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
+
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
@@ -79,3 +79,15 @@
 .icon-iconed{ font-size: 2em}
 .icon-large{ font-size: 2.5em}
 .icon-xlarge{ font-size: 3em}
+
+.icon-comparte a .icon-twitter-circle {
+	color: #0D8AE9;
+	&:hover { color: #4fa7ea; }
+}
+.icon-comparte a .icon-facebook-circle {
+	color: #3B5998;
+	&:hover { color: #5e7096; }
+}
+.icon-comparte a .icon-email-circle-1 {
+	&:hover { color: #51c5b6; }
+}
