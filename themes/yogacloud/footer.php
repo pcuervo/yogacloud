@@ -16,7 +16,7 @@
 					</div>
 				</div>
 				<div class="col l4 s12">
-					<h5><a href="<?php echo site_url('/'); ?>"><img class="logo" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a></h5>
+					<h5><a href="<?php echo site_url('/'); ?>"><img class="logo center-block" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a></h5>
 					<div class="[ row ]">
 						<div class="col s4">
 							<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>

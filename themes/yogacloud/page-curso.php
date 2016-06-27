@@ -128,17 +128,6 @@
 		</article>
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
-<<<<<<< HEAD
-			<div>
-				<a class="[ btn-share ]" href="">
-					<i class="[ icon icon-twitter-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
-				</a>
-				<a class="[ btn-share ]" href="">
-					<i class="[ icon icon-facebook-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
-				</a>
-				<a class="[ btn-share ]" href="">
-					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
-=======
 			<div class="[ icon-comparte ]">
 				<a href="">
 					<i class="[ icon icon-twitter-circle icon-xlarge ][ relative bottom-2 ]"></i>
@@ -148,7 +137,6 @@
 				</a>
 				<a href="">
 					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-primary ][ relative bottom-2 ]"></i>
->>>>>>> eeeec624be06e450c65ebfca8649e15e5f0a0b21
 				</a>
 			</div>
 		</article>

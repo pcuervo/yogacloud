@@ -211,10 +211,6 @@ button.btn-floating {
   }
 }
 
-a.btn-share i     { @include transition( 0.3s ease-in-out );}
-a.btn-share i:hover     { opacity: 0.5;}
-
-
 .btn-light{
   background-color: $light-color;
   color: $primary-color;
