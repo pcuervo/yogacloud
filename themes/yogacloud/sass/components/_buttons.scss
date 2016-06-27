@@ -202,7 +202,6 @@ button.btn-floating {
   display: block;
 }
 
-
 .btn-main-cta{
   a{
     left: 30%;
@@ -211,6 +210,10 @@ button.btn-floating {
     @media (min-width: $medium-screen) { left: 35%}
   }
 }
+
+a.btn-share i     { @include transition( 0.3s ease-in-out );}
+a.btn-share i:hover     { opacity: 0.5;}
+
 
 .btn-light{
   background-color: $light-color;

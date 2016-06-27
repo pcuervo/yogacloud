@@ -9,7 +9,7 @@
 					</div>
 					<div class="col l4 s12">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-						<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-large padding-sides--xsmall ]"></i></a>
 						<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-xlarge padding-sides--xsmall ]"></i></a>
 						<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-xlarge padding-sides--xsmall ]"></i></a>
 						<img src="" alt="">

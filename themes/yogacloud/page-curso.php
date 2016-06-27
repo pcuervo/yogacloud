@@ -110,13 +110,13 @@
 		<article class="[ text-center ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 			<div>
-				<a href="">
+				<a class="[ btn-share ]" href="">
 					<i class="[ icon icon-twitter-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
-				<a href="">
+				<a class="[ btn-share ]" href="">
 					<i class="[ icon icon-facebook-circle icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
-				<a href="">
+				<a class="[ btn-share ]" href="">
 					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-light ][ relative bottom-2 ]"></i>
 				</a>
 			</div>

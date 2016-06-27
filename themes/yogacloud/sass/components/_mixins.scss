@@ -16,9 +16,6 @@
 
 ///  Linear Gradient Convert angle
 
-/// @param {Number} $value - Value to convert
-/// @param {String} $unit - Unit to convert to
-/// @return {Number} Converted angle
 @function convert-angle($value, $unit) {
   $convertable-units: deg grad turn rad;
   $conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
@@ -31,9 +28,7 @@
   @warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
 }
 
-/// if `$value` is an angle
-/// @param {*} $value - Value to test
-/// @return {Bool}
+
 @function is-direction($value) {
   $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
   $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
@@ -41,10 +36,8 @@
   @return $is-direction or $is-angle;
 }
 
-/// Convert a direction to legacy syntax
-/// @param {Keyword | Angle} $value - Value to convert
-/// @require {function} is-direction
-/// @require {function} convert-angle
+/// Angle
+
 @function legacy-direction($value) {
   @if is-direction($value) == false {
     @warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
@@ -72,12 +65,8 @@
   @return 90deg - convert-angle($value, 'deg');
 }
 
-/// Mixin printing a linear-gradient
-/// as well as a plain color fallback
-/// and the `-webkit-` prefixed declaration
-/// @access public
-/// @param {String | List | Angle} $direction - Linear gradient direction
-/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+/// Diagonal 
+
 @mixin linear-gradient($direction, $color-stops...) {
   @if is-direction($direction) == false {
     $color-stops: ($direction, $color-stops);
@@ -87,4 +76,43 @@
   background: nth(nth($color-stops, 1), 1);
   background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
   background: linear-gradient($direction, $color-stops);
+}
+
+
+// Usage:   @include transition(width, height 0.3s ease-in-out);
+// Output:  -webkit-transition(width 0.2s, height 0.3s ease-in-out);
+//          transition(width 0.2s, height 0.3s ease-in-out);
+//
+// Pass in any number of transitions
+@mixin transition($transitions...) {
+  $unfoldedTransitions: ();
+  @each $transition in $transitions {
+    $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+  }
+  
+  -webkit-transition: $unfoldedTransitions;
+  transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition ($transition) {
+  // Default values
+  $property: all;
+  $duration: .2s;
+  $easing: null; // Browser default is ease, which is what we want
+  $delay: null; // Browser default is 0, which is what we want
+  $defaultProperties: ($property, $duration, $easing, $delay);
+
+  // Grab transition properties if they exist
+  $unfoldedTransition: ();
+  @for $i from 1 through length($defaultProperties) {
+    $p: null;
+    @if $i <= length($transition) {
+      $p: nth($transition, $i)
+    } @else {
+      $p: nth($defaultProperties, $i)
+    }
+    $unfoldedTransition: append($unfoldedTransition, $p);
+  }
+
+  @return $unfoldedTransition;
 }

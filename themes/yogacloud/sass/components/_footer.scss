@@ -1,7 +1,14 @@
 footer{
 	text-align: center;
-	h5{ font-weight: 200}
+	
+	h5 			{ font-weight: 200}
 
-	img.logo{ max-width: 200px;}
+	img.logo 	{ max-width: 200px;}
+	
+	a i 		{ @include transition( color 0.3s ease-in-out );}
+	a i:hover, 
+	&:focus,
+	&:active,
+	&:before 	{ color: $secondary-color;}
 
 }
