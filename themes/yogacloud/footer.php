@@ -4,14 +4,14 @@
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
 					<div class="col l4 s12 [ margin-bottom ]">
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-						<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon-phone-circle icon-xlarge padding-sides--xsmall ]"></i></a>
-						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon-email-circle icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon-phone-circle-1 icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon-email-circle-1 icon-xlarge padding-sides--xsmall ]"></i></a>
 					</div>
 					<div class="col l4 s12">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-						<a href="" class="[ white-text ]"><i class="[ icon-logo-twitter-bird icon-xlarge padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon-logo-facebook icon-xlarge padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon-logo-instagram icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-xlarge padding-sides--xsmall ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-xlarge padding-sides--xsmall ]"></i></a>
 						<img src="" alt="">
 					</div>
 				</div>
