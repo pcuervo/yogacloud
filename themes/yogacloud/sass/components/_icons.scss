@@ -91,3 +91,7 @@
 .icon-comparte a .icon-email-circle-1 {
 	&:hover { color: #51c5b6; }
 }
+
+.icon-comparte a i 			{ @include transition( 0.3s ease-in-out );}
+.icon-comparte a i:hover   	{ opacity: 0.5;}
+

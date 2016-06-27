@@ -11,4 +11,7 @@ header{
 		bottom: 10px;
 		width: 90%;
 	}
+
+	a i 		{ @include transition( 0.3s ease-in-out );}
+	a i:hover	{ color: lighten($primary-color, 25%);}
 }
