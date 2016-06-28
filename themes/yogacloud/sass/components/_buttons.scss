@@ -203,12 +203,11 @@ button.btn-floating {
 }
 
 .btn-main-cta{
-  a{
-    left: 30%;
+    bottom: 3.5vh;
+    left: 32%;
     @media (min-width: $large-screen) { left: 50%;};
     @media (min-width: $medium-screen) { left: 45%};
     @media (min-width: $medium-screen) { left: 35%}
-  }
 }
 
 .btn-light{

@@ -1,21 +1,26 @@
 <?php get_header(); ?>
 
-	<div class="[ main-banner ][ margin-bottom--xlarge ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-		<div class="[ gradient-linear-opacity ]">
-			<div class="[ container ]">
-				<div class="[ row ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-						<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<a href="#cursos" class="[ white-text ][ btn btn-rounded btn-main-cta waves-effect waves-light ][ relative ][ top--15 ]">ver cursos</a>
+	<div class="[ main-banner ][ margin-bottom ]">
+		<div class="[ relative ][ overflow-hidden width---100 ]">
+			<video class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
+				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+			</video>
+			<div class="[ gradient-linear-opacity ][ padding-vertical--large ]">
+				<div class="[ container ]">
+					<div class="[ row ]">
+						<div class="[ col s12 ][ white-text text-center ]">
+							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
+							<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
+							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
+						</div>
 					</div>
 				</div>
-			</div>
+			</div>			
 		</div>
+		<a href="#cursos" class="[ white-text ][ btn btn-rounded btn-main-cta waves-effect waves-light ][ relative ]">ver cursos</a>
 	</div>
 
-	<section class="[ container ][ scrollspy ]" id="cursos">
+	<section class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ col s12 ]">
 				<div class="[ card ]">
@@ -26,10 +31,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="[ card-content ]">
+					<div class="[ card-content ][ scrollspy ]" id="cursos">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
+					<div class="[ relative ][ top--15 ][ text-center ]">
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
@@ -44,12 +49,52 @@
 						</div>
 					</div>
 					<div class="[ bg-secondary ][ text-center ][ white-text ]">
-						<p class="[ no-margin ]">NUEVO</p>
+						<p class="[ no-margin padding--xsmall ]">NUEVO</p>
 					</div>
 					<div class="[ card-content ]">
 					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
 					</div>
-					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
+					<div class="[ relative ][ top--15 ][ text-center ]">
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+					</div>
+				</div>
+			</div>
+			<div class="[ col s12 ]">
+				<div class="card">
+					<div class="[ card-image ]">
+						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
+								<span class="[ card-title ]">Título del curso</span>
+							</div>
+						</div>
+					</div>
+					<div class="[ bg-secondary-darken-10 ][ text-center ][ white-text ][ text-uppercase ]">
+						<p class="[ no-margin padding--xsmall ]">Destacado</p>
+					</div>
+					<div class="[ card-content ]">
+					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+					</div>
+					<div class="[ relative ][ top--15 ][ text-center ]">
+						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+					</div>
+				</div>
+			</div>
+			<div class="[ col s12 ]">
+				<div class="card">
+					<div class="[ card-image ]">
+						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
+								<span class="[ card-title ]">Título del curso</span>
+							</div>
+						</div>
+					</div>
+					<div class="[ bg-secondary-darken-20 ][ text-center ][ white-text ][ text-uppercase ]">
+						<p class="[ no-margin padding--xsmall ]">Proximamente</p>
+					</div>
+					<div class="[ card-content ]">
+					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+					</div>
+					<div class="[ relative ][ top--15 ][ text-center ]">
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
@@ -57,12 +102,12 @@
 		</div>
 	</section>
 
-	<section class="[ gradient-diagonal ]" >
+	<section class="[ gradient-diagonal ][ padding-vertical ]" >
 		<div class="[ container ]">
-			<div class="[ row ]">
+			<div class="[ row ][ no-margin-bottom ]">
 				<div class="[ col s12 ][ white-text ]">
-					<h5 class="[ text-center ]">The Yoga Project</h5>
-					<p>¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+					<h4 class="[ text-center ]">The Yoga Project</h4>
+					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
 				</div>
 				<div class="[ col s6 ]">
 					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
@@ -75,7 +120,7 @@
 	</section>
 
 	<article id="testimonials">
-		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
+		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
 		<div class="slider testimonials">
 			<ul class="slides">
 				<li>
