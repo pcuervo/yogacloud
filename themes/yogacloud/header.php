@@ -35,7 +35,8 @@
 					<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
 						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 					</a>
-					<div class="[ inline-block ][ float-right ]">
+				<!-- Menu mobile -->
+					<div class="[ inline-block ][ float-right ][ hide-on-med-and-up ]">
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
@@ -123,9 +124,18 @@
 								<!-- end Header menu -->
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
-									<h5 class="[ no-margin padding-bottom ]" id="cursos-nav"><a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a></h5>
-									<h5 class="[ no-margin padding-bottom ]"><a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a></h5>
-									<h5 id="title-search-nav" class="[ white-text ][ no-margin padding-bottom ]">Buscar</h5>
+									<h5 class="[ no-margin ]" id="cursos-nav">
+										<a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+										<hr class="[ width--50 ][ margin-vertical--auto ]">
+									</h5>
+									<h5 class="[ no-margin ]">
+										<a class="[ white-text ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+										<hr class="[ width--50 ][ margin-vertical--auto ]">
+									</h5>
+									<h5 id="title-search-nav" class="[ white-text ][ no-margin ]">
+										Buscar
+										<hr class="[ width--50 ][ margin-vertical--auto ]">
+									</h5>
 									<form id="form-search-nav" class="hidden">
 										<input class="[ input-search-nav ]" id="search" type="search" required>
 										<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
@@ -151,6 +161,11 @@
 							</div>
 						</div>
 
+					</div>
+					<div class="[ inline-block ][ float-right ][ hide-on-small-only ]">
+						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/'); ?>">Buscar</a>
 					</div>
 				</div>
 			</nav>

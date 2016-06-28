@@ -58,7 +58,7 @@
 			<article class="[ col s6 ]">
 				<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 				<p>Juan O'Donoju</p>
-				<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
+				<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
 			</article>
 		</div>
 

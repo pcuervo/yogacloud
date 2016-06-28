@@ -17,69 +17,77 @@
 				</div>
 			</div>
 		</div>
-		<a href="#cursos" class="[ white-text ][ btn btn-rounded btn-main-cta waves-effect waves-light ][ relative ]">ver cursos</a>
+		<div class="[ relative ][ bottom--22 ][ text-center ]">
+			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
+		</div>
 	</section>
 
 	<section class="[ container ]">
 		<div class="[ row ]">
-			<article class="[ col s12 ]">
+			<article class="[ col s12 m6 ]">
 				<div class="[ card ]">
-					<div class="[ card-image ]">
+					<div class="[ card-image ][ col l6 ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
 								<span class="[ card-title ]">Título del curso</span>
 							</div>
 						</div>
 					</div>
-					<div class="[ card-content ][ scrollspy ]" id="cursos">
-					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-					</div>
-					<div class="[ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+					<div class="[ col l6 ]">
+						<div class="[ card-content ][ scrollspy ]" id="cursos">
+						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+						</div>
+						<div class="[ relative ][ top--15 ][ text-center ]">
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+						</div>
 					</div>
 				</div>
 			</article>
-			<article class="[ col s12 ]">
+			<article class="[ col s12 m6 ]">
 				<div class="card">
-					<div class="[ card-image ]">
+					<div class="[ card-image ][ col l6 ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
 								<span class="[ card-title ]">Título del curso</span>
 							</div>
 						</div>
 					</div>
-					<div class="[ bg-secondary ][ text-center ][ white-text ]">
-						<p class="[ no-margin padding--xsmall ]">NUEVO</p>
-					</div>
-					<div class="[ card-content ]">
-					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-					</div>
-					<div class="[ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+					<div class="[ col l6 ]">
+						<div class="[ bg-secondary ][ text-center ][ white-text ]">
+							<p class="[ no-margin padding--xsmall ]">NUEVO</p>
+						</div>
+						<div class="[ card-content ]">
+						<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+						</div>
+						<div class="[ relative ][ top--15 ][ text-center ]">
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+						</div>
 					</div>
 				</div>
 			</article>
-			<article class="[ col s12 ]">
+			<article class="[ col s12 m6 offset-m3 ]">
 				<div class="card">
-					<div class="[ card-image ]">
+					<div class="[ card-image ][ col l6 ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
 								<span class="[ card-title ]">Título del curso</span>
 							</div>
 						</div>
 					</div>
-					<div class="[ bg-secondary-darken-10 ][ text-center ][ white-text ][ text-uppercase ]">
-						<p class="[ no-margin padding--xsmall ]">Destacado</p>
-					</div>
-					<div class="[ card-content ]">
-					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-					</div>
-					<div class="[ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+					<div class="[ col l6 ]">
+						<div class="[ bg-secondary-darken-10 ][ text-center ][ white-text ][ text-uppercase ]">
+							<p class="[ no-margin padding--xsmall ]">Destacado</p>
+						</div>
+						<div class="[ card-content ]">
+							<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+						</div>
+						<div class="[ relative ][ top--15 ][ text-center ]">
+							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+						</div>
 					</div>
 				</div>
 			</article>
-			<article class="[ col s12 ]">
+			<!-- <article class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
@@ -98,22 +106,20 @@
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
-			</article>
+			</article> -->
 		</div>
 	</section>
 
 	<section class="[ gradient-diagonal ][ padding-vertical ]" >
 		<div class="[ container ]">
 			<div class="[ row ][ no-margin-bottom ]">
-				<div class="[ col s12 ][ white-text ]">
+				<div class="[ col s12 l8 offset-l1 ][ white-text ]">
 					<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
 					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-				</div>
-				<div class="[ col s6 ]">
-					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-				</div>
-				<div class="[ col s6 ]">
-					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					<div>
+						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -155,30 +161,6 @@
 						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
 							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
 						</div>
 					</div>
