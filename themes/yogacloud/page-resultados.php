@@ -1,11 +1,10 @@
 <?php get_header(); the_post();  ?>
-
-	<section class="[ container ]">
-		<div class="[ text-center ][ margin-bottom ]">
+	<div class="[ container ]">
+		<section class="[ text-center ]">
 			<h5>Resultados para:</h5>
 			<h5>Lorem ipsum</h5>
-		</div>
-		<article>
+		</section>
+		<section>
 			<h6 class="[ text-center ][ margin-bottom ]">Maestros</h6>
 			<div class="[ row ]">
 				<div class="[ col s4 ]">
@@ -24,11 +23,11 @@
 					<a class="[ btn btn-rounded btn-primary-hollow ][ waves-effect waves-light ]">ver más</a>
 				</div>
 			</div>
-		</article>
-		<article>
+		</section>
+		<section>
 			<h6 class="[ text-center ][ margin-bottom ]">Cursos</h6>
 			<div class="[ row ]">
-				<div class="[ col s12 ]">
+				<article class="[ col s12 ]">
 					<div class="[ card ]">
 						<div class="[ card-image ]">
 							<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
@@ -44,8 +43,8 @@
 							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">más info</a>
 						</div>
 					</div>
-				</div>
-				<div class="[ col s12 ]">
+				</article>
+				<article class="[ col s12 ]">
 					<div class="card">
 						<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
@@ -61,9 +60,9 @@
 							<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">más info</a>
 						</div>
 					</div>
-				</div>
+				</article>
 			</div>
-		</article>
-	</section>
+		</section>
+	</div>
 
 <?php get_footer(); ?>

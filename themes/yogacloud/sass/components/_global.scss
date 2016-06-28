@@ -19,11 +19,16 @@ main {
 
 article {
   margin-bottom: $margin-size;
+  &.container { margin: 0 auto ($margin-size*2); }
+  &.box-btn--middle { margin-bottom: 0px; }
 }
 
 section {
   margin-bottom: ($margin-size*2);
   &.container { margin: 0 auto ($margin-size*2); }
+  & article:last-child { margin-bottom: 0px; }
+  &.box-btn { margin-bottom: ($margin-size*2) + 22; }
+  & article.box-btn--middle:last-child { margin-bottom: -20px; }
 }
 
 ul {
