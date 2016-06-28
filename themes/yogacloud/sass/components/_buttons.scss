@@ -234,3 +234,10 @@ button.btn-floating {
     background-color: $light-color;
   }
 }
+
+//btn size
+.btn-small {
+  height: ($button-height - 10);
+  line-height: ($button-height - 10);
+  padding: 0 1rem;
+}

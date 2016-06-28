@@ -21,6 +21,11 @@ article {
   margin-bottom: $margin-size;
 }
 
+section {
+  margin-bottom: ($margin-size*2);
+  &.container { margin: ($margin-size*2) auto; }
+}
+
 ul {
   &.browser-default {
     list-style-type: initial;

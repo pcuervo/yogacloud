@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<div class="[ main-banner ][ margin-bottom ]">
+	<section class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
@@ -15,14 +15,14 @@
 						</div>
 					</div>
 				</div>
-			</div>			
+			</div>
 		</div>
 		<a href="#cursos" class="[ white-text ][ btn btn-rounded btn-main-cta waves-effect waves-light ][ relative ]">ver cursos</a>
-	</div>
+	</section>
 
 	<section class="[ container ]">
 		<div class="[ row ]">
-			<div class="[ col s12 ]">
+			<article class="[ col s12 ]">
 				<div class="[ card ]">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
@@ -38,8 +38,8 @@
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
-			</div>
-			<div class="[ col s12 ]">
+			</article>
+			<article class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
@@ -58,8 +58,8 @@
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
-			</div>
-			<div class="[ col s12 ]">
+			</article>
+			<article class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
@@ -78,8 +78,8 @@
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
-			</div>
-			<div class="[ col s12 ]">
+			</article>
+			<article class="[ col s12 ]">
 				<div class="card">
 					<div class="[ card-image ]">
 						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
@@ -98,7 +98,7 @@
 						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 					</div>
 				</div>
-			</div>
+			</article>
 		</div>
 	</section>
 
@@ -106,7 +106,7 @@
 		<div class="[ container ]">
 			<div class="[ row ][ no-margin-bottom ]">
 				<div class="[ col s12 ][ white-text ]">
-					<h4 class="[ text-center ]">The Yoga Project</h4>
+					<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
 					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
 				</div>
 				<div class="[ col s6 ]">
@@ -119,7 +119,7 @@
 		</div>
 	</section>
 
-	<article id="testimonials">
+	<section id="testimonials">
 		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
 		<div class="slider testimonials">
 			<ul class="slides">
@@ -185,16 +185,16 @@
 				</li>
 			</ul>
 		</div>
-	</article>
+	</section>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+	<section class="[ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>
 				<a class="[ btn btn-rounded btn-light waves-effect waves-light ]">registrarme</a>
 			</div>
 		</div>
-	</div>
+	</section>
 
 
 <?php get_footer(); ?>

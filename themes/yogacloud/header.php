@@ -128,7 +128,7 @@
 									<h5 id="title-search-nav" class="[ white-text ][ no-margin padding-bottom ]">Buscar</h5>
 									<form id="form-search-nav" class="hidden">
 										<input class="[ input-search-nav ]" id="search" type="search" required>
-										<button class="btn [ btn-rounded btn-light-hollow ] waves-effect waves-light" type="submit" name="action">Buscar</button>
+										<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 									</form>
 									<h5 class="[ no-margin padding-bottom ]">
 										<a class="[ white-text ]" href="">EN</a> /

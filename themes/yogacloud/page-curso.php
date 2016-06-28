@@ -1,5 +1,5 @@
 <?php get_header(); the_post();  ?>
-	<div class="[ main-banner ][ margin-bottom--xlarge ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+	<section class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 
 	<!-- Modal Structure 1-->
 	<div id="modal1" class="modal">
@@ -28,41 +28,39 @@
 	</div>
 
 	<section class="[ container ]">
-		<article class="[ margin-bottom--xlarge ]">
-			<div class="[ row ][ text-center ]">
-				<div class="[ col s4 ][ border-right--dark ]">
-					<h5 class="[ no-margin-bottom ]">30</h5>
-					<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
-				</div>
-				<div class="[ col s4 ][ border-right--dark ]">
-					<h5 class="[ no-margin-bottom ]">1</h5>
-					<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
-				</div>
-				<div class="[ col s4 ]">
-					<h5 class="[ no-margin-bottom ]">50</h5>
-					<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
-				</div>
+		<div class="[ row ][ text-center ]">
+			<div class="[ col s4 ][ border-right--dark ]">
+				<h5 class="[ no-margin-bottom ]">30</h5>
+				<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
 			</div>
-			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-			<div class="[ text-center ]">
-				<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
+			<div class="[ col s4 ][ border-right--dark ]">
+				<h5 class="[ no-margin-bottom ]">1</h5>
+				<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
 			</div>
-		</article>
-		<article class="[ text-center ][ margin-bottom--xlarge ]">
-			<h5 class="[ text-center ]">Impartido por</h5>
-			<div class="[ row ]">
-				<div class="[ col s6 ]">
-					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
-				</div>
-				<div class="[ col s6 ]">
-					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
-					<p>Juan O'Donoju</p>
-					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
-				</div>
+			<div class="[ col s4 ]">
+				<h5 class="[ no-margin-bottom ]">50</h5>
+				<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
 			</div>
-		</article>
+		</div>
+		<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+		<div class="[ text-center ]">
+			<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
+		</div>
+	</section>
+	<section class="[ container ][ text-center ]">
+		<h5 class="[ text-center ]">Impartido por</h5>
+		<div class="[ row ]">
+			<article class="[ col s6 ]">
+				<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+				<p>Juan O'Donoju</p>
+				<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
+			</article>
+			<article class="[ col s6 ]">
+				<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
+				<p>Juan O'Donoju</p>
+				<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
+			</article>
+		</div>
 
 		<!-- Modal Structure -->
 		<div id="maestro1" class="modal [ maestros-transparent ][ white-text ]">
@@ -80,7 +78,9 @@
 				</div>
 			</div>
 		</div>
+	</section>
 
+	<section class="[ container ]">
 		<article>
 			<h4 class="[ text-center ]">Módulos</h4>
 			<div class="[ border-bottom--dark ]">
@@ -103,26 +103,28 @@
 				<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 			</div>
 		</article>
-		<article class="[ text-center ][ margin-bottom--xlarge ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
-			<!-- Rating -->
-			<div class="rating"></div>
-			<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
-		</article>
-		<article class="[ text-center ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
-			<div class="[ icon-comparte ]">
-				<a href="">
-					<i class="[ icon icon-twitter-circle icon-xlarge ][ relative bottom-2 ]"></i>
-				</a>
-				<a href="">
-					<i class="[ icon icon-facebook-circle icon-xlarge ][ relative bottom-2 ]"></i>
-				</a>
-				<a href="">
-					<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-primary ][ relative bottom-2 ]"></i>
-				</a>
-			</div>
-		</article>
+	</section>
+
+	<section class="[ text-center ][ container ]">
+		<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
+		<!-- Rating -->
+		<div class="rating"></div>
+		<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
+	</section>
+
+	<section class="[ text-center ][ container ]">
+		<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
+		<div class="[ icon-comparte ]">
+			<a href="">
+				<i class="[ icon icon-twitter-circle icon-xlarge ][ relative bottom-2 ]"></i>
+			</a>
+			<a href="">
+				<i class="[ icon icon-facebook-circle icon-xlarge ][ relative bottom-2 ]"></i>
+			</a>
+			<a href="">
+				<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-primary ][ relative bottom-2 ]"></i>
+			</a>
+		</div>
 	</section>
 
 <?php get_footer(); ?>
