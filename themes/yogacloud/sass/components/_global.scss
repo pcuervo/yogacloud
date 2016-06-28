@@ -23,7 +23,7 @@ article {
 
 section {
   margin-bottom: ($margin-size*2);
-  &.container { margin: ($margin-size*2) auto; }
+  &.container { margin: 0 auto ($margin-size*2); }
 }
 
 ul {
@@ -788,5 +788,6 @@ nav ul a span.badge {
     margin: auto;
     display: block;
   }
-  iframe {margin-top:$margin-size; margin-bottom:$margin-size;}
+  iframe,
+  img {margin-top:$margin-size; margin-bottom:$margin-size;}
 }
