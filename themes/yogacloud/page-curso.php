@@ -59,11 +59,7 @@
 				<div class="[ col s6 ]">
 					<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 					<p>Juan O'Donoju</p>
-<<<<<<< HEAD
-					<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
-=======
-					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
->>>>>>> f6dbed9df33b6ad78472e02795c85a1947fea170
+					<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro2">ver más</a>
 				</div>
 			</div>
 		</article>
