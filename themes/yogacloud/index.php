@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<section class="[ main-banner ]">
+	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
@@ -20,7 +20,7 @@
 		<div class="[ relative ][ bottom--22 ][ text-center ]">
 			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
 		</div>
-	</section>
+	</article>
 	<section class="[ container ]">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">

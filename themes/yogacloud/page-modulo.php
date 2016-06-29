@@ -1,20 +1,13 @@
 <?php get_header(); the_post();  ?>
 	<section>
-		<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ]">
-	<!-- 		<iframe class="[ absolute ][ z-index--1 ]" src="https://player.vimeo.com/video/97989105?autoplay=1&color=00ddb3&title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	 -->
+		<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ][ height--320 ]">
 			<video class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
-
-	 		<div class="[ gradient-linear-opacity ][ height---100 ]">
-				<div class="[ container ]">
-					<div class="[ row ]">
-						<div class="[ col s12 ][ white-text text-center ]">
-							<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-							<h2 class="[ padding-sides ]">Módulo 1 - Fortemne possumus dicere eundem illum torquatum quid quod. </h2>
-						</div>
-					</div>
+			<div class="[ gradient-linear-opacity ][ height---100 ]">
+				<div class="[ container relative ][ height---100 ][ white-text text-center ]">
+					<h1 class="[ absolute ][ width---100 ]">Título del curso</h1>
+					<h2 class="[ absolute ][ bottom--30 ]">Módulo 1 - Fortemne possumus dicere eundem illum torquatum quid quod. </h2>
 				</div>
 			</div>
 		</article>
