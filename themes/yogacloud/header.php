@@ -32,8 +32,8 @@
 		<header>
 			<nav>
 				<div class="nav-wrapper [ container ]">
-					<a class="[ block ][ float-left ]" href="<?php echo site_url('/'); ?>">
-						<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
+						<img src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 					</a>
 				<!-- Menu mobile -->
 					<div class="[ inline-block ][ float-right ][ hide-on-med-and-up ]">
@@ -162,10 +162,10 @@
 						</div>
 
 					</div>
-					<div class="[ inline-block ][ float-right ][ hide-on-small-only ]">
-						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
-						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
-						<a class="[ block ][ padding-sides--small ][ float-left ]" href="<?php echo site_url('/'); ?>">Buscar</a>
+					<div class="[ menu-desktop ][ hide-on-small-only ]">
+						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+						<a href="<?php echo site_url('/'); ?>">Buscar</a>
 					</div>
 				</div>
 			</nav>
