@@ -117,5 +117,18 @@
       }
     }
   }
+}
 
+@media (min-width: 993px ){
+  .slider.testimonials {
+    height: 280px!important;
+    ul.slides li {
+      opacity: 1!important;
+      transform: translateX(0px) translateY(0px)!important;
+      width: 33.33333333%!important;
+      position: relative;
+      float: left;
+    }
+    ul.indicators { display: none; }
+  }
 }
