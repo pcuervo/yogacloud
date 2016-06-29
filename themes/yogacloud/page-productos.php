@@ -1,22 +1,35 @@
 <?php get_header(); the_post();  ?>
 
-	<section class="[ main-banner ][ box-btn ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
+	<article class="[ main-banner ][ box-btn ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
-						<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<div class="[ relative ][ top--22 ]">
-							<a class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
-						</div>
+						<h1 class="[ padding-sides ]">Todos los productos</h1>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</article>
+
+	<article>
+		<div class="[ container ]">
+			<!-- Dropdown Trigger -->
+			<a class="dropdown-button btn [ width---100 ][ block ]" href="#" data-activates="dropdown1">
+				Todos
+				<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+			</a>
+			<!-- Dropdown Structure -->
+			<ul id="dropdown1" class="dropdown-content">
+				<li><a href="#!">one</a></li>
+				<li><a href="#!">two</a></li>
+				<li class="divider"></li>
+				<li><a href="#!">three</a></li>
+			</ul>
+		</div>
+	</article>
+
 	<section class="[ container ][ text-center ]">
-		<h5 class="[ margin-bottom ]">Lo más vendido</h5>
 		<article class="[ box-btn--middle ]">
 			<div class="[ card-image ][ relative ]">
 				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
