@@ -3,7 +3,6 @@
 		<div class="slider [ video-leccion ]">
 			<ul class="slides">
 				<li>
-
 					<div class="[ main-banner ][ height---100 ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ][ height---100 ][ padding-bottom ]">
 							<div class="[ container ]">

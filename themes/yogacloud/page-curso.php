@@ -60,7 +60,7 @@
 		<div class="[ row ]">
 			<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
 				<section class="[ text-center ]">
-					<h5 class="[ text-center ]">Impartido por</h5>
+					<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 					<div class="[ row ]">
 						<article class="[ col s6 ]">
 							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
