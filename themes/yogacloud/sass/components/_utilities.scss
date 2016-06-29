@@ -84,8 +84,9 @@
 .inline			{ display: inline;}
 .block			{ display: block;}
 .inline-block	{ display: inline-block;}
-
 .hidden 		{ display: none;}
+
+@media (min-width: 993px) and (max-width: 1300px){ .hidden--large { display: none;} }
 
 //Float
 
@@ -135,6 +136,7 @@
 //Background
 
 .bg-primary			{ background: $primary-color;}
+.bg-gray			{ background: $primary-color-gray;}
 .bg-secondary		{ background: $secondary-color;}
 .bg-light			{ background: $light-color;}
 .bg-secondary-darken-10	{ background: darken($secondary-color, 10%) }

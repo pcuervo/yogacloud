@@ -3,25 +3,13 @@
 		<div class="[ gradient-linear-opacity ][ height---100 ]">
 			<div class="[ container relative ][ height---100 ] valign-wrapper">
 				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
-				<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+				<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 			</div>
 		</div>
 		<div class="[ relative ][ bottom--22 ]">
 			<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
 		</div>
 	</section>
-
-	<!-- Modal Structure 1-->
-	<div id="modal1" class="modal">
-		<div class="modal-header">
-			<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat [ white-text ]"><i class="[ icon icon-close icon-small ][ color-light ][ relative bottom-2 ]"></i></a>
-		</div>
-		<div class="modal-content [ video-leccion ]">
-			<div class="video-container [ width---100 ]">
-				<iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-			</div>
-		</div>
-	</div>
 
 	<section class="[ container ]">
 		<div class="[ row ]">
