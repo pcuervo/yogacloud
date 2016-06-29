@@ -88,6 +88,8 @@
 .float-right 	{ float: right; }
 .float-left 	{ float: left; }
 
+@media (min-width: 601px ){ .float-right--on-med-and-up { float: right!important; } }
+
 //Position
 
 .absolute	{ position: absolute; }
