@@ -31,7 +31,7 @@
 		<h5 class="[ text-center ][ margin-bottom ]">Lecciones</h5>
 		<div class="[ container--on-med-and-up ]">
 			<div class="[ row ][ no-margin ]">
-				<div class="[ col s12 m6 ]">
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ]">
 							<div class="[ min-height--160 ][ valign-wrapper ]">
@@ -42,7 +42,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="[ col s12 m6 ]">
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ]">
 							<div class="[ min-height--160 ][ valign-wrapper ]">
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="[ col s12 m6 ]">
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ]">
 							<div class="[ min-height--160 ][ valign-wrapper ]">
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="[ col s12 m6 ]">
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ]">
 							<div class="[ min-height--160 ][ valign-wrapper ]">
