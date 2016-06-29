@@ -3,7 +3,10 @@ nav {
   @extend .z-depth-1;
   background-color: $primary-color;
   width: 100%;
-
+  @media (max-width: 600px ){
+    background-color:$light-color;
+    color: $primary-color;
+  }
   a { color: $navbar-font-color; }
 
   i,

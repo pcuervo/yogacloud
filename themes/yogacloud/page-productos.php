@@ -13,17 +13,16 @@
 	</article>
 
 	<article>
-		<div class="[ container ]">
+		<div class="[ container ][ relative ]">
 			<!-- Dropdown Trigger -->
 			<a class="dropdown-button btn [ width---100 ][ block ]" href="#" data-activates="dropdown1">
 				Todos
 				<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
 			</a>
 			<!-- Dropdown Structure -->
-			<ul id="dropdown1" class="dropdown-content">
+			<ul id="dropdown1" class="dropdown-content [ top--45 ]">
 				<li><a href="#!">one</a></li>
 				<li><a href="#!">two</a></li>
-				<li class="divider"></li>
 				<li><a href="#!">three</a></li>
 			</ul>
 		</div>

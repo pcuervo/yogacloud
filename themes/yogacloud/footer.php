@@ -4,8 +4,8 @@
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
 					<div class="col s12 offset-m1 m5 offset-l2 l4 [ margin-bottom ]">
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-						<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon-phone-circle-1 icon-large padding-sides--xsmall ]"></i></a>
-						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon-email-circle-1 icon-large padding-sides--xsmall ]"></i></a>
+						<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon-phone icon-large padding-sides--xsmall ]"></i></a>
+						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon-email-fill icon-iconed padding-sides--xsmall ]"></i></a>
 					</div>
 					<div class="col s12 m5 l4">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>

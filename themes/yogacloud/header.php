@@ -44,14 +44,15 @@
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
-						<img src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<img class="[ hide-on-small-only ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<img class="[ hide-on-med-and-up ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
 					</a>
 				<!-- Menu mobile -->
 					<div class="[ inline-block ][ float-right ][ hide-on-med-and-up ]">
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
-								<i class="[ icon icon-account-circle icon-iconed ][ color-light ][ relative bottom-2 ]"></i>
+								<i class="[ icon icon-user icon-iconed ][ color-light ][ relative bottom-2 ]"></i>
 							</div>
 						</div>
 
@@ -123,7 +124,7 @@
 								<div class="[ inline-block ][ float-right ]">
 									<div class="[ block ][ float-left ][ line-height--35 ]">
 										<div id="js-btn-user--nav">
-											<i class="[ icon icon-account-circle icon-iconed ][ color-light ]"></i>
+											<i class="[ icon icon-user icon-iconed ][ color-light ]"></i>
 										</div>
 									</div>
 									<div class="[ block ][ float-right ][ line-height--39 ][ margin-top--xsmall ]">
