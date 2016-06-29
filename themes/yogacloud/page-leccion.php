@@ -3,47 +3,23 @@
 		<div class="slider [ video-leccion ]">
 			<ul class="slides">
 				<li>
-					<div class="[ main-banner ][ height---100 ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-						<div class="[ gradient-linear-opacity ][ height---100 ][ padding-bottom ]">
-							<div class="[ container ]">
-								<div class="[ row ]">
-									<div class="[ col s12 ][ white-text text-center ]">
-										<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-										<!-- Modal Trigger -->
-										<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-									</div>
-								</div>
-							</div>
+					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+						<div class="[ container relative ][ height---100 ] valign-wrapper">
+							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class="[ main-banner ][ height---100 ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
-						<div class="[ gradient-linear-opacity ][ height---100 ][ padding-bottom ]">
-							<div class="[ container ]">
-								<div class="[ row ]">
-									<div class="[ col s12 ][ white-text text-center ]">
-										<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-										<!-- Modal Trigger -->
-										<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal2"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-									</div>
-								</div>
-							</div>
+					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+						<div class="[ container relative ][ height---100 ] valign-wrapper">
+							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
 					</div>
 				</li>
 				<li>
-					<div class="[ main-banner ][ height---100 ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1462657634725-85ccd06716a6.jpg)">
-						<div class="[ gradient-linear-opacity ][ height---100 ][ padding-bottom ]">
-							<div class="[ container ]">
-								<div class="[ row ]">
-									<div class="[ col s12 ][ white-text text-center ]">
-										<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-										<!-- Modal Trigger -->
-										<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-									</div>
-								</div>
-							</div>
+					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+						<div class="[ container relative ][ height---100 ] valign-wrapper">
+							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
 					</div>
 				</li>
