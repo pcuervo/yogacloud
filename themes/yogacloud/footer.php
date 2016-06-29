@@ -54,6 +54,7 @@
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
 				$('.rating').addRating();
+				$('.dropdown-button').dropdown();
 			});
 		</script>
 		<?php wp_footer(); ?>

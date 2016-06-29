@@ -30,6 +30,17 @@
 
 	<body>
 		<header>
+			<div class="[ nav-user-desktop ][ container ][ hide-on-small-only ]">
+				<!-- Dropdown Trigger -->
+				<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
+				<a class="dropdown-button" href="#" data-activates="dropdown-user">Raúl De Zamacona</a>
+				<!-- Dropdown Structure -->
+				<ul id="dropdown-user" class="dropdown-content">
+					<li><a href="#!">Mis cursos</a></li>
+					<li><a href="#!">Sing out</a></li>
+				</ul>
+				<a class="[ margin-left ]" href="<?php echo site_url('/'); ?>">English </a><span>/ </span><a href="<?php echo site_url('/'); ?>"> Español</a>
+			</div>
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
@@ -165,7 +176,14 @@
 					<div class="[ menu-desktop ][ hide-on-small-only ]">
 						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
-						<a href="<?php echo site_url('/'); ?>">Buscar</a>
+						<a class="dropdown-button" href="#" data-activates="dropdown-search">Buscar</a>
+						<!-- Dropdown Structure -->
+						<ul id="dropdown-search" class="dropdown-content">
+							<form>
+								<input class="[ input-search-nav ]" id="search" type="search" required>
+								<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
+							</form>
+						</ul>
 					</div>
 				</div>
 			</nav>
