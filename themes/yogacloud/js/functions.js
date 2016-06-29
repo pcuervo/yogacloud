@@ -154,3 +154,15 @@ $('#next').on('click', function(event){
     event.preventDefault();
     $('.slider').slider('prev');    //error materialize
 })
+
+
+//Ellipsis text
+
+var containerHeight = $(".text-ellipsis").height();
+var $text = $(".text-ellipsis p");
+
+while ( $text.outerHeight() > containerHeight ) {
+        $text.text(function (index, text) {
+            return text.replace(/\W*\s(\S)*$/, '...');
+       });
+}

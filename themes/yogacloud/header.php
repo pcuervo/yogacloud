@@ -173,6 +173,7 @@
 						</div>
 
 					</div>
+				<!-- menu desktop -->
 					<div class="[ menu-desktop ][ hide-on-small-only ]">
 						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
