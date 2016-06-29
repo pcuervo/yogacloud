@@ -1,17 +1,13 @@
 <?php get_header(); the_post();  ?>
-	<section class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-		<div class="[ gradient-linear-opacity ]">
-			<div class="[ container ]">
-				<div class="[ row ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<a class="[ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-						<div class="[ relative ][ top--15 ]">
-							<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
-						</div>
-					</div>
-				</div>
+	<section class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+		<div class="[ gradient-linear-opacity ][ height---100 ]">
+			<div class="[ container relative ][ height---100 ] valign-wrapper">
+				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
+				<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light modal-trigger" href="#modal1"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 			</div>
+		</div>
+		<div class="[ relative ][ bottom--22 ]">
+			<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
 		</div>
 	</section>
 
