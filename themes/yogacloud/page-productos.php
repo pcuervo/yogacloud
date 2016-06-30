@@ -17,7 +17,7 @@
 			<!-- Dropdown Trigger -->
 			<a class="dropdown-button btn [ width---100 ][ block ]" href="#" data-activates="dropdown1">
 				Todos
-				<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+				<i class="[ icon icon-angle-down icon-small ][ color-light ][ vertical-align--top ]"></i>
 			</a>
 			<!-- Dropdown Structure -->
 			<ul id="dropdown1" class="dropdown-content [ top--45 ]">
@@ -102,13 +102,13 @@
 			</div>
 		</article>
 		<ul class="pagination [ text-center ]">
-			<li class="disabled"><a href="#!">icono</a></li>
+			<li class="disabled"><a href="#!"><i class="[ icon icon-angle-left icon-xsmall ][ color-primary ][ line-height--30 ]"></i></a></li>
 			<li class="active"><a href="#!">1</a></li>
 			<li class="waves-effect"><a href="#!">2</a></li>
 			<li class="waves-effect"><a href="#!">3</a></li>
 			<li class="waves-effect"><a href="#!">4</a></li>
 			<li class="waves-effect"><a href="#!">5</a></li>
-			<li class="waves-effect"><a href="#!">icono</a></li>
+			<li class="waves-effect"><a href="#!"><i class="[ icon icon-angle-right icon-xsmall ][ color-primary ][ line-height--30 ]"></i></a></li>
 		</ul>
 	</section>
 

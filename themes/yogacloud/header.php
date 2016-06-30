@@ -33,7 +33,10 @@
 			<div class="[ nav-user-desktop ][ container ][ hide-on-small-only ]">
 				<!-- Dropdown Trigger -->
 				<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
-				<a class="dropdown-button" href="#" data-activates="dropdown-user">Raúl De Zamacona</a>
+				<a class="dropdown-button" href="#" data-activates="dropdown-user">
+					Raúl De Zamacona
+					<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ]"></i>
+				</a>
 				<!-- Dropdown Structure -->
 				<ul id="dropdown-user" class="dropdown-content">
 					<li><a href="#!">Mis cursos</a></li>
@@ -98,14 +101,14 @@
 								<div class="[ footer-menu ]">
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-										<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon-phone icon-large inline padding-sides--xsmall ]"></i></a>
-										<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon-email-fill icon-iconed inline padding-sides--xsmall ][ relative bottom-2 ]"></i></a>
+										<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon-large inline padding-sides--xsmall ]"></i></a>
+										<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon-iconed inline padding-sides--xsmall ][ relative bottom-2 ]"></i></a>
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-										<a href="" class="[ white-text ]"><i class="[ icon-twitter inline icon-medium padding-sides--xsmall ]"></i></a>
-										<a href="" class="[ white-text ]"><i class="[ icon-facebook inline icon-iconed padding-sides--xsmall ]"></i></a>
-										<a href="" class="[ white-text ]"><i class="[ icon-instagram inline icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="" class="[ white-text ]"><i class="[ icon icon-twitter inline icon-medium padding-sides--xsmall ]"></i></a>
+										<a href="" class="[ white-text ]"><i class="[ icon icon-facebook inline icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="" class="[ white-text ]"><i class="[ icon icon-instagram inline icon-iconed padding-sides--xsmall ]"></i></a>
 									</div>
 								</div>
 							</div>

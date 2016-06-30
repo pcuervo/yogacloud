@@ -85,13 +85,13 @@
 					<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 					<div class="[ icon-comparte ]">
 						<a href="">
-							<i class="[ icon icon-twitter-circle icon-xlarge ][ relative bottom-2 ]"></i>
+							<i class="[ icon icon-circle-twitter-bird icon-xlarge ][ relative bottom-2 ]"></i>
 						</a>
 						<a href="">
-							<i class="[ icon icon-facebook-circle icon-xlarge ][ relative bottom-2 ]"></i>
+							<i class="[ icon icon-circle-facebook icon-xlarge ][ relative bottom-2 ]"></i>
 						</a>
 						<a href="">
-							<i class="[ icon icon-email-circle-1 icon-xlarge ][ color-primary ][ relative bottom-2 ]"></i>
+							<i class="[ icon icon-email-circle icon-xlarge ][ relative bottom-2 ]"></i>
 						</a>
 					</div>
 				</section>
