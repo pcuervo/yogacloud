@@ -32,11 +32,11 @@
 		</div>
 
 		<div class="[ text-center ][ hide-on-large-only ]">
-			<a href="" id="prev" class="[ control-slider ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<a href="" id="prev" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
-			<a href="" id="next" class="[ control-slider ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+			<a href="" id="next" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
@@ -48,7 +48,7 @@
 	<div class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ hide-on-med-and-down ][ col l2 ]">
-				<a href="" id="prev" class="[ control-slider ][ btn-rectangular-on-large ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
+				<a href="" id="prev" class="[ btn-rectangular-on-large ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
 					<img class="[ middle inline-block ][ hidden--large ][ margin-right--xsmall ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
 					<span class="[ middle inline-block ]">anterior</span>
 				</a>
@@ -72,7 +72,7 @@
 				</article>
 			</section>
 			<div class="[ hide-on-med-and-down ][ col l2 ]">
-				<a href="" id="next" class="[ control-slider ][ float-right ][ btn-rectangular-on-large ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+				<a href="" id="next" class="[ float-right ][ btn-rectangular-on-large ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<img class="[ middle inline-block ][ hidden--large ][ margin-left--xsmall ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
 				</a>

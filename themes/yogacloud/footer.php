@@ -53,7 +53,7 @@
 				});
 				$('.slider.slider-videos').slider({
 					indicators: false,
-					transition: 9999
+					interval: 100000
 				});
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
