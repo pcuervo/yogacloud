@@ -149,6 +149,26 @@ function toggleSearch(){
     });
 }
 
+// $('#clickme').on('click', function(event){
+//     event.preventDefault();
+//     boxSearch();
+// })
+
+// function boxSearch(){
+
+//     if( $('#book').hasClass('hidden') ){
+//         $( "#clickme" ).click(function() {
+//           $( "#book" ).show( "slow", function() {
+//             $( "#book" ).removeClass('hidden');
+//           });
+//         });
+//         return
+//     }
+//     $( "#book" ).hide( "slow", function() {
+//         $( "#book" ).addClass('hidden');
+//     });
+// }
+
 //Slider Videos
 
 $('#prev').on('click', function(event){
@@ -172,3 +192,4 @@ while ( $text.outerHeight() > containerHeight ) {
             return text.replace(/\W*\s(\S)*$/, '...');
        });
 }
+

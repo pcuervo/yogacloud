@@ -9,9 +9,9 @@
 					</div>
 					<div class="col s12 m5 l4">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ][ line-height---1_8 ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ][ line-height---1_8 ]"></i></a>
+						<a href="" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ][ line-height---1_8 ]"></i></a>
 						<img src="" alt="">
 					</div>
 				</div>
