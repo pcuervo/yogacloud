@@ -169,13 +169,6 @@
 .border-radius--8 		{ border-radius: 8px; }
 .border-radius---50 	{ border-radius: 50%;}
 
-.border-right-color--secondary { border-right-color: $secondary-color; }
-.border-top-color--secondary { border-top-color: $secondary-color; }
-.border-right-color--primary { border-right-color: $primary-color;; }
-.border-top-color--primary { border-top-color: $primary-color;; }
-.border-right-color--gray { border-right-color: $primary-color-gray; }
-.border-top-color--gray { border-top-color: $primary-color-gray; }
-
 //Overflow
 
 .overflow-hidden 			{ overflow: hidden; }
@@ -191,36 +184,48 @@
 }
 @media (min-width: 993px ){ .text-ellipsis { height: 155px; }}
 
-
 //PROMO
-div.promo {
-  position: absolute; right: 0px;
-  div{
-    width: 0;
-    height: 0;
-    border-left: 45px solid transparent;
-    border-bottom: 45px solid transparent;
-    border-right: 45px solid $secondary-color;
-    border-top: 45px solid $secondary-color;
-    }
-    p{
-      -ms-transform: rotate(45deg); /* IE 9 */
-      -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-      transform: rotate(45deg);
-      color: $light-color;
-      font-weight: bold;
-      position: absolute;
-      text-transform: uppercase;
-      &.nuevo {
-        right: 2px; top: 6px;
-      }
-      &.destacado {
-        font-size: 10px;
-        right: 0px; bottom: 40px;
-      }
-      &.proximamente {
-        font-size: 10px;
-        left: 15px; top: 17px;
-      }
-    }
+div #promo {
+	position: absolute; right: 0px;
+	div{
+		width: 0;
+		height: 0;
+		border-left: 45px solid transparent;
+		border-bottom: 45px solid transparent;
+		border-right: 45px solid;
+		border-top: 45px solid;
+	}
+	p{
+		-ms-transform: rotate(45deg); /* IE 9 */
+		-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+		transform: rotate(45deg);
+		color: $light-color;
+		font-weight: bold;
+		position: absolute;
+		text-transform: uppercase;
+	}
+	&.none { display:none; }
+	&.nuevo div {
+		border-right-color: $secondary-color;
+		border-top-color: $secondary-color;
+	}
+	&.destacado div {
+		border-right-color: $primary-color;
+		border-top-color: $primary-color;
+	}
+	&.proximamente div {
+		border-right-color: $primary-color-gray;
+		border-top-color: $primary-color-gray;
+	}
+	&.nuevo p {
+		right: 2px; top: 6px;
+	}
+	&.destacado p {
+		font-size: 10px;
+		right: 0px; bottom: 40px;
+	}
+	&.proximamente p {
+		font-size: 10px;
+		left: 15px; top: 17px;
+	}
 }

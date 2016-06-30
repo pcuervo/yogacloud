@@ -31,9 +31,9 @@
 							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div class="[ promo ]">
+									<div id="promo" class="[ nuevo ]">
 										<div></div>
-										<p class="[ nuevo ]">NUEVO</p>
+										<p>NUEVO</p>
 									</div>
 								</div>
 							</div>
@@ -53,12 +53,12 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div style="height: 200px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div class="[ promo ]">
+									<div id="promo" class="[ destacado ]">
 										<div></div>
-										<p class="[ destacado ]">DESTACADO</p>
+										<p>DESTACADO</p>
 									</div>
 								</div>
 							</div>
@@ -78,12 +78,12 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div style="height: 200px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div class="[ promo ]">
+									<div id="promo" class="[ proximamente ]">
 										<div></div>
-										<p class="[ proximamente ]">PRÓXIMAMENTE</p>
+										<p>PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>

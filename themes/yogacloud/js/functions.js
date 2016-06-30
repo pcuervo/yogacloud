@@ -172,3 +172,11 @@ while ( $text.outerHeight() > containerHeight ) {
             return text.replace(/\W*\s(\S)*$/, '...');
        });
 }
+
+//Etiqueta promociones
+
+// function etiquetaPromo(){
+//     if( $('div.promo p').hasClass('nuevo') ){
+//         $( "div.promo div" ).addClass('border-right-color--secondary, border-top-color--secondary');
+//     }
+// }
