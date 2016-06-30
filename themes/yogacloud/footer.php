@@ -47,7 +47,6 @@
 				 * On ready
 				**/
 				imgToSvg();
-				etiquetaPromo();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000

@@ -172,17 +172,3 @@ while ( $text.outerHeight() > containerHeight ) {
             return text.replace(/\W*\s(\S)*$/, '...');
        });
 }
-
-//Etiqueta promociones
-
-function etiquetaPromo(){
-    if('#promo.nuevo'){
-        $( "#promo p.text-nuevo" ).removeClass('hidden');
-    }
-    if('#promo.destacado'){
-        $( "#promo p.text-destacado" ).removeClass('hidden');
-    }
-    if('#promo.proximamente'){
-        $( "#promo p.text-proximamente" ).removeClass('hidden');
-    }
-}

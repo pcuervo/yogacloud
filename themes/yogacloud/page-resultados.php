@@ -34,10 +34,7 @@
 								<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 									<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 										<span class="[ card-title ]">Título del curso</span>
-										<div id="promo" class="[ none ]">
-											<div></div>
-											<p>NUEVO</p>
-										</div>
+										<!-- ej. sin promo -->
 									</div>
 								</div>
 							</div>
@@ -61,7 +58,9 @@
 										<span class="[ card-title ]">Título del curso</span>
 										<div id="promo" class="[ destacado ]">
 											<div></div>
-											<p>DESTACADO</p>
+											<p class="text-nuevo">NUEVO</p>
+											<p class="text-destacado">DESTACADO</p>
+											<p class="text-proximamente">PRÓXIMAMENTE</p>
 										</div>
 									</div>
 								</div>

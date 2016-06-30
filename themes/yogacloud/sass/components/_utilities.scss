@@ -198,7 +198,7 @@
 @media (min-width: 993px ){ .text-ellipsis { height: 190px; }}
 
 //PROMO
-div #promo {
+#promo {
 	position: absolute; right: 0px;
 	div{
 		width: 0;
@@ -217,7 +217,7 @@ div #promo {
 		position: absolute;
 		text-transform: uppercase;
 	}
-	&.none { display:none; }
+	// &.none { display:none; }
 	&.nuevo div {
 		border-right-color: $secondary-color;
 		border-top-color: $secondary-color;
@@ -230,15 +230,24 @@ div #promo {
 		border-right-color: $primary-color-gray;
 		border-top-color: $primary-color-gray;
 	}
-	&.nuevo p.text-nuevo {
-		right: 2px; top: 6px;
+	&.nuevo {
+		p.text-nuevo {
+			right: 2px; top: 6px;
+		}
+		p.text-destacado, p.text-proximamente { display: none; }
 	}
-	&.destacado p.text-destacado {
-		font-size: 10px;
-		right: 0px; bottom: 40px;
+	&.destacado {
+		p.text-destacado {
+			font-size: 10px;
+			right: 0px; bottom: 40px;
+		}
+		p.text-nuevo, p.text-proximamente { display: none; }
 	}
-	&.proximamente p.text-proximamente {
-		font-size: 10px;
-		left: 15px; top: 17px;
+	&.proximamente {
+		 p.text-proximamente {
+			font-size: 10px;
+			left: 15px; top: 17px;
+		}
+		p.text-nuevo, p.text-destacado { display: none; }
 	}
 }

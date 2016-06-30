@@ -33,9 +33,9 @@
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ nuevo ]">
 										<div></div>
-										<p class="text-nuevo hidden">NUEVO</p>
-										<p class="text-destacado hidden">DESTACADO</p>
-										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>
@@ -60,9 +60,9 @@
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ destacado ]">
 										<div></div>
-										<p class="text-nuevo hidden">NUEVO</p>
-										<p class="text-destacado hidden">DESTACADO</p>
-										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>
@@ -81,15 +81,15 @@
 			<article class="[ col s12 m6 offset-m3 ]">
 				<div class="[ card ]">
 					<div class="[ row ]">
-						<div class="[ card-image ][ col s12 l6 ]">
+						<div id="content-curso" class="[ card-image ][ col s12 l6 ]">
 							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ proximamente ]">
 										<div></div>
-										<p class="text-nuevo hidden">NUEVO</p>
-										<p class="text-destacado hidden">DESTACADO</p>
-										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>
