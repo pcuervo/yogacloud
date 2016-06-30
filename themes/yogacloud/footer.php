@@ -59,6 +59,10 @@
 				$('.scrollspy').scrollSpy();
 				$('.rating').addRating();
 				$('.dropdown-button').dropdown();
+				$('.dropdown-button.button-form-search').dropdown({
+						hover: true, // Activate on hover
+					}
+				);
 			});
 		</script>
 		<?php wp_footer(); ?>

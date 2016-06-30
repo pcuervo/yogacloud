@@ -245,7 +245,10 @@ textarea {
   border-bottom: 1px solid $primary-color!important;
   width: 160px!important;
   color: $primary-color;
-  @media (min-width: 601px){ border-bottom: 1px solid $light-color!important; }
+  @media (min-width: 601px){
+    border-bottom: 1px solid $light-color!important;
+    color: $light-color;
+  }
 }
 #box-form.box-search {
     background-color: $light-color;

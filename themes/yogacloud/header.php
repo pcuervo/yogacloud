@@ -195,7 +195,7 @@
 					<div class="[ menu-desktop ][ hide-on-small-only ]">
 						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
-						<a class="dropdown-button" href="#" data-activates="dropdown-search">Buscar</a>
+						<a class="dropdown-button button-form-search" href="#" data-activates="dropdown-search">Buscar</a>
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
