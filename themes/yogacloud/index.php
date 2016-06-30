@@ -33,7 +33,9 @@
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ nuevo ]">
 										<div></div>
-										<p>NUEVO</p>
+										<p class="text-nuevo hidden">NUEVO</p>
+										<p class="text-destacado hidden">DESTACADO</p>
+										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>
@@ -58,7 +60,9 @@
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ destacado ]">
 										<div></div>
-										<p>DESTACADO</p>
+										<p class="text-nuevo hidden">NUEVO</p>
+										<p class="text-destacado hidden">DESTACADO</p>
+										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>
@@ -83,7 +87,9 @@
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ proximamente ]">
 										<div></div>
-										<p>PRÓXIMAMENTE</p>
+										<p class="text-nuevo hidden">NUEVO</p>
+										<p class="text-destacado hidden">DESTACADO</p>
+										<p class="text-proximamente hidden">PRÓXIMAMENTE</p>
 									</div>
 								</div>
 							</div>

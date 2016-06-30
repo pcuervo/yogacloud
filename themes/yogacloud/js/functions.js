@@ -175,8 +175,14 @@ while ( $text.outerHeight() > containerHeight ) {
 
 //Etiqueta promociones
 
-// function etiquetaPromo(){
-//     if( $('div.promo p').hasClass('nuevo') ){
-//         $( "div.promo div" ).addClass('border-right-color--secondary, border-top-color--secondary');
-//     }
-// }
+function etiquetaPromo(){
+    if('#promo.nuevo'){
+        $( "#promo p.text-nuevo" ).removeClass('hidden');
+    }
+    if('#promo.destacado'){
+        $( "#promo p.text-destacado" ).removeClass('hidden');
+    }
+    if('#promo.proximamente'){
+        $( "#promo p.text-proximamente" ).removeClass('hidden');
+    }
+}
