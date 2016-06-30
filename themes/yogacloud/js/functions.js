@@ -122,21 +122,27 @@ $('#title-search-nav').on('click', function(event){
 
 function toggleSearch(){
     if( $('#form-search-nav').hasClass('hidden') ){
-
+        $( ".divider.divider-hidden" ).addClass('hidden');
+        $( "#box-form" ).addClass('box-search');
         $( "#title-search-nav" ).animate({
             fontSize: 15,
         }, 500, function() {
-            // $( "#title-search-nav hr" ).addClass('hidden');
+            //Animated complete
         });
         $( "#form-search-nav" ).show("slow", function() {
             $( "#form-search-nav" ).removeClass('hidden');
         });
         return;
     }
+
+
     $( "#title-search-nav" ).animate({
         fontSize: 23
     }, 500, function() {
-        // $( "#title-search-nav hr" ).removeClass('hidden');
+        //Animated complete
+        $( ".divider.divider-hidden" ).removeClass('hidden');
+        $( "#box-form" ).removeClass('box-search');
+
     });
     $( "#form-search-nav" ).hide("slow", function() {
         $( "#form-search-nav" ).addClass('hidden');
