@@ -51,6 +51,10 @@
 					indicators: true,
 					interval: 4000
 				});
+				$('.slider.slider-videos').slider({
+					indicators: false,
+					transition: 9999
+				});
 				$('.modal-trigger').leanModal();
 				$('.scrollspy').scrollSpy();
 				$('.rating').addRating();

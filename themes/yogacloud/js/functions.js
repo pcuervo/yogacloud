@@ -197,9 +197,16 @@ while ( $text.outerHeight() > containerHeight ) {
 
 $('#play-button').on('click', function(event){
     event.preventDefault();
-    $("#video_player")[0].play(); //autoplay
+    videoPlayer();
 })
 
-// function toggleSearch(){
-
-// }
+function videoPlayer(){
+    if( $('#video-container').hasClass('hidden') ){
+        $( "#video-container" ).removeClass('hidden');
+        $( "#play-button img" ).addClass('hidden');
+        $("#video_player")[0].play(); //autoplay
+    }
+    // $(".control-slider").on("click", function() {
+    //     $("#video_player")[0].stop(); //stop
+    // })
+}
