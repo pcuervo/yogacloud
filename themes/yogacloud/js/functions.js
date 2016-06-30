@@ -207,7 +207,4 @@ function videoPlayer(){
         $( "#play-button img" ).addClass('hidden');
         $("#video_player")[0].play(); //autoplay
     }
-    // $(".control-slider").on("click", function() {
-    //     $("#video_player")[0].stop(); //stop
-    // })
 }
