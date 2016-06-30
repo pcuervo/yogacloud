@@ -56,12 +56,12 @@
 					</div>
 					<iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256340512&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 				</article>
-				<div class="[ text-center ][ margin-bottom--large ]">
+				<article class="[ text-center ]">
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">
-						<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+						<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
 						<span class="[ middle inline-block ]">descargar notas</span>
 					</a>
-				</div>
+				</article>
 			</section>
 			<div class="[ hide-on-med-and-down ][ col l2 ]">
 				<a href="" id="next" class="[ float-right ][ btn-rectangular-on-large ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
