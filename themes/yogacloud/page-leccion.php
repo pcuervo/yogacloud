@@ -9,9 +9,9 @@
 								<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 							</video>
 						</div> -->
-			<!-- 			<video id="video_player" class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
+						<video id="video_player" class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
-			</video> -->
+			</video>
 						<div class="[ container relative ][ height---100 ] valign-wrapper">
 							<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
