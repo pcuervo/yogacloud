@@ -28,7 +28,7 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ nuevo ]">
@@ -53,7 +53,7 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ destacado ]">
@@ -78,7 +78,7 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div style="height: 300px; width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ proximamente ]">
