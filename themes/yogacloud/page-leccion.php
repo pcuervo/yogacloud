@@ -28,12 +28,12 @@
 
 		<div class="[ text-center ][ hide-on-large-only ]">
 			<a href="" id="prev" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
-				<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
-				<span class="[ middle inline-block ][ margin-left--xsmall ]">anterior</span>
+				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+				<span class="[ middle inline-block ]">anterior</span>
 			</a>
 			<a href="" id="next" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
-				<span class="[ middle inline-block ][ margin-right--xsmall ]">siguiente</span>
-				<img class="[ middle inline-block ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+				<span class="[ middle inline-block ]">siguiente</span>
+				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
 		</div>
 	</section>

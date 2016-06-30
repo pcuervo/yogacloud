@@ -101,3 +101,6 @@
 .icon-comparte a i 			{ @include transition( 0.3s ease-in-out );}
 .icon-comparte a i:hover   	{ opacity: 0.5;}
 
+//Margin
+.no-margin-sides.icon,
+.no-margin-sides.icon:before { margin-left: 0px!important; margin-right: 0px!important; }
