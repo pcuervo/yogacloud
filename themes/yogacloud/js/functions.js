@@ -203,6 +203,7 @@ $('#play-button').on('click', function(event){
 function videoPlayer(){
     if( $('#video-container').hasClass('hidden') ){
         $( "#video-container" ).removeClass('hidden');
+        $( "#video-container" ).addClass('z-index-10');
         $( "#play-button img" ).addClass('hidden');
         $("#video_player")[0].play(); //autoplay
     }
