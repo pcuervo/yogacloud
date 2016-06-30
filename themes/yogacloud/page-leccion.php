@@ -4,25 +4,33 @@
 			<ul class="slides">
 				<li>
 					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+						<!-- <div class="valign-wrapper">
+							<video id="video_player" class="responsive-video [ valign ]" controls>
+								<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+							</video>
+						</div> -->
+			<!-- 			<video id="video_player" class="[ absolute ][ z-index--1 ][ min-width---100 ]" autoplay loop>
+				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+			</video> -->
 						<div class="[ container relative ][ height---100 ] valign-wrapper">
-							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light" modal-trigger" href="#modal1""><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+							<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+						</div>
+					</div>
+				</li>
+				<!-- <li>
+					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+						<div class="[ container relative ][ height---100 ] valign-wrapper">
+							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
 					</div>
 				</li>
 				<li>
 					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
 						<div class="[ container relative ][ height---100 ] valign-wrapper">
-							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light" modal-trigger" href="#modal1""><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 						</div>
 					</div>
-				</li>
-				<li>
-					<div class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-						<div class="[ container relative ][ height---100 ] valign-wrapper">
-							<a class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light" modal-trigger" href="#modal1""><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-						</div>
-					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 
@@ -37,6 +45,9 @@
 			</a>
 		</div>
 	</section>
+
+
+
 	<div class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ hide-on-med-and-down ][ col l2 ]">

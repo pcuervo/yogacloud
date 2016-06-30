@@ -22,8 +22,6 @@
 		</div>
 	</article>
 
-
-
 <!--
 <div id="clickme">
 Click here

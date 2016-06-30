@@ -193,3 +193,13 @@ while ( $text.outerHeight() > containerHeight ) {
        });
 }
 
+// Videos
+
+$('#play-button').on('click', function(event){
+    event.preventDefault();
+    $("#video_player")[0].play(); //autoplay
+})
+
+// function toggleSearch(){
+
+// }
