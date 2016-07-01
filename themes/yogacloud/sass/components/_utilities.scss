@@ -203,10 +203,9 @@
 
 .text-ellipsis {
   width: 100%;
-  height: 230px;
   overflow: hidden;
 }
-@media (min-width: 993px ){ .text-ellipsis { height: 190px; }}
+@media (max-width: 992px ){ .text-ellipsis { height: 230px!important; }}
 
 //PROMO
 #promo {
