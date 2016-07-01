@@ -47,6 +47,7 @@
 				 * On ready
 				**/
 				imgToSvg();
+				heightScreen();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000

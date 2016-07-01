@@ -178,9 +178,21 @@ function videoPlayer(){
 }
 
 //Max height Video
-var ventana_alto = $(window).height();
-var height_video =  ((ventana_alto - 64) + 'px'); //window height - height header
-console.log(height_video);
-var video_alto = $('video#video_player').height();
-console.log(video_alto);
-$('.max-height-screen').css('max-height', height_video);
+
+function heightScreen(){
+    if($("#play-button").length > 0) {
+        var ventana_alto = $(window).height();
+
+        var height_video =  ((ventana_alto - 64) + 'px'); //window height - height header
+        console.log('Altura máxima video', height_video);
+        $('.max-height-screen').css('max-height', height_video);
+
+        var height_video_button =  (((ventana_alto - 64) - 45 ) + 'px'); //( window height - height header ) - button
+        console.log('Altura máxima video con botón', height_video_button);
+        $('.max-height-screen_button').css('max-height', height_video_button);
+
+        var video_alto = $('video#video_player').height();
+        console.log('Altura actual del video', video_alto + 'px');
+    }
+}
+

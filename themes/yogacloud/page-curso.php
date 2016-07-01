@@ -1,20 +1,23 @@
 <?php get_header(); the_post();  ?>
-	<section class="[ main-banner ][ white-text text-center ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
-			<div class="[ container relative ][ height---100 ] valign-wrapper">
-				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
-				<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
-			</div>
-			<div id="video-container" class="[ absolute top--0 ][ width---100 height---100 ][ bg-darker ][ hidden ]">
-				<video id="video_player" class="responsive-video [ z-index-1 ][ max-height---100 min-height---100 ]" controls> <!-- min-width---100 absolute bottom--0 left--0 -->
-					<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
-				</video>
-			</div>
+	<section class="[ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ height-auto ]" >
+		<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ]">
+			<video id="video_player" class="[ max-height-screen_button ][ z-index-1 ][ width---100 ][ stop ]" controls>
+				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+			</video>
 		</div>
-		<div class="[ relative ][ bottom--22 ][ z-index-10 ]">
-			<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
+				<div class="[ container relative ][ height---100 ] valign-wrapper">
+					<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
+					<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+				</div>
+			</div>
 		</div>
 	</section>
+	<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
+		<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
+	</div>
+
 
 	<section class="[ container ]">
 		<div class="[ row ]">
