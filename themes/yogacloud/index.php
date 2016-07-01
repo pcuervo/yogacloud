@@ -114,7 +114,6 @@ Click here
 		</div>
 	</section>
 
-
 	<?php
 		$yoga_project_query = new WP_Query( array( 'name' => 'yoga-project' ) );
 		if( $yoga_project_query->have_posts() ) : while( $yoga_project_query->have_posts() ) : $yoga_project_query->the_post(); ?>
