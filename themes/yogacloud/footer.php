@@ -47,7 +47,8 @@
 				 * On ready
 				**/
 				imgToSvg();
-				heightScreen();
+				heightScreen(); //cursos y lección
+				boxCurso(); //Index y resultados
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000

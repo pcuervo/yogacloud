@@ -25,7 +25,7 @@
 	<section class="[ container ][  scrollspy ]" id="cursos">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">
-				<div class="[ card ]">
+				<div id="box-curso" class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
 							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
@@ -41,10 +41,10 @@
 							</div>
 						</div>
 						<div class="[ col l6 ]">
-							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+							<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]" id="cursos">
 								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 							</div>
-							<div class="[ relative ][ top--15 ][ text-center ]">
+							<div class="[ relative ][ top--22 ][ text-center ]">
 								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 							</div>
 						</div>
@@ -69,10 +69,10 @@
 							</div>
 						</div>
 						<div class="[ col l6 ]">
-							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+							<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]" id="cursos">
 								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 							</div>
-							<div class="[ relative ][ top--15 ][ text-center ]">
+							<div class="[ relative ][ top--22 ][ text-center ]">
 								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 							</div>
 						</div>
@@ -96,10 +96,10 @@
 							</div>
 						</div>
 						<div class="[ col l6 ]">
-							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+							<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]" id="cursos">
 								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 							</div>
-							<div class="[ relative ][ top--15 ][ text-center ]">
+							<div class="[ relative ][ top--22 ][ text-center ]">
 								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 							</div>
 						</div>
@@ -161,7 +161,7 @@
 						</div>
 					</div>
 				</li>
-			<!-- 	<li>
+				<li>
 					<div class="caption">
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
@@ -172,7 +172,7 @@
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
 						</div>
 					</div>
-				</li> -->
+				</li>
 			</ul>
 		</div>
 	</section>
