@@ -798,30 +798,6 @@ nav ul a span.badge {
   img {margin-top:$margin-size; margin-bottom:$margin-size;}
 }
 
-// scrollbar
-
-.content-testimonial::-webkit-scrollbar{
-  width: 7px;
-  background: $light-color;
-}
-.content-testimonial::-webkit-scrollbar-track:window-inactive{
-  background:$light-color;
-  border:none;
-  -webkit-box-shadow: inset 0 0 6px #b7fff6;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-.content-testimonial::-webkit-scrollbar-thumb{
-  background: $primary-transparent;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,225,.5),
-                      inset 1px 0 0 rgba(255,255,255,.4),
-                      inset 0 1px 2px rgba(255,255,255,.3);
-  border:none;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-}
-
-
 //Center-full
 
 .center-full {
