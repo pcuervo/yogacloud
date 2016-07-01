@@ -1,13 +1,15 @@
 <?php get_header(); the_post();  ?>
 	<section class="[ text-center ]">
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ]" style="height: auto; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-			<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ][ hidden ]">
-				<video id="video_player" class="[ max-height-screen ][ z-index-1 ][ width---100 ]" controls>
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ height-auto ]" >
+			<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ]">
+				<video id="video_player" class="[ max-height-screen ][ z-index-1 ][ width---100 ][ stop ]" controls>
 					<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 				</video>
 			</div>
-			<div class="[ container relative ][ height---100 ] valign-wrapper">
-				<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+				<div class="[ container relative ][ height---100 ] valign-wrapper">
+					<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+				</div>
 			</div>
 		</article>
 

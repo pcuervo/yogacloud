@@ -168,8 +168,9 @@ $('#play-button').on('click', function(event){
 })
 
 function videoPlayer(){
-    if( $('#video-container').hasClass('hidden') ){
-        $( "#video-container" ).removeClass('hidden');
+    if( $('#background-video').hasClass('in-front') ){
+        $( "#background-video" ).removeClass('in-front');
+        $( "#background-video" ).addClass('hidden');
         $( "#video-container" ).addClass('z-index-10');
         $( "#play-button img" ).addClass('hidden');
         $("#video_player")[0].play(); //autoplay
@@ -180,4 +181,6 @@ function videoPlayer(){
 var ventana_alto = $(window).height();
 var height_video =  ((ventana_alto - 64) + 'px'); //window height - height header
 console.log(height_video);
+var video_alto = $('video#video_player').height();
+console.log(video_alto);
 $('.max-height-screen').css('max-height', height_video);
