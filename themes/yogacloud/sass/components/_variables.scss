@@ -34,12 +34,17 @@
    ========================================================================== */
 
 $primary-color: color("primary", "lighten-1") !default;
-$secondary-color: color("secondary", "lighten-1") !default;
+$primary-color-base: color("primary", "base") !default;
+$primary-color-blue: color("primary", "blue") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
+$primary-color-gray: color("primary", "gray") !default;
 $primary-transparent: color("primary","transparent")!default;
+$primary-transparent--light: color("primary","transparent-light")!default;
+$secondary-color: color("secondary", "lighten-1") !default;
 $secondary-transparent: color("secondary","transparent")!default;
 $secondary-transparent--light: color("secondary","transparent-light")!default;
+$secondary-color-dark: color("secondary", "darken-1") !default;
 
 $secondary-color: color("teal", "lighten-1") !default;
 $success-color: color("green", "base") !default;
@@ -49,6 +54,7 @@ $link-color: color("light-blue", "darken-1") !default;
 $light-color: color("light","base") !default;
 $light-transparent-color: color("light","transparent") !default;
 $dark-color: color("dark", "base") !default;
+$darker-color: color("dark", "darker") !default;
 
 
 /* 2. Badges
@@ -64,7 +70,7 @@ $badge-bg-color: $secondary-color !default;
 $button-border: none !default;
 $button-background-focus: lighten($secondary-color, 4%) !default;
 $button-font-size: 1.3rem !default;
-$button-height: 36px !default;
+$button-height: 45px !default;
 $button-padding: 0 2rem !default;
 $button-radius: 2px !default;
 

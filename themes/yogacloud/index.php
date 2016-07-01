@@ -1,63 +1,120 @@
 <?php get_header(); ?>
 
-	<div class="[ main-banner ][ margin-bottom--xlarge ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-		<div class="[ gradient-linear-opacity ]">
-			<div class="[ container ]">
-				<div class="[ row ]">
-					<div class="[ col s12 ][ white-text text-center ]">
-						<h1 class="[ padding-sides ]">Yoga cloud cursos</h1>
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-						<div class="[ btn-main-cta ][ relative ][ top--15 ]">
-							<a href="<?php echo site_url('/'); ?>#cursos" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded ]">ver cursos</a>
+	<article class="[ main-banner ]">
+		<div class="[ relative ][ overflow-hidden width---100 ]">
+			<video class="[ absolute ][ z-index--1 ][ min-width---100 min-height---100 ]" autoplay loop>
+				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+			</video>
+			<div class="[ gradient-linear-opacity ][ padding-vertical--large ]">
+				<div class="[ container ]">
+					<div class="[ row ]">
+						<div class="[ col s12 ][ white-text text-center ]">
+							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
+							<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
+							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="[ relative ][ bottom--22 ][ text-center ]">
+			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
+		</div>
+	</article>
 
-	<section class="[ container ]" id="cursos">
+<!--
+<div id="clickme">
+Click here
+</div>
+<img class="hidden" id="book" src="<?php echo THEMEPATH;?>images/photo-1445384763658-0400939829cd.jpg" alt="" width="100" height="123"> -->
+
+	<section class="[ container ]">
 		<div class="[ row ]">
-			<div class="[ col s12 ]">
+			<article class="[ col s12 m6 ]">
 				<div class="[ card ]">
-					<div class="[ card-image ]">
-						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
-							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
-								<span class="[ card-title ]">Título del curso</span>
+					<div class="[ row ]">
+						<div class="[ card-image ][ col s12 l6 ]">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+									<span class="[ card-title ]">Título del curso</span>
+									<div id="promo" class="[ nuevo ]">
+										<div></div>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="[ col l6 ]">
+							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+							</div>
+							<div class="[ relative ][ top--15 ][ text-center ]">
+								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 							</div>
 						</div>
 					</div>
-					<div class="[ card-content ]">
-					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-					</div>
-					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
-					</div>
 				</div>
-			</div>
-			<div class="[ col s12 ]">
-				<div class="card">
-					<div class="[ card-image ]">
-						<div style="height: 200px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ]">
-								<span class="[ card-title ]">Título del curso</span>
+			</article>
+			<article class="[ col s12 m6 ]">
+				<div class="[ card ]">
+					<div class="[ row ]">
+						<div class="[ card-image ][ col s12 l6 ]">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+									<span class="[ card-title ]">Título del curso</span>
+									<div id="promo" class="[ destacado ]">
+										<div></div>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="[ col l6 ]">
+							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+							</div>
+							<div class="[ relative ][ top--15 ][ text-center ]">
+								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
 							</div>
 						</div>
 					</div>
-					<div class="[ bg-secondary ][ text-center ][ white-text ]">
-						<p class="[ no-margin ]">NUEVO</p>
-					</div>
-					<div class="[ card-content ]">
-					<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-					</div>
-					<div class="[ btn-main-cta ][ relative ][ top--15 ][ text-center ]">
-						<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded ]">más info</a>
+				</div>
+			</article>
+			<article class="[ col s12 m6 offset-m3 ]">
+				<div class="[ card ]">
+					<div class="[ row ]">
+						<div id="content-curso" class="[ card-image ][ col s12 l6 ]">
+							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+									<span class="[ card-title ]">Título del curso</span>
+									<div id="promo" class="[ proximamente ]">
+										<div></div>
+										<p class="text-nuevo">NUEVO</p>
+										<p class="text-destacado">DESTACADO</p>
+										<p class="text-proximamente">PRÓXIMAMENTE</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="[ col l6 ]">
+							<div class="[ card-content ][ text-ellipsis ]" id="cursos">
+								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+							</div>
+							<div class="[ relative ][ top--15 ][ text-center ]">
+								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+							</div>
+						</div>
 					</div>
 				</div>
-			</div>
+			</article>
 		</div>
 	</section>
 
+<<<<<<< HEAD
 	<?php
 		$yoga_project_query = new WP_Query( array( 'name' => 'yoga-project' ) );
 		if( $yoga_project_query->have_posts() ) : while( $yoga_project_query->have_posts() ) : $yoga_project_query->the_post(); ?>
@@ -80,50 +137,75 @@
 				</div>
 				<div class="[ col s6 ]">
 					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+=======
+	<section class="[ gradient-diagonal ][ padding-vertical ]" >
+		<div class="[ container ]">
+			<div class="[ row ][ no-margin-bottom ]">
+				<div class="[ col s12 m10 offset-m1 l8 offset-l2 ][ white-text ]">
+					<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
+					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+					<div class="[ text-center ]">
+						<img class="[ width--120 ][ margin-right ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					</div>
+>>>>>>> 66d003bd919ee9e8d3d6db71b193d2448be56e47
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<article id="testimonials">
-		<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
-		<div class="slider">
+	<section id="testimonials">
+		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
+		<div class="slider testimonials">
 			<ul class="slides">
 				<li>
-					<div class="caption center-align">
-					<h3>This is our big Tagline!</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div class="caption left-align">
-					<h3>Left Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 				<li>
-					<div class="caption right-align">
-					<h3>Right Aligned Caption</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-					</div>
-				</li>
-				<li>
-					<div class="caption center-align">
-					<h3>This is our big Tagline!</h3>
-					<h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
 					</div>
 				</li>
 			</ul>
 		</div>
-	</article>
+	</section>
 
-	<div class="[ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+	<section class="[ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>
-				<a class="[ btn btn-rounded btn-light ]">registrarme</a>
+				<a class="[ btn btn-rounded btn-light waves-effect waves-light ]">registrarme</a>
 			</div>
 		</div>
-	</div>
+	</section>
+
 
 <?php get_footer(); ?>

@@ -239,3 +239,20 @@ textarea {
   overflow-wrap: break-word; /* future version of deprecated 'word-wrap' */
   padding-top: 1.2rem; /* prevents text jump on Enter keypress */
 }
+
+//Input search
+.input-search-nav {
+  border-bottom: 1px solid $primary-color!important;
+  width: 160px!important;
+  color: $primary-color;
+  @media (min-width: 601px){
+    border-bottom: 1px solid $light-color!important;
+    color: $light-color;
+  }
+}
+#box-form.box-search {
+    background-color: $light-color;
+    margin-top:$margin-size; margin-bottom:$margin-size;
+    padding: $padding-size 0;
+    h5 { color: $primary-color!important;}
+}

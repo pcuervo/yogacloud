@@ -16,18 +16,47 @@
   will-change: top, opacity;
 
   @media #{$medium-and-down} {
-   width: 80%;
+   width: 98%;
   }
 
   h1,h2,h3,h4 {
     margin-top: 0;
   }
 
+  &.maestros-transparent {
+    min-height: 100vh;
+    width: 100%;
+    top: 0px!important;
+    background-color: transparent;
+    & .modal-content {
+      background: linear-gradient(180deg, rgba(19,194,172,0.8),rgba(18,144,229,0.8));
+      min-height: 100vh;
+      padding: $padding-size;
+    }
+  }
+
   .modal-content {
-    padding: 24px;
+    padding: 10px;
+    &.video-leccion {
+      padding:0px;
+      position: relative;
+      top: -1px;
+    }
   }
   .modal-close {
     cursor: pointer;
+  }
+
+  .modal-header {
+    background-color: $primary-color;
+    padding: 5px 10px;
+    height: 45px;
+    width: 100%;
+
+    .btn, .btn-flat {
+      float: right;
+      padding:0px;
+    }
   }
 
   .modal-footer {
@@ -87,4 +116,9 @@
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity;
+}
+
+//
+.modal-primary {
+  background-color: $primary-color-dark!important;
 }

@@ -15,44 +15,28 @@
   -o-transition:      all 0.3s ease;
 }
 
-/*------------------------------------*\
-    #SIZES
-\*------------------------------------*/
-
-.icon--responsive{ width: 100%; height: auto; }
-
-.icon--iconed{width: 40px; height: 40px;}
-
-/*------------------------------------*\
-  #COLOR
-\*------------------------------------*/
-
-/**
- * Fill
-**/
-.icon--fill path,
-.icon--fill line,
-.icon--fill rect,
-.icon--fill circle,
-.icon--fill ellipse,
-.icon--fill polyline,
-.icon--fill polygon{ fill: currentColor; }
-
-
-/**
- * Stroke
-**/
-.icon--stroke{ stroke-width: 1.5; }
-
-.icon--thickness-05{ stroke-width: 0.5; }
-.icon--thickness-1{ stroke-width: 1; }
-.icon--thickness-2{ stroke-width: 2; }
-.icon--thickness-3{ stroke-width: 3; }
-
-.icon--stroke path,
-.icon--stroke line,
-.icon--stroke rect,
-.icon--stroke circle,
-.icon--stroke ellipse,
-.icon--stroke polyline,
-.icon--stroke polygon{ stroke: currentColor; }
+//Rating
+  @font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2) format('woff2'), url(https://fonts.gstatic.com/s/materialicons/v7/2fcrYFNaTjcS6g4U3t-Y5RV6cRhDpPC5P4GCEJpqGoc.woff) format('woff');
+  }
+.rating{
+  margin-bottom: ($margin-size/2);
+  .material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    color: $primary-color;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    word-wrap: normal;
+    -moz-font-feature-settings: 'liga';
+    -moz-osx-font-smoothing: grayscale;
+  }
+  i { cursor :  pointer; }
+}

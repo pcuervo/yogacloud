@@ -1,3 +1,6 @@
+*{
+  -webkit-font-smoothing: antialiased;
+}
 
 a {
   text-decoration: none;
@@ -42,18 +45,21 @@ h6 { font-size: $h6-fontsize; line-height: 110%; margin: ($h6-fontsize / 2) 0 ($
 }
 
 // Text Styles
-em { font-style: italic; }
-strong { font-weight: 500; }
+em, .font-italic { font-style: italic; }
+
 small { font-size: 75%; }
+
 .light { font-weight: 300; }
 .thin { font-weight: 200; }
+strong { font-weight: 500; }
+
+.text-uppercase { text-transform: uppercase; }
 
 // Alingments
 
 .text-center{ text-align: center}
 .text-right{ text-align: right}
 .text-left{ text-align: left}
-
 
 .flow-text{
   font-weight: 300;
@@ -81,8 +87,31 @@ small { font-size: 75%; }
   font-weight: 300;
 }
 
-.line-height--48 { line-height: 48px; }
+//Vertical-align
+.vertical-align--top { vertical-align: top!important; }
+
+//Line-height
+.line-height---1_8 { line-height: 1.8em; }
+
+.line-height--30 { line-height: 30px; }
+.line-height--62 { line-height: 62px; }
+.line-height--64 { line-height: 64px; }
 
 //font weight
 
 .text-bold { font-weight: bold; }
+
+//sizes
+
+.font-medium{ font-size: 1.15rem;}
+.font-size--20 { font-size: 20px; }
+.font-size--24 { font-size: 24px; }
+
+
+//Style text
+
+#title-search-nav.animate-text {
+  font-size: 15px;
+  text-align: left;
+  padding-left: 10px;
+}

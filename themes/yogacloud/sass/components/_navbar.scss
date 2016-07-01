@@ -3,9 +3,10 @@ nav {
   @extend .z-depth-1;
   background-color: $primary-color;
   width: 100%;
-  height: $navbar-height-mobile;
-  padding: 8px 0px;
-
+  @media (max-width: 600px ){
+    background-color:$light-color;
+    color: $primary-color;
+  }
   a { color: $navbar-font-color; }
 
   i,
@@ -13,8 +14,8 @@ nav {
   i.material-icons {
     display: block;
     font-size: 2rem;
-    height: $navbar-height-mobile;
-    line-height: $navbar-height-mobile;
+//    height: $navbar-height-mobile;
+//    line-height: $navbar-height-mobile;
   }
 
   .nav-wrapper {

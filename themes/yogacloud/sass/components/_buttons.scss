@@ -202,19 +202,18 @@ button.btn-floating {
   display: block;
 }
 
-
 .btn-main-cta{
-  a{
-    left: 30%;
+    bottom: 3.5vh;
+    left: 32%;
     @media (min-width: $large-screen) { left: 50%;};
     @media (min-width: $medium-screen) { left: 45%};
     @media (min-width: $medium-screen) { left: 35%}
-  }
 }
 
 .btn-light{
   background-color: $light-color;
   color: $primary-color;
+  &:hover { color: $light-color; }
 }
 
 .btn-primary-hollow{
@@ -222,7 +221,35 @@ button.btn-floating {
   background-color: $light-color;
   color: $primary-color;
   box-shadow: none;
+  &:hover { color: $light-color; }
+}
+
+.btn-light-hollow{
+  border: solid 1px $light-color;
+  background-color: $primary-color;
+  color: $light-color;
+  box-shadow: none;
   &:hover {
-    color: $light-color;
+    color: $primary-color;
+    background-color: $light-color;
+  }
+}
+
+.btn-gray {
+  background-color: $primary-color-gray;
+  &:hover { background-color: $primary-color-gray; }
+}
+
+//btn size
+.btn-small {
+  height: ($button-height - 10);
+  line-height: ($button-height - 10);
+  padding: 0 1rem;
+}
+
+@media (min-width: 993px ){
+  .btn-rectangular-on-large {
+    border-radius: 0px;
+    padding: 0 1rem
   }
 }

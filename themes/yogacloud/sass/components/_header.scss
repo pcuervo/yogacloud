@@ -1,7 +1,58 @@
 header{
-	img.logo{
-		max-width: 180px;
-		vertical-align: middle;
+	.nav-user-desktop {
+		text-align: right;
+		line-height: 30px;
+		& > a, span { color: $primary-color; }
+		img.image-user {
+			width: 20px;
+			vertical-align: middle;
+		}
+		ul#dropdown-user {
+			top: 32px!important;
+			li a {
+				background-color: $primary-color;
+				color: $light-color;
+				&:hover {
+					background-color: $light-color;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+	nav {
+		padding: 0px;
+		height: 64px;
+		a.logo{
+			line-height: 64px;
+			display: block;
+			float: left;
+			img{
+				max-width: 180px;
+				vertical-align: middle;
+			}
+		}
+		.menu-desktop {
+			display: inline-block;
+			float: right;
+			line-height: 64px;
+			a {
+				display: inline-block;
+				padding-left:($padding-size/2); padding-right:($padding-size/2);
+				font-size: 20px;
+				float: left;
+				&:hover {
+					background-color: $light-color;
+					color: $primary-color;
+				}
+
+			}
+			ul#dropdown-search {
+				background-color: $primary-color;
+				right: 0px!important; top: 64px!important;
+				width: 300px!important;
+				text-align: center;
+			}
+		}
 	}
 }
 
@@ -11,4 +62,7 @@ header{
 		bottom: 10px;
 		width: 90%;
 	}
+
+	a i 		{ @include transition( 0.3s ease-in-out );}
+	a i:hover	{ color: lighten($primary-color, 25%);}
 }
