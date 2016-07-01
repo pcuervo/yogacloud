@@ -123,19 +123,16 @@ Click here
 	<?php endwhile; endif; wp_reset_postdata(); ?>
 
 
-	<section class="[ gradient-diagonal ]" >
+	<section class="[ gradient-diagonal ][ padding-vertical ]" >
 		<div class="[ container ]">
-			<div class="[ row ]">
-				<div class="[ col s12 ][ white-text ]">
-					<h5 class="[ text-center ]">The Yoga Project</h5>
-
-					<p>¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-				</div>
-				<div class="[ col s6 ]">
-					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-				</div>
-				<div class="[ col s6 ]">
-					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+			<div class="[ row ][ no-margin-bottom ]">
+				<div class="[ col s12 m10 offset-m1 l8 offset-l2 ][ white-text ]">
+					<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
+					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+					<div class="[ text-center ]">
+						<img class="[ width--120 ][ margin-right ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+					</div>
 				</div>
 			</div>
 		</div>
