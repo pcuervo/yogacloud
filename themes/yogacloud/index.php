@@ -114,6 +114,30 @@ Click here
 		</div>
 	</section>
 
+<<<<<<< HEAD
+	<?php
+		$yoga_project_query = new WP_Query( array( 'name' => 'yoga-project' ) );
+		if( $yoga_project_query->have_posts() ) : while( $yoga_project_query->have_posts() ) : $yoga_project_query->the_post(); ?>
+
+			Eso mero!
+
+	<?php endwhile; endif; wp_reset_postdata(); ?>
+
+
+	<section class="[ gradient-diagonal ]" >
+		<div class="[ container ]">
+			<div class="[ row ]">
+				<div class="[ col s12 ][ white-text ]">
+					<h5 class="[ text-center ]">The Yoga Project</h5>
+
+					<p>¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
+				</div>
+				<div class="[ col s6 ]">
+					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+				</div>
+				<div class="[ col s6 ]">
+					<img class="[ responsive-img ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+=======
 	<section class="[ gradient-diagonal ][ padding-vertical ]" >
 		<div class="[ container ]">
 			<div class="[ row ][ no-margin-bottom ]">
@@ -124,6 +148,7 @@ Click here
 						<img class="[ width--120 ][ margin-right ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 					</div>
+>>>>>>> 66d003bd919ee9e8d3d6db71b193d2448be56e47
 				</div>
 			</div>
 		</div>
