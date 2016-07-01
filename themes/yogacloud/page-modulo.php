@@ -28,44 +28,53 @@
 					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 						<div class="[ gradient-linear-opacity ]">
 							<div class="[ min-height--160 ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-						<div class="[ gradient-linear-opacity ]">
-							<div class="[ min-height--160 ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-						<div class="[ gradient-linear-opacity ]">
-							<div class="[ min-height--160 ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h2 class="[ padding-sides ]"><a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</a></h2>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-						<div class="[ gradient-linear-opacity ]">
-							<div class="[ min-height--160 ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h2 class="[ padding-sides ][ no-margin ][ color-secondary--transparent--light ]">
-										Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.
-										<img src="<?php echo THEMEPATH; ?>icons/lock.png" alt="lock icon">
+								<div class="[ valign ][ width---100 ][ relative ]">
+									<h2 class="[ padding-sides ][ no-margin ]">
+										<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 1 - Placet igitur tibi cato sumpseris non concessas.</a>
 									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
+					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+						<div class="[ gradient-linear-opacity ]">
+							<div class="[ min-height--160 ][ valign-wrapper ]">
+								<div class="[ valign ][ width---100 ][ relative ]">
+									<h2 class="[ padding-sides ][ no-margin ]">
+										<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 2 - Placet igitur tibi cato cum res sumpseris non concessas sumpseris non concessas.</a>
+									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
+					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+						<div class="[ gradient-linear-opacity ]">
+							<div class="[ min-height--160 ][ valign-wrapper ]">
+								<div class="[ valign ][ width---100 ][ relative ]">
+									<h2 class="[ padding-sides ][ no-margin ]">
+										<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">Lección 3 - Placet igitur tibi cato cum res sumpseris non concessas tibi cato cum tibi cato cum.</a>
+									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
+					<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
+						<div class="[ gradient-linear-opacity ]">
+							<div class="[ min-height--160 ][ valign-wrapper ]">
+								<div class="[ valign ][ width---100 ][ relative ]">
+									<h2 class="[ padding-sides ][ no-margin ][ color-secondary--transparent--light ]">
+										Lección 4 - Placet igitur tibi cato cum res sumpseris non concessas.
+									</h2>
+									<!-- bloqueado -->
+									<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
+										<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
+									</div>
 								</div>
 							</div>
 						</div>
