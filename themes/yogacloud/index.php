@@ -2,7 +2,7 @@
 
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
-			<video class="[ absolute ][ z-index--1 ][ min-width---100 min-height---100 ]" autoplay loop>
+			<video class="[ center-full ][ z-index--1 ][ min-width---100 min-height---100 ]" autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
 			<div class="[ gradient-linear-opacity ][ padding-vertical--large ]">

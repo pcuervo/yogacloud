@@ -149,19 +149,6 @@ function toggleSearch(){
     });
 }
 
-//Slider Videos
-
-$('#prev').on('click', function(event){
-    event.preventDefault();
-    $('.slider').slider('next');    //error materialize
-})
-
-$('#next').on('click', function(event){
-    event.preventDefault();
-    $('.slider').slider('prev');    //error materialize
-})
-
-
 //Ellipsis text
 
 var containerHeight = $(".text-ellipsis").height();
