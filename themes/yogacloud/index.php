@@ -22,12 +22,6 @@
 		</div>
 	</article>
 
-<!--
-<div id="clickme">
-Click here
-</div>
-<img class="hidden" id="book" src="<?php echo THEMEPATH;?>images/photo-1445384763658-0400939829cd.jpg" alt="" width="100" height="123"> -->
-
 	<section class="[ container ]">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">
