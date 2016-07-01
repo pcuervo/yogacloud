@@ -23,6 +23,20 @@ header{
 				&:hover {
 					background-color: $primary-color;
 					color: $light-color;
+					.icon { color: $light-color; }
+				}
+			}
+			ul#dropdown-user {
+				top: 64px!important;
+				a {
+					background-color: $primary-color;
+					color: $light-color;
+					display: block;
+					width: 100%;
+					&:hover {
+						background-color: $light-color;
+						color: $primary-color;
+					}
 				}
 			}
 			ul#dropdown-search {

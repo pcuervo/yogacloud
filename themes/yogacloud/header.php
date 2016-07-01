@@ -193,14 +193,22 @@
 						<a class="dropdown-button" href="#" data-activates="dropdown-user">
 							<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
 							Raúl De Zamacona
-							<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ]"></i>
+							<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 						</a>
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-user" class="dropdown-content">
 							<li><a href="#!">Mis cursos</a></li>
 							<li><a href="#!">Sing out</a></li>
 						</ul>
-						<a class="[ margin-left ]" href="<?php echo site_url('/'); ?>">Español</a>
+
+						<a href="<?php echo site_url('/'); ?>">
+							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--60 ][ no-margin-sides ]"></i>
+							Español
+						</a>
+					<!-- 	<a href="<?php echo site_url('/'); ?>">
+							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
+							inglés
+						</a> -->
 					</div>
 				</div>
 			</nav>
