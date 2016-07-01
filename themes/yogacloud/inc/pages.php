@@ -55,9 +55,9 @@
 			wp_insert_post( $page, true );
 		}
 
-<<<<<<< HEAD
+
 		// RESULTADOS
-=======
+
 		if( ! get_page_by_path('productos') ){
 			$page = array(
 				'post_author' => 1,
@@ -69,7 +69,6 @@
 			wp_insert_post( $page, true );
 		}
 
->>>>>>> 66d003bd919ee9e8d3d6db71b193d2448be56e47
 		if( ! get_page_by_path('resultados') ){
 			$page = array(
 				'post_author' => 1,
