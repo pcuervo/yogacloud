@@ -22,7 +22,7 @@
 		</div>
 	</article>
 
-	<section class="[ container ]">
+	<section class="[ container ][  scrollspy ]" id="cursos">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">
 				<div class="[ card ]">
@@ -51,7 +51,8 @@
 					</div>
 				</div>
 			</article>
-			<article class="[ col s12 m6 ]">
+
+			<article class="[ col s12 m6 ][ scrollspy ]">
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
