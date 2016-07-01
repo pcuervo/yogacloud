@@ -30,7 +30,7 @@ function toggleUser(){
     }
 
     $( ".user-mobile" ).animate({
-        right: "-767"
+        right: "-1000"
     }, 700, function() {
         $( ".user-mobile" ).addClass('js-hidden');
         $( "body" ).removeClass('overflow-hidden');
@@ -73,7 +73,7 @@ function toggleMenu(){
     }
 
     $( ".nav-mobile" ).animate({
-        right: "-767"
+        right: "-1000"
     }, 700, function() {
         $( ".nav-mobile" ).addClass('js-hidden');
         $( "body" ).removeClass('overflow-hidden');

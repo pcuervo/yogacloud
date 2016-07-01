@@ -20,6 +20,7 @@ header{
 				padding-left:($padding-size/2); padding-right:($padding-size/2);
 				font-size: 20px;
 				float: left;
+				@media (max-width: 1034px){ font-size: 18px; }
 				&:hover {
 					background-color: $primary-color;
 					color: $light-color;

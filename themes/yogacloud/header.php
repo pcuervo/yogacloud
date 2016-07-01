@@ -36,7 +36,7 @@
 						<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
 					</a>
 				<!-- Menu mobile -->
-					<div class="[ inline-block ][ float-right ][ hide-on-med-and-up ]">
+					<div class="[ inline-block ][ float-right ][ hide-on-large-only ]">
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
@@ -45,7 +45,7 @@
 						</div>
 
 						<!-- User menu -->
-						<div class="[ js-hidden ][ user-mobile right-767 ]">
+						<div class="[ js-hidden ][ user-mobile right-1000 ]">
 							<!-- header User -->
 							<div class="[ bg-light ][ height--64 ]">
 								<div class="[ container ]">
@@ -108,7 +108,7 @@
 						</div>
 
 						<!-- Menu -->
-						<div class="[ js-hidden ][ nav-mobile right-767 ]">
+						<div class="[ js-hidden ][ nav-mobile right-1000 ]">
 							<div class="[ bg-light ][ height--64 ]">
 								<div class="[ container ]">
 									<!-- header menu -->
@@ -177,7 +177,7 @@
 
 					</div>
 				<!-- menu desktop -->
-					<div class="[ menu-desktop ][ hide-on-small-only ]">
+					<div class="[ menu-desktop ][ hide-on-med-and-down ]">
 						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
 						<a class="dropdown-button button-form-search" href="#" data-activates="dropdown-search">Buscar</a>
@@ -188,21 +188,32 @@
 								<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 							</form>
 						</ul>
-						<!-- Dropdown Trigger -->
 
-						<a class="dropdown-button" href="#" data-activates="dropdown-user">
-							<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
-							Raúl De Zamacona
-							<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
-						</a>
-						<!-- Dropdown Structure -->
-						<ul id="dropdown-user" class="dropdown-content">
-							<li><a href="#!">Mis cursos</a></li>
-							<li><a href="#!">Sing out</a></li>
-						</ul>
+						<?php if ( is_user_logged_in() ){ ?>
+							<!-- Dropdown Trigger -->
+							<a class="dropdown-button" href="#" data-activates="dropdown-user">
+								<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
+								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap width--100 inline-block middle ]">Raúl De Zamacona</div>
+								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
+							</a>
+							<!-- Dropdown Structure -->
+							<ul id="dropdown-user" class="dropdown-content">
+								<li><a href="#!">Mis cursos</a></li>
+								<li><a href="#!">Sing out</a></li>
+							</ul>
+						<?php } ?>
+						<?php if ( ! is_user_logged_in() ){ ?>
+							<!-- Dropdown Trigger -->
+							<a class="dropdown-button" href="#" data-activates="dropdown-user">Ingresa</a>
+							<!-- Dropdown Structure -->
+							<ul id="dropdown-user" class="dropdown-content">
+								<li><a href="#!">Login</a></li>
+								<li><a href="#!">Sing up</a></li>
+							</ul>
+						<?php } ?>
 
 						<a href="<?php echo site_url('/'); ?>">
-							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--60 ][ no-margin-sides ]"></i>
+							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--6 0 ][ no-margin-sides ]"></i>
 							Español
 						</a>
 					<!-- 	<a href="<?php echo site_url('/'); ?>">
