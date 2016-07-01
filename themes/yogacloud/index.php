@@ -161,7 +161,7 @@
 						</div>
 					</div>
 				</li>
-				<li>
+			<!-- 	<li>
 					<div class="caption">
 						<div class="[  center-align ]">
 							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
@@ -172,7 +172,7 @@
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
 						</div>
 					</div>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 	</section>

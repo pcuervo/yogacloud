@@ -175,3 +175,9 @@ function videoPlayer(){
         $("#video_player")[0].play(); //autoplay
     }
 }
+
+//Max height Video
+var ventana_alto = $(window).height();
+var height_video =  ((ventana_alto - 64) + 'px'); //window height - height header
+console.log(height_video);
+$('.max-height-screen').css('max-height', height_video);

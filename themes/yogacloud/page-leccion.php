@@ -1,8 +1,8 @@
 <?php get_header(); the_post();  ?>
 	<section class="[ text-center ]">
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ]" style="height: 320px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
-			<div id="video-container" class="[ absolute ][ width---100 height---100 ][ bg-darker ][ hidden ]">
-				<video id="video_player" class="center-full [ z-index-1 ][ max-height---100 min-height---100 ]" controls> <!-- min-width---100 absolute bottom--0 left--0 -->
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ]" style="height: auto; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
+			<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ][ hidden ]">
+				<video id="video_player" class="[ max-height-screen ][ z-index-1 ][ width---100 ]" controls>
 					<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 				</video>
 			</div>
