@@ -792,6 +792,7 @@ nav ul a span.badge {
   img{
     margin: auto;
     display: block;
+    max-width: 100%;
   }
   iframe,
   img {margin-top:$margin-size; margin-bottom:$margin-size;}

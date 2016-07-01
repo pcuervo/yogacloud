@@ -1,24 +1,4 @@
 header{
-	.nav-user-desktop {
-		text-align: right;
-		line-height: 30px;
-		& > a, span { color: $primary-color; }
-		img.image-user {
-			width: 20px;
-			vertical-align: middle;
-		}
-		ul#dropdown-user {
-			top: 32px!important;
-			li a {
-				background-color: $primary-color;
-				color: $light-color;
-				&:hover {
-					background-color: $light-color;
-					color: $primary-color;
-				}
-			}
-		}
-	}
 	nav {
 		padding: 0px;
 		height: 64px;
@@ -41,16 +21,19 @@ header{
 				font-size: 20px;
 				float: left;
 				&:hover {
-					background-color: $light-color;
-					color: $primary-color;
+					background-color: $primary-color;
+					color: $light-color;
 				}
-
 			}
 			ul#dropdown-search {
 				background-color: $primary-color;
 				right: 0px!important; top: 64px!important;
 				width: 300px!important;
 				text-align: center;
+			}
+			img.image-user {
+				width: 20px;
+				vertical-align: middle;
 			}
 		}
 	}

@@ -1,13 +1,9 @@
 nav {
-  color: $navbar-font-color;
+  color: $primary-color;
   @extend .z-depth-1;
-  background-color: $primary-color;
+  background-color: $light-color;
   width: 100%;
-  @media (max-width: 600px ){
-    background-color:$light-color;
-    color: $primary-color;
-  }
-  a { color: $navbar-font-color; }
+  a { color: $primary-color; }
 
   i,
   [class^="mdi-"], [class*="mdi-"],

@@ -30,25 +30,10 @@
 
 	<body>
 		<header>
-			<div class="[ nav-user-desktop ][ container ][ hide-on-small-only ]">
-				<!-- Dropdown Trigger -->
-				<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
-				<a class="dropdown-button" href="#" data-activates="dropdown-user">
-					Raúl De Zamacona
-					<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ]"></i>
-				</a>
-				<!-- Dropdown Structure -->
-				<ul id="dropdown-user" class="dropdown-content">
-					<li><a href="#!">Mis cursos</a></li>
-					<li><a href="#!">Sing out</a></li>
-				</ul>
-				<a class="[ margin-left ]" href="<?php echo site_url('/'); ?>">English </a><span>/ </span><a href="<?php echo site_url('/'); ?>"> Español</a>
-			</div>
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
-						<img class="[ hide-on-small-only ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-						<img class="[ hide-on-med-and-up ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+						<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
 					</a>
 				<!-- Menu mobile -->
 					<div class="[ inline-block ][ float-right ][ hide-on-med-and-up ]">
@@ -203,6 +188,19 @@
 								<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 							</form>
 						</ul>
+						<!-- Dropdown Trigger -->
+
+						<a class="dropdown-button" href="#" data-activates="dropdown-user">
+							<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
+							Raúl De Zamacona
+							<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ]"></i>
+						</a>
+						<!-- Dropdown Structure -->
+						<ul id="dropdown-user" class="dropdown-content">
+							<li><a href="#!">Mis cursos</a></li>
+							<li><a href="#!">Sing out</a></li>
+						</ul>
+						<a class="[ margin-left ]" href="<?php echo site_url('/'); ?>">Español</a>
 					</div>
 				</div>
 			</nav>
