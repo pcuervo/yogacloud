@@ -256,3 +256,12 @@
 		p.text-nuevo, p.text-destacado { display: none; }
 	}
 }
+
+
+.categories {
+	a {
+		color:$dark-color;
+		padding:($padding-size/2) ($padding-size/2) ($padding-size/2) 0;
+		&:hover { color: $primary-color; }
+	}
+}

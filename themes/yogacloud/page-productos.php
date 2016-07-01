@@ -13,18 +13,26 @@
 	</article>
 
 	<article>
-		<div class="[ container ][ relative ]">
-			<!-- Dropdown Trigger -->
-			<a class="dropdown-button btn [ width---100 ][ block ]" href="#" data-activates="dropdown1">
-				Todos
-				<i class="[ icon icon-angle-down icon-small ][ color-light ][ vertical-align--top ]"></i>
-			</a>
-			<!-- Dropdown Structure -->
-			<ul id="dropdown1" class="dropdown-content [ top--45 ]">
-				<li><a href="#!">one</a></li>
-				<li><a href="#!">two</a></li>
-				<li><a href="#!">three</a></li>
-			</ul>
+		<div class="[ container ]">
+			<div class="[ relative ][ hide-on-med-and-up ]">
+				<!-- Dropdown Trigger -->
+				<a class="dropdown-button btn [ width---100 ][ block ]" href="#" data-activates="dropdown1">
+					Todos
+					<i class="[ icon icon-angle-down icon-small ][ color-light ][ vertical-align--top ]"></i>
+				</a>
+				<!-- Dropdown Structure -->
+				<ul id="dropdown1" class="dropdown-content [ top--45 ]">
+					<li><a href="#!">Lorem</a></li>
+					<li><a href="#!">Ipsum</a></li>
+					<li><a href="#!">Dolor sit</a></li>
+				</ul>
+			</div>
+			<div class="[ hide-on-small-only ][ categories ]">
+				<a href="#!">Todos |</a>
+				<a href="#!">Lorem</a>
+				<a href="#!">Ipsum</a>
+				<a href="#!">Dolor sit</a>
+			</div>
 		</div>
 	</article>
 
