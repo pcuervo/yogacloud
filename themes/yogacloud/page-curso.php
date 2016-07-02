@@ -1,5 +1,5 @@
 <?php get_header(); the_post();  ?>
-	<section class="[ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ height-auto ]" >
+	<section id="video-whit-button" class="[ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ height-auto ]" >
 		<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ]">
 			<video id="video_player" class="[ max-height-screen_button ][ z-index-1 ][ width---100 ][ stop ]" controls>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">

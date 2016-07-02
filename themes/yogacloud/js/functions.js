@@ -80,39 +80,6 @@ function toggleMenu(){
     });
 }
 
-//Icons SVG
-
-function imgToSvg(){
-    $('img.svg').each(function(){
-        var $img = $(this);
-        var imgID = $img.attr('id');
-        var imgClass = $img.attr('class');
-        var imgURL = $img.attr('src');
-
-        $.get(imgURL, function(data) {
-            // Get the SVG tag, ignore the rest
-            var $svg = $(data).find('svg');
-
-            // Add replaced image's ID to the new SVG
-            if(typeof imgID !== 'undefined') {
-                $svg = $svg.attr('id', imgID);
-            }
-            // Add replaced image's classes to the new SVG
-            if(typeof imgClass !== 'undefined') {
-                $svg = $svg.attr('class', imgClass+' replaced-svg');
-            }
-
-            // Remove any invalid XML tags as per http://validator.w3.org
-            $svg = $svg.removeAttr('xmlns:a').removeAttr('width').removeAttr('height');
-
-            // Replace image with new SVG
-            $img.replaceWith($svg);
-
-        }, 'xml');
-
-    });
-} //imgToSvg
-
 //Search Nav
 
 $('#title-search-nav').on('click', function(event){
@@ -135,7 +102,6 @@ function toggleSearch(){
         return;
     }
 
-
     $( "#title-search-nav" ).animate({
         fontSize: 23
     }, 500, function() {
@@ -149,16 +115,7 @@ function toggleSearch(){
     });
 }
 
-//Ellipsis text
 
-var containerHeight = $(".text-ellipsis").height();
-var $text = $(".text-ellipsis p");
-
-while ( $text.outerHeight() > containerHeight ) {
-        $text.text(function (index, text) {
-            return text.replace(/\W*\s(\S)*$/, '...');
-       });
-}
 
 // Videos
 
@@ -171,7 +128,11 @@ function videoPlayer(){
     if( $('#background-video').hasClass('in-front') ){
         $( "#background-video" ).removeClass('in-front');
         $( "#background-video" ).addClass('hidden');
-        $( "#video-container" ).addClass('z-index-10');
+        $( "#video-whit-button" ).animate({
+            'marginBottom': '30px'
+        }, 500, function() {
+            //Animated complete
+        });
         $( "#play-button img" ).addClass('hidden');
         $("#video_player")[0].play(); //autoplay
     }
@@ -187,7 +148,7 @@ function heightScreen(){
         console.log('Altura máxima video', height_video);
         $('.max-height-screen').css('max-height', height_video);
 
-        var height_video_button =  (((ventana_alto - 64) - 45 ) + 'px'); //( window height - height header ) - button
+        var height_video_button =  (((ventana_alto - 64) - 70 ) + 'px'); //( window height - height header ) - button
         console.log('Altura máxima video con botón', height_video_button);
         $('.max-height-screen_button').css('max-height', height_video_button);
 
@@ -201,13 +162,25 @@ function heightScreen(){
 
 function boxCurso(){
     if($("#box-curso").length > 0) {
+
+        //image size
         var image_alto = $('.bg-image--curso').width();
         console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
         $('.bg-image--curso').css('height', image_alto + 'px');
 
+        //Ellipsis text
         var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
         console.log('Tamaño ellipsis:', ellipsis_alto);
         $('.height-box-ellipsis').css('height', ellipsis_alto);
+
+        var containerHeight = $(".text-ellipsis").height();
+        var $text = $(".text-ellipsis p");
+
+        while ( $text.outerHeight() > containerHeight ) {
+                $text.text(function (index, text) {
+                    return text.replace(/\W*\s(\S)*$/, '...');
+               });
+        }
 
     }
 }
