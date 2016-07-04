@@ -97,6 +97,9 @@
 .icon-large{ font-size: 2.5em}
 .icon-xlarge{ font-size: 3em}
 
+.icon-23 { font-size: 23px;}
+.icon-28 { font-size: 28px;}
+
 .icon-comparte a .icon-circle-twitter-bird {
 	color: #55ACEE;
 	&:hover { color: #0471c3; }
@@ -116,3 +119,6 @@
 //Margin
 .no-margin-sides.icon,
 .no-margin-sides.icon:before { margin-left: 0px!important; margin-right: 0px!important; }
+
+.no-margin-right.icon,
+.no-margin-right.icon:before { margin-right: 0px!important; }

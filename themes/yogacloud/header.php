@@ -60,7 +60,7 @@
 										</div>
 										<div class="[ block ][ float-right ][ line-height--62 ]">
 											<div id="js-hide-user">
-												<i class="[ icon icon-close icon-small ][ color-primary ]"></i>
+												<i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i>
 											</div>
 										</div>
 									</div>
@@ -123,7 +123,7 @@
 										</div>
 										<div class="[ block ][ float-right ]">
 											<div id="js-hide-nav">
-												<i class="[ icon icon-close icon-small ][ color-light ]"></i>
+												<i class="[ icon icon-close icon-small ][ color-light ][ no-margin-right ]"></i>
 											</div>
 										</div>
 									</div>
