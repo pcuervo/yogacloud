@@ -38,10 +38,9 @@
 				</div>
 			</div>
 		</div>
-		<article class="[ row ]">
+		<article class="[ row ][ text-center ]">
 			<div class="[ col col s12 m10 offset-m1 l8 offset-l2 ]">
 				<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
-
 			</div>
 		</article>
 		<div class="[ text-center ]">
