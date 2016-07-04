@@ -67,18 +67,25 @@
 
 					<!-- Modal Structure -->
 					<div id="maestro1" class="modal [ maestros-transparent ][ white-text ]">
-						<div class="modal-content">
-							<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-							<h5 class="[ text-center ]">Juan O'Donoju</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.<p>
-							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-							<div class="[ text-center ]">
-								<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
-								<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-								<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+						<div class="modal-content [ white-text ]">
+							<div class="[ row ]">
+								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
+									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+									<h5 class="[ text-center ][ margin-bottom ]">Juan O'Donoju</h5>
+									<img class="[ border-radius---50 ][ width--80 ][ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
+									<div class="[ text-center ][ margin-bottom ]">
+										<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+									</div>
+									<div class="[ margin-bottom ]">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+										<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+									</div>
+									<a class="[ white-text ][ text-underline ]" href="">http://loremipsum-dolor-sit</a>
+								</div>
 							</div>
+
 						</div>
 					</div>
 				</section>
