@@ -1,7 +1,7 @@
 <?php get_header(); the_post();  ?>
 	<section>
 		<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ][ height--320 ]">
-			<video class="[ center-full ][ bottom-0 ][ z-index--1 ][ min-width---100 ]" autoplay loop>
+			<video class="[ center-full ][ bottom-0 ][ z-index--1 ][ min-width---100 ]" muted autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
 			<div class="[ gradient-linear-opacity ][ height---100 ]">
