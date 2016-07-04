@@ -178,7 +178,12 @@
 					</div>
 				<!-- menu desktop -->
 					<div class="[ menu-desktop ][ hide-on-med-and-down ]">
-						<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+						<?php if(is_front_page() ) { ?>
+							<a href="#cursos">Cursos</a>
+						<?php } ?>
+						<?php if( ! is_front_page() ) { ?>
+							<a href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+						<?php } ?>
 						<a href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
 						<a class="dropdown-button button-form-search" href="#" data-activates="dropdown-search">Buscar</a>
 						<!-- Dropdown Structure -->
