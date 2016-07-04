@@ -25,7 +25,7 @@
 	<section class="[ container ][  scrollspy ]" id="cursos">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">
-				<div id="box-curso" class="[ card ]">
+				<div id="box-card" class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
 							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">

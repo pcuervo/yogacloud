@@ -160,8 +160,8 @@ function heightScreen(){
 
 //Imagen cuadrada
 
-function boxCurso(){
-    if($("#box-curso").length > 0) {
+function boxCard(){
+    if($("#box-card").length > 0) {
 
         //image size
         var image_alto = $('.bg-image--rectangle').width();

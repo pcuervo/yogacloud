@@ -37,78 +37,80 @@
 	</article>
 
 	<section class="[ container ][ text-center ]">
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+		<div class="[ row ]">
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda3.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda3.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
-		<article class="[ box-btn--middle ]">
-			<div class="[ card-image ][ relative ]">
-				<div style="height: 322px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-					<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-						<span class="[ title-image ][ width---100 ]">Título del producto</span>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+				<div class="[ card-image ][ relative ]">
+					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+							<span class="[ title-image ][ width---100 ]">Título del producto</span>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="[ relative ][ bottom--22 ][ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-			</div>
-		</article>
+				<div class="[ relative ][ bottom--22 ][ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+				</div>
+			</article>
+		</div>
 		<ul class="pagination [ text-center ]">
 			<li class="disabled"><a href="#!"><i class="[ icon icon-angle-left icon-xsmall ][ color-primary ][ line-height--30 ]"></i></a></li>
 			<li class="active"><a href="#!">1</a></li>
