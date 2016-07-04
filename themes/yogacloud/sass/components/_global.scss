@@ -2,7 +2,7 @@
 
 html {
  box-sizing: border-box;
- background-color: $light-color;
+ background: $light-color;
 }
 *, *:before, *:after {
  box-sizing: inherit;
@@ -12,7 +12,7 @@ body {
   // display: flex;
   // min-height: 100vh;
   // flex-direction: column;
-  background-color: $light-color;
+  background: $light-color;
 }
 
 main {
