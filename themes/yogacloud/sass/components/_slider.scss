@@ -3,9 +3,12 @@
   height: 400px;
   width: 100%;
   &.testimonials {
-    height: 310px!important;
+    // height: 310px!important;
 
-    .slides { height: 310px!important; }
+    // .slides { height: 310px!important; }
+
+    .indicators { position: relative }
+
   }
   &.video-leccion {
       height: 320px!important;

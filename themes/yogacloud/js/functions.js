@@ -164,9 +164,9 @@ function boxCurso(){
     if($("#box-curso").length > 0) {
 
         //image size
-        var image_alto = $('.bg-image--curso').width();
+        var image_alto = $('.bg-image--rectangle').width();
         console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
-        $('.bg-image--curso').css('height', image_alto + 'px');
+        $('.bg-image--rectangle').css('height', image_alto + 'px');
 
         //Ellipsis text
         var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
