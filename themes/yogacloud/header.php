@@ -80,7 +80,7 @@
 									<?php if ( ! is_user_logged_in() ){ ?>
 										<h5><a class="[ white-text ]" href="">Login</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ]" href="">Sing up</a></h5>
+										<h5><a class="[ white-text ]" href="">Sign up</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
@@ -152,9 +152,10 @@
 											<button class="btn [ btn-rounded btn-primary-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 										</form>
 									</div>
-									<h5 class="[ no-margin padding-bottom ]">
-										<a class="[ white-text ]" href="">EN</a> /
-										<a class="[ white-text ][ text-bold ]" href="">ES</a>
+									<h5 class="[ no-margin padding-bottom ][ color-light ]">
+										<i class="[ icon icon-world icon-xsmall ][ line-height--6 0 ][ no-margin-sides ]"></i>
+										<a href="#"class="[ white-text ]">Español</a> /
+										<a href="#"  class="[ white-text ]">Inglés</a>
 									</h5>
 								</div>
 								<div class="[ container ]">
@@ -204,7 +205,7 @@
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
 								<li><a href="#!">Mis cursos</a></li>
-								<li><a href="#!">Sing out</a></li>
+								<li><a href="#!">Sign out</a></li>
 							</ul>
 						<?php } ?>
 						<?php if ( ! is_user_logged_in() ){ ?>
@@ -213,14 +214,20 @@
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
 								<li><a href="#!">Login</a></li>
-								<li><a href="#!">Sing up</a></li>
+								<li><a href="#!">Sign up</a></li>
 							</ul>
 						<?php } ?>
 
-						<a href="<?php echo site_url('/'); ?>">
+						<a class="dropdown-button" href="#" data-activates="dropdown-language">
 							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--6 0 ][ no-margin-sides ]"></i>
 							Español
 						</a>
+						<ul id="dropdown-language" class="dropdown-content">
+							<li><a href="#!">
+								<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--6 0 ][ no-margin-sides ]"></i>
+								Inglés
+							</a></li>
+						</ul>
 					<!-- 	<a href="<?php echo site_url('/'); ?>">
 							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							inglés

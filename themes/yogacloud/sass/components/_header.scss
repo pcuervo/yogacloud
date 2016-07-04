@@ -50,6 +50,13 @@ header{
 				width: 20px;
 				vertical-align: middle;
 			}
+			ul#dropdown-language {
+				top: 64px!important;
+				a {
+					display: block;
+					width: 100%;
+				}
+			}
 		}
 	}
 }
