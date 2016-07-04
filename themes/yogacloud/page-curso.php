@@ -56,12 +56,12 @@
 						<article class="[ col s6 ]">
 							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 							<p>Juan O'Donoju</p>
-							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
 						</article>
 						<article class="[ col s6 ]">
 							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
 							<p>Juan O'Donoju</p>
-							<a class="[ btn btn-rounded btn-primary-hollow ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
+							<a class="[ btn btn-rounded btn-primary-hollow ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
 						</article>
 					</div>
 
@@ -117,7 +117,7 @@
 						<h5>Módulo 1</h5>
 						<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
 						<div class="[ padding-bottom ]">
-							<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver más</a>
+							<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
 						</div>
 					</div>
 					<div class="[ border-bottom--dark ]">
@@ -140,7 +140,7 @@
 		<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 		<!-- Rating -->
 		<div class="rating"></div>
-		<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
+		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
 	</section>
 	<section class="[ text-center ][ hide-on-med-and-up ]">
 		<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
