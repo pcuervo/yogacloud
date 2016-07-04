@@ -48,6 +48,7 @@
 				**/
 				heightScreen(); //cursos y lección
 				boxCard(); //Index y resultados
+				sliderHeight();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
@@ -63,6 +64,7 @@
 			});
 			$(window).resize(function () {
 				boxCard(); //Index y resultados
+				sliderHeight();
 			});
 		</script>
 		<?php wp_footer(); ?>

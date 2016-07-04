@@ -133,10 +133,10 @@
 		</div>
 	</section>
 
-	<section id="testimonials">
+	<section id="testimonials" class="[ container ]">
 		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
 		<div class="slider testimonials">
-			<ul class="slides">
+			<ul class="slides [ height-testimonial ]">
 				<li>
 					<div class="caption">
 						<div class="[  center-align ]">
@@ -176,8 +176,8 @@
 			</ul>
 		</div>
 	</section>
-
-	<section class="[ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+	<div class="[ clearfix ]"></div>
+	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>

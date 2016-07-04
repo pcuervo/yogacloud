@@ -184,3 +184,11 @@ function boxCard(){
 
     }
 }
+
+function sliderHeight(){
+    //image size
+    var caption_height = $('.testimonials .caption').height();
+    var testimonial_height = (caption_height + 20);
+    console.log('Alto slider:', testimonial_height + 'px');
+    $('.height-testimonial').css('height', "testimonial_height" );
+}
