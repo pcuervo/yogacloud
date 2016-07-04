@@ -136,45 +136,43 @@
 	<section id="testimonials" class="[ container ]">
 		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
 		<div class="slider testimonials">
-			<ul class="slides [ relative ]">
-				<div class="[ height-testimonials ]">
-					<li>
-						<div class="caption">
-							<div class="[  center-align ]">
-								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-							</div>
-							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-							<div class="[ content-testimonial ]">
-								<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
-								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-							</div>
+			<ul class="slides">
+				<li>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-					</li>
-					<li>
-						<div class="caption">
-							<div class="[  center-align ]">
-								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-							</div>
-							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-							<div class="[ content-testimonial ]">
-								<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-							</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
 						</div>
-					</li>
-					<li>
-						<div class="caption">
-							<div class="[  center-align ]">
-								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-							</div>
-							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-							<div class="[ content-testimonial ]">
-								<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
-								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-							</div>
+					</div>
+				</li>
+				<li>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 						</div>
-					</li>
-				</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="caption">
+						<div class="[  center-align ]">
+							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+						</div>
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ content-testimonial ]">
+							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
+							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+						</div>
+					</div>
+				</li>
 			</ul>
 		</div>
 	</section>

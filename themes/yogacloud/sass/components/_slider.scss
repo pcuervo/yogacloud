@@ -2,14 +2,36 @@
   position: relative;
   height: 400px;
   width: 100%;
-  &.testimonials {
-    height: auto!important;
 
-    .slides { height: auto!important; }
+  @media (max-width: 992px ){
+    &.testimonials {
+      height: auto!important;
 
-    .indicators { position: relative }
+      .slides {
+        height: auto!important;
+        min-height: 240px;
+        position: relative;
 
-  }
+        li {
+          position: relative;
+          display: none;
+          &.active { display: block; }
+
+          .caption { position: relative; }
+        }
+      }
+
+      .indicators {
+        position: relative;
+        margin-top: $margin-size;
+       }
+
+    }
+  }//end testimonial
+
+
+
+
   &.video-leccion {
       height: 320px!important;
       .slides { height: 320px!important; }
