@@ -47,7 +47,8 @@
 				 * On ready
 				**/
 				heightScreen(); //cursos y lección
-				boxCurso(); //Index y resultados
+				boxCard(); //Index y resultados
+				sliderHeight();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
@@ -60,6 +61,10 @@
 						hover: true, // Activate on hover
 					}
 				);
+			});
+			$(window).resize(function () {
+				boxCard(); //Index y resultados
+				sliderHeight();
 			});
 		</script>
 		<?php wp_footer(); ?>

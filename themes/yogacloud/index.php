@@ -25,10 +25,10 @@
 	<section class="[ container ][  scrollspy ]" id="cursos">
 		<div class="[ row ]">
 			<article class="[ col s12 m6 ]">
-				<div id="box-curso" class="[ card ]">
+				<div id="box-card" class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ nuevo ]">
@@ -56,7 +56,7 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div class="[ card-image ][ col s12 l6 ]">
-							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ destacado ]">
@@ -83,7 +83,7 @@
 				<div class="[ card ]">
 					<div class="[ row ]">
 						<div id="content-curso" class="[ card-image ][ col s12 l6 ]">
-							<div class="[ bg-image--curso ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
+							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
 									<div id="promo" class="[ proximamente ]">
@@ -133,51 +133,53 @@
 		</div>
 	</section>
 
-	<section id="testimonials">
+	<section id="testimonials" class="[ container ]">
 		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
 		<div class="slider testimonials">
-			<ul class="slides">
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+			<ul class="slides [ relative ]">
+				<div class="[ height-testimonials ]">
+					<li>
+						<div class="caption">
+							<div class="[  center-align ]">
+								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+							</div>
+							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+							<div class="[ content-testimonial ]">
+								<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
+								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+							</div>
 						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+					</li>
+					<li>
+						<div class="caption">
+							<div class="[  center-align ]">
+								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+							</div>
+							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+							<div class="[ content-testimonial ]">
+								<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+					</li>
+					<li>
+						<div class="caption">
+							<div class="[  center-align ]">
+								<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+							</div>
+							<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+							<div class="[ content-testimonial ]">
+								<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
+								<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
+							</div>
 						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
+					</li>
+				</div>
 			</ul>
 		</div>
 	</section>
-
-	<section class="[ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+	<div class="[ clearfix ]"></div>
+	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>

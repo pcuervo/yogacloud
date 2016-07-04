@@ -64,11 +64,11 @@
 .icon-email-circle:before { content: '\e809'; } /* '' */
 .icon-circle-facebook:before { content: '\e80a'; } /* '' */
 .icon-circle-twitter-bird:before { content: '\e80b'; } /* '' */
-.icon-email-fill:before { content: '\e80c'; } /* '' */
+.icon-email-fill:before { content: '\e80c'; vertical-align: middle; } /* '' */
 .icon-facebook:before { content: '\e80d'; } /* '' */
 .icon-instagram:before { content: '\e80e'; } /* '' */
 .icon-look:before { content: '\e80f'; } /* '' */
-.icon-phone:before { content: '\e810'; } /* '' */
+.icon-phone:before { content: '\e810'; vertical-align: middle; } /* '' */
 .icon-twitter-fill:before { content: '\e811'; } /* '' */
 .icon-twitter:before { content: '\e812'; } /* '' */
 .icon-user:before { content: '\e813'; } /* '' */
@@ -97,6 +97,9 @@
 .icon-large{ font-size: 2.5em}
 .icon-xlarge{ font-size: 3em}
 
+.icon--23 { font-size: 23px;}
+.icon--28 { font-size: 28px;}
+
 .icon-comparte a .icon-circle-twitter-bird {
 	color: #55ACEE;
 	&:hover { color: #0471c3; }
@@ -116,3 +119,6 @@
 //Margin
 .no-margin-sides.icon,
 .no-margin-sides.icon:before { margin-left: 0px!important; margin-right: 0px!important; }
+
+.no-margin-right.icon,
+.no-margin-right.icon:before { margin-right: 0px!important; }
