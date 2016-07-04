@@ -8,7 +8,7 @@
 						<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
 						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						<div class="[ relative ][ top--22 ]">
-							<a class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
+							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
 						</div>
 					</div>
 				</div>
