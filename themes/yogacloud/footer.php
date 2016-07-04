@@ -61,6 +61,9 @@
 					}
 				);
 			});
+			$(window).resize(function () {
+				boxCurso(); //Index y resultados
+			});
 		</script>
 		<?php wp_footer(); ?>
 	</body>
