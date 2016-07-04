@@ -3,9 +3,9 @@
   height: 400px;
   width: 100%;
   &.testimonials {
-    // height: 310px!important;
+    height: auto!important;
 
-    // .slides { height: 310px!important; }
+    .slides { height: auto!important; }
 
     .indicators { position: relative }
 
