@@ -28,10 +28,8 @@
 						<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
 						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity ]">
-								<div class="[ min-height--160 ][ valign-wrapper ]">
-									<div class="[ valign ][ width---100 ][ relative ]">
-										<h2 class="[ padding-sides ][ no-margin ]"><strong>Lección 1</strong><br>Placet igitur tibi cato sumpseris non concessas.</h2>
-									</div>
+								<div class="[ min-height--160 ][ relative ]">
+									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 1</strong><br>Placet igitur tibi cato sumpseris non concessas.</h2>
 								</div>
 							</div>
 						</div>
@@ -41,10 +39,8 @@
 					<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
 						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity ]">
-								<div class="[ min-height--160 ][ valign-wrapper ]">
-									<div class="[ valign ][ width---100 ][ relative ]">
-										<h2 class="[ padding-sides ][ no-margin ]"><strong>Lección 2</strong><br>Placet igitur tibi cato cum res sumpseris non concessas sumpseris non concessas.</h2>
-									</div>
+								<div class="[ min-height--160 ][ relative ]">
+									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 2</strong><br>Placet igitur tibi cato cum res sumpseris non concessas sumpseris non concessas.</h2>
 								</div>
 							</div>
 						</div>
@@ -54,10 +50,8 @@
 					<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
 						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity ]">
-								<div class="[ min-height--160 ][ valign-wrapper ]">
-									<div class="[ valign ][ width---100 ][ relative ]">
-										<h2 class="[ padding-sides ][ no-margin ]"><strong>Lección 3</strong><br>Placet igitur tibi cato cum res sumpseris non concessas tibi cato cum tibi cato cum.</h2>
-									</div>
+								<div class="[ min-height--160 ][ relative ]">
+									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 3</strong><br>Placet igitur tibi cato cum res sumpseris non concessas tibi cato cum tibi cato cum.</h2>
 								</div>
 							</div>
 						</div>
@@ -67,13 +61,11 @@
 					<a class="[ white-text ]" data-position="bottom" data-delay="50" onclick="Materialize.toast('Esta lección se desbloqueara una vez que termines con las lecciones anteriores.', 4000)">
 						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
 							<div class="[ gradient-linear-opacity ]">
-								<div class="[ min-height--160 ][ valign-wrapper ]">
-									<div class="[ valign ][ width---100 ][ relative ]">
-										<h2 class="[ padding-sides ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
-										<!-- bloqueado -->
-										<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
-											<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
-										</div>
+								<div class="[ min-height--160 ][ relative ]">
+									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
+									<!-- bloqueado -->
+									<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
+										<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
 									</div>
 								</div>
 							</div>
