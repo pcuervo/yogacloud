@@ -134,7 +134,8 @@ function videoPlayer(){
             //Animated complete
         });
         $( "#play-button img" ).addClass('hidden');
-        $("#video_player")[0].play(); //autoplay
+        // $("#video_player")[0].play(); //autoplay <video>
+        $("#video")[0].src += "&autoplay=1";
     }
 }
 
