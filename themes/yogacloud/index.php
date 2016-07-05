@@ -162,7 +162,7 @@
 		</div>
 	</section>
 	<div class="[ clearfix ]"></div>
-	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>
