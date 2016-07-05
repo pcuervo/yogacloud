@@ -21,7 +21,7 @@ header{
 				font-size: 20px;
 				float: left;
 				@media (max-width: 1034px){ font-size: 18px; }
-				&:hover {
+				&:hover, &.active {
 					background-color: $primary-color;
 					color: $light-color;
 					.icon { color: $light-color; }
@@ -30,6 +30,12 @@ header{
 			img.image-user {
 				width: 20px;
 				vertical-align: middle;
+			}
+		}
+		.menu-mobile{
+			a.active {
+				background-color: $light-color;
+				color: $primary-color!important;
 			}
 		}
 	}
