@@ -60,6 +60,8 @@
 						hover: true, // Activate on hover
 				});
 				$('.tooltipped').tooltip();
+				// Materialize.updateTextFields();
+				$('#textarea1').trigger('autoresize');
 			});
 			$(window).resize(function () {
 				boxCard(); //Index y resultados

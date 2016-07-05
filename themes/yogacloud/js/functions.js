@@ -135,7 +135,7 @@ function videoPlayer(){
         });
         $( "#play-button img" ).addClass('hidden');
         // $("#video_player")[0].play(); //autoplay <video>
-        $("#video")[0].src += "&autoplay=1";
+        $("#video")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
 

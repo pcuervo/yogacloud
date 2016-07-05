@@ -16,7 +16,6 @@
 		<a class="[ btn btn-rounded ][ waves-effect waves-light ]">tomar curso - $1200</a>
 	</div>
 
-
 	<section class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
@@ -91,7 +90,40 @@
 					<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 					<!-- Rating -->
 					<div class="rating"></div>
-					<a href="<?php echo site_url('/'); ?>#testimonials" rel='m_PageScroll2id' class="_mPS2id-h [ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
+					<ul class="collapsible [ row ]" data-collapsible="accordion">
+						<li>
+							<div class="collapsible-header">
+								<div class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</div>
+							</div>
+							<div class="collapsible-body">
+
+							</div>
+						</li>
+						<li>
+							<div class="collapsible-header">
+								<div class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">comentar</div>
+							</div>
+							<div class="collapsible-body">
+								<form class="col s12 [ margin-bottom ]">
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="first_name" type="text" class="validate">
+											<label for="first_name">Nombre</label>
+										</div>
+										<div class="input-field col s12">
+											<input id="email" type="email" class="validate">
+											<label for="email">Email</label>
+										</div>
+										<div class="input-field col s12">
+											<textarea id="textarea1" class="materialize-textarea"></textarea>
+											<label for="textarea1">Comentario</label>
+										</div>
+									</div>
+									<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+								</form>
+							</div>
+						</li>
+					</ul>
 				</section>
 				<section class="[ text-center ][ hide-on-small-only ]">
 					<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
