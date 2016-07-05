@@ -1,10 +1,10 @@
 <?php get_header(); the_post();  ?>
 	<section>
 		<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ][ height--320 ]">
-			<video class="[ center-full ][ bottom-0 ][ z-index--1 ][ min-width---100 ]" muted autoplay loop>
+			<video class="[ center-full ][ bottom-0 ][ min-width---100 ]" muted autoplay loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
-			<div class="[ gradient-linear-opacity ][ height---100 ]">
+			<div class="[ gradient-linear-opacity ][ height---100 ][ relative z-index ]">
 				<div class="[ container relative ][ height---100 ][ white-text text-center ]">
 					<h1 class="[ absolute ][ width---100 ]">Título del curso</h1>
 					<h2 class="[ absolute ][ bottom--30 ][ width---100 ]"><strong>Módulo 1</strong><br>Fortemne possumus dicere eundem illum torquatum quid quod. </h2>

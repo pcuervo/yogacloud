@@ -2,15 +2,14 @@
 
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
-			<video class="[ center-full ][ z-index--1 ][ min-width---100 min-height---100 ]" autoplay muted loop>
+			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
-			<div class="[ gradient-linear-opacity ][ padding-vertical--large ]">
+			<div class="[ gradient-linear-opacity ][ padding-vertical--large ][ relative z-index-1 ]">
 				<div class="[ container ]">
 					<div class="[ row ]">
 						<div class="[ col s12 ][ white-text text-center ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
-							<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
 							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						</div>
 					</div>
