@@ -96,7 +96,27 @@
 								<div class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</div>
 							</div>
 							<div class="collapsible-body">
-
+								<div class="[ content-comentario ]">
+									<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+									<div class="[ padding-left--large ]">
+										<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias.</p>
+										<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Tim Jonathan Doe</h6>
+									</div>
+								</div>
+								<div class="[ content-comentario ]">
+									<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+									<div class="[ padding-left--large ]">
+										<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaodo consequat.</p>
+										<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Lorem ipsum</h6>
+									</div>
+								</div>
+								<div class="[ content-comentario ]">
+									<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+									<div class="[ padding-left--large ]">
+										<p class="[ font-italic ]">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+										<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Dolor sit</h6>
+									</div>
+								</div>
 							</div>
 						</li>
 						<li>
@@ -166,11 +186,64 @@
 			</div>
 		</div>
 	</div>
-	<section class="[ text-center ][ hide-on-med-and-up ]">
+	<section class="[ text-center ][ hide-on-med-and-up ][ container ]">
 		<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 		<!-- Rating -->
 		<div class="rating"></div>
-		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</a>
+		<ul class="collapsible [ row ]" data-collapsible="accordion">
+			<li>
+				<div class="collapsible-header">
+					<div class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">ver comentarios</div>
+				</div>
+				<div class="collapsible-body">
+					<div class="[ content-comentario ]">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ padding-left--large ]">
+							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias.</p>
+							<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Tim Jonathan Doe</h6>
+						</div>
+					</div>
+					<div class="[ content-comentario ]">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ padding-left--large ]">
+							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaodo consequat.</p>
+							<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Lorem ipsum</h6>
+						</div>
+					</div>
+					<div class="[ content-comentario ]">
+						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+						<div class="[ padding-left--large ]">
+							<p class="[ font-italic ]">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<h6 class="[ color-dark ][ text-uppercase ][ text-right ]">Dolor sit</h6>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header">
+					<div class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ]">comentar</div>
+				</div>
+				<div class="collapsible-body">
+					<form class="col s12 [ margin-bottom ]">
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="first_name" type="text" class="validate">
+								<label for="first_name">Nombre</label>
+							</div>
+							<div class="input-field col s12">
+								<input id="email" type="email" class="validate">
+								<label for="email">Email</label>
+							</div>
+							<div class="input-field col s12">
+								<textarea id="textarea1" class="materialize-textarea"></textarea>
+								<label for="textarea1">Comentario</label>
+							</div>
+						</div>
+						<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+					</form>
+				</div>
+			</li>
+		</ul>
 	</section>
 	<section class="[ text-center ][ hide-on-med-and-up ]">
 		<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>

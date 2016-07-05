@@ -129,7 +129,7 @@
 						</div>
 						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
 						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
+							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias.</p>
 							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
 						</div>
 					</div>

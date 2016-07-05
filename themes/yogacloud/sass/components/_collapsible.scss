@@ -32,6 +32,11 @@
   p {
     margin: 0;
   }
+
+  .content-comentario {
+    margin-bottom: $margin-size;
+    h6 { font-size: 1rem; }
+  }
 }
 
 // sideNav collapsible styling
