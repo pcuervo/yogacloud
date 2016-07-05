@@ -223,8 +223,8 @@
 							Español
 						</a>
 						<ul id="dropdown-language" class="dropdown-content">
-							<li><a href="#!">
-								<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--6 0 ][ no-margin-sides ]"></i>
+							<li><a href="#!" class="">
+								<i class="[ icon icon-world icon-xsmall ][ color-light ][ line-height--6 0 ][ no-margin-sides ]"></i>
 								Inglés
 							</a></li>
 						</ul>

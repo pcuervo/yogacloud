@@ -55,6 +55,13 @@ header{
 				a {
 					display: block;
 					width: 100%;
+					background-color: $primary-color;
+					color: $light-color;
+					&:hover {
+						background-color: $light-color;
+						color: $primary-color;
+						i { color: $primary-color; }
+					}
 				}
 			}
 		}

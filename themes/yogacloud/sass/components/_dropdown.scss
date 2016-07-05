@@ -55,3 +55,9 @@
     }
   }
 }
+
+header .dropdown-button.active {
+  background-color: $primary-color;
+  color: $light-color;
+  i { color: $light-color; }
+}
