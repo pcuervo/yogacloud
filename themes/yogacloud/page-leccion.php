@@ -25,8 +25,6 @@
 		</div>
 	</section>
 
-
-
 	<div class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ hide-on-med-and-down ][ col l2 ]">

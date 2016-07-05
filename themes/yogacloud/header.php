@@ -134,7 +134,7 @@
 								<!-- end Header menu -->
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
-									<h5 class="[ no-margin-bottom ]" id="cursos-nav">
+									<h5 class="[ no-margin-bottom margin-top ]" id="cursos-nav">
 										<a class="[ white-text ]" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 									</h5>
@@ -154,8 +154,8 @@
 									</div>
 									<h5 class="[ no-margin padding-bottom ][ color-light ]">
 										<i class="[ icon icon-world icon-xsmall ][ line-height--6 0 ][ no-margin-sides ]"></i>
-										<a href="#"class="[ white-text ]">Español</a> /
-										<a href="#"  class="[ white-text ]">Inglés</a>
+										<a href="#"class="[ white-text ][ text-bold--hover ]">Español</a> /
+										<a href="#"  class="[ white-text ][ text-bold--hover ]">Inglés</a>
 									</h5>
 								</div>
 								<div class="[ container ]">
@@ -163,7 +163,7 @@
 										<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 											<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 											<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+											<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 										</div>
 										<div>
 											<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
