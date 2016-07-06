@@ -49,7 +49,6 @@
 										</div>
 									</div>
 								</div>
-<<<<<<< HEAD
 								<div class="[ col l6 ]">
 									<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
 										<?php the_excerpt(); ?>
@@ -68,45 +67,6 @@
 		</section>
 
 	<?php endif; wp_reset_postdata(); ?>
-=======
-							</div>
-						</div>
-						<div class="[ col l6 ]">
-							<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
-								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-							</div>
-							<div class="[ relative ][ top--22 ][ text-center ]">
-								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
-			<article class="[ col s12 m6 offset-m3 ]">
-				<div class="[ card ]">
-					<div class="[ row ]">
-						<div id="content-curso" class="[ card-image ][ col s12 l6 ]">
-							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
-								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-									<span class="[ card-title ]">Título del curso</span>
-									<div id="promo" class="[ proximamente ]"></div>
-								</div>
-							</div>
-						</div>
-						<div class="[ col l6 ]">
-							<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
-								<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-							</div>
-							<div class="[ relative ][ top--22 ][ text-center ]">
-								<a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
-		</div>
-	</section>
->>>>>>> b65cbb7ecd074473c0db0e69c119b4b8ab659e3e
 
 	<?php
 		$yoga_project_query = new WP_Query( array( 'pagename' => 'yoga-project' ) );
