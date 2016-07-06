@@ -110,72 +110,68 @@
 	</section>
 
 	<?php
-		$yoga_project_query = new WP_Query( array( 'name' => 'yoga-project' ) );
-		if( $yoga_project_query->have_posts() ) : while( $yoga_project_query->have_posts() ) : $yoga_project_query->the_post(); ?>
+		$yoga_project_query = new WP_Query( array( 'pagename' => 'yoga-project' ) );
+		if( $yoga_project_query->have_posts() ) : while( $yoga_project_query->have_posts() ) : $yoga_project_query->the_post();
+		$logos = get_attached_media( 'image' );
+	?>
 
-			Eso mero!
+			<section class="[ gradient-diagonal ][ padding-vertical ]" >
+				<div class="[ container ]">
+					<div class="[ row ][ no-margin-bottom ]">
+						<div class="[ col s12 m10 offset-m1 l8 offset-l2 ][ white-text ]">
+							<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
+							<div class="[ font-medium ]">
+								<?php the_content( ); ?>
+							</div>
+							<div class="[ text-center ]">
+								<?php foreach( $logos as $logo ) { ?>
+									<img class="[ width--120 ][ margin-sides ]" src="<?php echo $logo->guid; ?>">
+								<?php } ?>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
 	<?php endwhile; endif; wp_reset_postdata(); ?>
 
+	<?php
+		$testimonials_args = array(
+			'post_type' => 'testimoniales',
+			'posts_per_page' => '3'
+		);
+		$testimonials_query = new WP_Query( $testimonials_args );
+		if( $testimonials_query->have_posts() ) :
 
-	<section class="[ gradient-diagonal ][ padding-vertical ]" >
-		<div class="[ container ]">
-			<div class="[ row ][ no-margin-bottom ]">
-				<div class="[ col s12 m10 offset-m1 l8 offset-l2 ][ white-text ]">
-					<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
-					<p class="[ font-medium ]">¡Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. </p>
-					<div class="[ text-center ]">
-						<img class="[ width--120 ][ margin-right ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-						<img class="[ width--120 ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
-					</div>
-				</div>
+	?>
+
+		<section id="testimonials" class="[ container ]">
+			<h5 class="[ text-center ][ padding-top ]">Testimoniales</h5>
+			<div class="slider testimonials">
+				<ul class="slides">
+					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>
+						<li>
+							<div class="caption">
+								<div class="[  center-align ]">
+									<?php the_post_thumbnail('thumbnail', array('class' => '[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]') ); ?>
+								</div>
+								<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+								<div class="[ content-testimonial ]">
+									<div class="[ font-italic ]">
+										<?php the_content(); ?>
+									</div>
+									<h6 class="[ color-dark ][ text-uppercase ]"><?php the_title(); ?></h6>
+								</div>
+							</div>
+						</li>
+					<?php endwhile; ?>
+				</ul>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section id="testimonials" class="[ container ]">
-		<h5 class="[ text-center ][ padding-top ]">Testimonials</h5>
-		<div class="slider testimonials">
-			<ul class="slides">
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Excelente oportunidad de crecimiento personal la que ustedes nos ofrecen en esta plataforma. Gracias</p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="caption">
-						<div class="[  center-align ]">
-							<img class="[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						</div>
-						<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
-						<div class="[ content-testimonial ]">
-							<p class="[ font-italic ]">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea </p>
-							<h6 class="[ color-dark ][ text-uppercase ]">Tim Jonathan Doe</h6>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</section>
+	<?php endif; wp_reset_postdata(); ?>
+
+
 	<div class="[ clearfix ]"></div>
 	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
