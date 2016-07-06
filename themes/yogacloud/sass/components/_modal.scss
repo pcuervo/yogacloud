@@ -126,5 +126,6 @@
 #login.modal,
 #registrate.modal {
   max-width: 320px;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }

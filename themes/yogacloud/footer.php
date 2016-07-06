@@ -40,7 +40,8 @@
 
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/functions.js"></script>
-		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js//jquery.star.rating.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
+		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
 		<script>
 			$( document ).ready(function() {
 				/**
@@ -48,6 +49,7 @@
 				**/
 				heightScreen(); //cursos y lección
 				boxCard(); //Index y resultados
+				$('#form-login', '#form-registro').parsley();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000

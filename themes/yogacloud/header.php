@@ -242,17 +242,17 @@
 					</div>
 					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
 					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Ingresa en tu cuenta</h5>
-					<form class="col s12">
+					<form id="form-login" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate" required>
-								<label for="user_name">Nombre de usuario</label>
+								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
+								<label for="user_name">Nombre de usuario*</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" type="password" class="validate" required>
-								<label for="password">Contraseña</label>
+								<input id="password" type="password" class="validate" required data-parsley-error-message="La contraseña es obligatoria.">
+								<label for="password">Contraseña*</label>
 							</div>
 						</div>
 						<div class="row">
@@ -272,23 +272,23 @@
 					</div>
 					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
 					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Registrate para continuar</h5>
-					<form class="col s12 formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
+					<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate" required>
-								<label for="user_name">Nombre de usuario</label>
+								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
+								<label for="user_name">Nombre de usuario*</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="email" type="email" class="validate" required>
-								<label for="email" data-error="El email es incorrecto" data-success="email valido">Email</label>
+								<input id="email" type="email" class="validate" required data-parsley-type-message="La dirección de correo es inválida." data-parsley-required-message="El correo es obligatorio.">
+								<label for="email">Correo*</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" type="password" class="validate" required>
-								<label for="password">Contraseña</label>
+								<input id="password" type="password" class="validate" required data-parsley-required-message="La contraseña es obligatoria.">
+								<label for="password">Contraseña*</label>
 							</div>
 						</div>
 						<div class="row">
