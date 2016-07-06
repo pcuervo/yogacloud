@@ -16,6 +16,16 @@ define( 'SITEURL', site_url('/') );
 
 
 /*------------------------------------*\
+	#SNIPPETS
+\*------------------------------------*/
+
+require_once( 'inc/pages.php' );
+require_once( 'inc/post-types.php' );
+require_once( 'inc/metaboxes.php' );
+
+
+
+/*------------------------------------*\
 	#GENERAL FUNCTIONS
 \*------------------------------------*/
 
@@ -40,6 +50,24 @@ add_action( 'wp_enqueue_scripts', function(){
 });
 
 
+if ( function_exists('add_image_size') ){
+	// add_image_size( 'size_name', 200, 200, true );
+
+	// cambiar el tamaño del thumbnail
+	update_option( 'thumbnail_size_h', 300 );
+	update_option( 'thumbnail_size_w', 300 );
+	update_option( 'thumbnail_crop', true );
+
+	// cambiar el tamaño del medium
+	update_option( 'medium_size_h', 600 );
+	update_option( 'medium_size_w', 600 );
+	update_option( 'medium_crop', true );
+
+	// cambiar el tamaño del large
+	update_option( 'large_size_h', 1280 );
+	update_option( 'large_size_w', 680 );
+	update_option( 'large_crop', true );
+}
 
 
 
@@ -58,11 +86,3 @@ function print_title(){
 		echo ' | ' . sprintf( __( 'Página %s' ), max( $paged, $page ) );
 	}
 }
-
-
-
-
-
-require_once( 'inc/pages.php' );
-
-?>
