@@ -102,6 +102,13 @@ strong { font-weight: 500; }
 
 .text-bold { font-weight: bold; }
 
+//text-decoration
+
+.text-underline { text-decoration: underline; }
+.text-underline--hover:hover { text-decoration: underline; }
+
+.text-bold--hover:hover { font-weight: bold; }
+
 //sizes
 
 .font-medium{ font-size: 1.15rem;}

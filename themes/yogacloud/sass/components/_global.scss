@@ -165,6 +165,7 @@ video.responsive-video {
 
   li {
     display: inline-block;
+    vertical-align: middle;
     font-size: 1.2rem;
     padding: 0 10px;
     line-height: 30px;
@@ -362,7 +363,7 @@ ul.staggered-list li {
 // Footer
 footer.page-footer {
 //  margin-top: 20px;
-  padding-top: 20px; padding-bottom: 20px;
+  padding-top: $padding-size; padding-bottom: ($padding-size/4);
   background-color: $footer-bg-color;
 
   .footer-copyright {
@@ -652,6 +653,8 @@ nav ul a span.badge {
       height: 100%;
     }
 }
+
+// .main-banner .video-container { padding-bottom: 49.25%; }
 
 // Progress Bar
 .progress {

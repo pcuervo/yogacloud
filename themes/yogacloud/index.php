@@ -2,15 +2,14 @@
 
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
-			<video class="[ center-full ][ z-index--1 ][ min-width---100 min-height---100 ]" autoplay loop>
+			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
-			<div class="[ gradient-linear-opacity ][ padding-vertical--large ]">
+			<div class="[ gradient-linear-opacity ][ padding-vertical--large ][ relative z-index-1 ]">
 				<div class="[ container ]">
 					<div class="[ row ]">
 						<div class="[ col s12 ][ white-text text-center ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
-							<!-- <h1 class="[ padding-sides ]">Yoga cloud cursos</h1> -->
 							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						</div>
 					</div>
@@ -31,12 +30,8 @@
 							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div id="promo" class="[ nuevo ]">
-										<div></div>
-										<p class="text-nuevo">NUEVO</p>
-										<p class="text-destacado">DESTACADO</p>
-										<p class="text-proximamente">PRÓXIMAMENTE</p>
-									</div>
+								<!-- promo -->
+									<div id="promo" class="[ nuevo ]"></div>
 								</div>
 							</div>
 						</div>
@@ -59,12 +54,7 @@
 							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div id="promo" class="[ destacado ]">
-										<div></div>
-										<p class="text-nuevo">NUEVO</p>
-										<p class="text-destacado">DESTACADO</p>
-										<p class="text-proximamente">PRÓXIMAMENTE</p>
-									</div>
+									<div id="promo" class="[ destacado ]"></div>
 								</div>
 							</div>
 						</div>
@@ -86,12 +76,7 @@
 							<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1445384763658-0400939829cd.jpg)">
 								<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 									<span class="[ card-title ]">Título del curso</span>
-									<div id="promo" class="[ proximamente ]">
-										<div></div>
-										<p class="text-nuevo">NUEVO</p>
-										<p class="text-destacado">DESTACADO</p>
-										<p class="text-proximamente">PRÓXIMAMENTE</p>
-									</div>
+									<div id="promo" class="[ proximamente ]"></div>
 								</div>
 							</div>
 						</div>
@@ -171,9 +156,9 @@
 
 	<?php endif; wp_reset_postdata(); ?>
 
-
 	<div class="[ clearfix ]"></div>
-	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1429277096327-11ee3b761c93.jpg)">
+
+	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>

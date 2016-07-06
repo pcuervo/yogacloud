@@ -134,7 +134,8 @@ function videoPlayer(){
             //Animated complete
         });
         $( "#play-button img" ).addClass('hidden');
-        $("#video_player")[0].play(); //autoplay
+        // $("#video_player")[0].play(); //autoplay <video>
+        $("#video")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
 
@@ -184,17 +185,3 @@ function boxCard(){
 
     }
 }
-
-// function sliderHeight(){
-//     var caption_height = $('.testimonials li.active .caption').height();
-//     var testimonial_height = (caption_height + 20);
-//     console.log('Alto slider:', testimonial_height + 'px');
-//     $('.height-testimonials').css('height', testimonial_height );
-// }
-
-// function sliderDisplay(){
-//     if( $('.slider .slides li').css('opacity', '0') ){
-//         $( ".slider .slides li" ).addClass('hidden');
-//     }
-//     $( ".slider .slides li" ).removeClass('hidden');
-// }

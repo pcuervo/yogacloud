@@ -54,6 +54,9 @@
 .padding-vertical--large	{padding-top:($padding-size*2); padding-bottom:($padding-size*2);}
 .padding-vertical--xlarge	{padding-top:($padding-size*4); padding-bottom:($padding-size*4);}
 
+.padding-left				{padding-left:$padding-size;}
+.padding-left--large				{padding-left:($padding-size*1.5);}
+
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
 .padding-bottom				{padding-bottom:$padding-size;}
@@ -201,62 +204,6 @@
   overflow: hidden;
 }
 @media (max-width: 992px ){ .text-ellipsis { height: 230px!important; }}
-
-//PROMO
-#promo {
-	position: absolute; right: 0px;
-	div{
-		width: 0;
-		height: 0;
-		border-left: 45px solid transparent;
-		border-bottom: 45px solid transparent;
-		border-right: 45px solid;
-		border-top: 45px solid;
-	}
-	p{
-		-ms-transform: rotate(45deg); /* IE 9 */
-		-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-		transform: rotate(45deg);
-		color: $light-color;
-		font-weight: bold;
-		position: absolute;
-		text-transform: uppercase;
-	}
-	// &.none { display:none; }
-	&.nuevo div {
-		border-right-color: $secondary-color;
-		border-top-color: $secondary-color;
-	}
-	&.destacado div {
-		border-right-color: $primary-color;
-		border-top-color: $primary-color;
-	}
-	&.proximamente div {
-		border-right-color: $primary-color-blue;
-		border-top-color: $primary-color-blue;
-	}
-	&.nuevo {
-		p.text-nuevo {
-			right: 2px; top: 6px;
-		}
-		p.text-destacado, p.text-proximamente { display: none; }
-	}
-	&.destacado {
-		p.text-destacado {
-			font-size: 10px;
-			right: 0px; bottom: 40px;
-		}
-		p.text-nuevo, p.text-proximamente { display: none; }
-	}
-	&.proximamente {
-		 p.text-proximamente {
-			font-size: 10px;
-			left: 15px; top: 17px;
-		}
-		p.text-nuevo, p.text-destacado { display: none; }
-	}
-}
-
 
 .categories {
 	a {

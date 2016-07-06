@@ -1,10 +1,8 @@
 <?php get_header(); the_post();  ?>
 	<section class="[ text-center ]">
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ height-auto ]" >
-			<div id="video-container" class="[ relative ][ width---100 ][ bg-darker ]">
-				<video id="video_player" class="[ max-height-screen ][ z-index-1 ][ width---100 ][ stop ]" controls>
-					<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
-				</video>
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen ]" >
+			<div class="video-container">
+				<iframe id="video" class="[ max-height-screen ]" src="https://player.vimeo.com/video/73308983?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
 			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg)">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
@@ -25,8 +23,6 @@
 		</div>
 	</section>
 
-
-
 	<div class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ hide-on-med-and-down ][ col l2 ]">
@@ -41,9 +37,6 @@
 					<p>Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam ceteros. Si enim ad populum me vocas, eum. Sed residamus, inquit, si placet. Cave putes quicquam esse verius. Duo Reges: constructio interrete.</p>
 					<img src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
 					<p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quid, si non sensus modo ei sit datus, verum etiam animus hominis? Quamvis enim depravatae non sint, pravae tamen esse possunt. Egone quaeris, inquit, quid sentiam? [redacted]tilio Rufo.</p>
-					<div class="video-container">
-						<iframe src="https://player.vimeo.com/video/97989105?color=00ddb3&title=0&byline=0&portrait=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-					</div>
 					<iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256340512&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 				</article>
 				<article class="[ text-center ]">

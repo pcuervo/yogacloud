@@ -15,10 +15,10 @@
 						<img src="" alt="">
 					</div>
 				</div>
-				<div class="[ row ]">
+				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<h5><a href="<?php echo site_url('/'); ?>"><img class="logo center-block" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a></h5>
-						<div class="[ row ]">
+						<a href="<?php echo site_url('/'); ?>"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
+						<div class="[ row ][ no-margin ]">
 							<div class="col s4">
 								<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>
 							</div>
@@ -48,8 +48,6 @@
 				**/
 				heightScreen(); //cursos y lección
 				boxCard(); //Index y resultados
-				// sliderHeight();
-				// sliderDisplay();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
@@ -60,12 +58,13 @@
 				$('.dropdown-button').dropdown();
 				$('.dropdown-button').dropdown({
 						hover: true, // Activate on hover
-					}
-				);
+				});
+				$('.tooltipped').tooltip();
+				// Materialize.updateTextFields();
+				$('#textarea1').trigger('autoresize');
 			});
 			$(window).resize(function () {
 				boxCard(); //Index y resultados
-				// sliderHeight();
 			});
 		</script>
 		<?php wp_footer(); ?>

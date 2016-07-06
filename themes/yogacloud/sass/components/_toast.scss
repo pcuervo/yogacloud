@@ -13,7 +13,7 @@
     max-width: 90%;
   }
   @media #{$large-and-up} {
-    top: 10%;
+    bottom: 10%;
     right: 7%;
     max-width: 86%;
   }
@@ -32,7 +32,7 @@
   min-height: $toast-height;
   line-height: 1.5em;
   word-break: break-all;
-  background-color: $toast-color;
+  background-color: $secondary-color;
   padding: 10px 25px;
   font-size: 1.1rem;
   font-weight: 300;

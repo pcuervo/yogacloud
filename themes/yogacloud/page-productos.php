@@ -38,7 +38,7 @@
 
 	<section class="[ container ][ text-center ]">
 		<div class="[ row ]">
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -50,7 +50,7 @@
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 				</div>
 			</article>
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -62,7 +62,7 @@
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 				</div>
 			</article>
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda3.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -74,7 +74,7 @@
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 				</div>
 			</article>
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -86,7 +86,7 @@
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 				</div>
 			</article>
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -98,7 +98,7 @@
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 				</div>
 			</article>
-			<article id="box-card" class="[ col s12 m6 ][ box-btn--middle ]">
+			<article id="box-card" class="[ col s12 m6 l4 ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
 					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">

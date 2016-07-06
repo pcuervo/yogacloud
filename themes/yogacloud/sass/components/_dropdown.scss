@@ -55,3 +55,34 @@
     }
   }
 }
+
+header {
+  .dropdown-button.active {
+    background-color: $primary-color;
+    color: $light-color;
+    i { color: $light-color; }
+  }
+
+  ul#dropdown-search {
+    background-color: $primary-color;
+    right: 0px!important; top: 64px!important;
+    width: 300px!important;
+    text-align: center;
+  }
+
+  ul#dropdown-user,
+  ul#dropdown-language {
+    top: 64px!important;
+    a {
+      display: block;
+      width: 100%;
+      background-color: $primary-color;
+      color: $light-color;
+      &:hover {
+        background-color: $light-color;
+        color: $primary-color;
+        i { color: $primary-color; }
+      }
+    }
+  }
+}
