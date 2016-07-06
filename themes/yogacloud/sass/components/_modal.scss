@@ -122,3 +122,7 @@
 .modal-primary {
   background-color: $primary-color-dark!important;
 }
+
+#login.modal {
+  max-width: 320px;
+}

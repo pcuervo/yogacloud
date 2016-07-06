@@ -3,6 +3,7 @@ nav {
   @extend .z-depth-1;
   background-color: $light-color;
   width: 100%;
+  position: relative; z-index: 1000;
   a { color: $primary-color; }
 
   i,

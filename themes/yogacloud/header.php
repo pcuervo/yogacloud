@@ -78,7 +78,7 @@
 										<h5><a class="[ white-text ]" href="">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] <?php if(is_page('login')) echo 'active'; ?>" href="">Login</a></h5>
+										<h5><a class="[ white-text ] modal-trigger" href="#login">Login</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 										<h5><a class="[ white-text ] <?php if(is_page('curso')) echo 'sing-up'; ?>" href="">Sign up</a></h5>
 									<?php } ?>
@@ -208,10 +208,10 @@
 						<?php } ?>
 						<?php if ( ! is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
-							<a class="dropdown-button <?php if(is_page('ingresa')) echo 'active'; ?>" href="#" data-activates="dropdown-user">Ingresa</a>
+							<a class="dropdown-button" data-activates="dropdown-user">Ingresa</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="#!" class="<?php if(is_page('login')) echo 'active'; ?>">Login</a></li>
+								<li><a class="modal-trigger" href="#login" >Login</a></li>
 								<li><a href="#!" class="<?php if(is_page('sing-up')) echo 'active'; ?>">Sign up</a></li>
 							</ul>
 						<?php } ?>
@@ -233,6 +233,30 @@
 					</div>
 				</div>
 			</nav>
+
+			<!-- Modal Login -->
+			<div id="login" class="modal">
+				<div class="modal-content">
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<input placeholder="Placeholder" id="user_name" type="text" class="validate">
+								<label for="user_name">Nombre de usuario</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="password" type="password" class="validate">
+								<label for="password">Contraseña</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+				</div>
+			</div>
+
 		</header>
 
 
