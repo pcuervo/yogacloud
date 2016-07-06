@@ -80,7 +80,7 @@
 									<?php if ( ! is_user_logged_in() ){ ?>
 										<h5><a class="[ white-text ] modal-trigger" href="#login">Login</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('curso')) echo 'sing-up'; ?>" href="">Sign up</a></h5>
+										<h5><a class="[ white-text ] modal-trigger" href="#registrate">Sign up</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
@@ -212,7 +212,7 @@
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
 								<li><a class="modal-trigger" href="#login" >Login</a></li>
-								<li><a href="#!" class="<?php if(is_page('sing-up')) echo 'active'; ?>">Sign up</a></li>
+								<li><a class="modal-trigger" href="#registrate" >Sign up</a></li>
 							</ul>
 						<?php } ?>
 
@@ -237,10 +237,15 @@
 			<!-- Modal Login -->
 			<div id="login" class="modal">
 				<div class="modal-content">
+					<div class="[ text-right ]">
+						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
+					</div>
+					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
+					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Ingresa en tu cuenta</h5>
 					<form class="col s12">
 						<div class="row">
 							<div class="input-field col s12">
-								<input placeholder="Placeholder" id="user_name" type="text" class="validate">
+								<input id="user_name" type="text" class="validate">
 								<label for="user_name">Nombre de usuario</label>
 							</div>
 						</div>
@@ -250,10 +255,48 @@
 								<label for="password">Contraseña</label>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col s12">
+								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+							</div>
+						</div>
 					</form>
 				</div>
-				<div class="modal-footer">
-					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+			</div>
+
+			<!-- Modal Registrate -->
+			<div id="registrate" class="modal">
+				<div class="modal-content">
+					<div class="[ text-right ]">
+						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
+					</div>
+					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
+					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Registrate para continuar</h5>
+					<form class="col s12">
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="user_name" type="text" class="validate">
+								<label for="user_name">Nombre de usuario</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="email" type="email" class="validate">
+								<label for="email" data-error="El email es incorrecto" data-success="email valido">Email</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="password" type="password" class="validate">
+								<label for="password">Contraseña</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 

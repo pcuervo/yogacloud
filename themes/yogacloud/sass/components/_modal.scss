@@ -123,6 +123,8 @@
   background-color: $primary-color-dark!important;
 }
 
-#login.modal {
+#login.modal,
+#registrate.modal {
   max-width: 320px;
+  overflow: hidden;
 }
