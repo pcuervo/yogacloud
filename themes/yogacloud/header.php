@@ -145,7 +145,7 @@
 									<div id="box-form">
 										<h5 id="title-search-nav" class="[ white-text ][ no-margin ][ padding-vertical ]">Buscar</h5>
 										<div class="divider divider-hidden [ width--50 ][ margin-auto ]"></div>
-										<form id="form-search-nav" class="hidden">
+										<form method="POST" id="form-search-nav" class="hidden">
 											<input class="[ input-search-nav ]" id="search" type="search" required>
 											<button class="btn [ btn-rounded btn-primary-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 										</form>
@@ -245,13 +245,13 @@
 					<form class="col s12">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate">
+								<input id="user_name" type="text" class="validate" required>
 								<label for="user_name">Nombre de usuario</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" type="password" class="validate">
+								<input id="password" type="password" class="validate" required>
 								<label for="password">Contraseña</label>
 							</div>
 						</div>
@@ -272,22 +272,22 @@
 					</div>
 					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
 					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Registrate para continuar</h5>
-					<form class="col s12">
+					<form class="col s12 formValidate" id="formValidate" method="get" action="" novalidate="novalidate">
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate">
+								<input id="user_name" type="text" class="validate" required>
 								<label for="user_name">Nombre de usuario</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="email" type="email" class="validate">
+								<input id="email" type="email" class="validate" required>
 								<label for="email" data-error="El email es incorrecto" data-success="email valido">Email</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" type="password" class="validate">
+								<input id="password" type="password" class="validate" required>
 								<label for="password">Contraseña</label>
 							</div>
 						</div>
