@@ -34,7 +34,11 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce input.button,
 .woocommerce input.button.alt,
 .woocommerce input.button:disabled,
-.woocommerce input.button:disabled[disabled]{
+.woocommerce input.button:disabled[disabled],
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button{
 	border-radius: 50px;
 	letter-spacing: 0.5px;
 	height: 45px;
@@ -44,13 +48,21 @@ nav.woocommerce-breadcrumb { display: none; }
 
 .woocommerce a.button.alt,
 .woocommerce input.button,
-.woocommerce input.button.alt {
+.woocommerce input.button.alt,
+.woocommerce #respond input#submit,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button {
 	background-color: $primary-color;
 	color: $light-color;
 }
 .woocommerce a.button.alt:hover,
 .woocommerce input.button:hover,
-.woocommerce input.button.alt:hover {
+.woocommerce input.button.alt:hover,
+.woocommerce #respond input#submit:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover {
 	background-color: $primary-color-light;
 	color: $light-color
 }

@@ -36,3 +36,8 @@
     filter: alpha(opacity=0);
   }
 }
+
+::-webkit-input-placeholder { color: #777; } /* WebKit */
+:-moz-placeholder { color: #777; } /* Firefox 18- */
+::-moz-placeholder { color: #777; } /* Firefox 19+ */
+:-ms-input-placeholder { color: #777; } /* IE 10+ */
