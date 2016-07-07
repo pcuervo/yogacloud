@@ -1,0 +1,24 @@
+//Box Model
+
+.padding-right--small--all *	{ padding-right: ($padding-size/2); }
+
+//Box size
+
+.width--70-all *	{ width: 70px; }
+
+.width---100-all *	{ width: 100%; }
+
+.max-width---100-all *{ max-width: 100%; }
+
+.height-auto-all *	{ height: auto; }
+
+//nav
+
+nav.woocommerce-breadcrumb { display: none; }
+
+//table
+
+.woocommerce table.shop_table { border: none!important; }
+.woocommerce table thead { border-bottom: 1px solid $primary-color!important; }
+
+//SINGLE PRODUCT
