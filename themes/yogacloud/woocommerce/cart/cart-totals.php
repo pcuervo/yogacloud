@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2><?php _e( 'Cart Totals', 'woocommerce' ); ?></h2>
+	<h5><?php _e( 'Cart Totals', 'woocommerce' ); ?></h5>
 
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</table>
 
-	<div class="wc-proceed-to-checkout">
+	<div class="wc-proceed-to-checkout [ text-right ]">
 		<?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 	</div>
 
