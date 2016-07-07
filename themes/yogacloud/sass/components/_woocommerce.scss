@@ -19,17 +19,29 @@ nav.woocommerce-breadcrumb { display: none; }
 //table
 
 .woocommerce table.shop_table { border: none!important; }
-.woocommerce table.shop_table td { border-bottom: 1px solid $primary-color!important; border-top: 1px solid $primary-color!important; }
+.woocommerce table.shop_table td,
+.woocommerce table.shop_table tfoot th { border-bottom: 1px solid $primary-color!important; border-top: 1px solid $primary-color!important; }
+
+//border
+
+.woocommerce .woocommerce-info { border: none; }
 
 //button
 
 .woocommerce a.button.alt,
-.woocommerce input.button {
+.woocommerce input.button,
+.woocommerce input.button.alt {
 	background-color: $primary-color;
-	color: $light-color
+	color: $light-color;
+	border-radius: 50px;
+	letter-spacing: 0.5px;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 2rem;
 }
 .woocommerce a.button.alt:hover,
-.woocommerce input.button:hover {
+.woocommerce input.button:hover,
+.woocommerce input.button.alt:hover {
 	background-color: $primary-color-light;
 	color: $light-color
 }
@@ -38,9 +50,21 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce input.button:disabled[disabled] { color: $light-color; }
 
 
-//input
+//form
 .woocommerce table.cart td.actions .input-text { width: 100px; }
+
+.woocommerce label {
+	font-size: 1rem;
+	color: $dark-color;
+}
+
+[type="radio"]:checked+label:after,
+[type="radio"].with-gap:checked+label:after { background-color: $primary-color; border: 2px solid $primary-color; }
 
 //typography
 
 .woocommerce a { color: $primary-color; }
+
+//icons
+
+.woocommerce .woocommerce-info:before { color: $primary-color; }
