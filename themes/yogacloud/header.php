@@ -262,7 +262,29 @@
 						</div>
 					</form>
 					<div class="[ text-center ]">
-						<p class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</p>
+						<ul class="collapsible [ no-margin ]" data-collapsible="accordion">
+							<li>
+								<div class="collapsible-header" style="background-color: #f8f8f8;">
+									<p class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</p>
+								</div>
+								<div class="collapsible-body">
+									<p>Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
+									<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
+										<div class="row">
+											<div class="input-field col s12">
+												<input id="user_login" type="text" class="validate" required data-parsley-error-message="Este campo es obligatorio.">
+												<label for="user_login">Nombre de usuario o contraseña*</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s12">
+												<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</li>
+						</ul>
 						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
 						<p class="[ inline-block ][ margin-right--xsmall ]">Ingresa con</p>
 						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
