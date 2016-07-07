@@ -659,19 +659,18 @@ nav ul a span.badge {
 // Progress Bar
 .progress {
     position: relative;
-    height: 4px;
+    height: 7px;
     display: block;
     width: 100%;
-    background-color: lighten($progress-bar-color, 40%);
+    background-color: $primary-transparent--light;
     border-radius: 2px;
-    margin: $element-top-margin 0 $element-bottom-margin 0;
     overflow: hidden;
   .determinate {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: $progress-bar-color;
+    background-color: $primary-color;
     transition: width .3s linear;
   }
   .indeterminate {
