@@ -57,7 +57,7 @@
 			'public'             => true,
 			'publicly_queryable' => true,
 			'show_ui'            => true,
-			'show_in_menu'       => true,
+			'show_in_menu'       => false,
 			'query_var'          => true,
 			'rewrite'            => array( 'slug' => 'maestros' ),
 			'capability_type'    => 'post',
@@ -68,6 +68,6 @@
 		);
 		register_post_type( 'maestros', $args );
 
-
-
 	});
+
+	
