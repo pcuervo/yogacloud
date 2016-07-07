@@ -1,10 +1,8 @@
 <?php
 /**
- * Single Product Share
+ * Cart item data (when outputting non-flat)
  *
- * Sharing plugins can hook into here or you can add your own code directly.
- *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/share.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/cart/cart-item-data.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -15,13 +13,15 @@
  * @see 	    https://docs.woothemes.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     1.6.4
+ * @version 	2.4.0
  */
-
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
-
 ?>
-
-<?php do_action( 'woocommerce_share' ); // Sharing plugins can hook into here ?>
+<dl class="variation">
+	<?php foreach ( $item_data as $data ) : ?>
+		<dt class="variation-<?php echo sanitize_html_class( $data['key'] ); ?>"><?php echo wp_kses_post( $data['key'] ); ?>:</dt>
+		<dd class="variation-<?php echo sanitize_html_class( $data['key'] ); ?>"><?php echo wp_kses_post( wpautop( $data['display'] ) ); ?></dd>
+	<?php endforeach; ?>
+</dl>

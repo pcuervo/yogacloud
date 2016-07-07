@@ -16,4 +16,9 @@
 
 nav.woocommerce-breadcrumb { display: none; }
 
+//table
+
+.woocommerce table.shop_table { border: none!important; }
+.woocommerce table thead { border-bottom: 1px solid $primary-color!important; }
+
 //SINGLE PRODUCT
