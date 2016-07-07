@@ -329,7 +329,6 @@
 						</div>
 					</form>
 					<div class="[ text-center ]">
-						<p class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</p>
 						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
 						<p class="[ inline-block ][ margin-right--xsmall ]">Registrate con</p>
 						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
@@ -339,9 +338,4 @@
 					</div>
 				</div>
 			</div>
-
 		</header>
-
-
-
-
