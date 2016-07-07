@@ -73,7 +73,7 @@
 									<?php if ( is_user_logged_in() ){ ?>
 										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Raúl De Zamacona</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Mis cursos</a></h5>
+										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="<?php echo site_url('/perfil/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 										<h5><a class="[ white-text ]" href="">Salir</a></h5>
 									<?php } ?>
@@ -202,7 +202,7 @@
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="#!" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/perfil/'); ?>" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
 								<li><a href="#!">Sign out</a></li>
 							</ul>
 						<?php } ?>
