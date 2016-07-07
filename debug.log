@@ -1,0 +1,1 @@
+[06-Jul-2016 23:59:02 UTC] PHP Fatal error:  Call to undefined function add_metaboxes_cursos() in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/inc/metaboxes.php on line 16
