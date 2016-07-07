@@ -73,14 +73,14 @@
 									<?php if ( is_user_logged_in() ){ ?>
 										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Raúl De Zamacona</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Mis cursos</a></h5>
+										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="<?php echo site_url('/perfil/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 										<h5><a class="[ white-text ]" href="">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
 										<h5><a class="[ white-text ] modal-trigger" href="#login">Login</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('curso')) echo 'sing-up'; ?>" href="">Sign up</a></h5>
+										<h5><a class="[ white-text ] modal-trigger" href="#registrate">Sign up</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
@@ -145,7 +145,7 @@
 									<div id="box-form">
 										<h5 id="title-search-nav" class="[ white-text ][ no-margin ][ padding-vertical ]">Buscar</h5>
 										<div class="divider divider-hidden [ width--50 ][ margin-auto ]"></div>
-										<form id="form-search-nav" class="hidden">
+										<form method="POST" id="form-search-nav" class="hidden">
 											<input class="[ input-search-nav ]" id="search" type="search" required>
 											<button class="btn [ btn-rounded btn-primary-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
 										</form>
@@ -202,7 +202,7 @@
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="#!" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/perfil/'); ?>" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
 								<li><a href="#!">Sign out</a></li>
 							</ul>
 						<?php } ?>
@@ -212,7 +212,7 @@
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
 								<li><a class="modal-trigger" href="#login" >Login</a></li>
-								<li><a href="#!" class="<?php if(is_page('sing-up')) echo 'active'; ?>">Sign up</a></li>
+								<li><a class="modal-trigger" href="#registrate" >Sign up</a></li>
 							</ul>
 						<?php } ?>
 
@@ -237,28 +237,105 @@
 			<!-- Modal Login -->
 			<div id="login" class="modal">
 				<div class="modal-content">
-					<form class="col s12">
+					<div class="[ text-right ]">
+						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
+					</div>
+					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
+					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Ingresa en tu cuenta</h5>
+					<form id="form-login" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 						<div class="row">
 							<div class="input-field col s12">
-								<input placeholder="Placeholder" id="user_name" type="text" class="validate">
-								<label for="user_name">Nombre de usuario</label>
+								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
+								<label for="user_name">Nombre de usuario*</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="input-field col s12">
-								<input id="password" type="password" class="validate">
-								<label for="password">Contraseña</label>
+								<input id="password" type="password" class="validate" required data-parsley-error-message="La contraseña es obligatoria.">
+								<label for="password">Contraseña*</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
 							</div>
 						</div>
 					</form>
-				</div>
-				<div class="modal-footer">
-					<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+					<div class="[ text-center ]">
+						<ul class="collapsible [ no-margin ]" data-collapsible="accordion">
+							<li>
+								<div class="collapsible-header" style="background-color: #f8f8f8;">
+									<p class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</p>
+								</div>
+								<div class="collapsible-body">
+									<p class="[ padding-sides--small ]">Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
+									<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
+										<div class="row">
+											<div class="input-field col s12">
+												<input id="user_login" type="text" class="validate" required data-parsley-error-message="Este campo es obligatorio.">
+												<label for="user_login">Nombre de usuario o contraseña*</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col s12">
+												<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</li>
+						</ul>
+						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
+						<p class="[ inline-block ][ margin-right--xsmall ]">Ingresa con</p>
+						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
+							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
+							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
+						</a>
+					</div>
 				</div>
 			</div>
 
+			<!-- Modal Registrate -->
+			<div id="registrate" class="modal">
+				<div class="modal-content">
+					<div class="[ text-right ]">
+						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
+					</div>
+					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
+					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Registrate para continuar</h5>
+					<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
+								<label for="user_name">Nombre de usuario*</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="email" type="email" class="validate" required data-parsley-type-message="La dirección de correo es inválida." data-parsley-required-message="El correo es obligatorio.">
+								<label for="email">Correo*</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="password" type="password" class="validate" required data-parsley-required-message="La contraseña es obligatoria.">
+								<label for="password">Contraseña*</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col s12">
+								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+							</div>
+						</div>
+					</form>
+					<div class="[ text-center ]">
+						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
+						<p class="[ inline-block ][ margin-right--xsmall ]">Registrate con</p>
+						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
+							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
+							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
+						</a>
+					</div>
+				</div>
+			</div>
 		</header>
-
-
-
-

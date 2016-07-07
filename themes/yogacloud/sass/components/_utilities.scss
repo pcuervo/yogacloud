@@ -161,6 +161,7 @@
 .bg-secondary-darken-10	{ background: darken($secondary-color, 10%) }
 .bg-secondary-darken-20	{ background: darken($secondary-color, 20%) }
 .bg-darker 				{ background: $darker-color; }
+.bg-facebook 			{ background: #3b5998; }
 
 //Gradients
 
@@ -175,6 +176,7 @@
 //Borders
 
 .border-right--dark 	{ border-right: 1px solid $dark-color; }
+.border-right--primary 	{ border-right: 1px solid $primary-color; }
 .border-bottom--dark 	{ border-bottom: 1px solid $dark-color; }
 .border-bottom--light	{border-bottom: 1px solid $light-color;}
 

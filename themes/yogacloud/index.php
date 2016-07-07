@@ -136,7 +136,7 @@
 		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 			<div class="[ white-text ][ text-center ][ padding ]">
 				<h5>Regístrate y obtén lecciones gratis.</h5>
-				<a class="[ btn btn-rounded btn-light waves-effect waves-light ]">registrarme</a>
+				<a class="[ btn btn-rounded btn-light waves-effect waves-light ] modal-trigger" href="#registrate">registrarme</a>
 			</div>
 		</div>
 	</section>
