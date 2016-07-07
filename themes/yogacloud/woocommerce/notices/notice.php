@@ -1,8 +1,8 @@
 <?php
 /**
- * Single Product Sale Flash
+ * Show messages
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/sale-flash.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/notices/notice.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -20,11 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $post, $product;
+if ( ! $messages ){
+	return;
+}
 
 ?>
-<?php if ( $product->is_on_sale() ) : ?>
 
-	<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale [ padding-left--small ][ color-primary ][ font-size--24 ]">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
-
-<?php endif; ?>
+<?php foreach ( $messages as $message ) : ?>
+	<div class="woocommerce-info"><?php echo wp_kses_post( $message ); ?></div>
+<?php endforeach; ?>

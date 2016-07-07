@@ -1,6 +1,6 @@
 <?php get_header(); the_post();  ?>
 	<section class="[ text-center ]">
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen ]" >
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen ][ min-height--350-l ]" >
 			<div class="video-container">
 				<iframe id="video" class="[ max-height-screen ]" src="https://player.vimeo.com/video/73308983?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</div>
