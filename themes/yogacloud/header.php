@@ -268,7 +268,7 @@
 									<p class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</p>
 								</div>
 								<div class="collapsible-body">
-									<p>Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
+									<p class="[ padding-sides--small ]">Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
 									<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 										<div class="row">
 											<div class="input-field col s12">
