@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						 */
 						do_action( 'woocommerce_before_single_product_summary' );
 					?>
-				<div class=" [ col s12 m8 ]">
+				<div class=" [ col s12 m6 ]">
 
 					<div class="summary entry-summary">
 

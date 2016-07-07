@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post, $product;
 ?>
-	<div class="[ col s12 m4 ]">
+	<div class="[ col s12 m6 ]">
 		<div class="images">
 			<?php
 				if ( has_post_thumbnail() ) {
