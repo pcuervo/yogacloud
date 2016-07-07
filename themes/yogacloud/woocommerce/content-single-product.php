@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
-			<div class="[ row ]">
+			<div class="[ row ][ margin-top--large ]">
 					<?php
 						/**
 						 * woocommerce_before_single_product_summary hook.
