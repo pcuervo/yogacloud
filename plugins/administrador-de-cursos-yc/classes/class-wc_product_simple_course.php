@@ -1,10 +1,9 @@
 <?php 
 
 /**
- * Admin panel settings for Cursos YogaCloud.
+ * Course Product Type.
  *
- * This class will create menu items in admin panel, as well as initial setup
- * of post types and all required elements...
+ * Extend WooCommerce Simple Product to create a Simple Course Product
  *
  * @since 1.0.0
  */
@@ -17,9 +16,5 @@ class WC_Product_Simple_Course extends WC_Product_Simple {
 		$this->product_type = 'simple_course';
 
 		parent::__construct( $product );
-
-		error_log( $this->virtual );
-		
 	}
-
 }

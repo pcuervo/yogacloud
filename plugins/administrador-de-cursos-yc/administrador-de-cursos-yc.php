@@ -170,11 +170,26 @@ class Admin_Cursos_YC {
 		?><div id='course_options' class='panel woocommerce_options_panel'><?php
 			?><div class='options_group'><?php
 				woocommerce_wp_text_input( array(
-					'id'			=> '_text_input_y',
-					'label'			=> __( 'What is the value of Y', 'woocommerce' ),
-					'desc_tip'		=> 'true',
-					'description'	=> __( 'A handy description field', 'woocommerce' ),
+					'id'			=> '_vimeo_url',
+					'label'			=> __( 'URL Vimeo Trailer', 'woocommerce' ),
 					'type' 			=> 'text',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_num_lessons',
+					'label'			=> __( 'Número de lecciones', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_lessons_per_week',
+					'label'			=> __( 'Lecciones por semana', 'woocommerce' ),
+					'desc_tip'		=> 'true',
+					'description'	=> __( 'Si el campo se deja vacío, no se mostrará nada en la página del curso.', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_hours',
+					'label'			=> __( 'Horas', 'woocommerce' ),
+					'type' 			=> 'number',
 				) );
 			?></div>
 
@@ -185,11 +200,12 @@ class Admin_Cursos_YC {
 	 * Save the custom fields.
 	 */
 	public function save_course_option_field( $post_id ) {
-		
-		if ( isset( $_POST['_text_input_y'] ) ) :
-			update_post_meta( $post_id, '_text_input_y', sanitize_text_field( $_POST['_text_input_y'] ) );
+		if ( isset( $_POST['_vimeo_url'] ) ) :
+			update_post_meta( $post_id, '_vimeo_url', sanitize_text_field( $_POST['_vimeo_url'] ) );
+			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
+			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
+			update_post_meta( $post_id, '_hours', sanitize_text_field( $_POST['_hours'] ) );
 		endif;
-		
 	}
 
 	/**
