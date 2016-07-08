@@ -5,7 +5,6 @@
 
 	add_action('init', function(){
 
-
 		// TESTIMONIALES
 		$labels = array(
 			'name'          => 'Testimoniales',
@@ -36,7 +35,6 @@
 			'supports'           => array( 'title', 'editor', 'thumbnail' )
 		);
 		register_post_type( 'testimoniales', $args );
-
 
 		// Marcas
 		$labels = array(

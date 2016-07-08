@@ -1,8 +1,8 @@
 <?php
 /**
- * Additional Information tab
+ * Show messages
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/single-product/tabs/additional-information.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/notices/notice.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -11,23 +11,21 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woothemes.com/document/template-structure/
- * @author        WooThemes
- * @package       WooCommerce/Templates
- * @version       2.0.0
+ * @author 		WooThemes
+ * @package 	WooCommerce/Templates
+ * @version     1.6.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $product;
-
-$heading = apply_filters( 'woocommerce_product_additional_information_heading', __( 'Additional Information', 'woocommerce' ) );
+if ( ! $messages ){
+	return;
+}
 
 ?>
 
-<?php if ( $heading ): ?>
-	<h2><?php echo $heading; ?></h2>
-<?php endif; ?>
-
-<?php $product->list_attributes(); ?>
+<?php foreach ( $messages as $message ) : ?>
+	<div class="woocommerce-info"><?php echo wp_kses_post( $message ); ?></div>
+<?php endforeach; ?>

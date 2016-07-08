@@ -8,11 +8,18 @@
  *
  * @since 1.0.0
  */
-
+ 
 class WC_Product_Simple_Course extends WC_Product_Simple {
 	public function __construct( $product ) {
-		error_log('are we ever here');
+
+		$this->virtual = 'yes';
+        $this->manage_stock = 'no';   
 		$this->product_type = 'simple_course';
+
 		parent::__construct( $product );
+
+		error_log( $this->virtual );
+		
 	}
+
 }
