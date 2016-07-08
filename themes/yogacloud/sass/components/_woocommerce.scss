@@ -90,7 +90,8 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce a,
 .woocommerce-message a { color: $primary-color; }
 
-.woocommerce .card a { color: $light-color!important; }
+.woocommerce .card a,
+.woocommerce .mis-cursos a { color: $light-color!important; }
 //icons
 
 .woocommerce .woocommerce-info:before { color: $primary-color; }

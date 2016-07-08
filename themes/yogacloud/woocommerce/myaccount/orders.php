@@ -99,6 +99,44 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 		</tbody>
 	</table>
 
+	<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Nombre del curso</th>
+				<th>Badges</th>
+				<th></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<td>
+					<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
+				</td>
+				<td>
+					Lorem ipsum dolor sit
+				</td>
+				<td>
+					<i class="[ icon icon-badge-star-1 icon-small ][ color-primary ]">
+				</td>
+				<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
+			</tr>
+			<tr>
+				<td>
+					<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
+				</td>
+				<td>
+					Lorem ipsum dolor sit
+				</td>
+				<td>
+					<i class="[ icon icon-badge-star-1 icon-small ][ color-primary ]">
+				</td>
+				<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
+			</tr>
+		</tbody>
+	</table>
+
 	<?php do_action( 'woocommerce_before_account_orders_pagination' ); ?>
 
 	<?php if ( 1 < $customer_orders->max_num_pages ) : ?>
