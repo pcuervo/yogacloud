@@ -269,6 +269,9 @@
 							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
 							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
 						</a>
+						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
+						<p class="[ inline-block ][ margin-right--xsmall ][ no-margin-top ]">¿Aún no tienes cuenta?</p>
+						<a href="#registrate" class="modal-trigger modal-action modal-close [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">Regístrate</a>
 					</div>
 				</div>
 			</div>
@@ -313,6 +316,9 @@
 							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
 							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
 						</a>
+						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
+						<p class="[ inline-block ][ margin-right--xsmall ][ no-margin-top ]">¿Ya tienes cuenta?</p>
+						<a href="#login" class="modal-trigger modal-action modal-close [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">Ingresa</a>
 					</div>
 				</div>
 			</div>

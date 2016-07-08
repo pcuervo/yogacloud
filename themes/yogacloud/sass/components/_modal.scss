@@ -128,8 +128,9 @@
   max-width: 320px;
   overflow-x: hidden;
   overflow-y: scroll;
+  input { margin: 0px!important; }
   @media (max-width: 600px) {
-    min-height: 70%;
-    top: 15%!important;
+    min-height: 98%;
+    top: 1%!important;
   }
 }
