@@ -17,7 +17,7 @@
 				</div>
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<a href="<?php echo site_url('/'); ?>"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
+						<a href="https://yogacloud.net/"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
 						<div class="[ row ][ no-margin ]">
 							<div class="col s4">
 								<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>
