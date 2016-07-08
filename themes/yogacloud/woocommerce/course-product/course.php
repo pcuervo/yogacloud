@@ -1,9 +1,9 @@
-<?php 
+<?php
 	global $product;
 	$info = get_course_info( $product->id );
 ?>
 
-<section id="video-whit-button" class="[ min-height--350-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
+<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 	<div class="video-container">
 		<?php echo $info['iframe']; ?>
 	</div>

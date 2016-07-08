@@ -76,7 +76,7 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isMyAccount ) ){
             console.log('MY ACCOUNT');
-            $('#form-login', '#form-registro').parsley();
+            $('form').parsley();
         }
 
 

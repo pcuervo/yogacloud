@@ -5,10 +5,10 @@
 			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
 				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
 			</video>
-			<div class="[ gradient-linear-opacity ][ padding-vertical--large ][ relative z-index-1 ][ min-height--350-l ]">
-				<div class="[ container ]">
+			<div class="[ gradient-linear-opacity ][ padding-vertical--large ][ relative z-index-1 ][ min-height--500-l ]">
+				<div class="[ container ][ white-text text-center ]">
 					<div class="[ row ]">
-						<div class="[ col s12 ][ white-text text-center ]">
+						<div class="[ col s12 ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
 							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 						</div>
