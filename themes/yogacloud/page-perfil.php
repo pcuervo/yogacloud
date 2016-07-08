@@ -6,7 +6,7 @@
 					<img src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
 					<h5>Raúl de Zamacona</h5>
 					<p><strong class="[ color-primary ]">Email: </strong>raul@email.com</p>
-					<p><strong class="[ color-primary ]">Contraseña: </strong>*********</p>
+					<p><strong class="[ color-primary ]">Contraseña: </strong>•••••••••••••</p>
 					<ul class="collapsible [ no-margin ]" data-collapsible="accordion">
 						<li>
 							<div class="collapsible-header" style="background-color: #f8f8f8;">
