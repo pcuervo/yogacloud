@@ -10,31 +10,43 @@
 					<ul class="collapsible [ no-margin ]" data-collapsible="accordion">
 						<li>
 							<div class="collapsible-header" style="background-color: #f8f8f8;">
-								<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar</a>
+								<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar información</a>
 							</div>
 							<div class="collapsible-body">
-								<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
+								<form id="form-perfil" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
-											<label for="user_name">Nombre de usuario*</label>
+											<input id="user_name" type="text" class="validate" >
+											<label for="user_name">Nombre de usuario</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="email" type="email" class="validate" required data-parsley-type-message="La dirección de correo es inválida." data-parsley-required-message="El correo es obligatorio.">
-											<label for="email">Correo*</label>
+											<input id="email" type="email" class="validate" data-parsley-type-message="La dirección de correo es inválida.">
+											<label for="email">Correo</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="input-field col s12">
-											<input id="password" type="password" class="validate" required data-parsley-required-message="La contraseña es obligatoria.">
-											<label for="password">Contraseña*</label>
+											<input id="password" type="password" class="validate">
+											<label for="password">Contraseña actual</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="new_password-1" type="password" class="validate">
+											<label for="new_password-1">Nueva Contraseña</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="input-field col s12">
+											<input id="new_password-2" type="password" class="validate">
+											<label for="new_password-2">Confirmar Nueva Contraseña</label>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col s12">
-											<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
+											<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Actualizar datos</button>
 										</div>
 									</div>
 								</form>
