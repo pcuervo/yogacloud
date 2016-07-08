@@ -25,7 +25,8 @@ nav.woocommerce-breadcrumb { display: none; }
 //border
 
 .woocommerce .woocommerce-info,
-#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment { border: none; }
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment,
+.woocommerce form.login { border: none; }
 
 
 //button
@@ -80,6 +81,8 @@ nav.woocommerce-breadcrumb { display: none; }
 
 [type="radio"]:checked+label:after,
 [type="radio"].with-gap:checked+label:after { background-color: $primary-color; border: 2px solid $primary-color; }
+
+.woocommerce form .form-row-first { width: 100%!important; }
 
 //typography
 
