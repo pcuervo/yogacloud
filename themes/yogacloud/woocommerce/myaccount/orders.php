@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				</td>
 				<td>
 					<div class="[ progress ]">
-						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ]"></i>
+						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 						<div class="[ progress-percent ][ progress-height ]"></div>
 					</div>
 				</td>
@@ -62,7 +62,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 				</td>
 				<td>
 					<div class="[ progress ]">
-						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ]"></i>
+						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 						<div class="[ progress-percent ][ progress-height ]"></div>
 					</div>
 				</td>
