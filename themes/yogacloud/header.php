@@ -78,7 +78,7 @@
 										<h5><a class="[ white-text ]" href="">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] modal-trigger" href="#login">Login</a></h5>
+										<h5><a class="[ white-text ]" href="<?php echo site_url('/my-account/'); ?>">Login</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 										<h5><a class="[ white-text ] modal-trigger" href="#registrate">Sign up</a></h5>
 									<?php } ?>
@@ -211,7 +211,7 @@
 							<a class="dropdown-button" data-activates="dropdown-user">Ingresa</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a class="modal-trigger" href="#login" >Login</a></li>
+								<li><a class="" href="<?php echo site_url('/my-account/'); ?>" >Login</a></li>
 								<li><a class="modal-trigger" href="#registrate" >Sign up</a></li>
 							</ul>
 						<?php } ?>
@@ -226,55 +226,9 @@
 								Inglés
 							</a></li>
 						</ul>
-					<!-- 	<a href="<?php echo site_url('/'); ?>">
-							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
-							inglés
-						</a> -->
 					</div>
 				</div>
 			</nav>
-
-			<!-- Modal Login -->
-			<div id="login" class="modal">
-				<div class="modal-content">
-					<div class="[ text-right ]">
-						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
-					</div>
-					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
-					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Ingresa en tu cuenta</h5>
-					<form id="form-login" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
-								<label for="user_name">Nombre de usuario*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="password" type="password" class="validate" required data-parsley-error-message="La contraseña es obligatoria.">
-								<label for="password">Contraseña*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
-							</div>
-						</div>
-					</form>
-					<div class="[ text-center ]">
-						<a href="<?php echo site_url('/recuperar-contrasena/'); ?>" class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</a>
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ]">Ingresa con</p>
-						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
-							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
-							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
-						</a>
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ][ no-margin-top ]">¿Aún no tienes cuenta?</p>
-						<a href="#registrate" class="modal-trigger modal-action modal-close [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">Regístrate</a>
-					</div>
-				</div>
-			</div>
 
 			<!-- Modal Registrate -->
 			<div id="registrate" class="modal">
