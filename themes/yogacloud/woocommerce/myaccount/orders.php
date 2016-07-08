@@ -32,7 +32,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 			<tr>
 				<th></th>
 				<th>Nombre del curso</th>
-				<th>Badges</th>
+				<th>Progreso</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -46,7 +46,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					Lorem ipsum dolor sit
 				</td>
 				<td>
-					<i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]">
+					<div class="[ progress ]">
+						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ]"></i>
+						<div class="[ progress-percent ][ progress-height ]"></div>
+					</div>
 				</td>
 				<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
 			</tr>
@@ -58,7 +61,10 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					Lorem ipsum dolor sit
 				</td>
 				<td>
-					<i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]">
+					<div class="[ progress ]">
+						<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ]"></i>
+						<div class="[ progress-percent ][ progress-height ]"></div>
+					</div>
 				</td>
 				<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
 			</tr>
