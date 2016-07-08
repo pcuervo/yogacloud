@@ -38,6 +38,7 @@
 			</div>
 		</footer>
 
+		<script src="https://player.vimeo.com/api/player.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
 		<?php wp_footer(); ?>

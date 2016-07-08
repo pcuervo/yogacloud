@@ -43,6 +43,7 @@
 .padding--xsmall			{padding:($padding-size/4);}
 .padding--small				{padding:($padding-size/2);}
 .padding					{padding:$padding-size;}
+.no-padding					{padding:0px;}
 
 .no-padding-sides			{padding-left:0px!important; padding-right:0px!important;}
 .padding-sides--xsmall		{padding-left:($padding-size/4)!important; padding-right:($padding-size/4)!important;}

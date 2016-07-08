@@ -13,7 +13,19 @@
 		<meta http-equiv="cleartype" content="on">
 
 		<!-- Favicon - generated with http://www.favicomatic.com/ -->
-		<link rel="shortcut icon" href="<?php echo THEMEPATH; ?>images/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="<?php echo THEMEPATH; ?>favicon/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-196x196.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-128.png" sizes="128x128" />
 
 		<!-- Google font(s) -->
 		<link href="http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
@@ -71,16 +83,16 @@
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<?php if ( is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Raúl De Zamacona</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="<?php echo site_url('/perfil/'); ?>">Mis cursos</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ]" href="">Salir</a></h5>
+										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Raúl De Zamacona</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] modal-trigger" href="#login">Login</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] modal-trigger" href="#registrate">Sign up</a></h5>
+										<h5 class="[ no-margin-bottom ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Login</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Sign up</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
@@ -196,24 +208,24 @@
 
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
-							<a class="dropdown-button <?php if(is_page('perfil')) echo 'active'; ?>" href="#" data-activates="dropdown-user">
+							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
 								<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap width--100 inline-block middle ]">Raúl De Zamacona</div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="<?php echo site_url('/perfil/'); ?>" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
-								<li><a href="#!">Sign out</a></li>
+								<li><a href="<?php echo site_url('/my-account/orders/'); ?>" class="<?php if(is_page('orders')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/my-account/customer-logout/'); ?>">Sign out</a></li>
 							</ul>
 						<?php } ?>
 						<?php if ( ! is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
-							<a class="dropdown-button" data-activates="dropdown-user">Ingresa</a>
+							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" data-activates="dropdown-user">Ingresa</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a class="modal-trigger" href="#login" >Login</a></li>
-								<li><a class="modal-trigger" href="#registrate" >Sign up</a></li>
+								<li><a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" >Login</a></li>
+								<li><a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" >Sign up</a></li>
 							</ul>
 						<?php } ?>
 
@@ -234,93 +246,4 @@
 					</div>
 				</div>
 			</nav>
-
-			<!-- Modal Login -->
-			<div id="login" class="modal">
-				<div class="modal-content">
-					<div class="[ text-right ]">
-						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
-					</div>
-					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
-					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Ingresa en tu cuenta</h5>
-					<form id="form-login" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
-								<label for="user_name">Nombre de usuario*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="password" type="password" class="validate" required data-parsley-error-message="La contraseña es obligatoria.">
-								<label for="password">Contraseña*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
-							</div>
-						</div>
-					</form>
-					<div class="[ text-center ]">
-						<a href="<?php echo site_url('/recuperar-contrasena/'); ?>" class="[ text-underline ][ color-primary ][ text-center ]">¿Olvidaste tu contraseña?</a>
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ]">Ingresa con</p>
-						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
-							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
-							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
-						</a>
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ][ no-margin-top ]">¿Aún no tienes cuenta?</p>
-						<a href="#registrate" class="modal-trigger modal-action modal-close [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">Regístrate</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Modal Registrate -->
-			<div id="registrate" class="modal">
-				<div class="modal-content">
-					<div class="[ text-right ]">
-						<a href="#!" class="[ margin-right--small ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i></a>
-					</div>
-					<h4 class="[ text-center ][ color-primary ][ text-bold ]">Bienvenido!</h4>
-					<h5 class="[ text-center ][ color-primary ][ margin-bottom ]">Registrate para continuar</h5>
-					<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="user_name" type="text" class="validate" required data-parsley-error-message="El usuario es obligatorio.">
-								<label for="user_name">Nombre de usuario*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="email" type="email" class="validate" required data-parsley-type-message="La dirección de correo es inválida." data-parsley-required-message="El correo es obligatorio.">
-								<label for="email">Correo*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="input-field col s12">
-								<input id="password" type="password" class="validate" required data-parsley-required-message="La contraseña es obligatoria.">
-								<label for="password">Contraseña*</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col s12">
-								<button class="btn waves-effect waves-light [ btn-rounded ][ float-right ]" type="submit" name="action">Enviar</button>
-							</div>
-						</div>
-					</form>
-					<div class="[ text-center ]">
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ]">Registrate con</p>
-						<a class="[ btn btn-rounded--xsmall btn-light waves-effect waves-light ][ bg-facebook white-text ]">
-							<i class="[ icon icon-facebook icon-iconed ][ no-margin-sides ]"></i>
-							<p class="[ middle inline-block ][ no-margin ]">Facebook</p>
-						</a>
-						<div class="divider [ color-primary ][ margin-vertical--auto ]"></div>
-						<p class="[ inline-block ][ margin-right--xsmall ][ no-margin-top ]">¿Ya tienes cuenta?</p>
-						<a href="#login" class="modal-trigger modal-action modal-close [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">Ingresa</a>
-					</div>
-				</div>
-			</div>
 		</header>

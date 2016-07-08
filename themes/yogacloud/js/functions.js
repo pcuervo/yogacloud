@@ -1,3 +1,4 @@
+var $=jQuery.noConflict();
 (function($){
     "use strict";
     $(function(){
@@ -7,6 +8,10 @@
             #GLOBAL
         \*------------------------------------*/
 
+        $('.dropdown-button').dropdown();
+        $('.dropdown-button').dropdown({
+                hover: true, // Activate on hover
+        });
 
 
         /*------------------------------------*\
@@ -14,6 +19,18 @@
         \*------------------------------------*/
         if( parseInt( isHome ) ){
             console.log('home');
+
+            boxCard(); //Index y resultados
+            $(window).resize(function () {
+                boxCard(); //Index y resultados
+            });
+
+            $('.slider').slider({
+                indicators: true,
+                interval: 4000
+            });
+
+            $('.scrollspy').scrollSpy();
         }
 
         /*------------------------------------*\
@@ -21,21 +38,49 @@
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             console.log('CURSOS');
+
+            heightScreen();
+
+            $('.rating').addRating();
+
+            $('.modal-trigger').leanModal();
         }
 
         /*------------------------------------*\
             #MÓDULOS
         \*------------------------------------*/
-        if( parseInt( isHome ) ){
+        if( parseInt( isModulo ) ){
             console.log('MÓDULOS');
         }
 
         /*------------------------------------*\
             #LECCIONES
         \*------------------------------------*/
-        if( parseInt( isHome ) ){
+        if( parseInt( isLeccion ) ){
             console.log('LECCIONES');
+
+            heightScreen();
+
+            $('.tooltipped').tooltip();
         }
+
+        /*------------------------------------*\
+            #PRODUCTOS TIENDA
+        \*------------------------------------*/
+        if( parseInt( isProdcut ) ){
+            console.log('PRODUCTOS TIENDA');
+        }
+
+         /*------------------------------------*\
+            #MY ACCOUNT
+        \*------------------------------------*/
+        if( parseInt( isMyAccount ) ){
+            console.log('MY ACCOUNT');
+            $('#form-login', '#form-registro').parsley();
+        }
+
+
+
 
         // menu mobile
         $('#js-btn-user').click(function(e){
@@ -177,7 +222,7 @@ function videoPlayer(){
         });
         $( "#play-button img" ).addClass('hidden');
         // $("#video_player")[0].play(); //autoplay <video>
-        $("#video")[0].src += "&autoplay=1"; //autoplay <iframe>
+        $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
 
