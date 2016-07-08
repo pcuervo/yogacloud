@@ -28,17 +28,17 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
 		<label for="account_first_name"><?php _e( 'First name', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" />
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" value="<?php echo esc_attr( $user->first_name ); ?>" required  data-parsley-required-message="El nombre es obligatorio."/>
 	</p>
 	<p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
 		<label for="account_last_name"><?php _e( 'Last name', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" />
+		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_last_name" id="account_last_name" value="<?php echo esc_attr( $user->last_name ); ?>" required  data-parsley-required-message="El apellido es obligatorio."/>
 	</p>
 	<div class="clear"></div>
 
 	<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 		<label for="account_email"><?php _e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" />
+		<input type="email" class="woocommerce-Input woocommerce-Input--email input-text" name="account_email" id="account_email" value="<?php echo esc_attr( $user->user_email ); ?>" required  data-parsley-required-message="El email es obligatorio."/>
 	</p>
 
 	<fieldset>

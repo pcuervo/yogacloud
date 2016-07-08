@@ -45,11 +45,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 						<label for="username"><?php _e( 'Nombre de usuario o email', 'woocommerce' ); ?> <span class="required">*</span></label>
-						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
+						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" required data-parsley-required-message="Este campo es obligatorio."/>
 					</p>
 					<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 						<label for="password"><?php _e( 'Contraseña', 'woocommerce' ); ?> <span class="required">*</span></label>
-						<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" />
+						<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" required  data-parsley-required-message="Este campo es obligatorio."/>
 					</p>
 
 					<?php do_action( 'woocommerce_login_form' ); ?>
@@ -58,11 +58,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
 						<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
 						<label for="rememberme" class="[ text-center ]">
-							<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
+							<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Recordarme', 'woocommerce' ); ?>
 						</label>
 					</p>
 					<p class="woocommerce-LostPassword lost_password [ text-center ]">
-						<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>
+						<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?></a>
 					</p>
 
 					<?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -90,21 +90,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 					<label for="reg_username"><?php _e( 'Username', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" />
+					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" required  data-parsley-required-message="Este campo es obligatorio."/>
 				</p>
 
 			<?php endif; ?>
 
 			<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 				<label for="reg_email"><?php _e( 'Email address', 'woocommerce' ); ?> <span class="required">*</span></label>
-				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>" />
+				<input type="email" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" value="<?php if ( ! empty( $_POST['email'] ) ) echo esc_attr( $_POST['email'] ); ?>" data-parsley-type-message="El email es inválido." data-parsley-required-message="El email es obligatorio."/>
 			</p>
 
 			<?php if ( 'no' === get_option( 'woocommerce_registration_generate_password' ) ) : ?>
 
 				<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
 					<label for="reg_password"><?php _e( 'Password', 'woocommerce' ); ?> <span class="required">*</span></label>
-					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" />
+					<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" required  data-parsley-required-message="Este campo es obligatorio."/>
 				</p>
 
 			<?php endif; ?>

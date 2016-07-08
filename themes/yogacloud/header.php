@@ -90,9 +90,7 @@
 										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5 class="[ no-margin-bottom ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Login</a></h5>
-										<div class="divider [ width--50 ][ margin-auto ]"></div>
-										<h5 class="[ no-margin ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Sign up</a></h5>
+										<h5 class="[ no-margin-bottom ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
@@ -206,13 +204,7 @@
 							</ul>
 						<?php } ?>
 						<?php if ( ! is_user_logged_in() ){ ?>
-							<!-- Dropdown Trigger -->
-							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" data-activates="dropdown-user">Ingresa</a>
-							<!-- Dropdown Structure -->
-							<ul id="dropdown-user" class="dropdown-content">
-								<li><a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" >Login</a></li>
-								<li><a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" >Sign up</a></li>
-							</ul>
+							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
 
 						<!-- <a class="dropdown-button" href="#" data-activates="dropdown-language">

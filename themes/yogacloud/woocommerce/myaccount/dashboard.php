@@ -37,8 +37,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="[ col s12 m6 ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Cursos completados</h5>
-				<p><i class="[ icon icon-badge-star-1 icon-small ][ color-primary ]"></i> Curso básico de Yoga</p>
-				<p><i class="[ icon icon-badge-star-1 icon-small ][ color-primary ]"></i> Curso intermedio de Yoga</p>
+				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso básico de Yoga</p>
+				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso intermedio de Yoga</p>
 			</div>
 		</div>
 	</div>

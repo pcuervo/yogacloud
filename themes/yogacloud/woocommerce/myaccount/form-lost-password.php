@@ -27,10 +27,12 @@ wc_print_notices(); ?>
 			<h5 class="[ text-center ]">¿Perdiste tu contraseña?</h5>
 			<p class="[ text-center ]"><?php echo apply_filters( 'woocommerce_lost_password_message', __( 'Por favor ingresa tu usuario o dirección de email. Recibirás un link via email para crear una nueva contraseña.', 'woocommerce' ) ); ?></p>
 
-			<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
-				<label for="user_login"><?php _e( 'Nombre de usuario o email', 'woocommerce' ); ?></label>
-				<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" />
-			</p>
+			<div class="[ width---100-all ]">
+				<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first ">
+					<label for="user_login"><?php _e( 'Nombre de usuario o email', 'woocommerce' ); ?></label>
+					<input class="woocommerce-Input woocommerce-Input--text input-text" type="text" name="user_login" id="user_login" required  data-parsley-required-message="Este campo es obligatorio."/>
+				</p>
+			</div>
 
 			<div class="clear"></div>
 
