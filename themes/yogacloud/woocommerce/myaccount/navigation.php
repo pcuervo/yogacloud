@@ -32,5 +32,6 @@ do_action( 'woocommerce_before_account_navigation' );
 		<?php endforeach; ?>
 	</ul>
 </nav>
+<div class="[ clearfix ][ margin-bottom ]"></div>
 
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

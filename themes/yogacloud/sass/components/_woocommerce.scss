@@ -98,6 +98,7 @@ nav.woocommerce-breadcrumb { display: none; }
 
 #add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment { background-color: $light-color; }
 
+.woocommerce mark { background: $primary-transparent--light; }
 //MY ACCOUNT
 
 nav.woocommerce-MyAccount-navigation {
@@ -110,3 +111,4 @@ nav.woocommerce-MyAccount-navigation {
 		a { color: $light-color!important; }
 	}
 }
+@media(max-width:600px){ nav.woocommerce-MyAccount-navigation ul a { padding: 5px 15px; } }

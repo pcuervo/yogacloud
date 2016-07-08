@@ -71,9 +71,9 @@
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<?php if ( is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="">Raúl De Zamacona</a></h5>
+										<h5><a class="[ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Raúl De Zamacona</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('perfil')) echo 'active'; ?>" href="<?php echo site_url('/perfil/'); ?>">Mis cursos</a></h5>
+										<h5><a class="[ white-text ] <?php if(is_page('my-account/orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
 										<h5><a class="[ white-text ]" href="">Salir</a></h5>
 									<?php } ?>
@@ -195,14 +195,14 @@
 
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
-							<a class="dropdown-button <?php if(is_page('perfil')) echo 'active'; ?>" href="#" data-activates="dropdown-user">
+							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
 								<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap width--100 inline-block middle ]">Raúl De Zamacona</div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="<?php echo site_url('/perfil/'); ?>" class="<?php if(is_page('perfil')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/my-account/orders/'); ?>" class="<?php if(is_page('orders')) echo 'active'; ?>">Mis cursos</a></li>
 								<li><a href="#!">Sign out</a></li>
 							</ul>
 						<?php } ?>
