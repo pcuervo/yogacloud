@@ -47,8 +47,8 @@ $col    = 1;
 
 	<div class="u-column<?php echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
 		<header class="woocommerce-Address-title title">
-			<h3><?php echo $title; ?></h3>
-			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php _e( 'Edit', 'woocommerce' ); ?></a>
+			<h5><?php echo $title; ?></h5>
+			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit [ margin-bottom ] [ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]"><?php _e( 'Edit', 'woocommerce' ); ?></a>
 		</header>
 		<address>
 			<?php
