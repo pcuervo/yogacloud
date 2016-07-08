@@ -23,6 +23,15 @@ require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
 
+// MOVER A PLUGIN...
+require("inc/vimeo-php/autoload.php");
+$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
+$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
+$lib = new \Vimeo\Vimeo($client_id, $client_secret);
+$access_token = '44c1e916b341de354e5a3e25a3181dbb';
+$lib->setToken( $access_token );
+$tk = $lib->getToken();
+$response = $lib->request('/me/videos/171812144', array(), 'GET');
 
 
 /*------------------------------------*\
