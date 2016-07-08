@@ -1,21 +1,101 @@
-// menu mobile
-$('#js-btn-user').click(function(e){
-    e.preventDefault();
-    toggleUser();
-})
-
-$('#js-hide-user').on('click', function(event){
-    event.preventDefault();
-    toggleUser();
-})
+(function($){
+    "use strict";
+    $(function(){
 
 
-$('#js-btn-nav--user').on('click', function(event){
-    event.preventDefault();
-    toggleUser();
-    toggleMenu();
-})
+        /*------------------------------------*\
+            #GLOBAL
+        \*------------------------------------*/
 
+
+
+        /*------------------------------------*\
+            #HOME
+        \*------------------------------------*/
+        if( parseInt( isHome ) ){
+            console.log('home');
+        }
+
+        /*------------------------------------*\
+            #CURSOS
+        \*------------------------------------*/
+        if( parseInt( isCurso ) ){
+            console.log('CURSOS');
+        }
+
+        /*------------------------------------*\
+            #MÓDULOS
+        \*------------------------------------*/
+        if( parseInt( isHome ) ){
+            console.log('MÓDULOS');
+        }
+
+        /*------------------------------------*\
+            #LECCIONES
+        \*------------------------------------*/
+        if( parseInt( isHome ) ){
+            console.log('LECCIONES');
+        }
+
+        // menu mobile
+        $('#js-btn-user').click(function(e){
+            e.preventDefault();
+            toggleUser();
+        });
+
+        $('#js-hide-user').on('click', function(event){
+            event.preventDefault();
+            toggleUser();
+        });
+
+
+        $('#js-btn-nav--user').on('click', function(event){
+            event.preventDefault();
+            toggleUser();
+            toggleMenu();
+        });
+
+
+        $('#js-btn-nav').click(function(e){
+            e.preventDefault();
+            toggleMenu();
+        });
+
+        $('#js-hide-nav').on('click', function(event){
+            event.preventDefault();
+            toggleMenu();
+        });
+
+        $('#js-btn-user--nav').on('click', function(event){
+            event.preventDefault();
+            toggleMenu();
+            toggleUser();
+        });
+
+        $('#cursos-nav').on('click', function(event){
+            if($("#cursos").length > 0) {
+                toggleMenu();
+            }
+        });
+
+
+        //Search Nav
+
+        $('#title-search-nav').on('click', function(event){
+            event.preventDefault();
+            toggleSearch();
+        });
+
+
+        // Videos
+
+        $('#play-button').on('click', function(event){
+            event.preventDefault();
+            videoPlayer();
+        });
+
+    });
+})(jQuery);
 
 function toggleUser(){
     if( $('.user-mobile').hasClass('js-hidden') ){
@@ -38,28 +118,6 @@ function toggleUser(){
 }
 
 
-$('#js-btn-nav').click(function(e){
-    e.preventDefault();
-    toggleMenu();
-})
-
-$('#js-hide-nav').on('click', function(event){
-    event.preventDefault();
-    toggleMenu();
-})
-
-$('#js-btn-user--nav').on('click', function(event){
-    event.preventDefault();
-    toggleMenu();
-    toggleUser();
-})
-
-$('#cursos-nav').on('click', function(event){
-    if($("#cursos").length > 0) {
-        toggleMenu();
-    }
-})
-
 function toggleMenu(){
     if( $('.nav-mobile').hasClass('js-hidden') ){
         $( ".nav-mobile" ).animate({
@@ -79,13 +137,6 @@ function toggleMenu(){
         $( "body" ).removeClass('overflow-hidden');
     });
 }
-
-//Search Nav
-
-$('#title-search-nav').on('click', function(event){
-    event.preventDefault();
-    toggleSearch();
-})
 
 function toggleSearch(){
     if( $('#form-search-nav').hasClass('hidden') ){
@@ -114,15 +165,6 @@ function toggleSearch(){
         $( "#form-search-nav" ).addClass('hidden');
     });
 }
-
-
-
-// Videos
-
-$('#play-button').on('click', function(event){
-    event.preventDefault();
-    videoPlayer();
-})
 
 function videoPlayer(){
     if( $('#background-video').hasClass('in-front') ){

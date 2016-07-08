@@ -33,9 +33,9 @@
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
-						<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+						<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 					</a>
-				<!-- Menu mobile -->
+					<!-- Menu mobile -->
 					<div class="[ inline-block ][ float-right ][ hide-on-large-only ][ menu-mobile ]">
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
@@ -50,7 +50,7 @@
 							<div class="[ bg-light ][ height--64 ]">
 								<div class="[ container ]">
 									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
-										<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ]">
 										<div class="[ block ][ float-left ][ margin-right--small ][ line-height--64 ]">
@@ -183,8 +183,9 @@
 						<?php if( ! is_front_page() ) { ?>
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
 						<?php } ?>
-						<a class="<?php if(is_page('tienda')) echo 'active'; ?>"  href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
-						<a class="dropdown-button button-form-search" href="#" data-activates="dropdown-search">Buscar</a>
+						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
+						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>"  href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+						<a class="dropdown-button button-form-search" href="#" data-activates="dropdown-search">Buscar</a> -->
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
@@ -216,7 +217,7 @@
 							</ul>
 						<?php } ?>
 
-						<a class="dropdown-button" href="#" data-activates="dropdown-language">
+						<!-- <a class="dropdown-button" href="#" data-activates="dropdown-language">
 							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--6 0 ][ no-margin-sides ]"></i>
 							Español
 						</a>
@@ -225,8 +226,8 @@
 								<i class="[ icon icon-world icon-xsmall ][ color-light ][ line-height--6 0 ][ no-margin-sides ]"></i>
 								Inglés
 							</a></li>
-						</ul>
-					<!-- 	<a href="<?php echo site_url('/'); ?>">
+						</ul> -->
+						<!-- <a href="<?php echo site_url('/'); ?>">
 							<i class="[ icon icon-world icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							inglés
 						</a> -->

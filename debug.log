@@ -1,0 +1,5 @@
+[08-Jul-2016 21:05:53 UTC] PHP Notice:  Trying to get property of non-object in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/functions.php on line 47
+[08-Jul-2016 21:05:53 UTC] 
+[08-Jul-2016 21:05:55 UTC] PHP Notice:  Trying to get property of non-object in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/functions.php on line 47
+[08-Jul-2016 21:05:55 UTC] 
+[08-Jul-2016 21:06:22 UTC] PHP Warning:  Cannot use a scalar value as an array in /Users/rauldezamacona/Documents/sites/yogacloud/wp-includes/class.wp-scripts.php on line 447

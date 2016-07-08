@@ -38,37 +38,8 @@
 			</div>
 		</footer>
 
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/functions.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
-		<script>
-			$( document ).ready(function() {
-				/**
-				 * On ready
-				**/
-				heightScreen(); //cursos y lección
-				boxCard(); //Index y resultados
-				$('#form-login', '#form-registro').parsley();
-				$('.slider').slider({
-					indicators: true,
-					interval: 4000
-				});
-				$('.modal-trigger').leanModal();
-				$('.scrollspy').scrollSpy();
-				$('.rating').addRating();
-				$('.dropdown-button').dropdown();
-				$('.dropdown-button').dropdown({
-						hover: true, // Activate on hover
-				});
-				$('.tooltipped').tooltip();
-				// Materialize.updateTextFields();
-				$('#textarea1').trigger('autoresize');
-			});
-			$(window).resize(function () {
-				boxCard(); //Index y resultados
-			});
-		</script>
 		<?php wp_footer(); ?>
 	</body>
 </html>

@@ -40,9 +40,13 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.min.js', array('plugins'), '1.0', true );
 
 	// localize scripts
-	wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
-	wp_localize_script( 'functions', 'site_url', site_url() );
-	wp_localize_script( 'functions', 'theme_url', THEMEPATH );
+	wp_localize_script( 'functions', 'siteUrl', SITEURL );
+	wp_localize_script( 'functions', 'theme_path', THEMEPATH );
+	wp_localize_script( 'functions', 'isHome', (string)is_front_page() );
+	var_dump( get_the_id() );
+	wp_localize_script( 'functions', 'isCurso', (string) ('product' == get_post_type() AND is_curso( get_the_id() ) ) );
+	wp_localize_script( 'functions', 'isCurso', (string) ('modulo' == get_post_type()) );
+	wp_localize_script( 'functions', 'isCurso', (string) ('leccion' == get_post_type()) );
 
 	// styles
 	wp_enqueue_style( 'styles', get_stylesheet_uri() );
