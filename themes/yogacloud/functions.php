@@ -22,16 +22,8 @@ define( 'SITEURL', site_url('/') );
 require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
-
-// MOVER A PLUGIN...
 require("inc/vimeo-php/autoload.php");
-$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
-$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
-$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-$access_token = '44c1e916b341de354e5a3e25a3181dbb';
-$lib->setToken( $access_token );
-$tk = $lib->getToken();
-$response = $lib->request('/me/videos/171812144', array(), 'GET');
+
 
 
 /*------------------------------------*\
@@ -95,3 +87,60 @@ function print_title(){
 		echo ' | ' . sprintf( __( 'Página %s' ), max( $paged, $page ) );
 	}
 }
+
+
+/*------------------------------------*\
+	#GET/SET FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * Return the information of the Course
+ * @param int $course_id
+ * @return array $info
+ */
+function get_course_info( $course_id ){
+	$trailer_url = get_post_meta( $course_id, '_vimeo_url', true );
+	if( empty( $trailer_url ) ) return array();
+
+	$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
+	$lib = get_vimeo_lib();
+	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
+
+	$info = array( 
+		'iframe' 			=> $vimeo_response['body']['embed']['html'],
+		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
+		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
+		'lessons_per_week'	=> $trailer_url = get_post_meta( $course_id, '_lessons_per_week', true ),
+		'hours'				=> $trailer_url = get_post_meta( $course_id, '_hours', true ),
+	);
+	return $info;
+}
+
+/**
+ * Return an instance of Vimeo lib
+ * @return Vimeo $lib
+ */
+function get_vimeo_lib(){
+	$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
+	$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
+	$lib = new \Vimeo\Vimeo($client_id, $client_secret);
+	$access_token = '44c1e916b341de354e5a3e25a3181dbb';
+	$lib->setToken( $access_token );
+	return $lib;
+}
+
+/*------------------------------------*\
+	#WOOCOMMERCE RELATED FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * Check if current product is of type "Curso"
+ * @param int $product_id
+ * @return boolean
+ */
+function is_course( $product_id ){
+	$product = wc_get_product( $product_id );
+	$product_type = get_the_terms($product_id, 'product_type')[0]->name;
+	return $product_type == 'simple_course';
+}
+

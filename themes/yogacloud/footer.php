@@ -39,7 +39,7 @@
 		</footer>
 
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/functions.js"></script>
+		<script src="https://player.vimeo.com/api/player.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
 		<script>
