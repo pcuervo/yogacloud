@@ -12,10 +12,12 @@
 		</div>
 	</section>
 
-	<section class="[ container ][ text-center ]">
+	<section class="[ container ]">
 		<div class="[ row ]">
 			<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
-				<p class="[ padding-sides--small ]">Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
+				<div class="[ text-center ]">
+					<p class="[ padding-sides--small ]">Por favor, escribe tu nombre de usuario o tu correo electrónico. Recibirás un enlace para restablecer tu contraseña.</p>
+				</div>
 				<form id="form-registro" name="form-login" role="form" method="POST" class="col s12" data-parsley-validate>
 					<div class="row">
 						<div class="input-field col s12">
