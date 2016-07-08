@@ -1,0 +1,5 @@
+[08-Jul-2016 20:55:11 UTC] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/functions.php on line 112
+[08-Jul-2016 20:57:09 UTC] PHP Notice:  Undefined index: thumb in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 10
+[08-Jul-2016 20:57:20 UTC] PHP Notice:  Undefined index: thumb in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 10
+[08-Jul-2016 20:58:23 UTC] PHP Notice:  Undefined index: thumb in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 10
+[08-Jul-2016 20:58:43 UTC] PHP Notice:  Undefined index: thumb in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 10
