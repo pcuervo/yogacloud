@@ -49,7 +49,7 @@
 				**/
 				heightScreen(); //cursos y lección
 				boxCard(); //Index y resultados
-				$('#form-login', '#form-registro').parsley();
+				$('form').parsley();
 				$('.slider').slider({
 					indicators: true,
 					interval: 4000
