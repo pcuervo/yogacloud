@@ -147,25 +147,11 @@
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<h5 class="[ no-margin ]" id="cursos-nav">
-										<a class="[ white-text ][ block padding-vertical ] <?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
-										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<a class="[ white-text ][ block padding-vertical ] <?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 									</h5>
+									<div class="divider [ width--50 ][ margin-auto ]"></div>
 									<h5 class="[ no-margin ]">
-										<a class="[ white-text ][ block padding-vertical ] <?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
-										<div class="divider divider-hidden [ width--50 ][ margin-auto ]"></div>
-									</h5>
-									<div id="box-form">
-										<h5 id="title-search-nav" class="[ white-text ][ no-margin ][ padding-vertical ]">Buscar</h5>
-										<div class="divider divider-hidden [ width--50 ][ margin-auto ]"></div>
-										<form method="POST" id="form-search-nav" class="hidden">
-											<input class="[ input-search-nav ]" id="search" type="search" required>
-											<button class="btn [ btn-rounded btn-primary-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
-										</form>
-									</div>
-									<h5 class="[ no-margin padding-bottom ][ color-light ][ padding-vertical ]">
-										<i class="[ icon icon-world icon-xsmall ][ line-height--6 0 ][ no-margin-sides ]"></i>
-										<a href="#"class="[ white-text ][ text-bold--hover ]">Español</a> /
-										<a href="#"  class="[ white-text ][ text-bold--hover ]">Inglés</a>
+										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 								</div>
 								<div class="[ container ]">
@@ -193,7 +179,7 @@
 							<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Cursos</a>
 						<?php } ?>
 						<?php if( ! is_front_page() ) { ?>
-							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/'); ?>#cursos">Cursos</a>
+							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>"  href="<?php echo site_url('/tienda/'); ?>">Tienda</a>

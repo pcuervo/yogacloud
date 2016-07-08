@@ -125,7 +125,6 @@ var $=jQuery.noConflict();
 
 
         //Search Nav
-
         $('#title-search-nav').on('click', function(event){
             event.preventDefault();
             toggleSearch();
@@ -133,7 +132,6 @@ var $=jQuery.noConflict();
 
 
         // Videos
-
         $('#play-button').on('click', function(event){
             event.preventDefault();
             videoPlayer();
