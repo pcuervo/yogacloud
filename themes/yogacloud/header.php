@@ -71,16 +71,16 @@
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<?php if ( is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Raúl De Zamacona</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('my-account/orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ]" href="">Salir</a></h5>
+										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Raúl De Zamacona</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5><a class="[ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Login</a></h5>
-										<div class="divider [ width--50 ][ margin-vertical--auto ]"></div>
-										<h5><a class="[ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Sign up</a></h5>
+										<h5 class="[ no-margin-bottom ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Login</a></h5>
+										<div class="divider [ width--50 ][ margin-auto ]"></div>
+										<h5 class="[ no-margin ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Sign up</a></h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
