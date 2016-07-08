@@ -118,6 +118,12 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 					Lorem ipsum dolor sit
 				</td>
 				<td>
+					<div class="[ width--80 height--80 ][ border-radius---50 ][ overflow-hidden ]">
+						<div class="[ bg-primary height--64 width-100 ]">
+							
+						</div>
+						
+					</div>
 					<i class="[ icon icon-badge-star-1 icon-small ][ color-primary ]">
 				</td>
 				<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
