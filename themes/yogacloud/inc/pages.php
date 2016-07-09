@@ -6,43 +6,6 @@
 
 	add_action('init', function(){
 
-
-		// CURSOS
-		if( ! get_page_by_path('curso') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Curso',
-				'post_name'   => 'curso',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// MÓDULO
-		if( ! get_page_by_path('modulo') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Módulo',
-				'post_name'   => 'modulo',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// LECCIÓN
-		if( ! get_page_by_path('leccion') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Lección',
-				'post_name'   => 'leccion',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
 		// TIENDA
 		if( ! get_page_by_path('tienda') ){
 			$page = array(
@@ -74,30 +37,6 @@
 				'post_status' => 'publish',
 				'post_title'  => 'Resultados',
 				'post_name'   => 'resultados',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// PERFIL
-		if( ! get_page_by_path('perfil') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Perfil',
-				'post_name'   => 'perfil',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// RECUPERAR CONTRASEÑA
-		if( ! get_page_by_path('recuperar-contrasena') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Recuperar Contraseña',
-				'post_name'   => 'recuperar-contrasena',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );

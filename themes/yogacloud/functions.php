@@ -22,6 +22,7 @@ define( 'SITEURL', site_url('/') );
 require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
+require_once( 'inc/taxonomies.php' );
 require("inc/vimeo-php/autoload.php");
 
 
@@ -37,8 +38,9 @@ add_action( 'wp_enqueue_scripts', function(){
 
 	// scripts
 	wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.min.js', array('plugins'), '1.0', true );
+	wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
+	wp_enqueue_script( 'vimeo_player', 'https://player.vimeo.com/api/player.js', array('jquery'), '1.0', true );
 
 	// localize scripts
 	wp_localize_script( 'functions', 'siteUrl', SITEURL );

@@ -55,7 +55,7 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
-	 * Register all meta boxes needed for custom post types. 
+	 * Register all meta boxes needed for custom post types.
 	 */
 	public function add_meta_boxes_admin_cursos() {
 		$this->add_meta_boxes_maestros();
@@ -64,7 +64,7 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
-	 * Save metaboxes 
+	 * Save metaboxes
 	 */
 	public function save_meta_boxes( $post_id ) {
 		$this->save_meta_boxes_maestros( $post_id );
@@ -84,7 +84,7 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
-	 * Add javascript and style files 
+	 * Add javascript and style files
 	 */
 	function enqueue_and_localize_scripts(){
 		// wp_enqueue_script( 'plugins', SONDEO_CDMX_PLUGIN_URL . 'inc/js/plugins.js', array('jquery') );
@@ -207,7 +207,7 @@ class YC_Admin_Cursos_Settings {
 			'all_items'     => 'Todas',
 			'view_item'     => 'Ver Lección',
 			'search_items'  => 'Buscar Lección',
-			'not_found'     => 'No se encontro',
+			'not_found'     => 'No se encontró',
 			'menu_name'     => 'Lecciones'
 		);
 
@@ -239,7 +239,7 @@ class YC_Admin_Cursos_Settings {
 			'all_items'     => 'Todos',
 			'view_item'     => 'Ver Maestro',
 			'search_items'  => 'Buscar Maestro',
-			'not_found'     => 'No se encontro',
+			'not_found'     => 'No se encontró',
 			'menu_name'     => 'Maestros'
 		);
 

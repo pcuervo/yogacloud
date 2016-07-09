@@ -35,7 +35,7 @@
 			</div>
 			<section class="[ col s12 l8 ]">
 				<article class="[ content-user ]">
-					<h5>Lección 1 - Placet igitur tibi cato cum res sumpseris non concessas.</h5>
+					<h5>Lección 1 - <?php the_title(); ?></h5>
 					<p>Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam ceteros. Si enim ad populum me vocas, eum. Sed residamus, inquit, si placet. Cave putes quicquam esse verius. Duo Reges: constructio interrete.</p>
 					<img src="<?php echo THEMEPATH; ?>images/sky.png" alt="sky image">
 					<p>Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Quid, si non sensus modo ei sit datus, verum etiam animus hominis? Quamvis enim depravatae non sint, pravae tamen esse possunt. Egone quaeris, inquit, quid sentiam? [redacted]tilio Rufo.</p>

@@ -132,14 +132,18 @@
 
 	<div class="[ clearfix ]"></div>
 
-	<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
-		<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
-			<div class="[ white-text ][ text-center ][ padding ]">
-				<h5>Regístrate y obtén lecciones gratis.</h5>
-				<a class="[ btn btn-rounded btn-light waves-effect waves-light ] modal-trigger" href="#registrate">registrarme</a>
+	<?php if ( ! is_user_logged_in() ){ ?>
+
+		<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
+			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
+				<div class="[ white-text ][ text-center ][ padding ]">
+					<h5>Regístrate y obtén lecciones gratis.</h5>
+					<a class="[ btn btn-rounded btn-light waves-effect waves-light ] modal-trigger" href="#registrate">registrarme</a>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+
+	<?php } ?>
 
 
 <?php get_footer(); ?>

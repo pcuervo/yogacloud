@@ -200,7 +200,6 @@ yc_course._init();
 
 
         //Search Nav
-
         $('#title-search-nav').on('click', function(event){
             event.preventDefault();
             toggleSearch();
@@ -208,7 +207,6 @@ yc_course._init();
 
 
         // Videos
-
         $('#play-button').on('click', function(event){
             event.preventDefault();
             videoPlayer();

@@ -18,7 +18,9 @@
 				</div>
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<a href="https://yogacloud.net/"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
+						<a href="https://yogacloud.net/" target="_blank">
+							<img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+						</a>
 						<div class="[ row ][ no-margin ]">
 							<div class="col s4">
 								<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>
@@ -40,10 +42,6 @@
 		</footer>
 
 		</div><!-- end main -->
-
-		<script src="https://player.vimeo.com/api/player.js"></script>
-		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
-		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
 		<?php wp_footer(); ?>
 	</body>
 </html>
