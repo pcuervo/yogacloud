@@ -41,7 +41,7 @@
 	</head>
 
 	<body>
-		<header>
+		<header class="[ js-header ]">
 			<nav>
 				<div class="nav-wrapper [ container ]">
 					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
@@ -239,3 +239,5 @@
 				</div>
 			</nav>
 		</header>
+
+		<div class="[ main ]"> <!-- for footer bottom -->

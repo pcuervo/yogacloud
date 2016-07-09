@@ -1,4 +1,5 @@
 <?php global $result; ?>
+
 		<footer class="page-footer">
 			<div class="container">
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
@@ -37,6 +38,8 @@
 				</div>
 			</div>
 		</footer>
+
+		</div><!-- end main -->
 
 		<script src="https://player.vimeo.com/api/player.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
