@@ -22,6 +22,7 @@ define( 'SITEURL', site_url('/') );
 require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
+require_once( 'inc/taxonomies.php' );
 require("inc/vimeo-php/autoload.php");
 
 
