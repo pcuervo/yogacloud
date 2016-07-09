@@ -87,13 +87,14 @@
 .height-auto 		{ height: auto; }
 
 .height--64			{ height:64px; }
+.height--80			{ height:80px; }
 .height--90			{ height:90px; }
 .height--320		{ height: 320px; }
 
 .height---100 		{ height: 100%; }
 
 .min-height--350	{ min-height: 350px; }
-.min-height--350-l	{ @media (min-width:993px){ min-height: 350px; } }
+.min-height--500-l	{ @media (min-width:993px){ min-height: 500px; } }
 .min-height--160	{ min-height: 160px; }
 .min-height---100	{ min-height: 100%; }
 .max-height---100 	{ max-height: 100%; }
@@ -107,7 +108,7 @@
 .inline-block	{ display: inline-block;}
 .hidden 		{ display: none;}
 
-@media (min-width: 993px) and (max-width: 1300px){ .hidden--large { display: none;} }
+@media (min-width: 993px) and (max-width: 1490px){ .hidden--large { display: none;} }
 
 //Float
 
@@ -145,6 +146,7 @@
 .z-index-1 { z-index: 1; }
 .z-index-10 { z-index: 10; }
 .z-index-100 { z-index: 100; }
+
 
 //Alingment
 
@@ -222,3 +224,24 @@
 		&:hover { color: $primary-color; }
 	}
 }
+
+//Badges
+
+div.progress {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	text-align: center;
+	position: relative;
+	background-color: $primary-transparent;
+	i {
+		margin: 0px;
+	}
+	.progress-percent {
+		position: absolute; bottom: 0px; left: 0px;
+		width: 50px;
+		background: $primary-color;
+	}
+}
+
+.progress-height { height: 40%; }

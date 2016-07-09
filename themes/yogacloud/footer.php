@@ -1,4 +1,5 @@
 <?php global $result; ?>
+
 		<footer class="page-footer">
 			<div class="container">
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
@@ -17,7 +18,7 @@
 				</div>
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<a href="<?php echo site_url('/'); ?>"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
+						<a href="https://yogacloud.net/"><img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud"></a>
 						<div class="[ row ][ no-margin ]">
 							<div class="col s4">
 								<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>
@@ -38,37 +39,11 @@
 			</div>
 		</footer>
 
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		</div><!-- end main -->
+
 		<script src="https://player.vimeo.com/api/player.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/parsley.min.js"></script>
 		<script type="text/javascript" src="<?php echo THEMEPATH; ?>js/jquery.star.rating.js"></script>
-		<script>
-			$( document ).ready(function() {
-				/**
-				 * On ready
-				**/
-				heightScreen(); //cursos y lección
-				boxCard(); //Index y resultados
-				$('#form-login', '#form-registro').parsley();
-				$('.slider').slider({
-					indicators: true,
-					interval: 4000
-				});
-				$('.modal-trigger').leanModal();
-				$('.scrollspy').scrollSpy();
-				$('.rating').addRating();
-				$('.dropdown-button').dropdown();
-				$('.dropdown-button').dropdown({
-						hover: true, // Activate on hover
-				});
-				$('.tooltipped').tooltip();
-				// Materialize.updateTextFields();
-				$('#textarea1').trigger('autoresize');
-			});
-			$(window).resize(function () {
-				boxCard(); //Index y resultados
-			});
-		</script>
 		<?php wp_footer(); ?>
 	</body>
 </html>

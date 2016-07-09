@@ -1,95 +1,221 @@
-$ = jQuery.noConflict();
-"use strict";
+var $=jQuery.noConflict();
+
 
 var iframe = $('.video-container iframe')[0];
 var player = new Vimeo.Player(iframe);
 
 
-$(function() {
-    // var iframe = $('.video-container iframe')[0];
-    // var player = new Vimeo.Player(iframe);
-    // var yc_course = new YogaCloudCourse( player );
-    //var elapsedTimer;
+function YogaCloudCourse( player, watched ){
+    this.PERCENT_TO_MARK_AS_WATCHED = 80;
+    this.INTERVAL = 2000;
 
-    // player.on('play', function() {
-    //     elapsedTimer = setInterval( countElapsedTime, 1000 );
-    // });
-
-
-    
-
-    var event = new Event('markAsWatched');
-    window.addEventListener('markAsWatched', function (e) {
-        console.log( 'se ha visto el video...' );
-    }, false);
-
-    
-});
-
-function YogaCloudCourse( player ){
     this._player = player;
     this._elapsedTimeInterval;
     this._duration = 0;
+    this._isMarkedAsWatched = watched;
 }
 
 YogaCloudCourse.prototype = {
     constructor: YogaCloudCourse,
     _init: function(){
-        var self = this;
         console.log('initializing course...');
 
         this._player.getDuration().then(function(duration) {
             this._duration = duration;
         }).catch(function(error) { console.log( error ); });
 
+        var self = this;
         this._player.on('play', function() {
-            console.log('playing course');
-            self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), 1000);
+            console.log( self._isMarkedAsWatched );
+            if( ! self._isMarkedAsWatched ) {
+                self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), self.INTERVAL);
+                return;
+            }
+            console.log('ya lo vites');
         });
-
-        player.on('pause', function() {
-            console.log('pausing');
+        this._player.on('pause', function() {
             clearInterval( self._elapsedTimeInterval );
         });
+        this._player.on('ended', function(){
+            console.log('go to next course...');
+            clearInterval( self._elapsedTimeInterval );
+        })
     },
     countElapsedTime: function(){
+        var self = this;
         this._player.getCurrentTime().then(function(seconds) {
             console.log('seconds: ' + seconds);
-            //clearInterval( elapsedTimer );
+            var percentWatched = self.getPercentWatched( seconds );
+            if( self.PERCENT_TO_MARK_AS_WATCHED <= percentWatched ){
+                clearInterval( self._elapsedTimeInterval );
+                self.markAsWatched();
+            }
+            
         }).catch(function(error) {
             console.log( error );
         });
     },
     getDuration: function(){
         return _duration;
+    },
+    getPercentWatched: function( elapsedSeconds ){
+        console.log( elapsedSeconds );
+        console.log( this.getDuration() );
+        console.log( elapsedSeconds / this.getDuration() * 100 );
+        return Math.floor( elapsedSeconds / this.getDuration() * 100 );
+    },
+    markAsWatched: function(){
+        console.log('mark course as watched...');
+        this._isMarkedAsWatched = true;
     }
 }
 
-var yc_course = new YogaCloudCourse( player );
+var yc_course = new YogaCloudCourse( player, false );
 yc_course._init();
 
+(function($){
+    "use strict";
+    $(function(){
+
+
+        /*------------------------------------*\
+            #GLOBAL
+        \*------------------------------------*/
+        footerBottom();
+
+        $('.dropdown-button').dropdown();
+        $('.dropdown-button').dropdown({
+                hover: true, // Activate on hover
+        });
+
+
+        /*------------------------------------*\
+            #HOME
+        \*------------------------------------*/
+        if( parseInt( isHome ) ){
+            console.log('home');
+
+            boxCard(); //Index y resultados
+            $(window).resize(function () {
+                boxCard(); //Index y resultados
+            });
+
+            $('.slider').slider({
+                indicators: true,
+                interval: 4000
+            });
+
+            $('.scrollspy').scrollSpy();
+        }
+
+        /*------------------------------------*\
+            #CURSOS
+        \*------------------------------------*/
+        if( parseInt( isCurso ) ){
+            console.log('CURSOS');
+
+            heightScreen();
+
+            $('.rating').addRating();
+
+            $('.modal-trigger').leanModal();
+        }
+
+        /*------------------------------------*\
+            #MÓDULOS
+        \*------------------------------------*/
+        if( parseInt( isModulo ) ){
+            console.log('MÓDULOS');
+        }
+
+        /*------------------------------------*\
+            #LECCIONES
+        \*------------------------------------*/
+        if( parseInt( isLeccion ) ){
+            console.log('LECCIONES');
+
+            heightScreen();
+
+            $('.tooltipped').tooltip();
+        }
+
+        /*------------------------------------*\
+            #PRODUCTOS TIENDA
+        \*------------------------------------*/
+        if( parseInt( isProdcut ) ){
+            console.log('PRODUCTOS TIENDA');
+        }
+
+         /*------------------------------------*\
+            #MY ACCOUNT
+        \*------------------------------------*/
+        if( parseInt( isMyAccount ) ){
+            console.log('MY ACCOUNT');
+            $('form').parsley();
+        }
 
 
 
 
-// menu mobile
-$('#js-btn-user').click(function(e){
-    e.preventDefault();
-    toggleUser();
-})
+        // menu mobile
+        $('#js-btn-user').click(function(e){
+            e.preventDefault();
+            toggleUser();
+        });
 
-$('#js-hide-user').on('click', function(event){
-    event.preventDefault();
-    toggleUser();
-})
+        $('#js-hide-user').on('click', function(event){
+            event.preventDefault();
+            toggleUser();
+        });
 
 
-$('#js-btn-nav--user').on('click', function(event){
-    event.preventDefault();
-    toggleUser();
-    toggleMenu();
-})
+        $('#js-btn-nav--user').on('click', function(event){
+            event.preventDefault();
+            toggleUser();
+            toggleMenu();
+        });
 
+
+        $('#js-btn-nav').click(function(e){
+            e.preventDefault();
+            toggleMenu();
+        });
+
+        $('#js-hide-nav').on('click', function(event){
+            event.preventDefault();
+            toggleMenu();
+        });
+
+        $('#js-btn-user--nav').on('click', function(event){
+            event.preventDefault();
+            toggleMenu();
+            toggleUser();
+        });
+
+        $('#cursos-nav').on('click', function(event){
+            if($("#cursos").length > 0) {
+                toggleMenu();
+            }
+        });
+
+
+        //Search Nav
+
+        $('#title-search-nav').on('click', function(event){
+            event.preventDefault();
+            toggleSearch();
+        });
+
+
+        // Videos
+
+        $('#play-button').on('click', function(event){
+            event.preventDefault();
+            videoPlayer();
+        });
+
+    });
+})(jQuery);
 
 function toggleUser(){
     if( $('.user-mobile').hasClass('js-hidden') ){
@@ -112,28 +238,6 @@ function toggleUser(){
 }
 
 
-$('#js-btn-nav').click(function(e){
-    e.preventDefault();
-    toggleMenu();
-})
-
-$('#js-hide-nav').on('click', function(event){
-    event.preventDefault();
-    toggleMenu();
-})
-
-$('#js-btn-user--nav').on('click', function(event){
-    event.preventDefault();
-    toggleMenu();
-    toggleUser();
-})
-
-$('#cursos-nav').on('click', function(event){
-    if($("#cursos").length > 0) {
-        toggleMenu();
-    }
-})
-
 function toggleMenu(){
     if( $('.nav-mobile').hasClass('js-hidden') ){
         $( ".nav-mobile" ).animate({
@@ -153,13 +257,6 @@ function toggleMenu(){
         $( "body" ).removeClass('overflow-hidden');
     });
 }
-
-//Search Nav
-
-$('#title-search-nav').on('click', function(event){
-    event.preventDefault();
-    toggleSearch();
-})
 
 function toggleSearch(){
     if( $('#form-search-nav').hasClass('hidden') ){
@@ -188,15 +285,6 @@ function toggleSearch(){
         $( "#form-search-nav" ).addClass('hidden');
     });
 }
-
-
-
-// Videos
-
-$('#play-button').on('click', function(event){
-    event.preventDefault();
-    videoPlayer();
-})
 
 function videoPlayer(){
     if( $('#background-video').hasClass('in-front') ){
@@ -256,3 +344,19 @@ function boxCard(){
 
     }
 }
+
+
+//Footer Bottom
+
+function footerBottom(){
+    var alturaFooter = getFooterHeight();
+    $('.main').css('padding-bottom', alturaFooter );
+}
+
+function getHeaderHeight(){
+    return $('.js-header').outerHeight();
+}// getHeaderHeight
+
+function getFooterHeight(){
+    return $('footer').outerHeight();
+}// getFooterHeight

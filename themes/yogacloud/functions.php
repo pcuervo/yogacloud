@@ -41,9 +41,16 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.min.js', array('plugins'), '1.0', true );
 
 	// localize scripts
-	wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
-	wp_localize_script( 'functions', 'site_url', site_url() );
-	wp_localize_script( 'functions', 'theme_url', THEMEPATH );
+	wp_localize_script( 'functions', 'siteUrl', SITEURL );
+	wp_localize_script( 'functions', 'theme_path', THEMEPATH );
+	wp_localize_script( 'functions', 'isHome', (string)is_front_page() );
+	wp_localize_script( 'functions', 'isCurso', (string) is_course( get_the_id() ) );
+	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_course( get_the_id() )  ) );
+	wp_localize_script( 'functions', 'isModulo', (string) ('modulos' == get_post_type()) );
+	wp_localize_script( 'functions', 'isLeccion', (string) ('lecciones' == get_post_type()) );
+	wp_localize_script( 'functions', 'isMyAccount', (string) is_page('my-account') );
+	wp_localize_script( 'functions', 'isCart', (string) is_page('cart') );
+	wp_localize_script( 'functions', 'isCheckout', (string) is_page('checkout') );
 
 	// styles
 	wp_enqueue_style( 'styles', get_stylesheet_uri() );
@@ -106,7 +113,7 @@ function get_course_info( $course_id ){
 	$lib = get_vimeo_lib();
 	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
 
-	$info = array( 
+	$info = array(
 		'iframe' 			=> $vimeo_response['body']['embed']['html'],
 		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
 		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
@@ -140,7 +147,8 @@ function get_vimeo_lib(){
  */
 function is_course( $product_id ){
 	$product = wc_get_product( $product_id );
+	if ( empty($product) ) return false;
+
 	$product_type = get_the_terms($product_id, 'product_type')[0]->name;
 	return $product_type == 'simple_course';
 }
-

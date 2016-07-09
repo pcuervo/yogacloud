@@ -51,6 +51,7 @@ class YC_Admin_Cursos_Settings {
 		$this->register_post_type_modulos();
 		$this->register_post_type_lecciones();
 		$this->register_post_type_maestros();
+		$this->register_post_type_badges();
 	}
 
 	/**
@@ -59,6 +60,7 @@ class YC_Admin_Cursos_Settings {
 	public function add_meta_boxes_admin_cursos() {
 		$this->add_meta_boxes_maestros();
 		$this->add_meta_boxes_lecciones();
+		$this->add_meta_boxes_badges();
 	}
 
 	/**
@@ -67,6 +69,7 @@ class YC_Admin_Cursos_Settings {
 	public function save_meta_boxes( $post_id ) {
 		$this->save_meta_boxes_maestros( $post_id );
 		$this->save_meta_boxes_lecciones( $post_id );
+		$this->save_meta_boxes_badges( $post_id );
 	}
 
 	/**
@@ -77,6 +80,7 @@ class YC_Admin_Cursos_Settings {
 		add_submenu_page( 'menu_sondeo_cdmx', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
 		add_submenu_page( 'menu_sondeo_cdmx', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
 		add_submenu_page( 'menu_sondeo_cdmx', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'menu_sondeo_cdmx', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
 	}
 
 	/**
@@ -256,6 +260,39 @@ class YC_Admin_Cursos_Settings {
 		register_post_type( 'maestros', $args );
 	}// register_post_type_maestros
 
+	private function register_post_type_badges() {
+		// Badges
+		$labels = array(
+			'name'          => 'Badges',
+			'singular_name' => 'Badge',
+			'add_new'       => 'Nuevo Badge',
+			'add_new_item'  => 'Nuevo Badge',
+			'edit_item'     => 'Editar Badge',
+			'new_item'      => 'Nuevo Badge',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver Badge',
+			'search_items'  => 'Buscar Badge',
+			'not_found'     => 'No se encontro',
+			'menu_name'     => 'Badges'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => false,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'badges' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'badges', $args );
+	}// register_post_type_badges
+
 
 	/******************************************
 	* META BOX REGISTRATION
@@ -273,6 +310,13 @@ class YC_Admin_Cursos_Settings {
 	**/
 	private function add_meta_boxes_lecciones(){
 		add_meta_box( 'info_lecciones', 'Información Adicional', array( $this, 'meta_box_info_leccion' ), 'lecciones', 'advanced', 'high' );
+	}
+
+	/**
+	* Add metaboxes for "Badges"
+	**/
+	private function add_meta_boxes_badges(){
+		add_meta_box( 'info_badges', 'Información Adicional', array( $this, 'meta_box_info_badges' ), 'badges', 'advanced', 'high' );
 	}
 
 
@@ -327,6 +371,19 @@ class YC_Admin_Cursos_Settings {
 		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
 	}// meta_box_info_leccion
 
+	/**
+	* Display meta_boxes for post type "Badge"
+	* @param obj $post
+	**/
+	public function meta_box_info_badges( $post ){
+		$points = get_post_meta($post->ID, '_points_meta', true);
+
+		wp_nonce_field(__FILE__, '_points_meta_nonce');
+
+		echo "<label><strong>Puntos</strong></label>";
+		echo "<input type='number' class='[ widefat ]' name='_points_meta' value='$points'><br><br>";
+	}// meta_box_info_badges
+
 
 	/******************************************
 	* SAVE META BOXES
@@ -374,5 +431,14 @@ class YC_Admin_Cursos_Settings {
 			update_post_meta($post_id, '_is_free_meta', 0);
 		}
 	}// save_meta_boxes_lecciones
+
+	/**
+	* Save the metaboxes for post type "lecciones"
+	**/
+	private function save_meta_boxes_badges( $post_id ){
+		if ( isset($_POST['_points_meta']) and check_admin_referer( __FILE__, '_points_meta_nonce') ){
+			update_post_meta($post_id, '_points_meta', $_POST['_points_meta']);
+		}
+	}// save_meta_boxes_badges
 
 }// YC_Admin_Cursos_Settings
