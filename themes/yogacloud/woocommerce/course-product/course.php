@@ -7,7 +7,7 @@
 	<div class="video-container">
 		<?php echo $info['iframe']; ?>
 	</div>
-	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $info['thumb'] ?>">
+	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $info['video_thumb'] ?>">
 		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 			<div class="[ container relative ][ height---100 ] valign-wrapper">
 				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
@@ -43,10 +43,10 @@
 	</div>
 	<article class="[ row ][ text-center ]">
 		<div class="[ col col s12 m10 offset-m1 l8 offset-l2 ]">
-			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+			<p><?php echo get_the_content(); ?></p>
 		</div>
 	</article>
-	<div class="[ text-center ]">
+	<div class="[ text-center ][ hidden ]">
 		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
 	</div>
 </section>
@@ -92,7 +92,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="[ text-center ][ hide-on-small-only ]">
+			<section class="[ text-center ][ hide-on-small-only ][ hidden ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 				<!-- Rating -->
 				<div class="rating"></div>
@@ -151,7 +151,7 @@
 					</li>
 				</ul>
 			</section>
-			<section class="[ text-center ][ hide-on-small-only ]">
+			<section class="[ text-center ][ hide-on-small-only ][ hidden ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 				<div class="[ icon-comparte ]">
 					<a href="">

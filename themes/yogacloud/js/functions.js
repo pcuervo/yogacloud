@@ -1,3 +1,77 @@
+$ = jQuery.noConflict();
+"use strict";
+
+var iframe = $('.video-container iframe')[0];
+var player = new Vimeo.Player(iframe);
+
+
+$(function() {
+    // var iframe = $('.video-container iframe')[0];
+    // var player = new Vimeo.Player(iframe);
+    // var yc_course = new YogaCloudCourse( player );
+    //var elapsedTimer;
+
+    // player.on('play', function() {
+    //     elapsedTimer = setInterval( countElapsedTime, 1000 );
+    // });
+
+
+    
+
+    var event = new Event('markAsWatched');
+    window.addEventListener('markAsWatched', function (e) {
+        console.log( 'se ha visto el video...' );
+    }, false);
+
+    
+});
+
+function YogaCloudCourse( player ){
+    this._player = player;
+    this._elapsedTimeInterval;
+    this._duration = 0;
+}
+
+YogaCloudCourse.prototype = {
+    constructor: YogaCloudCourse,
+    _init: function(){
+        var self = this;
+        console.log('initializing course...');
+
+        this._player.getDuration().then(function(duration) {
+            this._duration = duration;
+        }).catch(function(error) { console.log( error ); });
+
+        this._player.on('play', function() {
+            console.log('playing course');
+            self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), 1000);
+        });
+
+        player.on('pause', function() {
+            console.log('pausing');
+            clearInterval( self._elapsedTimeInterval );
+        });
+    },
+    countElapsedTime: function(){
+        this._player.getCurrentTime().then(function(seconds) {
+            console.log('seconds: ' + seconds);
+            //clearInterval( elapsedTimer );
+        }).catch(function(error) {
+            console.log( error );
+        });
+    },
+    getDuration: function(){
+        return _duration;
+    }
+}
+
+var yc_course = new YogaCloudCourse( player );
+yc_course._init();
+
+
+
+
+
 // menu mobile
 $('#js-btn-user').click(function(e){
     e.preventDefault();
@@ -135,7 +209,7 @@ function videoPlayer(){
         });
         $( "#play-button img" ).addClass('hidden');
         // $("#video_player")[0].play(); //autoplay <video>
-        $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
+        // $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
 
@@ -146,15 +220,12 @@ function heightScreen(){
         var ventana_alto = $(window).height();
 
         var height_video =  ((ventana_alto - 64) + 'px'); //window height - height header
-        console.log('Altura máxima video', height_video);
         $('.max-height-screen').css('max-height', height_video);
 
         var height_video_button =  (((ventana_alto - 64) - 70 ) + 'px'); //( window height - height header ) - button
-        console.log('Altura máxima video con botón', height_video_button);
         $('.max-height-screen_button').css('max-height', height_video_button);
 
         var video_alto = $('video#video_player').height();
-        console.log('Altura actual del video', video_alto + 'px');
     }
 }
 
