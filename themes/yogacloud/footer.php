@@ -1,4 +1,5 @@
 <?php global $result; ?>
+
 		<footer class="page-footer">
 			<div class="container">
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
@@ -40,6 +41,7 @@
 			</div>
 		</footer>
 
+		</div><!-- end main -->
 		<?php wp_footer(); ?>
 	</body>
 </html>
