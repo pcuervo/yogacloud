@@ -83,9 +83,13 @@
 								<?php the_content( ); ?>
 							</div>
 							<div class="[ text-center ]">
-								<?php foreach( $logos as $logo ) { ?>
-									<img class="[ width--120 ][ margin-sides ]" src="<?php echo $logo->guid; ?>">
-								<?php } ?>
+								<a href="http://agoralucis.com/" target="_blank">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralusis.png">
+								</a>
+								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png">
+								<a href="https://yogacloud.net/" target="_blank">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png">
+								</a>
 							</div>
 						</div>
 					</div>
