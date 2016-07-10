@@ -36,7 +36,17 @@ class YC_Admin_Cursos_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
-
+		// Custom data for Cursos
+		if( is_admin() ){
+			add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
+			add_action( 'woocommerce_product_data_panels', array( $this, 'course_options_product_tab_content' ) );
+			add_action( 'woocommerce_process_product_meta_simple_course', array( $this, 'save_course_option_field' )  );
+			add_action( 'admin_footer', array( $this, 'simple_course_custom_js' ) );
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
+		}
+	
+		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
@@ -44,6 +54,107 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
+
+	}
+
+	public function add_simple_course_product( $types ){
+		$types[ 'simple_course' ] = __( 'Curso' );
+		return $types;
+	}
+
+	public function simple_course_custom_js() {
+
+		if ( 'product' != get_post_type() ) :
+			return;
+		endif;
+
+		?><script type='text/javascript'>
+			jQuery( document ).ready( function() {
+				jQuery( '.options_group.pricing' ).addClass( 'show_if_simple_course' ).show();
+				jQuery( '.general_options' ).addClass( 'show_if_simple_course' ).show();
+				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
+			});
+		</script><?php
+	}
+
+	/**
+	 * Add a custom product tab.
+	 */
+	public function custom_product_tabs( $tabs) {
+		$tabs['course'] = array(
+			'label'		=> __( 'Información Curso', 'woocommerce' ),
+			'target'	=> 'course_options',
+			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course'  ),
+		);
+		$tabs['inventory'] = array(
+			'label'  	=> __( 'Inventory', 'woocommerce' ),
+			'target' 	=> 'inventory_product_data',
+			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course','show_if_simple', 'show_if_variable', 'show_if_grouped' ),
+		);
+
+		return $tabs;
+	}
+
+	/**
+	 * Contents of the course options product tab.
+	 */
+	public function course_options_product_tab_content() {
+		global $post;
+		?><div id='course_options' class='panel woocommerce_options_panel'><?php
+			?><div class='options_group'><?php
+				woocommerce_wp_text_input( array(
+					'id'			=> '_vimeo_url',
+					'label'			=> __( 'URL Vimeo Trailer', 'woocommerce' ),
+					'type' 			=> 'text',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_num_lessons',
+					'label'			=> __( 'Número de lecciones', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_lessons_per_week',
+					'label'			=> __( 'Lecciones por semana', 'woocommerce' ),
+					'desc_tip'		=> 'true',
+					'description'	=> __( 'Si el campo se deja vacío, no se mostrará nada en la página del curso.', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_hours',
+					'label'			=> __( 'Horas', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+			?></div>
+
+		</div><?php
+	}
+
+	/**
+	 * Save the custom fields.
+	 */
+	public function save_course_option_field( $post_id ) {
+		if ( isset( $_POST['_vimeo_url'] ) ) :
+			update_post_meta( $post_id, '_vimeo_url', sanitize_text_field( $_POST['_vimeo_url'] ) );
+			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
+			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
+			update_post_meta( $post_id, '_hours', sanitize_text_field( $_POST['_hours'] ) );
+		endif;
+	}
+
+	/**
+	 * Hide Attributes data panel.
+	 */
+	public function manage_attributes_data_panel( $tabs) {
+		
+		// Other default values for 'attribute' are; general, inventory, shipping, linked_product, variations, advanced
+		$tabs['attribute']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['linked_product']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['advanced']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['shipping']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['general']['class'][] = 'show_if_simple_course show_if_variable_course';
+
+		return $tabs;
+
 	}
 
 	/**

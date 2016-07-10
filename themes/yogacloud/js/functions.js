@@ -175,7 +175,6 @@ YogaCloudCourse.prototype = {
                 self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), self.INTERVAL);
                 return;
             }
-            console.log('ya lo vites');
         });
         this._player.on('pause', function() {
             clearInterval( self._elapsedTimeInterval );

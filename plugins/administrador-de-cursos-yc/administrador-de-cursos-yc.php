@@ -20,7 +20,6 @@ if ( ! defined( 'YC_CURSOS_PLUGIN_FILE' ) ) {
 	define( 'YC_CURSOS_PLUGIN_FILE', __FILE__ );
 }
 
-
 register_activation_hook( YC_CURSOS_PLUGIN_FILE, array( 'Admin_Cursos_YC', 'install' ) );
 register_deactivation_hook( YC_CURSOS_PLUGIN_FILE, array( 'Admin_Cursos_YC', 'uninstall' ) );
 add_action( 'plugins_loaded', create_function( '', 'Admin_Cursos_YC::get();' ) );
@@ -49,28 +48,16 @@ class Admin_Cursos_YC {
 		// Load files
 		$this->includes();
 		// Initialize plugin
-		$this->init();
 		$this->hooks();
-
+		$this->init();
 	}
 
 	/**
 	 * Create required database tables.
 	 */
 	public static function install() {
-		// $sondeo_cdmx = Admin_Cursos_YC::get();
-		// $sondeo_cdmx->create_questions_table();
-		// $sondeo_cdmx->create_user_answers_table();
-		// $sondeo_cdmx->create_delegaciones_table();
-		// $sondeo_cdmx->create_colonias_table();
-		// $sondeo_cdmx->create_municipios_table();
-		// $sondeo_cdmx->create_estados_table();
-		// $sondeo_cdmx->create_paises_table();
-		// $sondeo_cdmx->fill_delegaciones_colonias();
-		// $sondeo_cdmx->fill_municipios();
-		// $sondeo_cdmx->fill_estados();
-		// $sondeo_cdmx->fill_paises();
-		// $sondeo_cdmx->fill_preguntas();
+		$admin_cursos = Admin_Cursos_YC::get();
+		$admin_cursos->create_user_lesson_table();
 		add_option( 'sondeo_cdmx_db_version', Admin_Cursos_YC::YC_CURSOS_VERSION );
 	}
 
@@ -78,14 +65,8 @@ class Admin_Cursos_YC {
 	 * Delete installed database tables.
 	 */
 	public static function uninstall() {
-		// global $wpdb;
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_user_answers" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_questions" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_colonias" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_delegaciones" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_municipios" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_estados" );
-		// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}sondeo_cdmx_paises" );
+		global $wpdb;
+		$wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}user_lessons" );
 		delete_option( 'sondeo_cdmx_db_version' );
 	}
 
@@ -93,136 +74,44 @@ class Admin_Cursos_YC {
 	 * Load required files for Wordpress Admin Panel and for Frontend.
 	 */
 	private function includes() {
-		require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-wc_product_simple_course.php' );
-		if ( is_admin() ) {
-			require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-yc_admin_cursos-settings.php' );
-		}
+		require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-yc_curso.php' );
+		require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-yc_admin_cursos-settings.php' );
 	}
 
 	/**
 	 * Initialize class
 	 */
 	private function init() {
-		if ( is_admin() ) {
-			// Setup settings
-			YC_Admin_Cursos_Settings::get();
-			return;
-		}
+		YC_Admin_Cursos_Settings::get();
 	}
 
 	/**
 	 * Hooks
 	 */
 	private function hooks() {
-		add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
-		add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
-		add_action( 'woocommerce_product_data_panels', array( $this, 'course_options_product_tab_content' ) );
-		add_action( 'woocommerce_process_product_meta_simple_course', array( $this, 'save_course_option_field' )  );
-		add_action( 'admin_footer', array( $this, 'simple_course_custom_js' ) );
-		add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
-	}
-
-	public function add_simple_course_product( $types ){
-		// Key should be exactly the same as in the class product_type parameter
-		$types[ 'simple_course' ] = __( 'Curso' );
-
-		return $types;
-	}
-
-	public function simple_course_custom_js() {
-
-		if ( 'product' != get_post_type() ) :
-			return;
-		endif;
-
-		?><script type='text/javascript'>
-			jQuery( document ).ready( function() {
-				jQuery( '.options_group.pricing' ).addClass( 'show_if_simple_course' ).show();
-				jQuery( '.general_options' ).addClass( 'show_if_simple_course' ).show();
-				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
-			});
-		</script><?php
 	}
 
 	/**
-	 * Add a custom product tab.
+	 * Create table "Questions"
 	 */
-	public function custom_product_tabs( $tabs) {
-		$tabs['course'] = array(
-			'label'		=> __( 'Información Curso', 'woocommerce' ),
-			'target'	=> 'course_options',
-			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course'  ),
-		);
-		$tabs['inventory'] = array(
-			'label'  	=> __( 'Inventory', 'woocommerce' ),
-			'target' 	=> 'inventory_product_data',
-			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course','show_if_simple', 'show_if_variable', 'show_if_grouped' ),
-		);
+	private function create_user_lesson_table(){
+		global $wpdb;
 
-		return $tabs;
-	}
+		$table_name = $wpdb->prefix . 'user_lessons';
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+			$charset_collate = $wpdb->get_charset_collate();
+			$sql = "CREATE TABLE $table_name (
+				id MEDIUMINT(9) NOT NULL AUTO_INCREMENT,
+				user_id INT NOT NULL,
+				lesson_id INT NOT NULL,
+				is_completed BOOLEAN DEFAULT false,
+				UNIQUE KEY id (id)
+			) $charset_collate;";
 
-	/**
-	 * Contents of the course options product tab.
-	 */
-	public function course_options_product_tab_content() {
-		global $post;
-		?><div id='course_options' class='panel woocommerce_options_panel'><?php
-			?><div class='options_group'><?php
-				woocommerce_wp_text_input( array(
-					'id'			=> '_vimeo_url',
-					'label'			=> __( 'URL Vimeo Trailer', 'woocommerce' ),
-					'type' 			=> 'text',
-				) );
-				woocommerce_wp_text_input( array(
-					'id'			=> '_num_lessons',
-					'label'			=> __( 'Número de lecciones', 'woocommerce' ),
-					'type' 			=> 'number',
-				) );
-				woocommerce_wp_text_input( array(
-					'id'			=> '_lessons_per_week',
-					'label'			=> __( 'Lecciones por semana', 'woocommerce' ),
-					'desc_tip'		=> 'true',
-					'description'	=> __( 'Si el campo se deja vacío, no se mostrará nada en la página del curso.', 'woocommerce' ),
-					'type' 			=> 'number',
-				) );
-				woocommerce_wp_text_input( array(
-					'id'			=> '_hours',
-					'label'			=> __( 'Horas', 'woocommerce' ),
-					'type' 			=> 'number',
-				) );
-			?></div>
-
-		</div><?php
-	}
-
-	/**
-	 * Save the custom fields.
-	 */
-	public function save_course_option_field( $post_id ) {
-		if ( isset( $_POST['_vimeo_url'] ) ) :
-			update_post_meta( $post_id, '_vimeo_url', sanitize_text_field( $_POST['_vimeo_url'] ) );
-			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
-			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
-			update_post_meta( $post_id, '_hours', sanitize_text_field( $_POST['_hours'] ) );
-		endif;
-	}
-
-	/**
-	 * Hide Attributes data panel.
-	 */
-	public function manage_attributes_data_panel( $tabs) {
-		
-		// Other default values for 'attribute' are; general, inventory, shipping, linked_product, variations, advanced
-		$tabs['attribute']['class'][] = 'hide_if_simple_course hide_if_variable_course';
-		$tabs['linked_product']['class'][] = 'hide_if_simple_course hide_if_variable_course';
-		$tabs['advanced']['class'][] = 'hide_if_simple_course hide_if_variable_course';
-		$tabs['shipping']['class'][] = 'hide_if_simple_course hide_if_variable_course';
-		$tabs['general']['class'][] = 'show_if_simple_course show_if_variable_course';
-
-		return $tabs;
-
-	}
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
+		}
+	}// create_user_lesson_table
 
 
 }// Admin_Cursos_YC

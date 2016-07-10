@@ -23,8 +23,6 @@ require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
 require_once( 'inc/taxonomies.php' );
-require("inc/vimeo-php/autoload.php");
-
 
 
 /*------------------------------------*\
@@ -102,41 +100,33 @@ function print_title(){
 	#GET/SET FUNCTIONS
 \*------------------------------------*/
 
-/**
- * Return the information of the Course
- * @param int $course_id
- * @return array $info
- */
-function get_course_info( $course_id ){
-	$trailer_url = get_post_meta( $course_id, '_vimeo_url', true );
-	if( empty( $trailer_url ) ) return array();
+// /**
+//  * Return the information of the Course
+//  * @param int $course_id
+//  * @return array $info
+//  */
+// function get_course_info( $course_id ){
+// 	$trailer_url = get_post_meta( $course_id, '_vimeo_url', true );
+// 	if( empty( $trailer_url ) ) return array();
 
-	$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
-	$lib = get_vimeo_lib();
-	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
+// 	$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
+// 	$lib = get_vimeo_lib();
+// 	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
 
-	$info = array(
-		'iframe' 			=> $vimeo_response['body']['embed']['html'],
-		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
-		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
-		'lessons_per_week'	=> $trailer_url = get_post_meta( $course_id, '_lessons_per_week', true ),
-		'hours'				=> $trailer_url = get_post_meta( $course_id, '_hours', true ),
-	);
-	return $info;
-}
+// 	$info = array(
+// 		'iframe' 			=> $vimeo_response['body']['embed']['html'],
+// 		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
+// 		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
+// 		'lessons_per_week'	=> $trailer_url = get_post_meta( $course_id, '_lessons_per_week', true ),
+// 		'hours'				=> $trailer_url = get_post_meta( $course_id, '_hours', true ),
+// 	);
+// 	return $info;
+// }
 
-/**
- * Return an instance of Vimeo lib
- * @return Vimeo $lib
- */
-function get_vimeo_lib(){
-	$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
-	$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
-	$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-	$access_token = '44c1e916b341de354e5a3e25a3181dbb';
-	$lib->setToken( $access_token );
-	return $lib;
-}
+
+/*------------------------------------*\
+	#AJAX FUNCTIONS
+\*------------------------------------*/
 
 /*------------------------------------*\
 	#WOOCOMMERCE RELATED FUNCTIONS

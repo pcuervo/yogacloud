@@ -1,13 +1,14 @@
 <?php
 	global $product;
-	$info = get_course_info( $product->id );
+	$curso = new YC_Curso( $product->id );
+	$modulos = $curso->get_modulos();
 ?>
 
 <section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 	<div class="video-container">
-		<?php echo $info['iframe']; ?>
+		<?php echo $curso->trailer_info['iframe']; ?>
 	</div>
-	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $info['video_thumb'] ?>">
+	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $curso->trailer_info['thumbnail']; ?>">
 		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 			<div class="[ container relative ][ height---100 ] valign-wrapper">
 				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
@@ -24,18 +25,18 @@
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
 			<div class="[ row ][ text-center ]">
-				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $info['lessons_per_week'] ) ? 'offset-s2' : ''  ?> ]">
-					<h5 class="[ no-margin-bottom ]"><?php echo $info['num_lessons']; ?></h5>
+				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $curso->lessons_per_week ) ? 'offset-s2' : ''  ?> ]">
+					<h5 class="[ no-margin-bottom ]"><?php echo $curso->num_lessons ?></h5>
 					<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
 				</div>
-				<?php if ( ! empty( $info['lessons_per_week'] ) ) : ?>
+				<?php if ( ! empty( $curso->lessons_per_week ) ) : ?>
 					<div class="[ col s4 ][ border-right--dark ]">
 						<h5 class="[ no-margin-bottom ]">1</h5>
 						<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
 					</div>
 				<?php endif; ?>
 				<div class="[ col s4 ]">
-					<h5 class="[ no-margin-bottom ]"><?php echo $info['hours']; ?></h5>
+					<h5 class="[ no-margin-bottom ]"><?php echo $curso->hours?></h5>
 					<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
 				</div>
 			</div>
@@ -169,25 +170,16 @@
 		<div class="[ col s12 m6 l8 ]">
 			<section>
 				<h4 class="[ text-center ]">Módulos</h4>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 1</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-					<div class="[ padding-bottom ]">
-						<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+				<?php foreach ( $modulos as $modulo_info ) : ?>
+					<div class="[ border-bottom--dark ]">
+						<h5><?php echo $modulo_info['name'] ?></h5>
+						<p><?php echo $modulo_info['description'] ?></p>
+						<div class="[ padding-bottom ]">
+							<a href="<?php echo $modulo_info['permalink'] ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+						</div>
 					</div>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 2</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 3</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 4</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
+				<?php endforeach; ?>
+				
 			</section>
 		</div>
 	</div>
