@@ -1,78 +1,5 @@
 var $=jQuery.noConflict();
 
-
-var iframe = $('.video-container iframe')[0];
-var player = new Vimeo.Player(iframe);
-
-
-function YogaCloudCourse( player, watched ){
-    this.PERCENT_TO_MARK_AS_WATCHED = 80;
-    this.INTERVAL = 2000;
-
-    this._player = player;
-    this._elapsedTimeInterval;
-    this._duration = 0;
-    this._isMarkedAsWatched = watched;
-}
-
-YogaCloudCourse.prototype = {
-    constructor: YogaCloudCourse,
-    _init: function(){
-        console.log('initializing course...');
-
-        this._player.getDuration().then(function(duration) {
-            this._duration = duration;
-        }).catch(function(error) { console.log( error ); });
-
-        var self = this;
-        this._player.on('play', function() {
-            console.log( self._isMarkedAsWatched );
-            if( ! self._isMarkedAsWatched ) {
-                self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), self.INTERVAL);
-                return;
-            }
-            console.log('ya lo vites');
-        });
-        this._player.on('pause', function() {
-            clearInterval( self._elapsedTimeInterval );
-        });
-        this._player.on('ended', function(){
-            console.log('go to next course...');
-            clearInterval( self._elapsedTimeInterval );
-        })
-    },
-    countElapsedTime: function(){
-        var self = this;
-        this._player.getCurrentTime().then(function(seconds) {
-            console.log('seconds: ' + seconds);
-            var percentWatched = self.getPercentWatched( seconds );
-            if( self.PERCENT_TO_MARK_AS_WATCHED <= percentWatched ){
-                clearInterval( self._elapsedTimeInterval );
-                self.markAsWatched();
-            }
-            
-        }).catch(function(error) {
-            console.log( error );
-        });
-    },
-    getDuration: function(){
-        return _duration;
-    },
-    getPercentWatched: function( elapsedSeconds ){
-        console.log( elapsedSeconds );
-        console.log( this.getDuration() );
-        console.log( elapsedSeconds / this.getDuration() * 100 );
-        return Math.floor( elapsedSeconds / this.getDuration() * 100 );
-    },
-    markAsWatched: function(){
-        console.log('mark course as watched...');
-        this._isMarkedAsWatched = true;
-    }
-}
-
-var yc_course = new YogaCloudCourse( player, false );
-yc_course._init();
-
 (function($){
     "use strict";
     $(function(){
@@ -114,10 +41,14 @@ yc_course._init();
         if( parseInt( isCurso ) ){
             console.log('CURSOS');
 
+            // MOVER A PLUGIN
+            var iframe = $('.video-container iframe')[0];
+            var player = new Vimeo.Player(iframe);
+            var yc_course = new YogaCloudCourse( player, false );
+            yc_course._init();
+
             heightScreen();
-
             $('.rating').addRating();
-
             $('.modal-trigger').leanModal();
         }
 
@@ -214,6 +145,69 @@ yc_course._init();
 
     });
 })(jQuery);
+
+/** 
+    MOVER A PLUGIN 
+**/
+function YogaCloudCourse( player, watched ){
+    this.PERCENT_TO_MARK_AS_WATCHED = 80;
+    this.INTERVAL = 2000;
+
+    this._player = player;
+    this._elapsedTimeInterval;
+    this._duration = 0;
+    this._isMarkedAsWatched = watched;
+}
+
+YogaCloudCourse.prototype = {
+    constructor: YogaCloudCourse,
+    _init: function(){
+        console.log('initializing course...');
+
+        this._player.getDuration().then(function(duration) {
+            this._duration = duration;
+        }).catch(function(error) { console.log( error ); });
+
+        var self = this;
+        this._player.on('play', function() {
+            console.log( self._isMarkedAsWatched );
+            if( ! self._isMarkedAsWatched ) {
+                self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), self.INTERVAL);
+                return;
+            }
+            console.log('ya lo vites');
+        });
+        this._player.on('pause', function() {
+            clearInterval( self._elapsedTimeInterval );
+        });
+        this._player.on('ended', function(){
+            console.log('go to next course PENDING...');
+            clearInterval( self._elapsedTimeInterval );
+        })
+    },
+    countElapsedTime: function(){
+        var self = this;
+        this._player.getCurrentTime().then(function(seconds) {
+            var percentWatched = self.getPercentWatched( seconds );
+            if( self.PERCENT_TO_MARK_AS_WATCHED <= percentWatched ){
+                clearInterval( self._elapsedTimeInterval );
+                self.markAsWatched();
+            }
+            
+        }).catch(function(error) {
+            console.log( error );
+        });
+    },
+    getDuration: function(){
+        return _duration;
+    },
+    getPercentWatched: function( elapsedSeconds ){
+        return Math.floor( elapsedSeconds / this.getDuration() * 100 );
+    },
+    markAsWatched: function(){
+        this._isMarkedAsWatched = true;
+    }
+}
 
 function toggleUser(){
     if( $('.user-mobile').hasClass('js-hidden') ){

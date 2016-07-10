@@ -37,9 +37,11 @@ class YC_Admin_Cursos_Settings {
 	 */
 	private function hooks() {
 
-		add_action( 'init', array( $this, 'register_custom_post_types' ) );
+		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
+		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
-		add_action('save_post', array( $this, 'save_meta_boxes' ), 10, 1 );
+		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
+		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
 	}
@@ -52,6 +54,15 @@ class YC_Admin_Cursos_Settings {
 		$this->register_post_type_lecciones();
 		$this->register_post_type_maestros();
 		$this->register_post_type_badges();
+	}
+
+	/**
+	 * Register all custom post types needed for "Administrador de Cursos"
+	 */
+	public function register_custom_taxonomies() {
+		$this->register_taxonomy_maestros();
+		$this->register_taxonomy_modulos();
+		$this->register_taxonomy_lecciones();
 	}
 
 	/**
@@ -70,6 +81,15 @@ class YC_Admin_Cursos_Settings {
 		$this->save_meta_boxes_maestros( $post_id );
 		$this->save_meta_boxes_lecciones( $post_id );
 		$this->save_meta_boxes_badges( $post_id );
+	}
+
+	/**
+	 * Update custom taxonomies
+	 */
+	public function update_custom_taxonomies() {
+		if( 'maestros' == get_post_type() OR 'modulos' == get_post_type() OR 'lecciones' == get_post_type() ){
+			$this->insert_custom_taxonomy_term( get_post_type() );
+		}		
 	}
 
 	/**
@@ -441,4 +461,118 @@ class YC_Admin_Cursos_Settings {
 		}
 	}// save_meta_boxes_badges
 
+
+	/******************************************
+	* CUSTOM TAXONOMIES
+	******************************************/
+
+	private function register_taxonomy_modulos() {
+		// MÓDULOS
+		if( ! taxonomy_exists('modulos')){
+
+			$labels = array(
+				'name'              => 'Módulos',
+				'singular_name'     => 'Módulo',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Módulo',
+				'update_item'       => 'Actualizar Módulo',
+				'add_new_item'      => 'Nueva Módulo',
+				'new_item_name'     => 'Nombre Nueva Módulo',
+				'menu_name'         => 'Módulos'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'modulos' ),
+			);
+			register_taxonomy( 'modulos', 'product', $args );
+		}
+	}
+
+	private function register_taxonomy_lecciones() {
+		if( ! taxonomy_exists('lecciones')){
+
+			$labels = array(
+				'name'              => 'Lecciones',
+				'singular_name'     => 'Lección',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Lección',
+				'update_item'       => 'Actualizar Lección',
+				'add_new_item'      => 'Nueva Lección',
+				'new_item_name'     => 'Nombre Nueva Lección',
+				'menu_name'         => 'Lecciones'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'lecciones' ),
+			);
+			register_taxonomy( 'lecciones', 'modulos', $args );
+		}
+	}// register_taxonomy_lecciones
+
+	private function register_taxonomy_maestros() {
+		if( ! taxonomy_exists('maestros')){
+			$labels = array(
+				'name'              => 'Maestros',
+				'singular_name'     => 'Maestro',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Maestro',
+				'update_item'       => 'Actualizar Maestro',
+				'add_new_item'      => 'Nueva Maestro',
+				'new_item_name'     => 'Nombre Nueva Maestro',
+				'menu_name'         => 'Maestros'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'maestros' ),
+			);
+			register_taxonomy( 'maestros', 'product', $args );
+		}
+	}// register_taxonomy_maestros
+
+	/**
+	 * Insert all Módulos as taxonomy term for Product.
+	 * @param obj $post
+	 **/
+	private function insert_custom_taxonomy_term( $post_type ){
+		global $wpdb;
+
+		$results = $wpdb->get_results( 'SELECT trim(post_title) as post_title from ' . $wpdb->prefix . 'posts where post_type = "' . $post_type . '" AND post_title not in ( SELECT name FROM ' . $wpdb->prefix . 'terms T INNER JOIN ' . $wpdb->prefix . 'term_taxonomy TT ON T.term_id = TT.term_id WHERE TT.taxonomy = "' . $post_type . '" ) AND post_status = "publish"', OBJECT );
+
+		foreach ($results as $modulo) {
+			$term = term_exists($modulo->post_title, $post_type );
+			if ($term !== 0 && $term !== null) continue;
+
+			wp_insert_term($modulo->post_title, $post_type );
+		}// foreach
+		
+	}// insert_custom_taxonomy_term
+
 }// YC_Admin_Cursos_Settings
+
+
+
+		
