@@ -14,3 +14,7 @@
 [10-Jul-2016 22:35:05 UTC] PHP Notice:  Use of undefined constant next_post_link - assumed 'next_post_link' in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 21
 [10-Jul-2016 22:35:05 UTC] PHP Notice:  Use of undefined constant previous_post_link - assumed 'previous_post_link' in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 31
 [10-Jul-2016 22:35:05 UTC] PHP Notice:  Use of undefined constant next_post_link - assumed 'next_post_link' in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 52
+[10-Jul-2016 22:41:09 UTC] PHP Notice:  Use of undefined constant previous_post_link - assumed 'previous_post_link' in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 17
+[10-Jul-2016 22:41:09 UTC] PHP Notice:  Use of undefined constant next_post_link - assumed 'next_post_link' in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 21
+[10-Jul-2016 22:41:09 UTC] PHP Notice:  Use of undefined constant previous_post_link - assumed 'previous_post_link' in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 31
+[10-Jul-2016 22:41:09 UTC] PHP Notice:  Use of undefined constant next_post_link - assumed 'next_post_link' in /Users/rauldezamacona/Documents/sites/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 52
