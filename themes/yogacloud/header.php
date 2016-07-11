@@ -226,4 +226,4 @@
 			</nav>
 		</header>
 
-		<div class="[ main ]"> <!-- for footer bottom -->
+		<div class="[ main-body ]"> <!-- for footer bottom -->

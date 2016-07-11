@@ -89,6 +89,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
 		</div> <!-- end row -->
-	</div><!-- end container-->
+	<!-- </div> end container-->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

@@ -7,7 +7,7 @@
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 						<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
 						<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
-					</div>  
+					</div>
 					<div class="col s12 m5 l4">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
 						<a href="https://twitter.com/theyogacloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
@@ -41,7 +41,7 @@
 			</div>
 		</footer>
 
-		</div><!-- end main -->
+		</div><!-- end main-body -->
 		<?php wp_footer(); ?>
 	</body>
 </html>

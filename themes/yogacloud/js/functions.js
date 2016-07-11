@@ -310,12 +310,12 @@ function boxCard(){
 
         //image size
         var image_alto = $('.bg-image--rectangle').width();
-        console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
+        // console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
         $('.bg-image--rectangle').css('height', image_alto + 'px');
 
         //Ellipsis text
         var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
-        console.log('Tamaño ellipsis:', ellipsis_alto);
+        console.log('Altura ellipsis:', ellipsis_alto);
         $('.height-box-ellipsis').css('height', ellipsis_alto);
 
         var containerHeight = $(".text-ellipsis").height();
@@ -335,7 +335,7 @@ function boxCard(){
 
 function footerBottom(){
     var alturaFooter = getFooterHeight();
-    $('.main').css('padding-bottom', alturaFooter );
+    $('.main-body').css('padding-bottom', alturaFooter );
 }
 
 function getHeaderHeight(){
