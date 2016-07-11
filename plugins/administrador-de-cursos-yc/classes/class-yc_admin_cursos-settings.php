@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Admin panel settings for Cursos YogaCloud.
  *
@@ -8,7 +7,6 @@
  *
  * @since 1.0.0
  */
-
 
 class YC_Admin_Cursos_Settings {
 
@@ -53,6 +51,8 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
+		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
+		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 
 	}
@@ -154,7 +154,6 @@ class YC_Admin_Cursos_Settings {
 		$tabs['general']['class'][] = 'show_if_simple_course show_if_variable_course';
 
 		return $tabs;
-
 	}
 
 	/**
@@ -201,6 +200,35 @@ class YC_Admin_Cursos_Settings {
 		if( 'maestros' == get_post_type() OR 'modulos' == get_post_type() OR 'lecciones' == get_post_type() ){
 			$this->insert_custom_taxonomy_term( get_post_type() );
 		}		
+	}
+
+	/**
+	 * Update the relationship between Cursos and Modulos
+	 */
+	public function update_courses_modules() {
+		if( ! is_curso( get_the_id() ) ) return;
+			
+		$curso = new YC_Curso( get_the_id() );
+		foreach ( $curso->get_modulos() as $modulo ) {
+			if( ! $curso->has_modulo( $modulo->id ) ){
+				$id = $curso->add_modulo( $modulo->id );
+				error_log( 'new id: ' . $id );
+			}
+		}
+	}
+
+	/**
+	 * Update the relationship between Modulos and Lecciones
+	 */
+	public function update_modules_lessons() {
+		if( 'modulos' != get_post_type() ) return;
+
+		$modulo = new YC_Modulo( get_the_id() );
+		foreach ( $modulo->get_lecciones() as $leccion ) {
+			if( ! $modulo->has_leccion( $leccion->id ) ){
+				$id = $modulo->add_lesson( $leccion->id );
+			}
+		}
 	}
 
 	/**

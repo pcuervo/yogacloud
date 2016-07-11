@@ -47,6 +47,38 @@ class YC_Modulo {
 		return $lecciones;
 	}
 
+	/**
+	* Check if a lesson exists in the module
+	* @param int $lesson_id 
+	* @return boolean
+	*/
+	public function has_leccion( $lesson_id ) {
+		global $wpdb;
+		return $wpdb->get_row( "SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE lesson_id =" . $lesson_id . " AND module_id = " . $this->id, "ARRAY_A" );
+	}
+
+	/**
+	* Add lesson to module 
+	* @param int $lesson_id 
+	* @param int $position
+	* @return boolean
+	*/
+	public function add_lesson( $lesson_id, $position=-1 ) {
+		global $wpdb;
+
+		$delegacion_data = array(
+			'module_id'	=> $this->id,
+			'lesson_id'	=> $lesson_id,
+			'position'	=> $position,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'modules_lessons',
+			$delegacion_data,
+			array( '%s' )
+		);
+		return $wpdb->insert_id;
+	}
+
 }// YC_Modulo
 
  

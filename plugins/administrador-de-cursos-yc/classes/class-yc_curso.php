@@ -34,7 +34,6 @@ class YC_Curso {
 		$this->hooks();
 	}
 
-	 
 	/**
 	* Return all Módulos from the course
 	* @return array $modulos
@@ -44,7 +43,6 @@ class YC_Curso {
 		$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
 		if( empty( $modulos_terms ) ) return $modulos;
 
-		//foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = $this->get_modulo_by_name( $modulo_term->name );
 		foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = new YC_Modulo( array( 'name' => $modulo_term->name ) );
 
 		return $modulos;
@@ -95,12 +93,10 @@ class YC_Curso {
 	* Initialize video player for course
 	*/
 	public function init_course_trailer_js() {
-		if ( empty( $this->trailer_info ) ) return;
+		if ( empty( $this->trailer_info ) || ! is_curso( get_the_id() ) ) return;
 
-		?><script type='text/javascript'>
+		?><script type='text/javascript'>º
 			jQuery( document ).ready( function() {
-				console.log( '<?php echo $this->trailer_info['iframe'] ?>' );
-				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
 				var iframe = $('.video-container iframe')[0];
 				var player = new Vimeo.Player(iframe);
 				var yc_course = new YogaCloudCourse( player, true );
@@ -110,11 +106,44 @@ class YC_Curso {
 	}
 
 	/**
+	* Check if a module exists in the course
+	* @param int $module_id 
+	* @return boolean
+	*/
+	public function has_modulo( $module_id ) {
+		global $wpdb;
+		return $wpdb->get_row( "SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE module_id =" . $module_id . " AND course_id = " . $this->id, "ARRAY_A" );
+	}
+
+	/**
+	* Add module to course 
+	* @param int $module_id 
+	* @param int $position
+	* @return boolean
+	*/
+	public function add_modulo( $module_id, $position=-1 ) {
+		global $wpdb;
+
+		$delegacion_data = array(
+			'course_id'	=> $this->id,
+			'module_id'	=> $module_id,
+			'position'	=> $position,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'courses_modules',
+			$delegacion_data,
+			array( '%s' )
+		);
+		return $wpdb->insert_id;
+	}
+
+	/**
 	 * Hooks
 	 */
 	private function hooks() {
 		//add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		//add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		//add_action( 'template_redirect', array( $this, 'load_script_course_page' ) );
 		add_action( 'wp_footer', array( $this, 'init_course_trailer_js' ) );
 	}	
 

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-	if( is_course( $post->ID ) ){
+	if( is_curso( $post->ID ) ){
 		wc_get_template( 'course-product/course.php' );
 		return;
 	}

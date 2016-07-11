@@ -44,8 +44,8 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_localize_script( 'functions', 'siteUrl', SITEURL );
 	wp_localize_script( 'functions', 'theme_path', THEMEPATH );
 	wp_localize_script( 'functions', 'isHome', (string)is_front_page() );
-	wp_localize_script( 'functions', 'isCurso', (string) is_course( get_the_id() ) );
-	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_course( get_the_id() )  ) );
+	wp_localize_script( 'functions', 'isCurso', (string) is_curso( get_the_id() ) );
+	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_curso( get_the_id() )  ) );
 	wp_localize_script( 'functions', 'isModulo', (string) ('modulos' == get_post_type()) );
 	wp_localize_script( 'functions', 'isLeccion', (string) ('lecciones' == get_post_type()) );
 	wp_localize_script( 'functions', 'isMyAccount', (string) is_page('my-account') );
@@ -113,7 +113,7 @@ function print_title(){
  * @param int $product_id
  * @return boolean
  */
-function is_course( $product_id ){
+function is_curso( $product_id ){
 	$product = wc_get_product( $product_id );
 	if ( empty($product) ) return false;
 
