@@ -58,6 +58,14 @@ class YC_Curso {
 	}
 
 	/**
+	* Get course permalink
+	* @return array $permalink
+	*/
+	public function get_permalink(){
+		return get_permalink( $this->id );
+	}
+
+	/**
 	* Check if a given user has bought a course
 	* @param int $user_id
 	* @return boolean
