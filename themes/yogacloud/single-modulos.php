@@ -1,10 +1,10 @@
-<?php 
+<?php
 	if( ! isset( $_GET['cid'] ) ){
 		wp_redirect( home_url() );
 	}
 
-	get_header(); 
-	the_post();  
+	get_header();
+	the_post();
 
 	$curso = new YC_Curso( $_GET['cid'] );
 	$modulo = new YC_Modulo( array( 'name' => get_the_title() ) );
@@ -42,8 +42,8 @@
 			<?php foreach ( $lecciones as $lesson ) : ?>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id ?>">
-						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity ]">
+						<div class="[ main-banner ]" >
+							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong><?php echo $lesson->name ?></strong><br><?php echo $lesson->description ?></h2>
 								</div>
@@ -64,7 +64,7 @@
 				<div class="[ gradient-linear-opacity ]">
 					<div class="[ min-height--160 ][ relative ]">
 						<h2 class="[ padding-sides padding-vertical--small ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
-						<!-- bloqueado 
+						<!-- bloqueado
 						<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
 							<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
 						</div>

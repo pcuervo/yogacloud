@@ -140,6 +140,68 @@ var $=jQuery.noConflict();
     });
 })(jQuery);
 
+/**
+    MOVER A PLUGIN
+**/
+function YogaCloudCourse( player, watched ){
+    this.PERCENT_TO_MARK_AS_WATCHED = 80;
+    this.INTERVAL = 2000;
+
+    this._player = player;
+    this._elapsedTimeInterval;
+    this._duration = 0;
+    this._isMarkedAsWatched = watched;
+}
+
+YogaCloudCourse.prototype = {
+    constructor: YogaCloudCourse,
+    _init: function(){
+        console.log('initializing course...');
+
+        this._player.getDuration().then(function(duration) {
+            this._duration = duration;
+        }).catch(function(error) { console.log( error ); });
+
+        var self = this;
+        this._player.on('play', function() {
+            console.log( self._isMarkedAsWatched );
+            if( ! self._isMarkedAsWatched ) {
+                self._elapsedTimeInterval = setInterval( self.countElapsedTime.bind(self), self.INTERVAL);
+                return;
+            }
+        });
+        this._player.on('pause', function() {
+            clearInterval( self._elapsedTimeInterval );
+        });
+        this._player.on('ended', function(){
+            console.log('go to next course PENDING...');
+            clearInterval( self._elapsedTimeInterval );
+        })
+    },
+    countElapsedTime: function(){
+        var self = this;
+        this._player.getCurrentTime().then(function(seconds) {
+            var percentWatched = self.getPercentWatched( seconds );
+            if( self.PERCENT_TO_MARK_AS_WATCHED <= percentWatched ){
+                clearInterval( self._elapsedTimeInterval );
+                self.markAsWatched();
+            }
+
+        }).catch(function(error) {
+            console.log( error );
+        });
+    },
+    getDuration: function(){
+        return _duration;
+    },
+    getPercentWatched: function( elapsedSeconds ){
+        return Math.floor( elapsedSeconds / this.getDuration() * 100 );
+    },
+    markAsWatched: function(){
+        this._isMarkedAsWatched = true;
+    }
+}
+
 function toggleUser(){
     if( $('.user-mobile').hasClass('js-hidden') ){
         $( ".user-mobile" ).animate({
@@ -248,12 +310,12 @@ function boxCard(){
 
         //image size
         var image_alto = $('.bg-image--rectangle').width();
-        console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
+        // console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
         $('.bg-image--rectangle').css('height', image_alto + 'px');
 
         //Ellipsis text
         var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
-        console.log('Tamaño ellipsis:', ellipsis_alto);
+        console.log('Altura ellipsis:', ellipsis_alto);
         $('.height-box-ellipsis').css('height', ellipsis_alto);
 
         var containerHeight = $(".text-ellipsis").height();
@@ -273,7 +335,7 @@ function boxCard(){
 
 function footerBottom(){
     var alturaFooter = getFooterHeight();
-    $('.main').css('padding-bottom', alturaFooter );
+    $('.main-body').css('padding-bottom', alturaFooter );
 }
 
 function getHeaderHeight(){
