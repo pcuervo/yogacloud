@@ -50,7 +50,7 @@
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 											<span class="[ card-title ]"><?php the_title(); ?></span>
 											<!-- promo -->
-											<div id="promo" class="[ nuevo ]"></div>
+											<div id="promo" class="[ proximamente ]"></div>
 										</div>
 									</div>
 								</div>

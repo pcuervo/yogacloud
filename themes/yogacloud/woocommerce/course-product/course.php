@@ -184,11 +184,12 @@
 						<h5><?php echo $modulo->name ?></h5>
 						<p><?php echo $modulo->description ?></p>
 						<div class="[ padding-bottom ]">
-							<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+							<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+								<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+							<?php endif; ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
-				
 			</section>
 		</div>
 	</div>
