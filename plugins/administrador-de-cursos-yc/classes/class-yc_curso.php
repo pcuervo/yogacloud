@@ -7,10 +7,13 @@
  * @since 1.0.0
  */
 require_once("vimeo-php/autoload.php");
+require_once("class-yc_modulo.php");
 
 class YC_Curso {
 
 	public $id;
+	public $short_description;
+	public $description;
 	public $num_lessons; 
 	public $lessons_per_week; 
 	public $hours; 
@@ -22,8 +25,11 @@ class YC_Curso {
 	public function __construct( $course_id ) {
 		$this->hooks();
 
+		
+
 		$this->id 				= $course_id;
-		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
+		//$this->name 			= $curso_query->post_title;
+ 		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->trailer_info		= $this->get_trailer_info();
@@ -31,18 +37,28 @@ class YC_Curso {
 
 	 
 	/**
-	 * Return all Módulos from the course
-	 * @return array $modulos
-	 */
-	 public function get_modulos(){
-	 	$modulos = array();
-	 	$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
-	 	if( empty( $modulos_terms ) ) return $modulos;
+	* Return all Módulos from the course
+	* @return array $modulos
+	*/
+	public function get_modulos(){
+		$modulos = array();
+		$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
+		if( empty( $modulos_terms ) ) return $modulos;
 
-	 	foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = $this->get_modulo_by_name( $modulo_term->name );
+		//foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = $this->get_modulo_by_name( $modulo_term->name );
+		foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = new YC_Modulo( array( 'name' => $modulo_term->name ) );
 
-	 	return $modulos;
-	 }
+		return $modulos;
+	}
+
+	/**
+	* Get course name
+	* @return array $name
+	*/
+	public function get_name(){
+		$curso_query = get_post( $this->id );
+		return $curso_query->post_title;
+	}
 
 	/**
 	 * Return all Módulos from the course
@@ -58,6 +74,7 @@ class YC_Curso {
 			'name'			=> $modulo_query->post_title,
 			'description'	=> $modulo_query->post_content,
 			'permalink'		=> get_permalink( $modulo_query->ID ),
+			'lessons'		=> get_lesso
 		);
 	}
 
@@ -77,8 +94,8 @@ class YC_Curso {
 		$trailer_url = get_post_meta( $this->id, '_vimeo_url', true );
 		if( empty( $trailer_url ) ) return array();
 
-		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
-		$lib = $this->get_vimeo_lib();
+		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1]; 
+		$lib = $this->get_vimeo_lib();  
 		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
 
 		$info = array(

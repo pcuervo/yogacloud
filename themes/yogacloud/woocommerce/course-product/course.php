@@ -11,7 +11,7 @@
 	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $curso->trailer_info['thumbnail']; ?>">
 		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 			<div class="[ container relative ][ height---100 ] valign-wrapper">
-				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
+				<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name(); ?></h1>
 				<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 			</div>
 		</div>
@@ -170,12 +170,12 @@
 		<div class="[ col s12 m6 l8 ]">
 			<section>
 				<h4 class="[ text-center ]">Módulos</h4>
-				<?php foreach ( $modulos as $modulo_info ) : ?>
+				<?php foreach ( $modulos as $modulo ) : ?>
 					<div class="[ border-bottom--dark ]">
-						<h5><?php echo $modulo_info['name'] ?></h5>
-						<p><?php echo $modulo_info['description'] ?></p>
+						<h5><?php echo $modulo->name ?></h5>
+						<p><?php echo $modulo->description ?></p>
 						<div class="[ padding-bottom ]">
-							<a href="<?php echo $modulo_info['permalink'] ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+							<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
 						</div>
 					</div>
 				<?php endforeach; ?>

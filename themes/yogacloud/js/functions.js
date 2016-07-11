@@ -42,10 +42,10 @@ var $=jQuery.noConflict();
             console.log('CURSOS');
 
             // MOVER A PLUGIN
-            var iframe = $('.video-container iframe')[0];
-            var player = new Vimeo.Player(iframe);
-            var yc_course = new YogaCloudCourse( player, false );
-            yc_course._init();
+            // var iframe = $('.video-container iframe')[0];
+            // var player = new Vimeo.Player(iframe);
+            // var yc_course = new YogaCloudCourse( player, false );
+            // yc_course._init();
 
             heightScreen();
             $('.rating').addRating();
