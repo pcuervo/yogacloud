@@ -2,7 +2,9 @@
 	<section>
 		<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ][ height--320 ][ min-height--500-l ]">
 			<video class="[ center-full ][ bottom-0 ][ min-width---100 ]" muted autoplay loop>
-				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>video/landing.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>video/landing.webm" type="video/webm">
+				<source src="<?php echo THEMEPATH; ?>video/landing.ogv" type="video/ogg">
 			</video>
 			<div class="[ gradient-linear-opacity ][ height---100 ][ relative z-index ]">
 				<div class="[ container relative ][ height---100 ][ white-text text-center ]">
