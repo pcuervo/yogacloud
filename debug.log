@@ -1,0 +1,6 @@
+[11-Jul-2016 21:38:18 UTC] PHP Notice:  Undefined index: iframe in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 9
+[11-Jul-2016 21:38:18 UTC] PHP Notice:  Undefined index: thumbnail in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 11
+[11-Jul-2016 21:38:18 UTC] PHP Fatal error:  Cannot use object of type YC_Modulo as array in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 175
+[11-Jul-2016 21:38:19 UTC] PHP Notice:  Undefined index: iframe in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 9
+[11-Jul-2016 21:38:19 UTC] PHP Notice:  Undefined index: thumbnail in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 11
+[11-Jul-2016 21:38:19 UTC] PHP Fatal error:  Cannot use object of type YC_Modulo as array in /nas/content/staging/yogacloud/wp-content/themes/yogacloud/woocommerce/course-product/course.php on line 175
