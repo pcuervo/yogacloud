@@ -146,8 +146,8 @@ var $=jQuery.noConflict();
     });
 })(jQuery);
 
-/** 
-    MOVER A PLUGIN 
+/**
+    MOVER A PLUGIN
 **/
 function YogaCloudCourse( player, watched ){
     this.PERCENT_TO_MARK_AS_WATCHED = 80;
@@ -192,7 +192,7 @@ YogaCloudCourse.prototype = {
                 clearInterval( self._elapsedTimeInterval );
                 self.markAsWatched();
             }
-            
+
         }).catch(function(error) {
             console.log( error );
         });

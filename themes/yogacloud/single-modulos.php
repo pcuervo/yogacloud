@@ -28,8 +28,8 @@
 			<div class="[ row ][ no-margin ]">
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 						<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
-						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity ]">
+						<div class="[ main-banner ]" >
+							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 1</strong><br>Placet igitur tibi cato sumpseris non concessas.</h2>
 								</div>
@@ -39,8 +39,8 @@
 				</div>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
-						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity ]">
+						<div class="[ main-banner ]" >
+							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 2</strong><br>Placet igitur tibi cato cum res sumpseris non concessas sumpseris non concessas.</h2>
 								</div>
@@ -50,8 +50,8 @@
 				</div>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
-						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity ]">
+						<div class="[ main-banner ]" >
+							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 3</strong><br>Placet igitur tibi cato cum res sumpseris non concessas tibi cato cum tibi cato cum.</h2>
 								</div>
@@ -61,8 +61,8 @@
 				</div>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
 					<a class="[ white-text ]" data-position="bottom" data-delay="50" onclick="Materialize.toast('Esta lección se desbloqueara una vez que termines con las lecciones anteriores.', 4000)">
-						<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-							<div class="[ gradient-linear-opacity ]">
+						<div class="[ main-banner ]" >
+							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
 									<!-- bloqueado -->
