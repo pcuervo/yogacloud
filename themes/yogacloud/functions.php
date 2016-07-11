@@ -120,3 +120,57 @@ function is_curso( $product_id ){
 	$product_type = get_the_terms($product_id, 'product_type')[0]->name;
 	return $product_type == 'simple_course';
 }
+
+/**
+ * Set a custom add to cart URL to redirect to
+ * @return string
+ */
+function custom_add_to_cart_redirect() { 
+    return site_url('cart'); 
+}
+add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
+
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+
+
+function mysite_pending($order_id) {
+error_log("$order_id set to PENDING", 0);
+}
+function mysite_failed($order_id) {
+error_log("$order_id set to FAILED", 0);
+}
+function mysite_hold($order_id) {
+error_log("$order_id set to ON HOLD", 0);
+}
+function mysite_processing($order_id) {
+error_log("$order_id set to PROCESSING", 0);
+}
+function mysite_completed($order_id) {
+error_log("$order_id set to COMPLETED", 0);
+}
+function mysite_refunded($order_id) {
+error_log("$order_id set to REFUNDED", 0);
+}
+function mysite_cancelled($order_id) {
+error_log("$order_id set to CANCELLED", 0);
+}
+
+add_action( 'woocommerce_order_status_pending', 'mysite_pending');
+add_action( 'woocommerce_order_status_failed', 'mysite_failed');
+add_action( 'woocommerce_order_status_on-hold', 'mysite_hold');
+add_action( 'woocommerce_order_status_processing', 'mysite_processing');
+add_action( 'woocommerce_order_status_completed', 'mysite_completed');
+add_action( 'woocommerce_order_status_refunded', 'mysite_refunded');
+add_action( 'woocommerce_order_status_cancelled', 'mysite_cancelled');

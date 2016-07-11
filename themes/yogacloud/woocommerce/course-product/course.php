@@ -18,9 +18,12 @@
 		</div>
 	</div>
 </section>
-<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
-	<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
-</div>
+
+<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+	<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
+		<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
+	</div>
+<?php endif; ?>
 
 <section class="[ container ]">
 	<div class="[ row ]">
@@ -55,6 +58,17 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
+			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+				<section class="[ text-center ]">
+					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+					<div class="[ row ]">
+						<div class="[ progress progress--large ]">
+							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+							<div class="[ progress-percent ][ progress-height ]"></div>
+						</div>
+					</div>
+				</section>
+			<?php endif; ?>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<div class="[ row ]">
@@ -63,7 +77,7 @@
 							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
 							<p><?php echo $maestro->name ?></p>
 							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal">ver más</a>
-						</article>	
+						</article>
 					<?php endforeach; ?>
 				</div>
 
@@ -177,7 +191,7 @@
 						</div>
 					</div>
 				<?php endforeach; ?>
-				
+
 			</section>
 		</div>
 	</div>

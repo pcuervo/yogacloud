@@ -3,8 +3,8 @@
 		wp_redirect( home_url() );
 	}
 
-	get_header(); 
-	the_post();  
+	get_header();
+	the_post();
 
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'name' => get_the_title() ) );
@@ -47,6 +47,12 @@
 			</a>
 		</div>
 		<section class="[ col s12 l8 ]">
+			<article>
+				<div class="[ progress progress--large ]">
+					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+					<div class="[ progress-percent ][ progress-height ]"></div>
+				</div>
+			</article>
 			<article class="[ content-user ]">
 				<h5><?php echo $modulo->name; ?> - <?php the_title(); ?></h5>
 				<p><?php echo get_the_content(); ?></p>
