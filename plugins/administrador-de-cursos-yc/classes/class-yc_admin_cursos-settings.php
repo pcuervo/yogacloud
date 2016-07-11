@@ -44,6 +44,7 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'woocommerce_process_product_meta_simple_course', array( $this, 'save_course_option_field' )  );
 			add_action( 'admin_footer', array( $this, 'simple_course_custom_js' ) );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
+			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
 		}
 	
 		// Custom data for Módulos and lecciones
@@ -52,8 +53,7 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
-		add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 
 	}
 
@@ -218,9 +218,8 @@ class YC_Admin_Cursos_Settings {
 	 * Add javascript and style files
 	 */
 	function enqueue_and_localize_scripts(){
-		// wp_enqueue_script( 'plugins', SONDEO_CDMX_PLUGIN_URL . 'inc/js/plugins.js', array('jquery') );
-		// wp_enqueue_script( 'sondeo_cdmx_admin_functions', SONDEO_CDMX_PLUGIN_URL . 'inc/js/admin-functions.js', array('jquery') );
-		// wp_localize_script( 'sondeo_cdmx_admin_functions', 'ajax_url', admin_url('admin-ajax.php') );
+		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-course.js' );
+		wp_localize_script( 'sondeo_cdmx_admin_functions', 'ajax_url', admin_url('admin-ajax.php') );
 	}
 
 	/**
@@ -246,46 +245,6 @@ class YC_Admin_Cursos_Settings {
 		</div>
 		<?php
 	}// add_admin_cursos_page
-
-	/**
-	 * The main screen
-	 */
-	public function add_respuestas_sondeo_cdmx_page() {
-		if( ! isset( $_GET['reference_code'] ) ){
-			echo '<p>Ha ocurrido un error</p>';
-			echo '<a href="' . admin_url( '/admin.php?page=menu_sondeo_cdmx', 'http' ) . '">Ver todas las encuestas</a>';
-       	 	exit;
-		}
-		$survey = Sondeo_CDMX_Survey::get();
-		$answered_surveys = $survey->get_survey( $_GET['reference_code'] );
-		?>
-
-		<div class="[ wrap ]">
-			<a href="<?php echo admin_url( '/admin.php?page=menu_sondeo_cdmx', 'http' ) ?>">Ver todas las encuestas</a>
-			<h1>Sondeo CDMX</h1>
-			<p>Encuesta con número de folio <?php echo $answered_surveys[0]['reference_code'] ?> creada el <?php echo $answered_surveys[0]['created_at'] ?></p>
-			<hr>
-			<table class="[ form-table ]">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Preguntas</th>
-						<th>Respuestas</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ( $answered_surveys as $key => $survey ) : ?>
-						<tr>
-							<td><?php echo $key+1 ?></td>
-							<td><?php echo $survey['question'] ?></td>
-							<td><?php echo $survey['answer'] ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-		<?php
-	}// add_respuestas_sondeo_cdmx_page
 
 
 	/******************************************

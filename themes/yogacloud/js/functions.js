@@ -41,12 +41,6 @@ var $=jQuery.noConflict();
         if( parseInt( isCurso ) ){
             console.log('CURSOS');
 
-            // MOVER A PLUGIN
-            var iframe = $('.video-container iframe')[0];
-            var player = new Vimeo.Player(iframe);
-            var yc_course = new YogaCloudCourse( player, false );
-            yc_course._init();
-
             heightScreen();
             $('.rating').addRating();
             $('.modal-trigger').leanModal();
@@ -287,7 +281,7 @@ function videoPlayer(){
             //Animated complete
         });
         $( "#play-button img" ).addClass('hidden');
-        // $("#video_player")[0].play(); //autoplay <video>
+        //$(".video-container iframe")[0].play(); //autoplay <video>
         // $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }

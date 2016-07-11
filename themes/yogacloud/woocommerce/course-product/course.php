@@ -1,7 +1,8 @@
 <?php
 	global $product;
-	$curso = new YC_Curso( $product->id );
-	$modulos = $curso->get_modulos();
+	$curso 		= new YC_Curso( $product->id );
+	$modulos 	= $curso->get_modulos();
+	$maestros 	= $curso->get_maestros();
 ?>
 
 <section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
@@ -11,7 +12,7 @@
 	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $curso->trailer_info['thumbnail']; ?>">
 		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 			<div class="[ container relative ][ height---100 ] valign-wrapper">
-				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
+				<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name(); ?></h1>
 				<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
 			</div>
 		</div>
@@ -57,20 +58,17 @@
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<div class="[ row ]">
-					<article class="[ col s6 ]">
-						<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						<p>Juan O'Donoju</p>
-						<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
-					</article>
-					<article class="[ col s6 ]">
-						<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
-						<p>Juan O'Donoju</p>
-						<a class="[ btn btn-rounded btn-primary-hollow ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
-					</article>
+					<?php foreach ( $maestros as $maestro ) : ?>
+						<article class="[ col s6 ]">
+							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
+							<p><?php echo $maestro->name ?></p>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal">ver más</a>
+						</article>	
+					<?php endforeach; ?>
 				</div>
 
 				<!-- Modal Structure -->
-				<div id="maestro1" class="modal [ maestros-transparent ][ white-text ]">
+				<div id="maestro-modal" class="modal [ maestros-transparent ][ white-text ]">
 					<div class="modal-content [ white-text ]">
 						<div class="[ row ]">
 							<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
@@ -170,12 +168,12 @@
 		<div class="[ col s12 m6 l8 ]">
 			<section>
 				<h4 class="[ text-center ]">Módulos</h4>
-				<?php foreach ( $modulos as $modulo_info ) : ?>
+				<?php foreach ( $modulos as $modulo ) : ?>
 					<div class="[ border-bottom--dark ]">
-						<h5><?php echo $modulo_info['name'] ?></h5>
-						<p><?php echo $modulo_info['description'] ?></p>
+						<h5><?php echo $modulo->name ?></h5>
+						<p><?php echo $modulo->description ?></p>
 						<div class="[ padding-bottom ]">
-							<a href="<?php echo $modulo_info['permalink'] ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+							<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
 						</div>
 					</div>
 				<?php endforeach; ?>

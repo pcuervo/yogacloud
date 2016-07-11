@@ -7,10 +7,14 @@
  * @since 1.0.0
  */
 require_once("vimeo-php/autoload.php");
+require_once("class-yc_modulo.php");
+require_once("class-yc_maestro.php");
 
 class YC_Curso {
 
 	public $id;
+	public $short_description;
+	public $description;
 	public $num_lessons; 
 	public $lessons_per_week; 
 	public $hours; 
@@ -20,29 +24,40 @@ class YC_Curso {
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
-		$this->hooks();
-
 		$this->id 				= $course_id;
-		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
+		//$this->name 			= $curso_query->post_title;
+ 		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->trailer_info		= $this->get_trailer_info();
+
+		$this->hooks();
 	}
 
 	 
 	/**
-	 * Return all Módulos from the course
-	 * @return array $modulos
-	 */
-	 public function get_modulos(){
-	 	$modulos = array();
-	 	$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
-	 	if( empty( $modulos_terms ) ) return $modulos;
+	* Return all Módulos from the course
+	* @return array $modulos
+	*/
+	public function get_modulos(){
+		$modulos = array();
+		$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
+		if( empty( $modulos_terms ) ) return $modulos;
 
-	 	foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = $this->get_modulo_by_name( $modulo_term->name );
+		//foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = $this->get_modulo_by_name( $modulo_term->name );
+		foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = new YC_Modulo( array( 'name' => $modulo_term->name ) );
 
-	 	return $modulos;
-	 }
+		return $modulos;
+	}
+
+	/**
+	* Get course name
+	* @return array $name
+	*/
+	public function get_name(){
+		$curso_query = get_post( $this->id );
+		return $curso_query->post_title;
+	}
 
 	/**
 	 * Return all Módulos from the course
@@ -58,7 +73,40 @@ class YC_Curso {
 			'name'			=> $modulo_query->post_title,
 			'description'	=> $modulo_query->post_content,
 			'permalink'		=> get_permalink( $modulo_query->ID ),
+			'lessons'		=> get_lesso
 		);
+	}
+
+	/**
+	* Return all Maestros from the course
+	* @return array $maestros
+	*/
+	public function get_maestros(){
+		$maestros = array();
+		$maestros_terms = wp_get_post_terms( $this->id, 'maestros' );
+		if( empty( $maestros_terms ) ) return $maestros;
+
+		foreach ( $maestros_terms as $key => $maestro_term ) $maestros[$key] = new YC_Maestro( array( 'name' => $maestro_term->name ) );
+
+		return $maestros;
+	}
+
+	/**
+	* Initialize video player for course
+	*/
+	public function init_course_trailer_js() {
+		if ( empty( $this->trailer_info ) ) return;
+
+		?><script type='text/javascript'>
+			jQuery( document ).ready( function() {
+				console.log( '<?php echo $this->trailer_info['iframe'] ?>' );
+				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
+				var iframe = $('.video-container iframe')[0];
+				var player = new Vimeo.Player(iframe);
+				var yc_course = new YogaCloudCourse( player, true );
+				yc_course._init();
+			});
+		</script><?php
 	}
 
 	/**
@@ -67,7 +115,8 @@ class YC_Curso {
 	private function hooks() {
 		//add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		//add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-	}
+		add_action( 'wp_footer', array( $this, 'init_course_trailer_js' ) );
+	}	
 
 	/**
 	 * Return information about the course's trailer, if any
@@ -77,8 +126,8 @@ class YC_Curso {
 		$trailer_url = get_post_meta( $this->id, '_vimeo_url', true );
 		if( empty( $trailer_url ) ) return array();
 
-		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
-		$lib = $this->get_vimeo_lib();
+		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1]; 
+		$lib = $this->get_vimeo_lib();  
 		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
 
 		$info = array(

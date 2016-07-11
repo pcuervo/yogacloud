@@ -100,30 +100,6 @@ function print_title(){
 	#GET/SET FUNCTIONS
 \*------------------------------------*/
 
-// /**
-//  * Return the information of the Course
-//  * @param int $course_id
-//  * @return array $info
-//  */
-// function get_course_info( $course_id ){
-// 	$trailer_url = get_post_meta( $course_id, '_vimeo_url', true );
-// 	if( empty( $trailer_url ) ) return array();
-
-// 	$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
-// 	$lib = get_vimeo_lib();
-// 	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
-
-// 	$info = array(
-// 		'iframe' 			=> $vimeo_response['body']['embed']['html'],
-// 		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
-// 		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
-// 		'lessons_per_week'	=> $trailer_url = get_post_meta( $course_id, '_lessons_per_week', true ),
-// 		'hours'				=> $trailer_url = get_post_meta( $course_id, '_hours', true ),
-// 	);
-// 	return $info;
-// }
-
-
 /*------------------------------------*\
 	#AJAX FUNCTIONS
 \*------------------------------------*/
