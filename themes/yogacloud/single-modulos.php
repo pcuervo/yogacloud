@@ -41,8 +41,8 @@
 		<?php else : ?>
 			<?php foreach ( $lecciones as $lesson ) : ?>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id ?>">
-						<div class="[ main-banner ]">
+						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id ?>">
+						<div class="[ main-banner ]" >
 							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">
 									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong><?php echo $lesson->name ?></strong><br><?php echo $lesson->description ?></h2>
@@ -51,29 +51,6 @@
 						</div>
 					</a>
 				</div>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<a class="[ white-text ]" href="<?php echo site_url('/leccion/'); ?>">
-						<div class="[ main-banner ]" >
-							<div class="[ gradient-linear ]">
-								<div class="[ min-height--160 ][ relative ]">
-									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong>Lección 3</strong><br>Placet igitur tibi cato cum res sumpseris non concessas tibi cato cum tibi cato cum.</h2>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-					<a class="[ white-text ]" data-position="bottom" data-delay="50" onclick="Materialize.toast('Esta lección se desbloqueara una vez que termines con las lecciones anteriores.', 4000)">
-						<div class="[ main-banner ]" >
-							<div class="[ gradient-linear ]">
-								<div class="[ min-height--160 ][ relative ]">
-									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
-									<!-- bloqueado -->
-									<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
-										<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
-									</div>
-								</div>
-							</div>
 			<?php endforeach; ?>
 		<?php endif; ?>
 		</div>
