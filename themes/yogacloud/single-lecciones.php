@@ -8,6 +8,8 @@
 
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'name' => get_the_title() ) );
+	$previous_post_link = '#';
+	$next_post_link = '#';
 ?>
 
 <section class="[ text-center ]">
@@ -25,11 +27,11 @@
 	</article>
 
 	<div class="[ text-center ][ hide-on-large-only ]">
-		<a href="<?php previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
+		<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
 			<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 			<span class="[ middle inline-block ]">anterior</span>
 		</a>
-		<a href="<?php next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+		<a href="<?php $next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 			<span class="[ middle inline-block ]">siguiente</span>
 			<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 		</a>
@@ -39,7 +41,7 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<a href="<?php previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
@@ -60,7 +62,7 @@
 			</article>
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<a href="<?php next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+			<a href="<?php $next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>

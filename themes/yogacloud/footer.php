@@ -10,9 +10,9 @@
 					</div>
 					<div class="col s12 m5 l4">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-						<a href="" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+						<a href="https://twitter.com/theyogacloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
+						<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+						<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 						<img src="" alt="">
 					</div>
 				</div>
@@ -22,21 +22,21 @@
 							<img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 						</a>
 						<div class="[ row ][ no-margin ]">
-							<div class="col s4">
-								<a class="grey-text text-lighten-3" href="<?php echo site_url('/aviso-legal/'); ?>">Aviso Legal</a>
+							<div class="[ col s4 ]">
+								<p class="[ light-text text-lighten-3 ]">
+									<a class="[ light-text text-lighten-3 ]" href="<?php echo site_url('/politica-de-proteccion-de-datos/'); ?>">Política de protección de datos</a>
+								</p>
 							</div>
-							<div class="col s4">
-								<a class="grey-text text-lighten-3" href="<?php echo site_url('/politica-de-cookies/'); ?>">Política de Cookies</a>
+							<div class="[ col s4 ]">
+								<p class="[ light-text text-lighten-3 ]">
+									<a class="[ light-text text-lighten-3 ]" href="<?php echo site_url('/politica-de-cookies/'); ?>">Política de Cookies</a>
+								</p>
 							</div>
-							<div class="col s4">
-								<a class="grey-text text-lighten-3" href="<?php echo site_url('/politica-de-privacidad/'); ?>">Política de Privacidad</a>
+							<div class="[ col s4 ]">
+								<p class="[ light-text text-lighten-3 ]">© Copyright 2016</p>
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="[ white-text ]">
-					© Copyright 2016
 				</div>
 			</div>
 		</footer>

@@ -8,6 +8,7 @@
  */
 require_once("vimeo-php/autoload.php");
 require_once("class-yc_modulo.php");
+require_once("class-yc_maestro.php");
 
 class YC_Curso {
 
@@ -23,16 +24,14 @@ class YC_Curso {
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
-		$this->hooks();
-
-		
-
 		$this->id 				= $course_id;
 		//$this->name 			= $curso_query->post_title;
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->trailer_info		= $this->get_trailer_info();
+
+		$this->hooks();
 	}
 
 	 
@@ -79,12 +78,45 @@ class YC_Curso {
 	}
 
 	/**
+	* Return all Maestros from the course
+	* @return array $maestros
+	*/
+	public function get_maestros(){
+		$maestros = array();
+		$maestros_terms = wp_get_post_terms( $this->id, 'maestros' );
+		if( empty( $maestros_terms ) ) return $maestros;
+
+		foreach ( $maestros_terms as $key => $maestro_term ) $maestros[$key] = new YC_Maestro( array( 'name' => $maestro_term->name ) );
+
+		return $maestros;
+	}
+
+	/**
+	* Initialize video player for course
+	*/
+	public function init_course_trailer_js() {
+		if ( empty( $this->trailer_info ) ) return;
+
+		?><script type='text/javascript'>
+			jQuery( document ).ready( function() {
+				console.log( '<?php echo $this->trailer_info['iframe'] ?>' );
+				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
+				var iframe = $('.video-container iframe')[0];
+				var player = new Vimeo.Player(iframe);
+				var yc_course = new YogaCloudCourse( player, true );
+				yc_course._init();
+			});
+		</script><?php
+	}
+
+	/**
 	 * Hooks
 	 */
 	private function hooks() {
 		//add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		//add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-	}
+		add_action( 'wp_footer', array( $this, 'init_course_trailer_js' ) );
+	}	
 
 	/**
 	 * Return information about the course's trailer, if any
