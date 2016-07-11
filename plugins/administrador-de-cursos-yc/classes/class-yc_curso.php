@@ -19,13 +19,13 @@ class YC_Curso {
 	public $lessons_per_week; 
 	public $hours; 
 	public $trailer_info = array();
+	private $course_progress;
 
 	/**
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
-		//$this->name 			= $curso_query->post_title;
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
@@ -55,6 +55,21 @@ class YC_Curso {
 	public function get_name(){
 		$curso_query = get_post( $this->id );
 		return $curso_query->post_title;
+	}
+
+	/**
+	* Check if a given user has bought a course
+	* @param int $user_id
+	* @return boolean
+	*/
+	public function was_bought_by_user( $user_id ){
+		if( 0 == $user_id ) return 0;
+
+        $current_user= wp_get_current_user();
+        $customer_email = $current_user->email;
+        if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
+        
+		return false;		
 	}
 
 	/**
@@ -95,7 +110,7 @@ class YC_Curso {
 	public function init_course_trailer_js() {
 		if ( empty( $this->trailer_info ) || ! is_curso( get_the_id() ) ) return;
 
-		?><script type='text/javascript'>º
+		?><script type='text/javascript'>
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
 				var player = new Vimeo.Player(iframe);

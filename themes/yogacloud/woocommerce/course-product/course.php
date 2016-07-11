@@ -18,9 +18,12 @@
 		</div>
 	</div>
 </section>
-<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
-	<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
-</div>
+
+<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+	<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
+		<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
+	</div>
+<?php endif; ?>
 
 <section class="[ container ]">
 	<div class="[ row ]">
@@ -55,6 +58,14 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
+			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+				<section class="[ text-center ]">
+					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+					<div class="[ row ]">
+
+					</div>
+				</section>
+			<?php endif; ?>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<div class="[ row ]">

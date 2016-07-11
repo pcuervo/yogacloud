@@ -29,14 +29,17 @@
 			'posts_per_page' => '-1'
 		);
 		$cursos_query = new WP_Query( $cursos_args );
-		if( $cursos_query->have_posts() ) :
-	?>
+		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
-				<?php while( $cursos_query->have_posts() ) : $cursos_query->the_post();
+				<?php while( $cursos_query->have_posts() ) : $cursos_query->the_post(); 
+
+					if( ! is_curso( $post->ID ) ) continue;
+
 					$image_id = get_post_thumbnail_id();
 					$image_url_array = wp_get_attachment_image_src($image_id, 'medium', true);
 					$image_url = $image_url_array[0];
+					$curso = new YC_Curso( $post->ID );
 				?>
 
 					<article class="[ col s12 m6 ]">
@@ -56,7 +59,11 @@
 										<?php the_excerpt(); ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
-										<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+										<?php else : ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>
