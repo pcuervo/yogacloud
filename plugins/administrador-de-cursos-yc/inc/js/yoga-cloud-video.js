@@ -55,6 +55,8 @@ YogaCloudVideo.prototype = {
         return Math.floor( elapsedSeconds / this.getDuration() * 100 );
     },
     markAsWatched: function(){
+        if( this._isMarkedAsWatched ) return;
+
         this._isMarkedAsWatched = true;
         $.post(
             ajax_url,
