@@ -41,7 +41,7 @@
 			</div>
 		</footer>
 
-		</div><!-- end main -->
+		</div><!-- end main-body -->
 		<?php wp_footer(); ?>
 	</body>
 </html>

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-	if( is_course( $post->ID ) ){
+	if( is_curso( $post->ID ) ){
 		wc_get_template( 'course-product/course.php' );
 		return;
 	}
@@ -89,6 +89,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
 		</div> <!-- end row -->
-	</div><!-- end container-->
+	<!-- </div> end container-->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

@@ -3,7 +3,9 @@
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
-				<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>video/landing.mp4" type="video/mp4">
+				<source src="<?php echo THEMEPATH; ?>video/landing.webm" type="video/webm">
+				<source src="<?php echo THEMEPATH; ?>video/landing.ogv" type="video/ogg">
 			</video>
 			<div class="[ gradient-linear-opacity ][ padding-vertical--large ][ relative z-index-1 ][ min-height--500-l ]">
 				<div class="[ container ][ white-text text-center ]">
@@ -27,14 +29,17 @@
 			'posts_per_page' => '-1'
 		);
 		$cursos_query = new WP_Query( $cursos_args );
-		if( $cursos_query->have_posts() ) :
-	?>
+		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
 				<?php while( $cursos_query->have_posts() ) : $cursos_query->the_post();
+
+					if( ! is_curso( $post->ID ) ) continue;
+
 					$image_id = get_post_thumbnail_id();
 					$image_url_array = wp_get_attachment_image_src($image_id, 'medium', true);
 					$image_url = $image_url_array[0];
+					$curso = new YC_Curso( $post->ID );
 				?>
 
 					<article class="[ col s12 m6 ]">
@@ -45,7 +50,7 @@
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 											<span class="[ card-title ]"><?php the_title(); ?></span>
 											<!-- promo -->
-											<div id="promo" class="[ nuevo ]"></div>
+											<div id="promo" class="[ proximamente ]"></div>
 										</div>
 									</div>
 								</div>
@@ -54,7 +59,11 @@
 										<?php the_excerpt(); ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
-										<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+										<?php else : ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>

@@ -28,7 +28,7 @@
 		<link rel="icon" type="image/png" href="<?php echo THEMEPATH; ?>favicon/favicon-128.png" sizes="128x128" />
 
 		<!-- Google font(s) -->
-		<link href="http://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
@@ -96,8 +96,8 @@
 								<div class="[ footer-menu ]">
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-										<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-										<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+										<a href="tel:+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
+										<a href="mailto:contacto@yogacloud.tv" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
@@ -226,4 +226,4 @@
 			</nav>
 		</header>
 
-		<div class="[ main ]"> <!-- for footer bottom -->
+		<div class="[ main-body ]"> <!-- for footer bottom -->

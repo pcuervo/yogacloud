@@ -20,6 +20,10 @@
   .card-title {
     font-size: 24px;
     font-weight: 300;
+    @media(min-width:993px) and (max-width:1400px){
+        font-size: 18px;
+        line-height: 20px;
+    }
     &.activator {
       cursor: pointer;
     }
@@ -79,6 +83,9 @@
       bottom: 0;
       left: 0;
       padding: $card-padding;
+      // @media(min-width:993px) and (max-width:1200px){
+      //     padding: 5px 20px 5px 5px!important;
+      // }
     }
 
   }

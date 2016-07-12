@@ -23,7 +23,7 @@ var $=jQuery.noConflict();
             console.log('home');
 
             boxCard(); //Index y resultados
-            $(window).resize(function () {
+            $(window).resize(function() {
                 boxCard(); //Index y resultados
             });
 
@@ -40,12 +40,6 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             console.log('CURSOS');
-
-            // MOVER A PLUGIN
-            var iframe = $('.video-container iframe')[0];
-            var player = new Vimeo.Player(iframe);
-            var yc_course = new YogaCloudCourse( player, false );
-            yc_course._init();
 
             heightScreen();
             $('.rating').addRating();
@@ -146,8 +140,8 @@ var $=jQuery.noConflict();
     });
 })(jQuery);
 
-/** 
-    MOVER A PLUGIN 
+/**
+    MOVER A PLUGIN
 **/
 function YogaCloudCourse( player, watched ){
     this.PERCENT_TO_MARK_AS_WATCHED = 80;
@@ -192,7 +186,7 @@ YogaCloudCourse.prototype = {
                 clearInterval( self._elapsedTimeInterval );
                 self.markAsWatched();
             }
-            
+
         }).catch(function(error) {
             console.log( error );
         });
@@ -287,7 +281,7 @@ function videoPlayer(){
             //Animated complete
         });
         $( "#play-button img" ).addClass('hidden');
-        // $("#video_player")[0].play(); //autoplay <video>
+        //$(".video-container iframe")[0].play(); //autoplay <video>
         // $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
@@ -312,28 +306,24 @@ function heightScreen(){
 //Imagen cuadrada
 
 function boxCard(){
-    if($("#box-card").length > 0) {
 
         //image size
         var image_alto = $('.bg-image--rectangle').width();
-        console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
         $('.bg-image--rectangle').css('height', image_alto + 'px');
 
         //Ellipsis text
-        var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
-        console.log('Tamaño ellipsis:', ellipsis_alto);
-        $('.height-box-ellipsis').css('height', ellipsis_alto);
+        var ellipsis_alto = ((image_alto - 20) - 25 ); //(height imagen - padding-top ) - height button
+        $('.height-box-ellipsis').css('height', ellipsis_alto + 'px');
 
         var containerHeight = $(".text-ellipsis").height();
         var $text = $(".text-ellipsis p");
 
-        while ( $text.outerHeight() > containerHeight ) {
-                $text.text(function (index, text) {
-                    return text.replace(/\W*\s(\S)*$/, '...');
-               });
+        while ( $text.height() > containerHeight ) {
+            $text.text(function (index, text) {
+                return text.replace(/\W*\s(\S)*$/, '...');
+            });
         }
 
-    }
 }
 
 
@@ -341,7 +331,7 @@ function boxCard(){
 
 function footerBottom(){
     var alturaFooter = getFooterHeight();
-    $('.main').css('padding-bottom', alturaFooter );
+    $('.main-body').css('padding-bottom', alturaFooter );
 }
 
 function getHeaderHeight(){
