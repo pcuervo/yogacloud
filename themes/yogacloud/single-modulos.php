@@ -1,6 +1,7 @@
 <?php
 	if( ! isset( $_GET['cid'] ) ){
-		wp_redirect( home_url() );
+		wp_redirect( site_url() );
+		exit;
 	}
 
 	$curso = new YC_Curso( $_GET['cid'] );
@@ -57,7 +58,7 @@
 							<?php foreach ( $lecciones as $lesson ) : ?>
 								<div class="[ border-bottom--dark ]">
 									<h5><?php echo $lesson->name ?></h5>
-									<p><?php echo $lesson->description ?></p>
+									<p><?php echo $lesson->short_description ?></p>
 									<div class="[ padding-bottom ]">
 										<a href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
 									</div>
@@ -68,7 +69,7 @@
 					<div class="[ row ][ text-center ]">
 						<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 							<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-							<span class="[ middle inline-block ]">ir a lección</span>
+							<span class="[ middle inline-block ]">ir a curso</span>
 						</a>
 					</div>
 				</div>

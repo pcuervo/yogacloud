@@ -1,6 +1,7 @@
 <?php
 	if( ! isset( $_GET['mid'] ) || ! isset( $_GET['cid'] ) ){
 		wp_redirect( home_url() );
+		exit;
 	}
 
 	$curso = new YC_Curso( $_GET['cid'] );
