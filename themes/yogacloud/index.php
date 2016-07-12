@@ -60,7 +60,7 @@
 									</div>
 								</div>
 								<div class="[ col s12 xl6 ]">
-									<div class="[ card-content ][ ellipsis-height ][ overflow-hidden ]">
+									<div class="[ card-content ][  ][ overflow-hidden ]">
 										<?php the_excerpt(); ?>
 										<?php ?>
 									</div>
