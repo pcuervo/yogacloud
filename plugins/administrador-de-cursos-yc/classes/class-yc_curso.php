@@ -19,6 +19,8 @@ class YC_Curso {
 	public $lessons_per_week; 
 	public $hours; 
 	public $trailer_info = array();
+	public $is_coming_soon; 
+	public $is_new; 
 	private $course_progress;
 
 	/**
@@ -29,7 +31,9 @@ class YC_Curso {
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
+		$this->is_coming_soon 	= get_post_meta( $course_id, '_coming_soon', true );
 		$this->trailer_info		= $this->get_trailer_info();
+		$this->is_new			= $this->is_new();
 
 		$this->hooks();
 	}
@@ -39,11 +43,15 @@ class YC_Curso {
 	* @return array $modulos
 	*/
 	public function get_modulos(){
+		global $wpdb;
 		$modulos = array();
-		$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
-		if( empty( $modulos_terms ) ) return $modulos;
 
-		foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = new YC_Modulo( array( 'name' => $modulo_term->name ) );
+		$modulos_results = $wpdb->get_results(
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"  
+			);
+		if( empty( $modulos_results ) ) return $modulos;
+
+		foreach ( $modulos_results as $key => $result ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
 
 		return $modulos;
 	}
@@ -78,6 +86,14 @@ class YC_Curso {
         if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
         
 		return false;		
+	}
+
+	/**
+	* Check if course is new
+	* @return boolean
+	*/
+	public function is_new(){
+		return 1;
 	}
 
 	/**
@@ -119,11 +135,10 @@ class YC_Curso {
 		if ( empty( $this->trailer_info['iframe'] ) || ! is_curso( get_the_id() ) ) return;
 
 		?><script type='text/javascript'>
-			console.log('we are her');
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
 				var player = new Vimeo.Player(iframe);
-				var yc_course = new YogaCloudVideo( player, true );
+				var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, player, true );
 				yc_course._init();
 			});
 		</script><?php

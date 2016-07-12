@@ -38,11 +38,15 @@ class YC_Modulo {
 	* @return array $lecciones
 	*/
 	public function get_lecciones(){
+		global $wpdb;
 		$lecciones = array();
-		$lecciones_terms = wp_get_post_terms( $this->id, 'lecciones' );
-		if( empty( $lecciones_terms ) ) return $lecciones;
 
-		foreach ( $lecciones_terms as $key => $leccion_term ) $lecciones[$key] = new YC_Leccion( array( 'name' => $leccion_term->name ) );
+		$lecciones_results = $wpdb->get_results(
+			"SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE module_id = " . $this->id . " ORDER BY position"  
+			);
+		if( empty( $lecciones_results ) ) return $lecciones;
+
+		foreach ( $lecciones_results as $key => $result ) $lecciones[$key] = new YC_Modulo( array( 'id' => $result->lesson_id ) );
 
 		return $lecciones;
 	}

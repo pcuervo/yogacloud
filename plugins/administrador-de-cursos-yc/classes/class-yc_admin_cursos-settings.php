@@ -124,6 +124,10 @@ class YC_Admin_Cursos_Settings {
 					'label'			=> __( 'Horas', 'woocommerce' ),
 					'type' 			=> 'number',
 				) );
+				woocommerce_wp_checkbox( array( 
+					'id' 			=> '_coming_soon', 
+					'label' 		=> __( '¿Está disponbile el curso?', 'woocommerce' ), 
+					'description' 	=> __( 'Seleccionar si el curso sale próximamente.', 'woocommerce' ) ) );
 			?></div>
 
 		</div><?php
@@ -138,6 +142,7 @@ class YC_Admin_Cursos_Settings {
 			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
 			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
 			update_post_meta( $post_id, '_hours', sanitize_text_field( $_POST['_hours'] ) );
+			update_post_meta( $post_id, '_coming_soon', sanitize_text_field( $_POST['_coming_soon'] ) );
 		endif;
 	}
 
