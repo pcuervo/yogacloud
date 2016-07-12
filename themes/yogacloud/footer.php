@@ -13,12 +13,11 @@
 						<a href="https://twitter.com/theyogacloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
 						<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
 						<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
-						<img src="" alt="">
 					</div>
 				</div>
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<a href="https://yogacloud.net/" target="_blank">
+						<a href="https://yogacloud.tv/" target="_blank">
 							<img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 						</a>
 						<div class="[ row ][ no-margin ]">

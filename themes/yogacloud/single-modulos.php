@@ -11,6 +11,8 @@
 		wp_redirect( $curso->get_permalink() );
 	}
 
+	var_dump( $modulo->get_progress_by_user( get_current_user_id()  ) );
+
 	get_header();
 	the_post();
 ?>
@@ -28,7 +30,15 @@
 		</div>
 	</article>
 </section>
-
+<section class="[ text-center ]">
+	<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+	<div class="[ row ]">
+		<div class="[ progress progress--large ]">
+			<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+			<div class="[ progress-percent ]"></div>
+		</div>
+	</div>
+</section>
 <section class="[ no-margin ]">
 	<h5 class="[ text-center ][ margin-bottom ]">Lecciones</h5>
 	<div class="[ container--on-med-and-up ]">
@@ -38,7 +48,7 @@
 		<?php else : ?>
 			<?php foreach ( $lecciones as $lesson ) : ?>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id ?>">
+						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 						<div class="[ main-banner ]" >
 							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">

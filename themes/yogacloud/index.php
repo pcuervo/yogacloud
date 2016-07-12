@@ -11,7 +11,8 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
-							<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
+							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.
+							<h2 class="[ padding-sides no-margin ]">Tú elijes la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
 					</div>
 				</div>
@@ -23,6 +24,7 @@
 	</article>
 
 	<?php
+
 		$cursos_args = array(
 			'post_type' => 'product',
 			'posts_per_page' => '-1'
@@ -100,7 +102,7 @@
 									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralusis.png">
 								</a>
 								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png">
-								<a href="https://yogacloud.net/" target="_blank">
+								<a href="https://yogacloud.tv/" target="_blank">
 									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png">
 								</a>
 							</div>

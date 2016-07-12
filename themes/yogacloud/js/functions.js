@@ -8,7 +8,10 @@ var $=jQuery.noConflict();
         /*------------------------------------*\
             #GLOBAL
         \*------------------------------------*/
-        footerBottom();
+        $(window).load(function(){
+            footerBottom();
+        });
+
         $(window).on('resize', function(){
             footerBottom();
         });

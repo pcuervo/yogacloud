@@ -27,6 +27,7 @@ class YC_Curso {
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
+		error_log( $course_id );
 		$this->id 				= $course_id;
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
