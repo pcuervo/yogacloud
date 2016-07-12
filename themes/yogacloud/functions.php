@@ -77,8 +77,6 @@ if ( function_exists('add_image_size') ){
 	update_option( 'large_crop', true );
 }
 
-
-
 /**
  * Print the <title> tag based on what is being viewed.
  * @return string
@@ -144,38 +142,31 @@ function custom_woocommerce_auto_complete_order( $order_id ) {
     $order->update_status( 'completed' );
 }
 
+add_action( 'woocommerce_register_form_start', 'extended_register_form', 0, 0 );
+function extended_register_form() {
+	$first_name = ( ! empty( $_POST['first_name'] ) ) ? trim( $_POST['first_name'] ) : '';
+	$last_name = ( ! empty( $_POST['last_name'] ) ) ? trim( $_POST['last_name'] ) : '';
+	?>
 
-function mysite_pending($order_id) {
-error_log("$order_id set to PENDING", 0);
-}
-function mysite_failed($order_id) {
-error_log("$order_id set to FAILED", 0);
-}
-function mysite_hold($order_id) {
-error_log("$order_id set to ON HOLD", 0);
-}
-function mysite_processing($order_id) {
-error_log("$order_id set to PROCESSING", 0);
-}
-function mysite_completed($order_id) {
-error_log("$order_id set to COMPLETED", 0);
-}
-function mysite_refunded($order_id) {
-error_log("$order_id set to REFUNDED", 0);
-}
-function mysite_cancelled($order_id) {
-error_log("$order_id set to CANCELLED", 0);
+	<p>
+    <label for="first_name"><?php _e( 'Name', 'woocommerce' ) ?><br />
+    <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr( wp_unslash( $first_name ) ); ?>" size="25" /></label>
+    </p> 
+    <p>
+    <label for="last_name"><?php _e( 'Last Name', 'woocommerce' ) ?><br />
+    <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr( wp_unslash( $last_name ) ); ?>" size="25" /></label>
+    </p> 
+    <?php 
+
 }
 
-add_action( 'woocommerce_order_status_pending', 'mysite_pending');
-add_action( 'woocommerce_order_status_failed', 'mysite_failed');
-add_action( 'woocommerce_order_status_on-hold', 'mysite_hold');
-add_action( 'woocommerce_order_status_processing', 'mysite_processing');
-add_action( 'woocommerce_order_status_completed', 'mysite_completed');
-add_action( 'woocommerce_order_status_refunded', 'mysite_refunded');
-add_action( 'woocommerce_order_status_cancelled', 'mysite_cancelled');
-
-
+add_action( 'woocommerce_created_customer', 'save_customer_register' );
+function save_customer_register( $user_id ) {
+    if ( ! empty( $_POST['first_name'] ) ) {
+        update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
+        update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
+    }
+}
 
 /** MOVE TO PLUGIN **/
 

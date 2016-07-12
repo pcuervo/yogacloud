@@ -11,7 +11,7 @@
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
-	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
+	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) ) . '&cid=' . $curso->id;
 ?>
 
 <section class="[ text-center ]">
