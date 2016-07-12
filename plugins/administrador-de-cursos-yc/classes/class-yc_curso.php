@@ -13,9 +13,9 @@ require_once("class-yc_maestro.php");
 define( 'VIMEO_CLIENT_ID_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
 define( 'VIMEO_CLIENT_SECRET_STAGE', 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv' );
 define( 'VIMEO_CLIENT_TOKEN_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
-define( 'VIMEO_CLIENT_ID_DEV', 'c98f74a25649baa4d5ecd430f9a64512' );
+define( 'VIMEO_CLIENT_ID_DEV', '63047a064a58c6025c48a65d4a2dc5f9925c8f0b' );
 define( 'VIMEO_CLIENT_SECRET_DEV', 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep' );
-define( 'VIMEO_CLIENT_TOKEN_DEV', 'e20734e9d20cdfa5a53a371ad3f54070' );
+define( 'VIMEO_CLIENT_TOKEN_DEV', '4241e8adccd0229fae229401b587da6f' );
 
 class YC_Curso {
 
@@ -240,8 +240,14 @@ class YC_Curso {
 		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			error_log( 'no jala dev' );
 			$lib = $this->get_vimeo_lib( 'stage' );  
 			$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
+		}
+
+		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			error_log( 'no jala stage' );
+			return array();
 		}
 
 		$info = array(
