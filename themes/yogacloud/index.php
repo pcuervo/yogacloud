@@ -46,10 +46,9 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s12 xl6 ]">
+								<div class="[ card-image ][ col s12 xl6 ][  waves-effect waves-block waves-light ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-											<span class="[ card-title ]"><?php the_title(); ?></span>
 											<!-- promo -->
 											<?php if ( 'yes' ==  $curso->is_coming_soon ) : ?>
 												<div id="promo" class="[ proximamente ]"></div>
@@ -61,8 +60,8 @@
 								</div>
 								<div class="[ col s12 xl6 ][ height-content ]">
 									<div class="[ card-content ][ overflow-hidden ]">
+										<h4 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h4>
 										<?php the_excerpt(); ?>
-										<?php ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
