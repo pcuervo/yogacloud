@@ -2,7 +2,7 @@
 /**
  * Maestro YogaCloud.
  *
- * This class represent a teacher of a course. 
+ * This class represent a teacher of a course.
  *
  * @since 1.0.0
  */
@@ -17,6 +17,7 @@ class YC_Maestro {
 	public $facebook;
 	public $twitter;
 	public $instagram;
+	public $thumbnail;
 
 	/**
 	 * Constructor
@@ -34,10 +35,10 @@ class YC_Maestro {
 		$this->permalink 	= get_permalink( $maestros_query->ID );
 		$this->url 			= get_post_meta( $maestros_query->ID, '_url_meta', true );
 		$this->facebook 	= get_post_meta( $maestros_query->ID, '_facebook_meta', true) ;
-		$this->twitter 	= get_post_meta( $maestros_query->ID, '_twitter_meta', true) ;
+		$this->twitter 		= get_post_meta( $maestros_query->ID, '_twitter_meta', true) ;
 		$this->instagram 	= get_post_meta( $maestros_query->ID, '_instagram_meta', true) ;
+		$this->thumbnail 	= get_the_post_thumbnail( $maestros_query->ID, 'thumbnail', array('class'=>'[ border-radius---50 ][ width--80 height-auto ]') );
 	}
 
 }// YC_Maestro
 
- 

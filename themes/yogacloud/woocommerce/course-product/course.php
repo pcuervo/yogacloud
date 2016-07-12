@@ -74,37 +74,49 @@
 				<div class="[ row ]">
 					<?php foreach ( $maestros as $maestro ) : ?>
 						<article class="[ col s6 ]">
-							<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-							<p><?php echo $maestro->name ?></p>
-							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal">ver más</a>
+							<?php echo $maestro->thumbnail; ?>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
 						</article>
 					<?php endforeach; ?>
 				</div>
 
-				<!-- Modal Structure -->
-				<div id="maestro-modal" class="modal [ maestros-transparent ][ white-text ]">
-					<div class="modal-content [ white-text ]">
-						<div class="[ row ]">
-							<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
-								<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-								<h5 class="[ text-center ][ margin-bottom ]">Juan O'Donoju</h5>
-								<img class="[ border-radius---50 ][ width--80 ][ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
-								<div class="[ text-center ][ margin-bottom ]">
-									<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
-									<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-									<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
-								</div>
-								<div class="[ margin-bottom ]">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								</div>
-								<a class="[ white-text ][ text-underline ]" href="">http://loremipsum-dolor-sit</a>
-							</div>
-						</div>
+				<?php foreach ( $maestros as $maestro ) : ?>
 
+					<!-- Modal Structure -->
+					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
+						<div class="modal-content [ white-text ]">
+							<div class="[ row ]">
+								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
+									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+									<h5 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h5>
+									<?php echo $maestro->thumbnail; ?>
+									<div class="[ text-center ][ margin-bottom ]">
+										<?php if ( !empty($maestro->twitter) ){ ?>
+											<a href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+										<?php if ( !empty($maestro->facebook) ){ ?>
+											<a href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+										<?php if ( !empty($maestro->instagram) ){ ?>
+											<a href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+									</div>
+									<div class="[ margin-bottom ]">
+										<?php echo $maestro->description; ?>
+									</div>
+									<?php if ( !empty($maestro->url) ){ ?>
+										<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
+									<?php } ?>
+								</div>
+							</div>
+
+						</div>
 					</div>
-				</div>
+
+				<?php endforeach; ?>
+
 			</section>
+
 			<section class="[ text-center ][ hide-on-small-only ][ hidden ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 				<!-- Rating -->
