@@ -15,6 +15,17 @@ body {
   background: $light-color;
 }
 
+html,
+body { height: 100%; }
+
+.main-body {
+  min-height: -moz-calc(100% - 64px);
+  min-height: -o-calc(100% - 64px);
+  min-height: -webkit-calc(100% - 64px);
+  min-height: calc(100% - 64px);
+  position: relative;
+}
+
 main {
   // flex: 1 0 auto;
 }

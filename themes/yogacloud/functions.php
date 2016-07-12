@@ -22,8 +22,7 @@ define( 'SITEURL', site_url('/') );
 require_once( 'inc/pages.php' );
 require_once( 'inc/post-types.php' );
 require_once( 'inc/metaboxes.php' );
-require("inc/vimeo-php/autoload.php");
-
+require_once( 'inc/taxonomies.php' );
 
 
 /*------------------------------------*\
@@ -37,15 +36,16 @@ add_action( 'wp_enqueue_scripts', function(){
 
 	// scripts
 	wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), '1.0', true );
-	wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 	wp_enqueue_script( 'materialize_js', JSPATH.'bin/materialize.min.js', array('plugins'), '1.0', true );
+	wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
+	wp_enqueue_script( 'vimeo_player', 'https://player.vimeo.com/api/player.js', array('jquery'), '1.0', true );
 
 	// localize scripts
 	wp_localize_script( 'functions', 'siteUrl', SITEURL );
 	wp_localize_script( 'functions', 'theme_path', THEMEPATH );
 	wp_localize_script( 'functions', 'isHome', (string)is_front_page() );
-	wp_localize_script( 'functions', 'isCurso', (string) is_course( get_the_id() ) );
-	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_course( get_the_id() )  ) );
+	wp_localize_script( 'functions', 'isCurso', (string) is_curso( get_the_id() ) );
+	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_curso( get_the_id() )  ) );
 	wp_localize_script( 'functions', 'isModulo', (string) ('modulos' == get_post_type()) );
 	wp_localize_script( 'functions', 'isLeccion', (string) ('lecciones' == get_post_type()) );
 	wp_localize_script( 'functions', 'isMyAccount', (string) is_page('my-account') );
@@ -100,41 +100,9 @@ function print_title(){
 	#GET/SET FUNCTIONS
 \*------------------------------------*/
 
-/**
- * Return the information of the Course
- * @param int $course_id
- * @return array $info
- */
-function get_course_info( $course_id ){
-	$trailer_url = get_post_meta( $course_id, '_vimeo_url', true );
-	if( empty( $trailer_url ) ) return array();
-
-	$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
-	$lib = get_vimeo_lib();
-	$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
-
-	$info = array(
-		'iframe' 			=> $vimeo_response['body']['embed']['html'],
-		'video_thumb' 		=> $vimeo_response['body']['pictures']['sizes'][5]['link'],
-		'num_lessons'		=> $trailer_url = get_post_meta( $course_id, '_num_lessons', true ),
-		'lessons_per_week'	=> $trailer_url = get_post_meta( $course_id, '_lessons_per_week', true ),
-		'hours'				=> $trailer_url = get_post_meta( $course_id, '_hours', true ),
-	);
-	return $info;
-}
-
-/**
- * Return an instance of Vimeo lib
- * @return Vimeo $lib
- */
-function get_vimeo_lib(){
-	$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
-	$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
-	$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-	$access_token = '44c1e916b341de354e5a3e25a3181dbb';
-	$lib->setToken( $access_token );
-	return $lib;
-}
+/*------------------------------------*\
+	#AJAX FUNCTIONS
+\*------------------------------------*/
 
 /*------------------------------------*\
 	#WOOCOMMERCE RELATED FUNCTIONS
@@ -145,10 +113,97 @@ function get_vimeo_lib(){
  * @param int $product_id
  * @return boolean
  */
-function is_course( $product_id ){
+function is_curso( $product_id ){
 	$product = wc_get_product( $product_id );
 	if ( empty($product) ) return false;
 
 	$product_type = get_the_terms($product_id, 'product_type')[0]->name;
 	return $product_type == 'simple_course';
 }
+
+/**
+ * Set a custom add to cart URL to redirect to
+ * @return string
+ */
+function custom_add_to_cart_redirect() { 
+    return site_url('cart'); 
+}
+add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
+
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
+function custom_woocommerce_auto_complete_order( $order_id ) { 
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+
+
+function mysite_pending($order_id) {
+error_log("$order_id set to PENDING", 0);
+}
+function mysite_failed($order_id) {
+error_log("$order_id set to FAILED", 0);
+}
+function mysite_hold($order_id) {
+error_log("$order_id set to ON HOLD", 0);
+}
+function mysite_processing($order_id) {
+error_log("$order_id set to PROCESSING", 0);
+}
+function mysite_completed($order_id) {
+error_log("$order_id set to COMPLETED", 0);
+}
+function mysite_refunded($order_id) {
+error_log("$order_id set to REFUNDED", 0);
+}
+function mysite_cancelled($order_id) {
+error_log("$order_id set to CANCELLED", 0);
+}
+
+add_action( 'woocommerce_order_status_pending', 'mysite_pending');
+add_action( 'woocommerce_order_status_failed', 'mysite_failed');
+add_action( 'woocommerce_order_status_on-hold', 'mysite_hold');
+add_action( 'woocommerce_order_status_processing', 'mysite_processing');
+add_action( 'woocommerce_order_status_completed', 'mysite_completed');
+add_action( 'woocommerce_order_status_refunded', 'mysite_refunded');
+add_action( 'woocommerce_order_status_cancelled', 'mysite_cancelled');
+
+
+
+/** MOVE TO PLUGIN **/
+
+/**
+ * Mark lesson as watched
+ */
+function mark_lesson_as_watched(){
+	$user_id = get_current_user_id();
+	$lesson_id = $_POST['lesson_id'];
+
+	if( 0 == $user_id ) wp_die();
+
+	global $wpdb;
+	$user_lesson_data = array(
+		'user_id'			=> $user_id,
+		'lesson_id' 		=> $lesson_id,
+		'is_completed'		=> true,
+	);
+	$wpdb->insert(
+		$wpdb->prefix . 'user_lessons',
+		$user_lesson_data,
+		array( '%d', '%d', '%d' )
+	);
+
+	echo $lesson_id;
+	wp_die();
+}
+add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', 'mark_lesson_as_watched' );
+add_action( 'wp_ajax_mark_lesson_as_watched', 'mark_lesson_as_watched' );
+
+

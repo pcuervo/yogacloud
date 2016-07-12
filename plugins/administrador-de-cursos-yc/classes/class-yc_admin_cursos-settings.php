@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Admin panel settings for Cursos YogaCloud.
  *
@@ -8,7 +7,6 @@
  *
  * @since 1.0.0
  */
-
 
 class YC_Admin_Cursos_Settings {
 
@@ -36,12 +34,131 @@ class YC_Admin_Cursos_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
-
-		add_action( 'init', array( $this, 'register_custom_post_types' ) );
+		// Custom data for Cursos
+		if( is_admin() ){
+			add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
+			add_action( 'woocommerce_product_data_panels', array( $this, 'course_options_product_tab_content' ) );
+			add_action( 'woocommerce_process_product_meta_simple_course', array( $this, 'save_course_option_field' )  );
+			add_action( 'admin_footer', array( $this, 'simple_course_custom_js' ) );
+			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
+			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
+		}
+	
+		// Custom data for Módulos and lecciones
+		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
+		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
-		add_action('save_post', array( $this, 'save_meta_boxes' ), 10, 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
-		add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
+		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
+		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
+		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
+		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
+
+	}
+
+	public function add_simple_course_product( $types ){
+		$types[ 'simple_course' ] = __( 'Curso' );
+		return $types;
+	}
+
+	public function simple_course_custom_js() {
+
+		if ( 'product' != get_post_type() ) :
+			return;
+		endif;
+
+		?><script type='text/javascript'>
+			jQuery( document ).ready( function() {
+				jQuery( '.options_group.pricing' ).addClass( 'show_if_simple_course' ).show();
+				jQuery( '.general_options' ).addClass( 'show_if_simple_course' ).show();
+				// jQuery( '.inventory_options' ).addClass( 'show_if_simple_course' ).show();
+			});
+		</script><?php
+	}
+
+	/**
+	 * Add a custom product tab.
+	 */
+	public function custom_product_tabs( $tabs) {
+		$tabs['course'] = array(
+			'label'		=> __( 'Información Curso', 'woocommerce' ),
+			'target'	=> 'course_options',
+			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course'  ),
+		);
+		$tabs['inventory'] = array(
+			'label'  	=> __( 'Inventory', 'woocommerce' ),
+			'target' 	=> 'inventory_product_data',
+			'class'		=> array( 'show_if_simple_course', 'show_if_variable_course','show_if_simple', 'show_if_variable', 'show_if_grouped' ),
+		);
+
+		return $tabs;
+	}
+
+	/**
+	 * Contents of the course options product tab.
+	 */
+	public function course_options_product_tab_content() {
+		global $post;
+		?><div id='course_options' class='panel woocommerce_options_panel'><?php
+			?><div class='options_group'><?php
+				woocommerce_wp_text_input( array(
+					'id'			=> '_vimeo_url',
+					'label'			=> __( 'URL Vimeo Trailer', 'woocommerce' ),
+					'type' 			=> 'text',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_num_lessons',
+					'label'			=> __( 'Número de lecciones', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_lessons_per_week',
+					'label'			=> __( 'Lecciones por semana', 'woocommerce' ),
+					'desc_tip'		=> 'true',
+					'description'	=> __( 'Si el campo se deja vacío, no se mostrará nada en la página del curso.', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_text_input( array(
+					'id'			=> '_hours',
+					'label'			=> __( 'Horas', 'woocommerce' ),
+					'type' 			=> 'number',
+				) );
+				woocommerce_wp_checkbox( array( 
+					'id' 			=> '_coming_soon', 
+					'label' 		=> __( '¿Está disponbile el curso?', 'woocommerce' ), 
+					'description' 	=> __( 'Seleccionar si el curso sale próximamente.', 'woocommerce' ) ) );
+			?></div>
+
+		</div><?php
+	}
+
+	/**
+	 * Save the custom fields.
+	 */
+	public function save_course_option_field( $post_id ) {
+		if ( isset( $_POST['_vimeo_url'] ) ) :
+			update_post_meta( $post_id, '_vimeo_url', sanitize_text_field( $_POST['_vimeo_url'] ) );
+			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
+			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
+			update_post_meta( $post_id, '_hours', sanitize_text_field( $_POST['_hours'] ) );
+			update_post_meta( $post_id, '_coming_soon', sanitize_text_field( $_POST['_coming_soon'] ) );
+		endif;
+	}
+
+	/**
+	 * Hide Attributes data panel.
+	 */
+	public function manage_attributes_data_panel( $tabs) {
+		
+		// Other default values for 'attribute' are; general, inventory, shipping, linked_product, variations, advanced
+		$tabs['attribute']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['linked_product']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['advanced']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['shipping']['class'][] = 'hide_if_simple_course hide_if_variable_course';
+		$tabs['general']['class'][] = 'show_if_simple_course show_if_variable_course';
+
+		return $tabs;
 	}
 
 	/**
@@ -51,22 +168,72 @@ class YC_Admin_Cursos_Settings {
 		$this->register_post_type_modulos();
 		$this->register_post_type_lecciones();
 		$this->register_post_type_maestros();
+		$this->register_post_type_badges();
 	}
 
 	/**
-	 * Register all meta boxes needed for custom post types. 
+	 * Register all custom post types needed for "Administrador de Cursos"
+	 */
+	public function register_custom_taxonomies() {
+		$this->register_taxonomy_maestros();
+		$this->register_taxonomy_modulos();
+		$this->register_taxonomy_lecciones();
+	}
+
+	/**
+	 * Register all meta boxes needed for custom post types.
 	 */
 	public function add_meta_boxes_admin_cursos() {
 		$this->add_meta_boxes_maestros();
 		$this->add_meta_boxes_lecciones();
+		$this->add_meta_boxes_badges();
 	}
 
 	/**
-	 * Save metaboxes 
+	 * Save metaboxes
 	 */
 	public function save_meta_boxes( $post_id ) {
 		$this->save_meta_boxes_maestros( $post_id );
 		$this->save_meta_boxes_lecciones( $post_id );
+		$this->save_meta_boxes_badges( $post_id );
+	}
+
+	/**
+	 * Update custom taxonomies
+	 */
+	public function update_custom_taxonomies() {
+		if( 'maestros' == get_post_type() OR 'modulos' == get_post_type() OR 'lecciones' == get_post_type() ){
+			$this->insert_custom_taxonomy_term( get_post_type() );
+		}		
+	}
+
+	/**
+	 * Update the relationship between Cursos and Modulos
+	 */
+	public function update_courses_modules() {
+		if( ! is_curso( get_the_id() ) ) return;
+			
+		$curso = new YC_Curso( get_the_id() );
+		foreach ( $curso->get_modulos() as $modulo ) {
+			if( ! $curso->has_modulo( $modulo->id ) ){
+				$id = $curso->add_modulo( $modulo->id );
+				error_log( 'new id: ' . $id );
+			}
+		}
+	}
+
+	/**
+	 * Update the relationship between Modulos and Lecciones
+	 */
+	public function update_modules_lessons() {
+		if( 'modulos' != get_post_type() ) return;
+
+		$modulo = new YC_Modulo( get_the_id() );
+		foreach ( $modulo->get_lecciones() as $leccion ) {
+			if( ! $modulo->has_leccion( $leccion->id ) ){
+				$id = $modulo->add_lesson( $leccion->id );
+			}
+		}
 	}
 
 	/**
@@ -77,15 +244,15 @@ class YC_Admin_Cursos_Settings {
 		add_submenu_page( 'menu_sondeo_cdmx', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
 		add_submenu_page( 'menu_sondeo_cdmx', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
 		add_submenu_page( 'menu_sondeo_cdmx', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'menu_sondeo_cdmx', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
 	}
 
 	/**
-	 * Add javascript and style files 
+	 * Add javascript and style files
 	 */
 	function enqueue_and_localize_scripts(){
-		// wp_enqueue_script( 'plugins', SONDEO_CDMX_PLUGIN_URL . 'inc/js/plugins.js', array('jquery') );
-		// wp_enqueue_script( 'sondeo_cdmx_admin_functions', SONDEO_CDMX_PLUGIN_URL . 'inc/js/admin-functions.js', array('jquery') );
-		// wp_localize_script( 'sondeo_cdmx_admin_functions', 'ajax_url', admin_url('admin-ajax.php') );
+		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
+		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
 	}
 
 	/**
@@ -111,46 +278,6 @@ class YC_Admin_Cursos_Settings {
 		</div>
 		<?php
 	}// add_admin_cursos_page
-
-	/**
-	 * The main screen
-	 */
-	public function add_respuestas_sondeo_cdmx_page() {
-		if( ! isset( $_GET['reference_code'] ) ){
-			echo '<p>Ha ocurrido un error</p>';
-			echo '<a href="' . admin_url( '/admin.php?page=menu_sondeo_cdmx', 'http' ) . '">Ver todas las encuestas</a>';
-       	 	exit;
-		}
-		$survey = Sondeo_CDMX_Survey::get();
-		$answered_surveys = $survey->get_survey( $_GET['reference_code'] );
-		?>
-
-		<div class="[ wrap ]">
-			<a href="<?php echo admin_url( '/admin.php?page=menu_sondeo_cdmx', 'http' ) ?>">Ver todas las encuestas</a>
-			<h1>Sondeo CDMX</h1>
-			<p>Encuesta con número de folio <?php echo $answered_surveys[0]['reference_code'] ?> creada el <?php echo $answered_surveys[0]['created_at'] ?></p>
-			<hr>
-			<table class="[ form-table ]">
-				<thead>
-					<tr>
-						<th>#</th>
-						<th>Preguntas</th>
-						<th>Respuestas</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ( $answered_surveys as $key => $survey ) : ?>
-						<tr>
-							<td><?php echo $key+1 ?></td>
-							<td><?php echo $survey['question'] ?></td>
-							<td><?php echo $survey['answer'] ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-		<?php
-	}// add_respuestas_sondeo_cdmx_page
 
 
 	/******************************************
@@ -203,7 +330,7 @@ class YC_Admin_Cursos_Settings {
 			'all_items'     => 'Todas',
 			'view_item'     => 'Ver Lección',
 			'search_items'  => 'Buscar Lección',
-			'not_found'     => 'No se encontro',
+			'not_found'     => 'No se encontró',
 			'menu_name'     => 'Lecciones'
 		);
 
@@ -235,7 +362,7 @@ class YC_Admin_Cursos_Settings {
 			'all_items'     => 'Todos',
 			'view_item'     => 'Ver Maestro',
 			'search_items'  => 'Buscar Maestro',
-			'not_found'     => 'No se encontro',
+			'not_found'     => 'No se encontró',
 			'menu_name'     => 'Maestros'
 		);
 
@@ -256,6 +383,39 @@ class YC_Admin_Cursos_Settings {
 		register_post_type( 'maestros', $args );
 	}// register_post_type_maestros
 
+	private function register_post_type_badges() {
+		// Badges
+		$labels = array(
+			'name'          => 'Badges',
+			'singular_name' => 'Badge',
+			'add_new'       => 'Nuevo Badge',
+			'add_new_item'  => 'Nuevo Badge',
+			'edit_item'     => 'Editar Badge',
+			'new_item'      => 'Nuevo Badge',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver Badge',
+			'search_items'  => 'Buscar Badge',
+			'not_found'     => 'No se encontro',
+			'menu_name'     => 'Badges'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => false,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'badges' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'badges', $args );
+	}// register_post_type_badges
+
 
 	/******************************************
 	* META BOX REGISTRATION
@@ -273,6 +433,13 @@ class YC_Admin_Cursos_Settings {
 	**/
 	private function add_meta_boxes_lecciones(){
 		add_meta_box( 'info_lecciones', 'Información Adicional', array( $this, 'meta_box_info_leccion' ), 'lecciones', 'advanced', 'high' );
+	}
+
+	/**
+	* Add metaboxes for "Badges"
+	**/
+	private function add_meta_boxes_badges(){
+		add_meta_box( 'info_badges', 'Información Adicional', array( $this, 'meta_box_info_badges' ), 'badges', 'advanced', 'high' );
 	}
 
 
@@ -327,6 +494,19 @@ class YC_Admin_Cursos_Settings {
 		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
 	}// meta_box_info_leccion
 
+	/**
+	* Display meta_boxes for post type "Badge"
+	* @param obj $post
+	**/
+	public function meta_box_info_badges( $post ){
+		$points = get_post_meta($post->ID, '_points_meta', true);
+
+		wp_nonce_field(__FILE__, '_points_meta_nonce');
+
+		echo "<label><strong>Puntos</strong></label>";
+		echo "<input type='number' class='[ widefat ]' name='_points_meta' value='$points'><br><br>";
+	}// meta_box_info_badges
+
 
 	/******************************************
 	* SAVE META BOXES
@@ -375,4 +555,127 @@ class YC_Admin_Cursos_Settings {
 		}
 	}// save_meta_boxes_lecciones
 
+	/**
+	* Save the metaboxes for post type "lecciones"
+	**/
+	private function save_meta_boxes_badges( $post_id ){
+		if ( isset($_POST['_points_meta']) and check_admin_referer( __FILE__, '_points_meta_nonce') ){
+			update_post_meta($post_id, '_points_meta', $_POST['_points_meta']);
+		}
+	}// save_meta_boxes_badges
+
+
+	/******************************************
+	* CUSTOM TAXONOMIES
+	******************************************/
+
+	private function register_taxonomy_modulos() {
+		// MÓDULOS
+		if( ! taxonomy_exists('modulos')){
+
+			$labels = array(
+				'name'              => 'Módulos',
+				'singular_name'     => 'Módulo',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Módulo',
+				'update_item'       => 'Actualizar Módulo',
+				'add_new_item'      => 'Nueva Módulo',
+				'new_item_name'     => 'Nombre Nueva Módulo',
+				'menu_name'         => 'Módulos'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'modulos' ),
+			);
+			register_taxonomy( 'modulos', 'product', $args );
+		}
+	}
+
+	private function register_taxonomy_lecciones() {
+		if( ! taxonomy_exists('lecciones')){
+
+			$labels = array(
+				'name'              => 'Lecciones',
+				'singular_name'     => 'Lección',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Lección',
+				'update_item'       => 'Actualizar Lección',
+				'add_new_item'      => 'Nueva Lección',
+				'new_item_name'     => 'Nombre Nueva Lección',
+				'menu_name'         => 'Lecciones'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'lecciones' ),
+			);
+			register_taxonomy( 'lecciones', 'modulos', $args );
+		}
+	}// register_taxonomy_lecciones
+
+	private function register_taxonomy_maestros() {
+		if( ! taxonomy_exists('maestros')){
+			$labels = array(
+				'name'              => 'Maestros',
+				'singular_name'     => 'Maestro',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Maestro',
+				'update_item'       => 'Actualizar Maestro',
+				'add_new_item'      => 'Nueva Maestro',
+				'new_item_name'     => 'Nombre Nueva Maestro',
+				'menu_name'         => 'Maestros'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'show_in_menu'		=> false,
+				'show_in_nav_menus' => false,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'maestros' ),
+			);
+			register_taxonomy( 'maestros', 'product', $args );
+		}
+	}// register_taxonomy_maestros
+
+	/**
+	 * Insert all Módulos as taxonomy term for Product.
+	 * @param obj $post
+	 **/
+	private function insert_custom_taxonomy_term( $post_type ){
+		global $wpdb;
+
+		$results = $wpdb->get_results( 'SELECT trim(post_title) as post_title from ' . $wpdb->prefix . 'posts where post_type = "' . $post_type . '" AND post_title not in ( SELECT name FROM ' . $wpdb->prefix . 'terms T INNER JOIN ' . $wpdb->prefix . 'term_taxonomy TT ON T.term_id = TT.term_id WHERE TT.taxonomy = "' . $post_type . '" ) AND post_status = "publish"', OBJECT );
+
+		foreach ($results as $modulo) {
+			$term = term_exists($modulo->post_title, $post_type );
+			if ($term !== 0 && $term !== null) continue;
+
+			wp_insert_term($modulo->post_title, $post_type );
+		}// foreach
+		
+	}// insert_custom_taxonomy_term
+
 }// YC_Admin_Cursos_Settings
+
+
+
+		

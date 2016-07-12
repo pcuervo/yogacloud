@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-	if( is_course( $post->ID ) ){
+	if( is_curso( $post->ID ) ){
 		wc_get_template( 'course-product/course.php' );
 		return;
 	}
@@ -35,10 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 */
 	 do_action( 'woocommerce_before_single_product' );
 
-	 if ( post_password_required() ) {
-	 	echo get_the_password_form();
-	 	return;
-	 }
+	if ( post_password_required() ) {
+		echo get_the_password_form();
+		return;
+	}
 ?>
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -89,6 +89,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
 		</div> <!-- end row -->
-	</div><!-- end container-->
+	<!-- </div> end container-->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

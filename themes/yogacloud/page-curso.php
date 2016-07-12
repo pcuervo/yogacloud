@@ -1,5 +1,5 @@
 <?php get_header(); the_post();  ?>
-	<section id="video-whit-button" class="[ min-height--350-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
+	<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 		<div class="video-container">
 			<iframe id="video" class="[ max-height-screen_button ]" src="https://player.vimeo.com/video/73308983?title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>

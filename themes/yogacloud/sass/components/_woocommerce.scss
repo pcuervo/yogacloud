@@ -6,7 +6,7 @@
 
 .width--70-all *	{ width: 70px; }
 
-.width---100-all *	{ width: 100%; }
+.width---100-all *	{ width: 100%!important; }
 
 .max-width---100-all *{ max-width: 100%; }
 
@@ -73,7 +73,7 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce input.button:disabled[disabled] { color: $light-color; }
 
 //form
-.woocommerce table.cart td.actions .input-text { width: 100px; }
+.woocommerce table.cart td.actions .input-text { width: 120px; }
 
 .woocommerce label {
 	font-size: 1rem;

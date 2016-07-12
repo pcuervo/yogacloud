@@ -1,41 +1,48 @@
-<?php 
+<?php
 	global $product;
-	$info = get_course_info( $product->id );
+	$curso 		= new YC_Curso( $product->id );
+	$modulos 	= $curso->get_modulos();
+	$maestros 	= $curso->get_maestros();
 ?>
 
-<section id="video-whit-button" class="[ min-height--350-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
-	<div class="video-container">
-		<?php echo $info['iframe']; ?>
-	</div>
-	<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $info['thumb'] ?>">
-		<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
-			<div class="[ container relative ][ height---100 ] valign-wrapper">
-				<h1 class="[ absolute ][ width---100 ]">Título curso</h1>
-				<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+<?php if ( ! empty( $curso->trailer_info ) ) : ?>
+	<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
+		<div class="video-container">
+			<?php echo $curso->trailer_info['iframe']; ?>
+		</div>
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $curso->trailer_info['thumbnail']; ?>">
+			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
+				<div class="[ container relative ][ height---100 ] valign-wrapper">
+					<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name(); ?></h1>
+					<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+				</div>
 			</div>
 		</div>
+	</section>
+<?php endif; ?>
+
+<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+	<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
+		<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
 	</div>
-</section>
-<div class="[ relative ][ bottom--22 ][ z-index-10 ][ text-center ]">
-	<?php wc_get_template( 'single-product/add-to-cart/course.php' ); ?>
-</div>
+<?php endif; ?>
 
 <section class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
 			<div class="[ row ][ text-center ]">
-				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $info['lessons_per_week'] ) ? 'offset-s2' : ''  ?> ]">
-					<h5 class="[ no-margin-bottom ]"><?php echo $info['num_lessons']; ?></h5>
+				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $curso->lessons_per_week ) ? 'offset-s2' : ''  ?> ]">
+					<h5 class="[ no-margin-bottom ]"><?php echo $curso->num_lessons ?></h5>
 					<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
 				</div>
-				<?php if ( ! empty( $info['lessons_per_week'] ) ) : ?>
+				<?php if ( ! empty( $curso->lessons_per_week ) ) : ?>
 					<div class="[ col s4 ][ border-right--dark ]">
 						<h5 class="[ no-margin-bottom ]">1</h5>
 						<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
 					</div>
 				<?php endif; ?>
 				<div class="[ col s4 ]">
-					<h5 class="[ no-margin-bottom ]"><?php echo $info['hours']; ?></h5>
+					<h5 class="[ no-margin-bottom ]"><?php echo $curso->hours?></h5>
 					<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
 				</div>
 			</div>
@@ -43,56 +50,76 @@
 	</div>
 	<article class="[ row ][ text-center ]">
 		<div class="[ col col s12 m10 offset-m1 l8 offset-l2 ]">
-			<p>Diodorus eius auditor adiungit ad honestatem vacuitatem doloris quod non faceret si in voluptate summum bonum poneret non igitur bene verba tu fingas et ea dicas quae non sentias nam. specializing</p>
+			<p><?php echo get_the_content(); ?></p>
 		</div>
 	</article>
-	<div class="[ text-center ]">
+	<div class="[ text-center ][ hidden ]">
 		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
 	</div>
 </section>
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
+			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+				<section class="[ text-center ]">
+					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+					<div class="[ row ]">
+						<div class="[ progress progress--large ]">
+							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+							<div class="[ progress-percent ][ progress-height ]"></div>
+						</div>
+					</div>
+				</section>
+			<?php endif; ?>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<div class="[ row ]">
-					<article class="[ col s6 ]">
-						<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile1.png" alt="">
-						<p>Juan O'Donoju</p>
-						<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
-					</article>
-					<article class="[ col s6 ]">
-						<img class="[ border-radius---50 ][ width--80 ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
-						<p>Juan O'Donoju</p>
-						<a class="[ btn btn-rounded btn-primary-hollow ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro1">ver más</a>
-					</article>
+					<?php foreach ( $maestros as $maestro ) : ?>
+						<article class="[ col s6 ]">
+							<?php echo $maestro->thumbnail; ?>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
+						</article>
+					<?php endforeach; ?>
 				</div>
 
-				<!-- Modal Structure -->
-				<div id="maestro1" class="modal [ maestros-transparent ][ white-text ]">
-					<div class="modal-content [ white-text ]">
-						<div class="[ row ]">
-							<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
-								<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-								<h5 class="[ text-center ][ margin-bottom ]">Juan O'Donoju</h5>
-								<img class="[ border-radius---50 ][ width--80 ][ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/profile2.png" alt="">
-								<div class="[ text-center ][ margin-bottom ]">
-									<a href="" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
-									<a href="" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-									<a href="" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+				<?php foreach ( $maestros as $maestro ) : ?>
+
+					<!-- Modal Structure -->
+					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
+						<div class="modal-content [ white-text ]">
+							<div class="[ row ]">
+								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
+									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+									<h5 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h5>
+									<?php echo $maestro->thumbnail; ?>
+									<div class="[ text-center ][ margin-bottom ]">
+										<?php if ( !empty($maestro->twitter) ){ ?>
+											<a href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+										<?php if ( !empty($maestro->facebook) ){ ?>
+											<a href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+										<?php if ( !empty($maestro->instagram) ){ ?>
+											<a href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+										<?php } ?>
+									</div>
+									<div class="[ margin-bottom ]">
+										<?php echo $maestro->description; ?>
+									</div>
+									<?php if ( !empty($maestro->url) ){ ?>
+										<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
+									<?php } ?>
 								</div>
-								<div class="[ margin-bottom ]">
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-									<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-								</div>
-								<a class="[ white-text ][ text-underline ]" href="">http://loremipsum-dolor-sit</a>
 							</div>
-						</div>
 
+						</div>
 					</div>
-				</div>
+
+				<?php endforeach; ?>
+
 			</section>
-			<section class="[ text-center ][ hide-on-small-only ]">
+
+			<section class="[ text-center ][ hide-on-small-only ][ hidden ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 				<!-- Rating -->
 				<div class="rating"></div>
@@ -151,7 +178,7 @@
 					</li>
 				</ul>
 			</section>
-			<section class="[ text-center ][ hide-on-small-only ]">
+			<section class="[ text-center ][ hide-on-small-only ][ hidden ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Compártelo</h5>
 				<div class="[ icon-comparte ]">
 					<a href="">
@@ -169,25 +196,17 @@
 		<div class="[ col s12 m6 l8 ]">
 			<section>
 				<h4 class="[ text-center ]">Módulos</h4>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 1</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-					<div class="[ padding-bottom ]">
-						<a href="<?php echo site_url('/modulo/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+				<?php foreach ( $modulos as $modulo ) : ?>
+					<div class="[ border-bottom--dark ]">
+						<h5><?php echo $modulo->name ?></h5>
+						<p><?php echo $modulo->description ?></p>
+						<div class="[ padding-bottom ]">
+							<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+								<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+							<?php endif; ?>
+						</div>
 					</div>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 2</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 3</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
-				<div class="[ border-bottom--dark ]">
-					<h5>Módulo 4</h5>
-					<p>Fortemne possumus dicere eundem illum torquatum quid quod.</p>
-				</div>
+				<?php endforeach; ?>
 			</section>
 		</div>
 	</div>

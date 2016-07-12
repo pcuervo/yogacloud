@@ -6,43 +6,6 @@
 
 	add_action('init', function(){
 
-
-		// CURSOS
-		if( ! get_page_by_path('curso') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Curso',
-				'post_name'   => 'curso',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// MÓDULO
-		if( ! get_page_by_path('modulo') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Módulo',
-				'post_name'   => 'modulo',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// LECCIÓN
-		if( ! get_page_by_path('leccion') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Lección',
-				'post_name'   => 'leccion',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
 		// TIENDA
 		if( ! get_page_by_path('tienda') ){
 			$page = array(
@@ -79,30 +42,6 @@
 			wp_insert_post( $page, true );
 		}
 
-		// PERFIL
-		if( ! get_page_by_path('perfil') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Perfil',
-				'post_name'   => 'perfil',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
-		// RECUPERAR CONTRASEÑA
-		if( ! get_page_by_path('recuperar-contrasena') ){
-			$page = array(
-				'post_author' => 1,
-				'post_status' => 'publish',
-				'post_title'  => 'Recuperar Contraseña',
-				'post_name'   => 'recuperar-contrasena',
-				'post_type'   => 'page'
-			);
-			wp_insert_post( $page, true );
-		}
-
 		// THE YOGA PROJECT
 		if( ! get_page_by_path('yoga-project') ){
 			$page = array(
@@ -110,6 +49,42 @@
 				'post_status' => 'publish',
 				'post_title'  => 'Yoga Project',
 				'post_name'   => 'yoga-project',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// Aviso legal
+		if( ! get_page_by_path('aviso-legal') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Aviso legal',
+				'post_name'   => 'aviso-legal',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// Política de protección de datos
+		if( ! get_page_by_path('politica-de-proteccion-de-datos') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Política de protección de datos',
+				'post_name'   => 'politica-de-proteccion-de-datos',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+		// Política de cookies
+		if( ! get_page_by_path('politica-de-cookies') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Política de cookies',
+				'post_name'   => 'politica-de-cookies',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );
