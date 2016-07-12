@@ -117,3 +117,6 @@ nav.woocommerce-MyAccount-navigation {
 @media(max-width:600px){ nav.woocommerce-MyAccount-navigation ul a { padding: 5px 15px; } }
 
 address { margin-top: 20px; }
+
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--orders{ display: none;}
