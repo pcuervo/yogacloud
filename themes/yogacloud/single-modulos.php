@@ -46,7 +46,7 @@
 	<div class="[ container--on-med-and-up ]">
 		<div class="[ row ][ margin-bottom--xlarge ]">
 		<?php if( empty( $lecciones ) ) : ?>
-			<p>Por el momento no hay lecciones en este módulo.</p>
+			<p class="[ text-center ]">Por el momento no hay lecciones en este módulo.</p>
 		<?php else : ?>
 			
 			<?php foreach ( $lecciones as $lesson ) : ?>
@@ -55,12 +55,13 @@
 					<div class="[ border-bottom--dark ]">
 							
 						<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?><br><?php echo $lesson->description ?></h5>
+							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"></h5>
 							<i class="[ icon icon-badge-star-1 icon-iconed ][ color-primary ][ float-right ]"></i>
+							<p><?php echo $lesson->name ?><br><?php echo $lesson->description ?></p>
 						<?php else : ?>
-							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?><br><?php echo $lesson->description ?></h5>
+							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?></h5>
+							<p><?php echo $lesson->description ?></p>
 						<?php endif; ?>
-
 					</div>
 				</a>
 			</div>
@@ -69,7 +70,7 @@
 		<?php endif; ?>
 		</div>
 		<div class="[ row ][ text-center ]">
-			<a href="<?php echo $curso->permalink ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">ir a curso</span>
 			</a>		
