@@ -36,22 +36,6 @@ a.css-fbl:hover{
     color: #FDFDFD;
 }
 
-// a.css-fbl{
-//     display: block;
-//     padding:  0 2rem; 
-//     max-width: 300px;
-//     margin: 5px auto 16px;
-//     font-weight: bold; 
-//     background-color: #3b5998;  
-//     transition: all .3s ease-in;
-//     border-radius: 50px;
-//     color: #fff !important;
-// }
-
-// a.css-fbl:hover{
-//     background-color: #062c70;
-// }
-
 a.css-fbl div {
     height: 45px;
     display: table-cell;

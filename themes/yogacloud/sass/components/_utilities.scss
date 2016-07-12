@@ -110,11 +110,13 @@
 .hidden 		{ display: none;}
 
 .not-visible{
+	max-height: 0;
 	visibility: hidden;
 	opacity: 0;
 }
 
 .visible{
+	max-height: 300px;
 	visibility: visible;
 	opacity: 1;
 }

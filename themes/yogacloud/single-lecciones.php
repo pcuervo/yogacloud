@@ -11,7 +11,7 @@
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
-	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
+	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) ) . '&cid=' . $curso->id;
 ?>
 
 <section class="[ text-center ]">
@@ -29,10 +29,6 @@
 			</div>
 		</article>
 	<?php endif; ?>
-
-	<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
-		<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
-	</div>
 
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 			<div class="[ bg-secondary ][ padding-vertical--xsmall ][ lesson-completed ]">
