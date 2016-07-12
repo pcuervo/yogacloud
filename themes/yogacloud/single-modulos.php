@@ -34,8 +34,8 @@
 	<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
 	<div class="[ row ]">
 		<div class="[ progress progress--large ]">
-			<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-			<div class="[ progress-percent ]"></div>
+			<p><i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ relative z-index-1 ]"></i></p>
+			<div class="[ progress-percent progress-20 ]"></div>
 		</div>
 	</div>
 </section>

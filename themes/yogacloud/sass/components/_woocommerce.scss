@@ -22,6 +22,10 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce table.shop_table td,
 .woocommerce table.shop_table tfoot th { border-top: 1px solid $primary-color!important; }
 
+@media (max-width: 768px){
+	.woocommerce table.shop_table_responsive tr td,
+	.woocommerce-page table.shop_table_responsive tr td { text-align: left!important; }
+}
 //border
 
 .woocommerce .woocommerce-info,
@@ -92,6 +96,9 @@ nav.woocommerce-breadcrumb { display: none; }
 
 .woocommerce .card a,
 .woocommerce .mis-cursos a { color: $light-color!important; }
+
+.woocommerce table.shop_table_responsive tr td:before, .woocommerce-page table.shop_table_responsive tr td:before { display: none;  }
+
 //icons
 
 .woocommerce .woocommerce-info:before { color: $primary-color; }
@@ -117,3 +124,6 @@ nav.woocommerce-MyAccount-navigation {
 @media(max-width:600px){ nav.woocommerce-MyAccount-navigation ul a { padding: 5px 15px; } }
 
 address { margin-top: 20px; }
+
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--orders{ display: none;}
