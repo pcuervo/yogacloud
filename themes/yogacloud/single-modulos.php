@@ -11,6 +11,8 @@
 		wp_redirect( $curso->get_permalink() );
 	}
 
+	var_dump( $modulo->get_progress_by_user( get_current_user_id()  ) );
+
 	get_header();
 	the_post();
 ?>
@@ -38,7 +40,7 @@
 		<?php else : ?>
 			<?php foreach ( $lecciones as $lesson ) : ?>
 				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id ?>">
+						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 						<div class="[ main-banner ]" >
 							<div class="[ gradient-linear ]">
 								<div class="[ min-height--160 ][ relative ]">

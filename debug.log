@@ -1,0 +1,68 @@
+[12-Jul-2016 15:24:47 UTC] PHP Warning:  error_log() expects parameter 1 to be string, array given in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_curso.php on line 30
+[12-Jul-2016 15:24:47 UTC] PHP Notice:  Array to string conversion in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 12
+[12-Jul-2016 15:24:47 UTC] PHP Notice:  Array to string conversion in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 89
+[12-Jul-2016 15:25:44 UTC] PHP Warning:  error_log() expects parameter 1 to be string, array given in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_curso.php on line 30
+[12-Jul-2016 15:25:44 UTC] PHP Notice:  Array to string conversion in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 14
+[12-Jul-2016 15:25:44 UTC] PHP Notice:  Array to string conversion in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 91
+[12-Jul-2016 15:26:12 UTC] 60
+[12-Jul-2016 15:26:17 UTC] 60
+[12-Jul-2016 16:23:01 UTC] 60
+[12-Jul-2016 16:23:15 UTC] 60
+[12-Jul-2016 16:23:33 UTC] 60
+[12-Jul-2016 16:23:33 UTC] 22
+[12-Jul-2016 16:23:52 UTC] 60
+[12-Jul-2016 16:23:53 UTC] 60
+[12-Jul-2016 16:23:54 UTC] 22
+[12-Jul-2016 16:29:01 UTC] 60
+[12-Jul-2016 16:29:04 UTC] 60
+[12-Jul-2016 16:29:04 UTC] 22
+[12-Jul-2016 16:29:55 UTC] 60
+[12-Jul-2016 16:29:55 UTC] PHP Notice:  Use of undefined constant console - assumed 'console' in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-modulos.php on line 14
+[12-Jul-2016 16:29:55 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 69
+[12-Jul-2016 16:29:57 UTC] 60
+[12-Jul-2016 16:29:57 UTC] 22
+[12-Jul-2016 16:30:06 UTC] 60
+[12-Jul-2016 16:30:07 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 69
+[12-Jul-2016 16:30:08 UTC] 60
+[12-Jul-2016 16:30:09 UTC] 22
+[12-Jul-2016 16:30:33 UTC] 60
+[12-Jul-2016 16:30:34 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 70
+[12-Jul-2016 16:30:35 UTC] 60
+[12-Jul-2016 16:30:35 UTC] 22
+[12-Jul-2016 16:30:45 UTC] 60
+[12-Jul-2016 16:30:46 UTC] PHP Notice:  Trying to get property of non-object in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 69
+[12-Jul-2016 16:30:46 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 70
+[12-Jul-2016 16:30:48 UTC] 60
+[12-Jul-2016 16:30:48 UTC] 22
+[12-Jul-2016 16:31:06 UTC] 60
+[12-Jul-2016 16:31:07 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 70
+[12-Jul-2016 16:31:08 UTC] 60
+[12-Jul-2016 16:31:09 UTC] 22
+[12-Jul-2016 16:31:37 UTC] 60
+[12-Jul-2016 16:31:38 UTC] PHP Notice:  Undefined index: completed in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/plugins/administrador-de-cursos-yc/classes/class-yc_modulo.php on line 70
+[12-Jul-2016 16:31:39 UTC] 60
+[12-Jul-2016 16:31:39 UTC] 22
+[12-Jul-2016 16:31:47 UTC] 60
+[12-Jul-2016 16:31:50 UTC] 60
+[12-Jul-2016 16:31:50 UTC] 22
+[12-Jul-2016 16:39:19 UTC] PHP Notice:  Undefined index: cid in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 9
+[12-Jul-2016 16:39:19 UTC] 
+[12-Jul-2016 16:39:20 UTC] 60
+[12-Jul-2016 16:39:20 UTC] 22
+[12-Jul-2016 16:40:17 UTC] PHP Notice:  Undefined index: cid in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 11
+[12-Jul-2016 16:40:17 UTC] 
+[12-Jul-2016 16:40:18 UTC] 60
+[12-Jul-2016 16:40:18 UTC] 22
+[12-Jul-2016 16:40:26 UTC] PHP Notice:  Undefined index: cid in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 11
+[12-Jul-2016 16:40:26 UTC] 
+[12-Jul-2016 16:40:26 UTC] 60
+[12-Jul-2016 16:40:27 UTC] 22
+[12-Jul-2016 16:40:42 UTC] PHP Notice:  Undefined index: cid in /Users/micho/Documents/cuervo/sitios/yogacloud/wp-content/themes/yogacloud/single-lecciones.php on line 9
+[12-Jul-2016 16:40:42 UTC] 
+[12-Jul-2016 16:40:43 UTC] 60
+[12-Jul-2016 16:40:43 UTC] 22
+[12-Jul-2016 16:40:44 UTC] 60
+[12-Jul-2016 16:40:44 UTC] 22
+[12-Jul-2016 16:40:50 UTC] 60
+[12-Jul-2016 16:40:52 UTC] 60
+[12-Jul-2016 16:40:52 UTC] 22

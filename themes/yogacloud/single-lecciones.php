@@ -1,11 +1,12 @@
 <?php
-	if( ! isset( $_GET['mid'] ) ){
+	if( ! isset( $_GET['mid'] ) || ! isset( $_GET['cid'] ) ){
 		wp_redirect( home_url() );
 	}
 
 	get_header();
 	the_post();
 
+	$curso = new YC_Curso( $_GET['cid'] );
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
@@ -83,7 +84,7 @@
 			</article> -->
 			<article class="[ content-user ]">
 				<div class="[ text-center ]">
-					<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
+					<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
 						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
 					</a>
 				</div>
