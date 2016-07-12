@@ -63,7 +63,7 @@ class YC_Leccion {
 	* Initialize video player for lesson
 	*/
 	public function init_lesson_video_js() {
-		if ( empty( $this->video_info ) || 'lecciones' != get_post_type() ) return;
+		if ( empty( $this->get_video_info() ) || 'lecciones' != get_post_type() ) return;
 
 		$has_been_watched = $this->has_been_watched_by_user( get_current_user_id() );
 		?>
@@ -136,6 +136,11 @@ class YC_Leccion {
 		$lib = $this->get_vimeo_lib();  
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
+		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			$lib = $this->get_vimeo_lib( 'stage' );  
+			$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
+		}
+
 		$info = array(
 			'iframe' 	=> $vimeo_response['body']['embed']['html'],
 			'thumbnail' => $vimeo_response['body']['pictures']['sizes'][5]['link'],
@@ -147,9 +152,14 @@ class YC_Leccion {
 	 * Return an instance of Vimeo lib
 	 * @return Vimeo $lib
 	 */
-	private function get_vimeo_lib(){
-		$lib = new \Vimeo\Vimeo($this->client_id, $this->client_secret);
-		$lib->setToken( $this->access_token );
+	private function get_vimeo_lib( $env = 'dev' ){
+		if( 'dev' == $env ){
+			$lib = new \Vimeo\Vimeo( VIMEO_CLIENT_ID_DEV, VIMEO_CLIENT_SECRET_DEV );
+			$lib->setToken( VIMEO_CLIENT_TOKEN_DEV );
+		} else {
+			$lib = new \Vimeo\Vimeo( VIMEO_CLIENT_ID_STAGE, VIMEO_CLIENT_SECRET_STAGE );
+			$lib->setToken( VIMEO_CLIENT_TOKEN_STAGE );
+		}
 		return $lib;
 	}
 
