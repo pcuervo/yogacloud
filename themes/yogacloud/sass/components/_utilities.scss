@@ -109,6 +109,16 @@
 .inline-block	{ display: inline-block;}
 .hidden 		{ display: none;}
 
+.not-visible{
+	visibility: hidden;
+	opacity: 0;
+}
+
+.visible{
+	visibility: visible;
+	opacity: 1;
+}
+
 @media (min-width: 993px) and (max-width: 1490px){ .hidden--large { display: none;} }
 
 //Float
