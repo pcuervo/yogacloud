@@ -154,3 +154,12 @@
 @media (min-width: 992px ){.container--on-med-and-up { width: 70%; } }
 
 @media (max-width: 600px ){.container--on-med-and-up .row .col { padding: 0px!important; }}
+
+@media (min-width: 1400px){
+  .row .col.xl6 {
+      width: 50%;
+      margin-left: auto;
+      left: auto;
+      right: auto;
+  }
+}
