@@ -109,6 +109,18 @@
 .inline-block	{ display: inline-block;}
 .hidden 		{ display: none;}
 
+.not-visible{
+	max-height: 0;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.visible{
+	max-height: 300px;
+	visibility: visible;
+	opacity: 1;
+}
+
 @media (min-width: 993px) and (max-width: 1490px){ .hidden--large { display: none;} }
 
 //Float
@@ -148,9 +160,10 @@
 .z-index-10 { z-index: 10; }
 .z-index-100 { z-index: 100; }
 
-//transition
+//Transition
 
 .transition {
+  transition: 		  all 0.5s ease;
   -webkit-transition: all 0.5s ease;
   -moz-transition:    all 0.5s ease;
   -ms-transition:     all 0.5s ease;

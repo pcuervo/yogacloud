@@ -162,7 +162,6 @@ function extended_register_form() {
 
 add_action( 'woocommerce_created_customer', 'save_customer_register' );
 function save_customer_register( $user_id ) {
-	error_log('we here?');
     if ( ! empty( $_POST['first_name'] ) ) {
         update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
         update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );

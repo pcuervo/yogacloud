@@ -85,7 +85,7 @@
 									<?php if ( is_user_logged_in() ){
 										$current_user = wp_get_current_user(); ?>
 
-										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>"><?php echo $current_user->user_login; ?></a></h5>
+										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>"><?php echo $current_user->user_firstname; ?></a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
 										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
