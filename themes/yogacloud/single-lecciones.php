@@ -11,7 +11,6 @@
 	$leccion->get_position( $modulo->id );
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
-	var_dump( $previous_post_link );
 ?>
 
 <section class="[ text-center ]">
