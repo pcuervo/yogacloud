@@ -148,6 +148,14 @@
 .z-index-10 { z-index: 10; }
 .z-index-100 { z-index: 100; }
 
+//transition
+
+.transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition:    all 0.5s ease;
+  -ms-transition:     all 0.5s ease;
+  -o-transition:      all 0.5s ease;
+}
 
 //Alingment
 

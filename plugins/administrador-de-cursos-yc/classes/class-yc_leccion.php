@@ -62,7 +62,6 @@ class YC_Leccion {
 				var player = new Vimeo.Player(iframe);
 				var yc_lesson = new YogaCloudVideo( <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
 				yc_lesson._init();
-				//yc_lesson.markAsWatched();
 			});
 		</script><?php
 	}
