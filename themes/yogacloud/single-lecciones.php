@@ -49,12 +49,12 @@
 			</a>
 		</div>
 		<section class="[ col s12 l8 ]">
-			<article>
+<!-- 			<article>
 				<div class="[ progress progress--large ]">
-					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--90 ][ relative z-index-1 ]"></i>
 					<div class="[ progress-percent ][ progress-height ]"></div>
 				</div>
-			</article>
+			</article> -->
 			<article class="[ content-user ]">
 				<h5><?php echo $modulo->name; ?></h5>
 				<h5><?php the_title(); ?></h5>
