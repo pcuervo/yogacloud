@@ -193,7 +193,7 @@
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<img class="image-user" src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
+								<i class="[ icon icon-user icon-small ][ color-light ]"></i>
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap width--100 inline-block middle ]">Raúl De Zamacona</div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>
