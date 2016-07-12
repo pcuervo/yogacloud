@@ -16,21 +16,14 @@
 ?>
 
 <section>
-	<article class="[ main-banner ][ relative ][ overflow-hidden width---100 ][ height--320 ][ min-height--500-l ]">
-		<video class="[ center-full ][ bottom-0 ][ min-width---100 ]" muted autoplay loop>
-			<source src="<?php echo THEMEPATH; ?>video/yogacloud.mp4" type="video/mp4">
-		</video>
-		<div class="[ gradient-linear-opacity ][ height---100 ][ relative z-index ]">
-			<div class="[ container relative ][ height---100 ][ white-text text-center ]">
-				<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name() ?></h1>
-				<h2 class="[ absolute ][ bottom--30 ][ width---100 ]"><strong><?php echo $modulo->name ?></strong><br>Fortemne possumus dicere eundem illum torquatum quid quod. </h2>
-			</div>
-		</div>
-	</article>
 	<article class="[ container ]">
 		<div class="[ row ][ text-center ]">
+			<div class="[ col s12 ]">
+				<h1 class="[ width---100 ]"><?php echo $modulo->name ?></h1>
+				<h6 class="[ width---100 ]"><strong><?php echo $curso->get_name() ?></strong></h6>
+			</div>
 			<div class="[ col s12 m10 offset-m1 l8 offset-l2 ]">
-				<p>Verum hoc loco sumo verbis his eandem certe vim voluptatis Epicurum nosse quam ceteros. Si enim ad populum me vocas, eum. Sed residamus, inquit, si placet. Cave putes quicquam esse verius. Duo Reges: constructio interrete.</p>
+				<?php the_content(); ?>
 			</div>
 		</div>
 	</article>
