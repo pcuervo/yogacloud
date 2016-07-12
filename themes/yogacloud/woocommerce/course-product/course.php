@@ -98,13 +98,13 @@
 									<?php echo $maestro->thumbnail; ?>
 									<div class="[ text-center ][ margin-bottom ]">
 										<?php if ( !empty($maestro->twitter) ){ ?>
-											<a href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+											<a target="_blank" href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
 										<?php } ?>
 										<?php if ( !empty($maestro->facebook) ){ ?>
-											<a href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+											<a target="_blank" href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
 										<?php } ?>
 										<?php if ( !empty($maestro->instagram) ){ ?>
-											<a href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+											<a target="_blank" href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 										<?php } ?>
 									</div>
 									<div class="[ margin-bottom ]">
