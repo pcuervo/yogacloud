@@ -151,7 +151,7 @@
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
 									<h5 class="[ no-margin ]">
-										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.tv/" target="_blank">Yoga online</a>
+										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 								</div>
 								<div class="[ container ]">
@@ -181,7 +181,7 @@
 						<?php if( ! is_front_page() ) { ?>
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
-						<a class="" href="https://yogacloud.tv/" target="_blank">Yoga online</a>
+						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>

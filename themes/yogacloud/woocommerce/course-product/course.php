@@ -14,8 +14,9 @@
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
 			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
-					<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name(); ?></h1>
-					<a id="play-button" class="[ valign ][ block ][ width--75 ][ margin-auto ] waves-effect waves-light"><img src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button"></a>
+					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
+						<img class="[ center-full ]" src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
+					</a>
 				</div>
 			</div>
 		</div>
@@ -29,6 +30,7 @@
 <?php endif; ?>
 
 <section class="[ container ]">
+	<h1 class="[ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
 			<div class="[ row ][ text-center ][ margin-top ]">
@@ -78,6 +80,7 @@
 					<?php foreach ( $maestros as $maestro ) : ?>
 						<article class="[ col s6 ]">
 							<?php echo $maestro->thumbnail; ?>
+							<div class="[ clearfix ]"></div>
 							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
 						</article>
 					<?php endforeach; ?>
