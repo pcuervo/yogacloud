@@ -244,6 +244,13 @@
 	}
 }
 
+#cursos .card-content {
+	@media (min-width: 1500px){ max-height: 200px; }
+	@media (min-width: 1600px){ max-height: 220px; }
+	@media (min-width: 1700px){ max-height: 239px; }
+}
+
+
 .categories {
 	a {
 		color:$dark-color;
