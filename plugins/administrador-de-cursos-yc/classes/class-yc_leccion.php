@@ -63,16 +63,18 @@ class YC_Leccion {
 	* Initialize video player for lesson
 	*/
 	public function init_lesson_video_js() {
-		if ( empty( $this->get_video_info() ) || 'lecciones' != get_post_type() ) return;
+		if ( 'lecciones' != get_post_type() ) return;
 
 		$has_been_watched = $this->has_been_watched_by_user( get_current_user_id() );
 		?>
 		<script type='text/javascript'>
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
-				var player = new Vimeo.Player(iframe);
-				var yc_lesson = new YogaCloudVideo( <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
-				yc_lesson._init();
+				if( 'undefined' != typeof iframe ){
+					var player = new Vimeo.Player(iframe);
+					var yc_lesson = new YogaCloudVideo( <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
+					yc_lesson._init();
+				}
 			});
 		</script><?php
 	}
@@ -137,8 +139,15 @@ class YC_Leccion {
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			error_log( 'no jala dev' );
 			$lib = $this->get_vimeo_lib( 'stage' );  
-			$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
+			$vimeo_response = $lib->request('/me/videos/' . $video_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
+		}
+
+		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			var_dump( $vimeo_response );
+			error_log( 'no jala stage' );
+			return array();
 		}
 
 		$info = array(
