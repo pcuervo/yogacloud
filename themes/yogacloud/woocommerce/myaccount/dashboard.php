@@ -25,9 +25,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section style="background-color: #f8f8f8;">
 	<div class="">
-		<div class="[ row ][ no-margin ]">
+		<div class="[ row ]">
 			<div class="[ col s12 m6 ][ text-center ][ border-right--primary ][ margin-bottom ]">
-				<i class="[ icon icon-user icon-iconed icon-xxlarge ][ color-primary ]"></i>
+				<i class="[ icon icon-user icon-iconed icon-xlarge ][ color-primary ]"></i>
 				<h5>
 					<?php
 						echo sprintf( esc_attr__( '%s%s%s', 'woocommerce' ), esc_html( $current_user->display_name ), '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
@@ -40,6 +40,67 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso básico de Yoga</p>
 				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso intermedio de Yoga</p>
 			</div>
+		</div>
+		<div class="[ row ]">
+			<h5>Mis cursos</h5>
+			<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Nombre del curso</th>
+						<th class="[ text-center ]">Progreso</th>
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr>
+						<td>
+							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
+						</td>
+						<td>
+							Lorem ipsum dolor sit amet. Lorem ipsum dolor sit Lorem ipsum dolor sit amet.
+						</td>
+						<td>
+							<div class="[ progress ][ no-margin ]">
+								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+								<div class="[ progress-percent ]"></div>
+							</div>
+						</td>
+						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
+					</tr>
+					<tr>
+						<td>
+							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
+						</td>
+						<td>
+							Lorem ipsum dolor sit
+						</td>
+						<td>
+							<div class="[ progress ][ no-margin ]">
+								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+								<div class="[ progress-percent ]"></div>
+							</div>
+						</td>
+						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
+					</tr>
+					<tr>
+						<td>
+							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
+						</td>
+						<td>
+							Lorem ipsum dolor sit amet
+						</td>
+						<td>
+							<div class="[ progress ][ no-margin ]">
+								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+								<div class="[ progress-percent progress-20 ]"></div>
+							</div>
+						</td>
+						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </section>
