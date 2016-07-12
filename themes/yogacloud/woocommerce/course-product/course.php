@@ -32,7 +32,7 @@
 <section class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
-			<div class="[ row ][ text-center ]">
+			<div class="[ row ][ text-center ][ margin-top ]">
 				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $curso->lessons_per_week ) ? 'offset-s2' : ''  ?> ]">
 					<h5 class="[ no-margin-bottom ]"><?php echo $curso->num_lessons ?></h5>
 					<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
