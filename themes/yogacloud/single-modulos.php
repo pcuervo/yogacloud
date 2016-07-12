@@ -11,8 +11,6 @@
 		wp_redirect( $curso->get_permalink() );
 	}
 
-	var_dump( $modulo->get_progress_by_user( get_current_user_id()  ) );
-
 	get_header();
 	the_post();
 ?>
@@ -31,11 +29,15 @@
 	</article>
 </section>
 <section class="[ text-center ]">
-	<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+	<?php if ( 100 == $modulo->get_progress_by_user( get_current_user_id() ) ) : ?> 
+		<h5 class="[ text-center ][ margin-bottom ]">Completado</h5>
+	<?php else : ?>
+		<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+	<?php endif; ?>
 	<div class="[ row ]">
 		<div class="[ progress progress--large ]">
 			<p><i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ relative z-index-1 ]"></i></p>
-			<div class="[ progress-percent progress-20 ]"></div>
+			<div class="[ progress-percent progress-<?php echo $modulo->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 		</div>
 	</div>
 </section>

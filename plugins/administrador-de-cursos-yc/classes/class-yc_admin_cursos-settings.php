@@ -217,7 +217,6 @@ class YC_Admin_Cursos_Settings {
 		foreach ( $curso->get_modulos_from_terms() as $modulo ) {
 			if( ! $curso->has_modulo( $modulo->id ) ){
 				$id = $curso->add_modulo( $modulo->id );
-				error_log( 'new id: ' . $id );
 			}
 		}
 	}
@@ -226,13 +225,11 @@ class YC_Admin_Cursos_Settings {
 	 * Update the relationship between Modulos and Lecciones
 	 */
 	public function update_modules_lessons() {
-		error_log('update_modules_lessons');
 		if( 'modulos' != get_post_type() ) return;
 
 		$modulo = new YC_Modulo( get_the_id() );
 		foreach ( $modulo->get_lecciones_from_terms() as $leccion ) {
 			if( ! $modulo->has_leccion( $leccion->id ) ){
-				error_log($leccion->id);
 				$id = $modulo->add_lesson( $leccion->id );
 			}
 		}
