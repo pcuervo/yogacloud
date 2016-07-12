@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="[ row ]">
 			<div class="[ col s12 ] ">
 				<div class="[ text-center ]">
-					<h4>Bienvenido!</h4>
+					<h4>¡Bienvenido!</h4>
 					<h5><?php _e( 'Ingresa en tu cuenta', 'woocommerce' ); ?></h5>
 				</div>
 				<form method="post" class="login [ no-padding ]">
@@ -80,7 +80,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="u-column2 col-2">
 		<div class="[ text-center ]">
 			<h4>¿Aún no tienes cuenta?</h4>
-			<h5><?php _e( 'Registrate', 'woocommerce' ); ?></h5>
+			<h5><?php _e( 'Regístrate', 'woocommerce' ); ?></h5>
 		</div>
 
 		<form method="post" class="register [ no-padding ]">

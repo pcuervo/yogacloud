@@ -42,29 +42,41 @@
 	</div>
 </section>
 <section class="[ no-margin ]">
-	<h5 class="[ text-center ][ margin-bottom ]">Lecciones</h5>
+	<h4 class="[ text-center ][ margin-bottom ]">Lecciones</h4>
 	<div class="[ container--on-med-and-up ]">
-		<div class="[ row ][ no-margin ]">
+		<div class="[ row ][ margin-bottom--xlarge ]">
 		<?php if( empty( $lecciones ) ) : ?>
 			<p>Por el momento no hay lecciones en este módulo.</p>
 		<?php else : ?>
+			
 			<?php foreach ( $lecciones as $lesson ) : ?>
-				<div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-						<a class="[ white-text ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
-						<div class="[ main-banner ]" >
-							<div class="[ gradient-linear ]">
-								<div class="[ min-height--160 ][ relative ]">
-									<h2 class="[ padding-sides padding-vertical--small ][ no-margin ]"><strong><?php echo $lesson->name ?></strong><br><?php echo $lesson->description ?></h2>
-								</div>
-							</div>
-						</div>
-					</a>
-				</div>
+			<div class="[ col col s12 m10 offset-m1 l8 offset-l2  ]">
+				<a class="[ color-dark ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+					<div class="[ border-bottom--dark ]">
+							
+						<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?><br><?php echo $lesson->description ?></h5>
+							<i class="[ icon icon-badge-star-1 icon-iconed ][ color-primary ][ float-right ]"></i>
+						<?php else : ?>
+							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?><br><?php echo $lesson->description ?></h5>
+						<?php endif; ?>
+
+					</div>
+				</a>
+			</div>
 			<?php endforeach; ?>
+
 		<?php endif; ?>
+		</div>
+		<div class="[ row ][ text-center ]">
+			<a href="<?php echo $curso->permalink ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+				<span class="[ middle inline-block ]">ir a curso</span>
+			</a>		
 		</div>
 	</div>
 </section>
+
 
 <!-- BLOQUEADO -->
 <!-- <div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
