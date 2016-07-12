@@ -115,5 +115,7 @@ select:disabled {
   }
 }
 
-// checkout select
-.checkout.woocommerce-checkout .woocommerce-billing-fields select{ display: block !important}
+
+// select checkout 
+
+select.country_select { display: block !important; }
