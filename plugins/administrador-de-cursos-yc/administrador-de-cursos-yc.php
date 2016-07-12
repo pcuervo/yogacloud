@@ -4,11 +4,11 @@
  */
 /*
 Plugin Name: Administrador de Cursos YogaCloud
-Description: Creación y gestión de lecciones, módulos y cursos para la plataforma YogaCloud. 
+Description: Creación y gestión de lecciones, módulos y cursos para la plataforma YogaCloud.
 Version: 1.0.0
 Author: Miguel Cabral
 Author URI: http://pcuervo.com
-*/ 
+*/
 
 if( ! defined( 'YC_CURSOS_PLUGIN_URL' ) ){
 	define( 'YC_CURSOS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -100,7 +100,6 @@ class Admin_Cursos_YC {
 	 */
 	private function create_user_lesson_table(){
 		global $wpdb;
-
 		$table_name = $wpdb->prefix . 'user_lessons';
 		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 			$charset_collate = $wpdb->get_charset_collate();
