@@ -18,12 +18,6 @@
 
 
   .card-title {
-    font-size: 24px;
-    font-weight: 300;
-    @media(min-width:993px) and (max-width:1400px){
-        font-size: 18px;
-        line-height: 20px;
-    }
     &.activator {
       cursor: pointer;
     }
@@ -97,9 +91,6 @@
     p {
       margin: 0;
       color: inherit;
-    }
-    .card-title {
-      line-height: 48px;
     }
   }
 
@@ -196,3 +187,42 @@
   }
 
 @media (min-width: 601px){ #cursos article.col.m6:nth-child(3) { margin-left: 25%;} } //curso 3 centrado
+
+
+.card .text-ellipsis {
+  width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 992px ){
+  .card .text-ellipsis {
+    height: 200px!important;
+    // p { height: 100%; }
+  }
+}
+
+#cursos .card-content {
+  @media (max-width: 1199px){ height: 196px; }
+  @media (min-width: 1200px){ height: 152px; }
+  @media (min-width: 1300px){ height: 160px; }
+  @media (min-width: 1400px){ height: 183px; }
+  @media (min-width: 1500px){ height: 196px; }
+  @media (min-width: 1600px){ height: 220px; }
+  @media (min-width: 1700px){ height: 224px; }
+  @media (min-width: 1800px){ height: 250px; }
+  @media (min-width: 1900px){ height: 250px; }
+}
+
+h5.card-title{
+  @media (min-width: 1200px){ font-size:18px!important; margin-bottom: 0px; line-height: 1.5; }
+}
+
+#cursos .col.s12.xl6 .top--22{
+  @media (min-width: 1150px) and (max-width: 1200px ){ top: 37px; }
+  @media (min-width: 1250px) and (max-width: 1300px ){ top: 37px; }
+  @media (min-width: 1350px) and (max-width: 1400px ){ top: 37px; }
+  @media (min-width: 1450px) and (max-width: 1500px ){ top: 37px; }
+  @media (min-width: 1550px) and (max-width: 1600px ){ top: 37px; }
+  @media (min-width: 1650px) and (max-width: 1700px ){ top: 37px; }
+  @media (min-width: 1750px) and (max-width: 1800px ){ top: 37px; }
+  @media (min-width: 1800px){ top: 37px; }
+}

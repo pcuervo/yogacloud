@@ -12,7 +12,7 @@ require_once("class-yc_maestro.php");
 
 define( 'VIMEO_CLIENT_ID_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
 define( 'VIMEO_CLIENT_SECRET_STAGE', 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv' );
-define( 'VIMEO_CLIENT_TOKEN_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
+define( 'VIMEO_CLIENT_TOKEN_STAGE', '120cde323887dd586bf5a97173f62a7e' );
 define( 'VIMEO_CLIENT_ID_DEV', '63047a064a58c6025c48a65d4a2dc5f9925c8f0b' );
 define( 'VIMEO_CLIENT_SECRET_DEV', 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep' );
 define( 'VIMEO_CLIENT_TOKEN_DEV', '4241e8adccd0229fae229401b587da6f' );
@@ -174,14 +174,16 @@ class YC_Curso {
 	* Initialize video player for course
 	*/
 	public function init_course_trailer_js() {
-		if ( empty( $this->get_trailer_info() ) || ! is_curso( get_the_id() ) ) return;
+		if ( ! is_curso( get_the_id() ) ) return;
 
 		?><script type='text/javascript'>
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
-				var player = new Vimeo.Player(iframe);
-				var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, player, true );
-				yc_course._init();
+				if( 'undefined' != typeof iframe ){
+					var player = new Vimeo.Player(iframe);
+					var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, player, true );
+					yc_course._init();
+				}
 			});
 		</script><?php
 	}
