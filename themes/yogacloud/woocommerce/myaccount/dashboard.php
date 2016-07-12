@@ -42,65 +42,60 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 		<div class="[ row ]">
-			<h5>Mis cursos</h5>
-			<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Nombre del curso</th>
-						<th class="[ text-center ]">Progreso</th>
-						<th></th>
-					</tr>
-				</thead>
-
-				<tbody>
-					<tr>
-						<td>
-							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
-						</td>
-						<td>
-							Lorem ipsum dolor sit amet. Lorem ipsum dolor sit Lorem ipsum dolor sit amet.
-						</td>
-						<td>
-							<div class="[ progress ][ no-margin ]">
-								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-								<div class="[ progress-percent ]"></div>
-							</div>
-						</td>
-						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
-					</tr>
-					<tr>
-						<td>
-							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
-						</td>
-						<td>
-							Lorem ipsum dolor sit
-						</td>
-						<td>
-							<div class="[ progress ][ no-margin ]">
-								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-								<div class="[ progress-percent ]"></div>
-							</div>
-						</td>
-						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
-					</tr>
-					<tr>
-						<td>
-							<img class="[ width--100 ]" src="<?php echo THEMEPATH; ?>images/photo-1464507768659-af94c4614d1a.jpg" alt="curso">
-						</td>
-						<td>
-							Lorem ipsum dolor sit amet
-						</td>
-						<td>
-							<div class="[ progress ][ no-margin ]">
-								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-								<div class="[ progress-percent ]"></div>
-							</div>
-						</td>
-						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
-					</tr>
-				</tbody>
-			</table>
+			<?php
+		        $user_id = get_current_user_id();
+		        $current_user= wp_get_current_user();
+		        $customer_email = $current_user->email;
+		        $args = array(
+		            'post_type' => 'product',
+		            'posts_per_page' => -1,
+		            'tax_query' => array(
+				        array(
+				            'taxonomy' => 'product_type',
+				            'field'    => 'slug',
+				            'terms'    => 'simple_course', 
+				        ),
+				    ),
+		       	);
+		        $course_query = new WP_Query( $args );
+		        if ( $course_query->have_posts() ) : ?>
+		        	<h5>Mis cursos</h5>
+					<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
+						<thead>
+							<tr>
+								<th></th>
+								<th>Nombre del curso</th>
+								<th class="[ text-center ]">Progreso</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php while ( $course_query->have_posts() ) : $course_query->the_post(); $_product = get_product( $course_query->post->ID ); 
+								$curso = new YC_Curso( $course_query->post->ID );
+								?>
+					            <?php if ( wc_customer_bought_product( $customer_email, $user_id,$_product->id ) ) : ?>
+									<tr>
+										<td>
+											<?php echo get_the_post_thumbnail( $_product->id , 'thumbnail', array('class'=>'[ width--100 ]') ); ?>
+										</td>
+										<td>
+											<?php the_title(); ?>
+										</td>
+										<td>
+											<div class="[ progress ][ no-margin ]">
+												<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+												<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?>  ]"></div>
+											</div>
+										</td>
+										<td class="[ text-right ]">
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+										</td>
+									</tr>
+								<?php endif; ?>
+					       	<?php endwhile; wp_reset_postdata(); ?>
+				       	</tbody>
+					</table>
+				<?php endif; ?>
 		</div>
 	</div>
 </section>

@@ -30,7 +30,9 @@ YogaCloudVideo.prototype = {
             console.log('go to next course PENDING...');
             clearInterval( self._elapsedTimeInterval );
         });
+        console.log('are we here?');
         $('#play-button').on('click', function(e){
+            console.log('playing');
             e.preventDefault();
             self._player.play();
         });

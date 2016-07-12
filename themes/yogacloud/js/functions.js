@@ -255,19 +255,6 @@ function boxCard(){
         var image_alto = $('.bg-image--rectangle').width();
         $('.bg-image--rectangle').css('height', image_alto + 'px');
 
-        //Ellipsis text
-        var ellipsis_alto = ((image_alto - 20) - 25 ); //(height imagen - padding-top ) - height button
-        $('.height-box-ellipsis').css('height', ellipsis_alto + 'px');
-
-        var containerHeight = $(".text-ellipsis").height();
-        var $text = $(".text-ellipsis p");
-
-        while ( $text.height() > containerHeight ) {
-            $text.text(function (index, text) {
-                return text.replace(/\W*\s(\S)*$/, '...');
-            });
-        }
-
 }
 
 

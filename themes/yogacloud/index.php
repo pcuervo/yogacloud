@@ -46,8 +46,8 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s12 l6 ]">
-									<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
+								<div class="[ card-image ][ col s12 xl6 ]">
+									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 											<span class="[ card-title ]"><?php the_title(); ?></span>
 											<!-- promo -->
@@ -59,8 +59,8 @@
 										</div>
 									</div>
 								</div>
-								<div class="[ col l6 ]">
-									<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
+								<div class="[ col s12 xl6 ][ height-content ]">
+									<div class="[ card-content ][ overflow-hidden ]">
 										<?php the_excerpt(); ?>
 										<?php ?>
 									</div>
