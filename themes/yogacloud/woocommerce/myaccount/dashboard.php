@@ -21,6 +21,8 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+$user_cursos = get_user_cursos( get_current_user_id() );
+
 ?>
 
 <section style="background-color: #f8f8f8;">
@@ -36,29 +38,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<a href="<?php echo site_url('/my-account/edit-account/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar información</a>
 			</div>
 			<div class="[ col s12 m6 ]">
-				<h5 class="[ text-center ][ margin-bottom ]">Cursos completados</h5>
-				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso básico de Yoga</p>
-				<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i> Curso intermedio de Yoga</p>
+				<h5 class="[ text-center ][ margin-bottom ]">Badges</h5>
+				<?php foreach ( $user_cursos as $curso ) : ?>
+					<?php if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : ?>
+						<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i><?php echo $curso->get_name(); ?></p>
+					<?php endif; ?>
+				<?php endforeach; ?>
 			</div>
 		</div>
 		<div class="[ row ]">
 			<?php
-		        $user_id = get_current_user_id();
-		        $current_user= wp_get_current_user();
-		        $customer_email = $current_user->email;
-		        $args = array(
-		            'post_type' => 'product',
-		            'posts_per_page' => -1,
-		            'tax_query' => array(
-				        array(
-				            'taxonomy' => 'product_type',
-				            'field'    => 'slug',
-				            'terms'    => 'simple_course', 
-				        ),
-				    ),
-		       	);
-		        $course_query = new WP_Query( $args );
-		        if ( $course_query->have_posts() ) : ?>
+		        if ( ! empty( $user_cursos ) ) : ?>
 		        	<h5>Mis cursos</h5>
 					<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
 						<thead>
@@ -70,29 +60,25 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</tr>
 						</thead>
 						<tbody>
-							<?php while ( $course_query->have_posts() ) : $course_query->the_post(); $_product = get_product( $course_query->post->ID ); 
-								$curso = new YC_Curso( $course_query->post->ID );
-								?>
-					            <?php if ( wc_customer_bought_product( $customer_email, $user_id,$_product->id ) ) : ?>
-									<tr>
-										<td>
-											<?php echo get_the_post_thumbnail( $_product->id , 'thumbnail', array('class'=>'[ width--100 ]') ); ?>
-										</td>
-										<td>
-											<?php the_title(); ?>
-										</td>
-										<td>
-											<div class="[ progress ][ no-margin ]">
-												<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-												<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?>  ]"></div>
-											</div>
-										</td>
-										<td class="[ text-right ]">
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
-										</td>
-									</tr>
-								<?php endif; ?>
-					       	<?php endwhile; wp_reset_postdata(); ?>
+							<?php foreach ( $user_cursos as $curso ) : ?>
+								<tr>
+									<td>
+										<?php echo $curso->get_thumbnail( '[ width--100 ]' ); ?>
+									</td>
+									<td>
+										<?php echo $curso->get_name(); ?>
+									</td>
+									<td>
+										<div class="[ progress ][ no-margin ]">
+											<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?>  ]"></div>
+										</div>
+									</td>
+									<td class="[ text-right ]">
+										<a href="<?php echo $curso->get_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+									</td>
+								</tr>
+					       	<?php endforeach; ?>
 				       	</tbody>
 					</table>
 				<?php endif; ?>
