@@ -233,30 +233,6 @@
 
 .white-space--nowrap		{ white-space: nowrap; }
 
-.card .text-ellipsis {
-  width: 100%;
-  overflow: hidden;
-}
-@media (max-width: 992px ){
-	.card .text-ellipsis {
-		height: 200px!important;
-		// p { height: 100%; }
-	}
-}
-
-#cursos .card-content {
-	@media (min-width: 1500px){ max-height: 200px; }
-	@media (min-width: 1600px){ max-height: 220px; }
-	@media (min-width: 1700px){ max-height: 239px; }
-}
-
-#cursos .col.s12.xl6 .top--22{
-	@media (min-width: 1550px) and (max-width: 1600px ){ top: 37px; }
-	@media (min-width: 1650px) and (max-width: 1700px ){ top: 37px; }
-	@media (min-width: 1750px) and (max-width: 1800px ){ top: 37px; }
-	@media (min-width: 1800px){ top: 37px; }
-}
-
 .categories {
 	a {
 		color:$dark-color;
