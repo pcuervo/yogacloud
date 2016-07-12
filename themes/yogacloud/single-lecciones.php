@@ -39,22 +39,12 @@
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
-		<?php else : ?>
-			<button class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
-				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-				<span class="[ middle inline-block ]">anterior</span>
-			</button>
 		<?php endif; ?>
 		<?php if( $next_post_link ) : ?>
 			<a href="<?php echo $next_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
-		<?php else : ?>
-			<button class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
-				<span class="[ middle inline-block ]">siguiente</span>
-				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
-			</button>
 		<?php endif; ?>
 	</div>
 </section>
@@ -68,10 +58,7 @@
 					<span class="[ middle inline-block ]">anterior</span>
 				</a>
 			<?php else : ?>
-				<button href="<?php echo $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
-					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-					<span class="[ middle inline-block ]">anterior</span>
-				</button>
+				&nbsp;
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
@@ -93,12 +80,19 @@
 <!-- 					<iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256340512&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe> -->
 				<?php endif; ?>
 			</article>
-			<article class="[ text-center ]">
-				<a class="[ btn btn-rounded ][ waves-effect waves-light ]">
-					<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
-					<span class="[ middle inline-block ]">descargar notas</span>
-				</a>
-			</article>
+			<?php
+				$notas = get_attached_media( 'application/pdf', $post->id );
+				foreach ($notas as $key => $nota) { ?>
+					<article class="[ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]" href="<?php echo $nota->guid; ?>">
+							<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+							<span class="[ middle inline-block ]">descargar notas</span>
+						</a>
+					</article>
+				<?php } ?>
+
+
+
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $next_post_link ) : ?>
@@ -107,10 +101,7 @@
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</a>
 			<?php else : ?>
-				<button class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
-					<span class="[ middle inline-block ]">siguiente</span>
-					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
-				</button>
+				&nbsp;
 			<?php endif; ?>
 		</div>
 	</div>
