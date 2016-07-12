@@ -201,7 +201,7 @@
 }
 
 #cursos .card-content {
-  @media (max-width: 1199px){ height: 200px; }
+  @media (max-width: 1199px){ height: 196px; }
   @media (min-width: 1200px){ height: 152px; }
   @media (min-width: 1300px){ height: 160px; }
   @media (min-width: 1400px){ height: 183px; }
@@ -212,7 +212,7 @@
   @media (min-width: 1900px){ height: 250px; }
 }
 
-h4.card-title{
+h5.card-title{
   @media (min-width: 1200px){ font-size:18px!important; margin-bottom: 0px; line-height: 1.5; }
 }
 
