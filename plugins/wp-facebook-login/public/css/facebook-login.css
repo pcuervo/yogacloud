@@ -3,32 +3,19 @@
  * included in this file.
  */
 .css-fbl{
-    background: url("../img/fb-icon.png") no-repeat 10px center;
-    background-color: #2b4170;
-    background: url("../img/fb-icon.png") no-repeat 10px center, -moz-linear-gradient(top, #3b5998, #2b4170);
-    background: url("../img/fb-icon.png") no-repeat 10px center, -ms-linear-gradient(top, #3b5998, #2b4170);
-    background: url("../img/fb-icon.png") no-repeat 10px center, -webkit-linear-gradient(top, #3b5998, #2b4170);
-    background-size: 25px 25px, cover;
-    line-height: 1;
-    display: block;
-    padding-left: 50px;
-    color: #fff !important;
-    text-decoration: none !important;
-    transition: opacity .3s ease-in;
-    text-shadow: 1px 1px 0px #000;
-    opacity: .90;
-    position: relative;
+    background-color: #13c2ac;  
+    transition: all .3s ease-in;
     max-width: 300px;
-    margin: 0 auto 16px;
+    margin: 5px auto 16px;
+    border-radius: 50px;
+    color: #fff !important;
+    font-weight: bold;
+    display: block;
+    padding:  0 2rem;   
 }
+
 a.css-fbl:hover{
-    background-color: #062c70;
-    background: url("../img/fb-icon.png") no-repeat 10px center, -moz-linear-gradient(top, #3b5998, #062C70);
-    background: url("../img/fb-icon.png") no-repeat 10px center, -ms-linear-gradient(top, #3b5998, #062C70);
-    background: url("../img/fb-icon.png") no-repeat 10px center, -webkit-linear-gradient(top, #3b5998, #062C70);
-    background-size: 25px 25px, cover;
-    color: #FDFDFD;
-    opacity: 1;
+    background-color: #36ebd5;
 }
 a.css-fbl div {
     height: 45px;
@@ -51,3 +38,4 @@ a.css-fbl div {
     color: red;
     width: 100%;
 }
+
