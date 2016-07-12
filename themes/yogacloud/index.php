@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
@@ -57,6 +56,7 @@
 								<div class="[ col l6 ]">
 									<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
 										<?php the_excerpt(); ?>
+										<?php ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
