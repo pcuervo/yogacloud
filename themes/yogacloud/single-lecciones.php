@@ -3,9 +3,6 @@
 		wp_redirect( home_url() );
 	}
 
-	get_header();
-	the_post();
-
 	$curso = new YC_Curso( $_GET['cid'] );
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
@@ -13,6 +10,14 @@
 	$video_info = $leccion->get_video_info();
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) ) . '&cid=' . $curso->id;
+
+	if ( ! $curso->was_bought_by_user( get_current_user_id() ) ){
+		wp_redirect( $curso->get_permalink() );
+	}
+
+	get_header();
+	the_post();
+
 ?>
 
 <section class="[ text-center ]">

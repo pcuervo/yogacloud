@@ -10,6 +10,13 @@ require_once("vimeo-php/autoload.php");
 require_once("class-yc_modulo.php");
 require_once("class-yc_maestro.php");
 
+define( 'VIMEO_CLIENT_ID_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
+define( 'VIMEO_CLIENT_SECRET_STAGE', 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv' );
+define( 'VIMEO_CLIENT_TOKEN_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
+define( 'VIMEO_CLIENT_ID_DEV', 'c98f74a25649baa4d5ecd430f9a64512' );
+define( 'VIMEO_CLIENT_SECRET_DEV', 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep' );
+define( 'VIMEO_CLIENT_TOKEN_DEV', 'e20734e9d20cdfa5a53a371ad3f54070' );
+
 class YC_Curso {
 
 	public $id;
@@ -21,10 +28,6 @@ class YC_Curso {
 	public $is_coming_soon; 
 	public $is_new;
 	private $trailer_info = array(); 
-	private $client_id;
-	private $client_secret;
-	private $access_token;
-
 	
 	/**
 	 * Constructor
@@ -36,16 +39,6 @@ class YC_Curso {
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->is_coming_soon 	= get_post_meta( $course_id, '_coming_soon', true );
 		$this->is_new			= $this->is_new();
-
-		// Cursos Staging WP
-		$this->client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
-		$this->client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
-		$this->access_token = 'c98f74a25649baa4d5ecd430f9a64512';
-		// Cursos Dev
-		$this->client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
-		$this->client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
-		$this->access_token = 'e20734e9d20cdfa5a53a371ad3f54070';
-
 		$this->hooks();
 	}
 
@@ -172,7 +165,7 @@ class YC_Curso {
 	* Initialize video player for course
 	*/
 	public function init_course_trailer_js() {
-		if ( empty( $this->trailer_info['iframe'] ) || ! is_curso( get_the_id() ) ) return;
+		if ( empty( $this->get_trailer_info() ) || ! is_curso( get_the_id() ) ) return;
 
 		?><script type='text/javascript'>
 			jQuery( document ).ready( function() {
@@ -237,6 +230,11 @@ class YC_Curso {
 		$lib = $this->get_vimeo_lib();  
 		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 
+		if( ! isset( $vimeo_response['body']['embed'] ) ){
+			$lib = $this->get_vimeo_lib( 'stage' );  
+			$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
+		}
+
 		$info = array(
 			'iframe' 	=> $vimeo_response['body']['embed']['html'],
 			'thumbnail' => $vimeo_response['body']['pictures']['sizes'][5]['link'],
@@ -248,9 +246,14 @@ class YC_Curso {
 	 * Return an instance of Vimeo lib
 	 * @return Vimeo $lib
 	 */
-	private function get_vimeo_lib(){
-		$lib = new \Vimeo\Vimeo($this->client_id, $this->client_secret);
-		$lib->setToken( $this->access_token );
+	private function get_vimeo_lib( $env = 'dev' ){
+		if( 'dev' == $env ){
+			$lib = new \Vimeo\Vimeo( VIMEO_CLIENT_ID_DEV, VIMEO_CLIENT_SECRET_DEV );
+			$lib->setToken( VIMEO_CLIENT_TOKEN_DEV );
+		} else {
+			$lib = new \Vimeo\Vimeo( VIMEO_CLIENT_ID_STAGE, VIMEO_CLIENT_SECRET_STAGE );
+			$lib->setToken( VIMEO_CLIENT_TOKEN_STAGE );
+		}
 		return $lib;
 	}
 
