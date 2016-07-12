@@ -13,9 +13,12 @@ class YC_Leccion {
 	public $name;
 	public $description;
 	public $permalink;
-	public $video_info = array();
+	private $video_info = array();
 	private $soundcloud_url;
 	private $is_free;
+	private $client_id;
+	private $client_secret;
+	private $access_token;
 
 	/*****************
 	* PUBLIC METHODS
@@ -36,7 +39,15 @@ class YC_Leccion {
 		$this->permalink 		= get_permalink( $lecciones_query->ID );
 		$this->soundcloud_url 	= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
 		$this->is_free 			= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
-		$this->video_info		= $this->get_video_info();
+
+		// Cursos Staging WP
+		$this->client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
+		$this->client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
+		$this->access_token = 'c98f74a25649baa4d5ecd430f9a64512';
+		// Cursos Dev
+		$this->client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
+		$this->client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
+		$this->access_token = 'e20734e9d20cdfa5a53a371ad3f54070';
 
 		$this->hooks();
 	}
@@ -117,7 +128,7 @@ class YC_Leccion {
 	 * Return information about the lessons's video, if any
 	 * @return array $info
 	 */
-	private function get_video_info(){
+	public function get_video_info(){
 		$video_url = get_post_meta( $this->id, '_vimeo_url_meta', true );
 		if( empty( $video_url ) ) return array();
 
@@ -137,11 +148,8 @@ class YC_Leccion {
 	 * @return Vimeo $lib
 	 */
 	private function get_vimeo_lib(){
-		$client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
-		$client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
-		$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-		$access_token = 'c98f74a25649baa4d5ecd430f9a64512';
-		$lib->setToken( $access_token );
+		$lib = new \Vimeo\Vimeo($this->client_id, $this->client_secret);
+		$lib->setToken( $this->access_token );
 		return $lib;
 	}
 

@@ -10,17 +10,18 @@
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
+	$video_info = $leccion->get_video_info();
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) ) . '&cid=' . $curso->id;
 ?>
 
 <section class="[ text-center ]">
-	<?php if ( ! empty( $leccion->video_info ) ) : ?>
+	<?php if ( ! empty( $video_info ) ) : ?>
 		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen min-height--500-l ][ no-margin ]" >
 			<div class="video-container">
-				<?php echo $leccion->video_info['iframe']; ?>
+				<?php echo $video_info['iframe']; ?>
 			</div>
-			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $leccion->video_info['thumbnail']; ?>)">
+			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $video_info['thumbnail']; ?>)">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
 						<img class="[ center-full ]" src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
