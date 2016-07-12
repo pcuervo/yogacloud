@@ -78,7 +78,7 @@
 <!-- 			<article>
 				<div class="[ progress progress--large ]">
 					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--90 ][ relative z-index-1 ]"></i>
-					<div class="[ progress-percent ][ progress-height ]"></div>
+					<div class="[ progress-percent ]"></div>
 				</div>
 			</article> -->
 			<article class="[ content-user ]">
