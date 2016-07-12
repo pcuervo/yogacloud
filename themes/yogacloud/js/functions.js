@@ -9,6 +9,9 @@ var $=jQuery.noConflict();
             #GLOBAL
         \*------------------------------------*/
         footerBottom();
+        $(window).on('resize', function(){
+            footerBottom();
+        });
 
         $('.dropdown-button').dropdown();
         $('.dropdown-button').dropdown({

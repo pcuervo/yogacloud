@@ -31,27 +31,31 @@
 	<?php endif; ?>
 
 	<div class="[ text-center ][ hide-on-large-only ]">
+		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
+		</a>
+		<br />
 		<?php if( $previous_post_link ) : ?>
-			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">  
+			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
 		<?php else : ?>
-			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">  
+			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</button>
 		<?php endif; ?>
-		<?php if( $next_post_link ) : echo $next_post_link ?>
+		<?php if( $next_post_link ) : ?>
 			<a href="<?php echo $next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
 		<?php else : ?>
-			<a href="<?php echo $next_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
+			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
-			</a>
+			</button>
 		<?php endif; ?>
 	</div>
 </section>
@@ -59,7 +63,7 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<?php if( $previous_post_link ) : ?>		
+			<?php if( $previous_post_link ) : ?>
 				<a href="<?php echo $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 					<span class="[ middle inline-block ]">anterior</span>
@@ -96,7 +100,7 @@
 			</article>
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<?php if( $next_post_link ) : ?>			
+			<?php if( $next_post_link ) : ?>
 				<a href="<?php echo $next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
