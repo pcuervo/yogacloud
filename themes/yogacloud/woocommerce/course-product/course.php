@@ -3,6 +3,8 @@
 	$curso 		= new YC_Curso( $product->id );
 	$modulos 	= $curso->get_modulos();
 	$maestros 	= $curso->get_maestros();
+
+	var_dump( $curso->get_progress_by_user( get_current_user_id() ) );
 ?>
 
 <?php if ( ! empty( $curso->trailer_info ) ) : ?>

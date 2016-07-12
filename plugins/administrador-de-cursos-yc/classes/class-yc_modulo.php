@@ -52,6 +52,18 @@ class YC_Modulo {
 	}
 
 	/**
+	* Return all Módulos from the course
+	* @return array $lecciones
+	*/
+	public function get_lecciones_from_terms(){
+		$lecciones = array();
+		$lecciones_terms = wp_get_post_terms( $this->id, 'lecciones' );
+		if( empty( $lecciones_terms ) ) return $lecciones;
+		foreach ( $lecciones_terms as $key => $leccion_term ) $lecciones[$key] = new YC_Leccion( array( 'name' => $leccion_term->name ) );
+		return $lecciones;
+	}
+
+	/**
 	* Return the progress in the module by a given user
 	* @param int $user_id
 	* @return int $progress
@@ -66,10 +78,10 @@ class YC_Modulo {
 			 WHERE module_id = " . $this->id . " AND user_id = " . $user_id, ARRAY_A);
 		if( empty( $seen_lessons_results ) ) return 0;
 
-		$lecciones_totales = count( $this->get_lecciones() );
-		if( 0 == $lecciones_totales ) return 0; 
+		$total_lecciones = count( $this->get_lecciones() );
+		if( 0 == $total_lecciones ) return 0; 
 
-		return $seen_lessons_results[0]['completed'] / $lecciones_totales * 100;
+		return $seen_lessons_results[0]['completed'] / $total_lecciones * 100;
 	}
 
 	/**
