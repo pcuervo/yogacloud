@@ -8,8 +8,10 @@
 
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
-	$previous_post_link = '#';
-	$next_post_link = '#';
+	$leccion->get_position( $modulo->id );
+	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
+	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
+	var_dump( $previous_post_link );
 ?>
 
 <section class="[ text-center ]">
@@ -29,24 +31,45 @@
 	<?php endif; ?>
 
 	<div class="[ text-center ][ hide-on-large-only ]">
-		<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
-			<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-			<span class="[ middle inline-block ]">anterior</span>
-		</a>
-		<a href="<?php $next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
-			<span class="[ middle inline-block ]">siguiente</span>
-			<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
-		</a>
+		<?php if( $previous_post_link ) : ?>
+			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">  
+				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+				<span class="[ middle inline-block ]">anterior</span>
+			</a>
+		<?php else : ?>
+			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">  
+				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+				<span class="[ middle inline-block ]">anterior</span>
+			</button>
+		<?php endif; ?>
+		<?php if( $next_post_link ) : echo $next_post_link ?>
+			<a href="<?php echo $next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+				<span class="[ middle inline-block ]">siguiente</span>
+				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
+			</a>
+		<?php else : ?>
+			<a href="<?php echo $next_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
+				<span class="[ middle inline-block ]">siguiente</span>
+				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
+			</a>
+		<?php endif; ?>
 	</div>
 </section>
 
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]">
-				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-				<span class="[ middle inline-block ]">anterior</span>
-			</a>
+			<?php if( $previous_post_link ) : ?>		
+				<a href="<?php echo $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+					<span class="[ middle inline-block ]">anterior</span>
+				</a>
+			<?php else : ?>
+				<button href="<?php echo $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
+					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+					<span class="[ middle inline-block ]">anterior</span>
+				</button>
+			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
 <!-- 			<article>
@@ -56,7 +79,9 @@
 				</div>
 			</article> -->
 			<article class="[ content-user ]">
-				<h5><?php echo $modulo->name; ?></h5>
+				<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+					<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
+				</a>
 				<h5><?php the_title(); ?></h5>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
@@ -71,10 +96,17 @@
 			</article>
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
-			<a href="<?php $next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
-				<span class="[ middle inline-block ]">siguiente</span>
-				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
-			</a>
+			<?php if( $next_post_link ) : ?>			
+				<a href="<?php echo $next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+					<span class="[ middle inline-block ]">siguiente</span>
+					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
+				</a>
+			<?php else : ?>
+				<button class="[ float-right ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
+					<span class="[ middle inline-block ]">siguiente</span>
+					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
+				</button>
+			<?php endif; ?>
 		</div>
 	</div>
 </div>

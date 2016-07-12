@@ -38,11 +38,15 @@ class YC_Modulo {
 	* @return array $lecciones
 	*/
 	public function get_lecciones(){
+		global $wpdb;
 		$lecciones = array();
-		$lecciones_terms = wp_get_post_terms( $this->id, 'lecciones' );
-		if( empty( $lecciones_terms ) ) return $lecciones;
 
-		foreach ( $lecciones_terms as $key => $leccion_term ) $lecciones[$key] = new YC_Leccion( array( 'name' => $leccion_term->name ) );
+		$lecciones_results = $wpdb->get_results(
+			"SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE module_id = " . $this->id . " ORDER BY position"  
+			);
+		if( empty( $lecciones_results ) ) return $lecciones;
+
+		foreach ( $lecciones_results as $key => $result ) $lecciones[$key] = new YC_Leccion( array( 'id' => $result->lesson_id ) );
 
 		return $lecciones;
 	}
@@ -77,6 +81,36 @@ class YC_Modulo {
 			array( '%s' )
 		);
 		return $wpdb->insert_id;
+	}
+
+	/**
+	* Return the permalink of the next lesson
+	* @param int $current_lesson_position
+	* @return string $permalink
+	*/
+	public function get_next_lesson_link( $current_lesson_positon ) {
+		global $wpdb;
+		$next_position = $current_lesson_positon + 1;
+		$results = $wpdb->get_row( "SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE position =" . $next_position . " AND module_id = " . $this->id, "ARRAY_A" );
+		if( empty( $results ) ) return 0;
+
+		$lesson = new YC_Leccion( array( 'id' => $results['lesson_id'] ) );
+		return $lesson->permalink . '?mid=' . $this->id;
+	}
+
+	/**
+	* Return the permalink of the previous lesson
+	* @param int $current_lesson_position
+	* @return string $permalink
+	*/
+	public function get_previous_lesson_link( $current_lesson_positon ) {
+		global $wpdb;
+		$next_position = $current_lesson_positon - 1;
+		$results = $wpdb->get_row( "SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE position =" . $next_position . " AND module_id = " . $this->id, "ARRAY_A" );
+		if( empty( $results ) ) return 0;
+
+		$lesson = new YC_Leccion( array( 'id' => $results['lesson_id'] ) );
+		return $lesson->permalink . '?mid=' . $this->id;
 	}
 
 }// YC_Modulo
