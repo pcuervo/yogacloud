@@ -43,7 +43,7 @@ YogaCloudVideo.prototype = {
                 clearInterval( self._elapsedTimeInterval );
                 self.markAsWatched();
             }
-            
+
         }).catch(function(error) {
             console.log( error );
         });
@@ -64,6 +64,7 @@ YogaCloudVideo.prototype = {
             },
             function( response ){
                 // Hacer algo cuando se termina el curso
+                console.log('watched');
             }
         );
     }
