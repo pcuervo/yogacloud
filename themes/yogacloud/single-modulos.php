@@ -48,12 +48,12 @@
 		<?php if( empty( $lecciones ) ) : ?>
 			<p class="[ text-center ]">Por el momento no hay lecciones en este módulo.</p>
 		<?php else : ?>
-			
+
 			<?php foreach ( $lecciones as $lesson ) : ?>
 			<div class="[ col col s12 m10 offset-m1 l8 offset-l2  ]">
 				<a class="[ color-dark ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 					<div class="[ border-bottom--dark ]">
-							
+
 						<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"></h5>
 							<i class="[ icon icon-badge-star-1 icon-iconed ][ color-primary ][ float-right ]"></i>
@@ -73,7 +73,7 @@
 			<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">ir a curso</span>
-			</a>		
+			</a>
 		</div>
 	</div>
 </section>
