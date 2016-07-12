@@ -67,6 +67,7 @@ YogaCloudVideo.prototype = {
             function( response ){
                 // Hacer algo cuando se termina el curso
                 console.log('watched');
+                $('.js-lesson-completed').removeClass('hidden');
             }
         );
     }

@@ -16,7 +16,7 @@
 
 <section class="[ text-center ]">
 	<?php if ( ! empty( $leccion->video_info ) ) : ?>
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen ][ min-height--500-l ]" >
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen min-height--500-l ][ no-margin ]" >
 			<div class="video-container">
 				<?php echo $leccion->video_info['iframe']; ?>
 			</div>
@@ -28,6 +28,16 @@
 				</div>
 			</div>
 		</article>
+	<?php endif; ?>
+
+	<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition hidden ][ js-lesson-completed ]">
+		<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
+	</div>
+
+	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+			<div class="[ bg-secondary ][ padding-vertical--xsmall ]">
+				<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
+			</div>
 	<?php endif; ?>
 
 	<div class="[ text-center ][ hide-on-large-only ]">
@@ -82,15 +92,15 @@
 				<?php endif; ?>
 			</article>
 			<?php
-				$notas = get_attached_media( 'application/pdf', $post->id );
-				foreach ($notas as $key => $nota) { ?>
-					<article class="[ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]" href="<?php echo $nota->guid; ?>">
-							<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
-							<span class="[ middle inline-block ]">descargar notas</span>
-						</a>
-					</article>
-				<?php } ?>
+			$notas = get_attached_media( 'application/pdf', $post->id );
+			foreach ($notas as $key => $nota) { ?>
+				<article class="[ text-center ]">
+					<a class="[ btn btn-rounded ][ waves-effect waves-light ]" href="<?php echo $nota->guid; ?>">
+						<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
+						<span class="[ middle inline-block ]">descargar notas</span>
+					</a>
+				</article>
+			<?php } ?>
 
 
 
