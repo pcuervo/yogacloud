@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="">
 		<div class="[ row ][ no-margin ]">
 			<div class="[ col s12 m6 ][ text-center ][ border-right--primary ][ margin-bottom ]">
-				<img src="<?php echo THEMEPATH; ?>images/testimonial.png" alt="image user">
+				<i class="[ icon icon-user icon-iconed icon-xxlarge ][ color-primary ]"></i>
 				<h5>
 					<?php
 						echo sprintf( esc_attr__( '%s%s%s', 'woocommerce' ), esc_html( $current_user->display_name ), '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
