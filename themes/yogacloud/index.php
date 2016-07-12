@@ -60,7 +60,7 @@
 								</div>
 								<div class="[ col s12 xl6 ][ height-content ]">
 									<div class="[ card-content ][ overflow-hidden ]">
-										<h4 class="[ card-title ]"><?php the_title(); ?></h4>
+										<h4 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h4>
 										<?php the_excerpt(); ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
