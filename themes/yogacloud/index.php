@@ -32,7 +32,7 @@
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
-				<?php while( $cursos_query->have_posts() ) : $cursos_query->the_post(); 
+				<?php while( $cursos_query->have_posts() ) : $cursos_query->the_post();
 
 					if( ! is_curso( $post->ID ) ) continue;
 
