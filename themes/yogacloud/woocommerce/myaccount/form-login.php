@@ -54,12 +54,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<?php do_action( 'woocommerce_login_form' ); ?>
 
-					<p class="form-row [ text-right ]">
+					<p class="form-row [ text-center ]">
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-						<input type="submit" class="woocommerce-Button button" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
-						<label for="rememberme" class="[ text-center ]">
-							<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Recordarme', 'woocommerce' ); ?>
-						</label>
+						<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
+						<br />
+						<br />
+						<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" data-parsley-multiple="rememberme">
+						<label for="rememberme" class="[ text-center ]"><?php _e( 'Remember me', 'woocommerce' ); ?></label>
 					</p>
 					<p class="woocommerce-LostPassword lost_password [ text-center ]">
 						<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?></a>
@@ -115,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_register_form' ); ?>
 			<?php do_action( 'register_form' ); ?>
 
-			<p class="woocomerce-FormRow form-row [ text-right ]">
+			<p class="woocomerce-FormRow form-row [ text-center ]">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
 				<input type="submit" class="woocommerce-Button button" name="register" value="<?php esc_attr_e( 'Register', 'woocommerce' ); ?>" />
 			</p>
