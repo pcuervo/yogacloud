@@ -18,23 +18,33 @@ class YC_Curso {
 	public $num_lessons; 
 	public $lessons_per_week; 
 	public $hours; 
-	public $trailer_info = array();
 	public $is_coming_soon; 
-	public $is_new; 
-	private $course_progress;
+	public $is_new;
+	private $trailer_info = array(); 
+	private $client_id;
+	private $client_secret;
+	private $access_token;
 
+	
 	/**
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
-		error_log( $course_id );
 		$this->id 				= $course_id;
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->is_coming_soon 	= get_post_meta( $course_id, '_coming_soon', true );
-		$this->trailer_info		= $this->get_trailer_info();
 		$this->is_new			= $this->is_new();
+
+		// Cursos Staging WP
+		$this->client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
+		$this->client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
+		$this->access_token = 'c98f74a25649baa4d5ecd430f9a64512';
+		// Cursos Dev
+		$this->client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
+		$this->client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
+		$this->access_token = 'e20734e9d20cdfa5a53a371ad3f54070';
 
 		$this->hooks();
 	}
@@ -219,7 +229,7 @@ class YC_Curso {
 	 * Return information about the course's trailer, if any
 	 * @return array $info
 	 */
-	private function get_trailer_info(){
+	public function get_trailer_info(){
 		$trailer_url = get_post_meta( $this->id, '_vimeo_url', true );
 		if( empty( $trailer_url ) ) return array();
 
@@ -239,11 +249,8 @@ class YC_Curso {
 	 * @return Vimeo $lib
 	 */
 	private function get_vimeo_lib(){
-		$client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
-		$client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
-		$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-		$access_token = 'c98f74a25649baa4d5ecd430f9a64512';
-		$lib->setToken( $access_token );
+		$lib = new \Vimeo\Vimeo($this->client_id, $this->client_secret);
+		$lib->setToken( $this->access_token );
 		return $lib;
 	}
 
