@@ -116,13 +116,14 @@ class YC_Curso {
 	* Initialize video player for course
 	*/
 	public function init_course_trailer_js() {
-		if ( empty( $this->trailer_info ) || ! is_curso( get_the_id() ) ) return;
+		if ( empty( $this->trailer_info['iframe'] ) || ! is_curso( get_the_id() ) ) return;
 
 		?><script type='text/javascript'>
+			console.log('we are her');
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
 				var player = new Vimeo.Player(iframe);
-				var yc_course = new YogaCloudCourse( player, true );
+				var yc_course = new YogaCloudVideo( player, true );
 				yc_course._init();
 			});
 		</script><?php
@@ -166,7 +167,6 @@ class YC_Curso {
 	private function hooks() {
 		//add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		//add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		//add_action( 'template_redirect', array( $this, 'load_script_course_page' ) );
 		add_action( 'wp_footer', array( $this, 'init_course_trailer_js' ) );
 	}	
 
@@ -180,7 +180,7 @@ class YC_Curso {
 
 		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1]; 
 		$lib = $this->get_vimeo_lib();  
-		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id, array(), 'GET');
+		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 
 		$info = array(
 			'iframe' 	=> $vimeo_response['body']['embed']['html'],
@@ -194,10 +194,10 @@ class YC_Curso {
 	 * @return Vimeo $lib
 	 */
 	private function get_vimeo_lib(){
-		$client_id = '63047a064a58c6025c48a65d4a2dc5f9925c8f0b';
-		$client_secret = 'fwzqOVXD31YrcgoQxHa+BCkLSg/WBycBfrSKny13Ibb6oObVmuBEf8azGFMulDEwGJOnCNtC9rNL0st8hdCK8yuV1QCRt1R0OMEDmTRBiXAZPdG+AvbTKpAG/kGMPYep';
+		$client_id = '9a45f811df05a8d29551a2e9c62e4addb9bcb463';
+		$client_secret = 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv';
 		$lib = new \Vimeo\Vimeo($client_id, $client_secret);
-		$access_token = '44c1e916b341de354e5a3e25a3181dbb';
+		$access_token = 'c98f74a25649baa4d5ecd430f9a64512';
 		$lib->setToken( $access_token );
 		return $lib;
 	}

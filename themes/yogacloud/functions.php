@@ -174,3 +174,36 @@ add_action( 'woocommerce_order_status_processing', 'mysite_processing');
 add_action( 'woocommerce_order_status_completed', 'mysite_completed');
 add_action( 'woocommerce_order_status_refunded', 'mysite_refunded');
 add_action( 'woocommerce_order_status_cancelled', 'mysite_cancelled');
+
+
+
+/** MOVE TO PLUGIN **/
+
+/**
+ * Mark lesson as watched
+ */
+function mark_lesson_as_watched(){
+	$user_id = get_current_user_id();
+	$lesson_id = $_POST['lesson_id'];
+
+	if( 0 == $user_id ) wp_die();
+
+	global $wpdb;
+	$user_lesson_data = array(
+		'user_id'			=> $user_id,
+		'lesson_id' 		=> $lesson_id,
+		'is_completed'		=> true,
+	);
+	$wpdb->insert(
+		$wpdb->prefix . 'user_lessons',
+		$user_lesson_data,
+		array( '%d', '%d', '%d' )
+	);
+
+	echo $lesson_id;
+	wp_die();
+}
+add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', 'mark_lesson_as_watched' );
+add_action( 'wp_ajax_mark_lesson_as_watched', 'mark_lesson_as_watched' );
+
+

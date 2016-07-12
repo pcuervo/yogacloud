@@ -1,4 +1,4 @@
-<?php
+f<?php
 /**
  * Admin panel settings for Cursos YogaCloud.
  *
@@ -246,8 +246,8 @@ class YC_Admin_Cursos_Settings {
 	 * Add javascript and style files
 	 */
 	function enqueue_and_localize_scripts(){
-		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-course.js' );
-		wp_localize_script( 'sondeo_cdmx_admin_functions', 'ajax_url', admin_url('admin-ajax.php') );
+		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
+		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
 	}
 
 	/**

@@ -4,7 +4,7 @@
 	}
 
 	$curso = new YC_Curso( $_GET['cid'] );
-	$modulo = new YC_Modulo( array( 'name' => get_the_title() ) );
+	$modulo = new YC_Modulo( array( 'id' => get_the_id() ) );
 	$lecciones = $modulo->get_lecciones();
 
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) ){

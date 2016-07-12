@@ -1,15 +1,16 @@
-function YogaCloudCourse( player, watched ){
+function YogaCloudVideo( lessonId, player, watched ){
     this.PERCENT_TO_MARK_AS_WATCHED = 80;
     this.INTERVAL = 2000;
 
+    this._lessonId = lessonId;
     this._player = player;
     this._elapsedTimeInterval;
     this._duration = 0;
     this._isMarkedAsWatched = watched;
 }
 
-YogaCloudCourse.prototype = {
-    constructor: YogaCloudCourse,
+YogaCloudVideo.prototype = {
+    constructor: YogaCloudVideo,
     _init: function(){
         this._player.getDuration().then(function(duration) {
             this._duration = duration;
@@ -55,5 +56,15 @@ YogaCloudCourse.prototype = {
     },
     markAsWatched: function(){
         this._isMarkedAsWatched = true;
+        $.post(
+            ajax_url,
+            {
+                lesson_id:  this._lessonId,
+                action:     'mark_lesson_as_watched'
+            },
+            function( response ){
+                // Hacer algo cuando se termina el curso
+            }
+        );
     }
 }
