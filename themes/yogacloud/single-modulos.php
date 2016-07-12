@@ -62,6 +62,9 @@
 									<div class="[ padding-bottom ]">
 										<a href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
 									</div>
+									<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+										vista
+									<?php endif; ?>
 								</div>
 							<?php endforeach; ?>
 						<?php endif; ?>
