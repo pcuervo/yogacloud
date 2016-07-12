@@ -62,7 +62,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							Lorem ipsum dolor sit amet. Lorem ipsum dolor sit Lorem ipsum dolor sit amet.
 						</td>
 						<td>
-							<div class="[ progress ]">
+							<div class="[ progress ][ no-margin ]">
 								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 								<div class="[ progress-percent ]"></div>
 							</div>
@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							Lorem ipsum dolor sit
 						</td>
 						<td>
-							<div class="[ progress ]">
+							<div class="[ progress ][ no-margin ]">
 								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 								<div class="[ progress-percent ]"></div>
 							</div>
@@ -92,7 +92,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							Lorem ipsum dolor sit amet
 						</td>
 						<td>
-							<div class="[ progress ]">
+							<div class="[ progress ][ no-margin ]">
 								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 								<div class="[ progress-percent ]"></div>
 							</div>

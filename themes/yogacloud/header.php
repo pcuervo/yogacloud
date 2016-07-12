@@ -85,7 +85,7 @@
 									<?php if ( is_user_logged_in() ){ ?>
 										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Raúl De Zamacona</a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
-										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
 										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
 									<?php } ?>
@@ -199,7 +199,7 @@
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="<?php echo site_url('/my-account/orders/'); ?>" class="<?php if(is_page('orders')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/my-account/'); ?>" class="<?php if(is_page('my-account')) echo 'active'; ?>">Mis cursos</a></li>
 								<li><a href="<?php echo site_url('/my-account/customer-logout/'); ?>">Sign out</a></li>
 							</ul>
 						<?php } ?>
