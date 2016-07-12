@@ -3,14 +3,15 @@
 	$curso 		= new YC_Curso( $product->id );
 	$modulos 	= $curso->get_modulos();
 	$maestros 	= $curso->get_maestros();
+	$trailer_info = $curso->get_trailer_info();
 ?>
 
-<?php if ( ! empty( $curso->trailer_info ) ) : ?>
+<?php if ( ! empty( $trailer_info ) ) : ?>
 	<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 		<div class="video-container">
-			<?php echo $curso->trailer_info['iframe']; ?>
+			<?php echo $trailer_info['iframe']; ?>
 		</div>
-		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $curso->trailer_info['thumbnail']; ?>">
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
 			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<h1 class="[ absolute ][ width---100 ]"><?php echo $curso->get_name(); ?></h1>
