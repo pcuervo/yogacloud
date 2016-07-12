@@ -27,6 +27,7 @@ class YC_Curso {
 	 * Constructor
 	 */
 	public function __construct( $course_id ) {
+		error_log( $course_id );
 		$this->id 				= $course_id;
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
@@ -57,6 +58,18 @@ class YC_Curso {
 	}
 
 	/**
+	* Return all Módulos from the course (taken from taxonomy "módulos")
+	* @return array $modulos
+	*/
+	public function get_modulos_from_terms(){
+		$modulos = array();
+		$modulos_terms = wp_get_post_terms( $this->id, 'modulos' );
+		if( empty( $modulos_terms ) ) return $modulos;
+		foreach ( $modulos_terms as $key => $modulo_term ) $modulos[$key] = new YC_Modulo( array( 'name' => $modulo_term->name ) );
+		return $modulos;
+	}
+
+	/**
 	* Get course name
 	* @return array $name
 	*/
@@ -71,6 +84,23 @@ class YC_Curso {
 	*/
 	public function get_permalink(){
 		return get_permalink( $this->id );
+	}
+
+	/**
+	* Return the progress in the course by a given user
+	* @param int $user_id
+	* @return int $progress
+	*/
+	public function get_progress_by_user( $user_id ){
+		if( 0 == $user_id ) return 0;
+
+		$modulos = $this->get_modulos();
+		if( 0 == count( $modulos ) ) return 0;
+
+		$progress_by_modulo = 0;
+		foreach ( $modulos as $key => $modulo ) $progress_by_modulo += $modulo->get_progress_by_user( $user_id );
+
+		return ceil( $progress_by_modulo / count( $modulos ) );
 	}
 
 	/**

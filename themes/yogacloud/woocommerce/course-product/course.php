@@ -3,6 +3,8 @@
 	$curso 		= new YC_Curso( $product->id );
 	$modulos 	= $curso->get_modulos();
 	$maestros 	= $curso->get_maestros();
+
+	var_dump( $curso->get_progress_by_user( get_current_user_id() ) );
 ?>
 
 <?php if ( ! empty( $curso->trailer_info ) ) : ?>
@@ -66,7 +68,7 @@
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
 							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-							<div class="[ progress-percent ]"></div>
+							<div class="[ progress-20 ]"></div>
 						</div>
 					</div>
 				</section>
