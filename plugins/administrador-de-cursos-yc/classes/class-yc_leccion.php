@@ -93,6 +93,19 @@ class YC_Leccion {
 	*****************/
 
 	/**
+	* Check if a lesson exists in the module
+	* @param int $lesson_id 
+	* @return boolean
+	*/
+	public function get_position( $module_id ) {
+		global $wpdb;
+		$results = $wpdb->get_row( "SELECT position FROM " . $wpdb->prefix . "modules_lessons WHERE lesson_id =" . $this->id . " AND module_id = " . $module_id, "ARRAY_A" );
+		if( empty( $results) ) return -1;
+
+		return $results['position'];
+	}
+
+	/**
 	 * Hooks
 	 */
 	private function hooks() {

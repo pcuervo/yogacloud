@@ -46,7 +46,7 @@ class YC_Modulo {
 			);
 		if( empty( $lecciones_results ) ) return $lecciones;
 
-		foreach ( $lecciones_results as $key => $result ) $lecciones[$key] = new YC_Modulo( array( 'id' => $result->lesson_id ) );
+		foreach ( $lecciones_results as $key => $result ) $lecciones[$key] = new YC_Leccion( array( 'id' => $result->lesson_id ) );
 
 		return $lecciones;
 	}
@@ -81,6 +81,36 @@ class YC_Modulo {
 			array( '%s' )
 		);
 		return $wpdb->insert_id;
+	}
+
+	/**
+	* Return the permalink of the next lesson
+	* @param int $current_lesson_position
+	* @return string $permalink
+	*/
+	public function get_next_lesson_link( $current_lesson_positon ) {
+		global $wpdb;
+		$next_position = $current_lesson_positon + 1;
+		$results = $wpdb->get_row( "SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE position =" . $next_position . " AND module_id = " . $this->id, "ARRAY_A" );
+		if( empty( $results ) ) return 0;
+
+		$lesson = new YC_Leccion( array( 'id' => $results['lesson_id'] ) );
+		return $lesson->permalink . '?mid=' . $this->id;
+	}
+
+	/**
+	* Return the permalink of the previous lesson
+	* @param int $current_lesson_position
+	* @return string $permalink
+	*/
+	public function get_previous_lesson_link( $current_lesson_positon ) {
+		global $wpdb;
+		$next_position = $current_lesson_positon - 1;
+		$results = $wpdb->get_row( "SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE position =" . $next_position . " AND module_id = " . $this->id, "ARRAY_A" );
+		if( empty( $results ) ) return 0;
+
+		$lesson = new YC_Leccion( array( 'id' => $results['lesson_id'] ) );
+		return $lesson->permalink . '?mid=' . $this->id;
 	}
 
 }// YC_Modulo
