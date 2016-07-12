@@ -29,7 +29,7 @@
 	</article>
 </section>
 <section class="[ text-center ]">
-	<?php if ( 100 == $modulo->get_progress_by_user( get_current_user_id() ) ) : ?> 
+	<?php if ( 100 == $modulo->get_progress_by_user( get_current_user_id() ) ) : ?>
 		<h5 class="[ text-center ][ margin-bottom ]">Completado</h5>
 	<?php else : ?>
 		<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>

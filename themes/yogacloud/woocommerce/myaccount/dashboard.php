@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<td>
 							<div class="[ progress ][ no-margin ]">
 								<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-								<div class="[ progress-percent progress-20 ]"></div>
+								<div class="[ progress-percent ]"></div>
 							</div>
 						</td>
 						<td class="[ text-right ]"><a href="<?php echo site_url('/curso/'); ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a></td>
