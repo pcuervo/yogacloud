@@ -98,6 +98,39 @@ function print_title(){
 	#GET/SET FUNCTIONS
 \*------------------------------------*/
 
+/**
+ * Get Cursos for a given user
+ * @param int $user_id
+ * @return YC_Curso $cursos
+ */
+function get_user_cursos( $user_id ) {
+	$cursos = array();
+    $current_user= wp_get_current_user();
+    $customer_email = $current_user->email;
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+	        array(
+	            'taxonomy' => 'product_type',
+	            'field'    => 'slug',
+	            'terms'    => 'simple_course', 
+	        ),
+	    ),
+   	);
+    $course_query = new WP_Query( $args );
+    if ( ! $course_query->have_posts() ) return $cursos;
+    
+    while ( $course_query->have_posts() ) : $course_query->the_post(); 
+    	$_product = get_product( $course_query->post->ID ); 
+    	if ( wc_customer_bought_product( $customer_email, $user_id,$_product->id ) ) {
+			$curso = new YC_Curso( $course_query->post->ID );
+			array_push( $cursos, $curso );
+    	}
+	endwhile; wp_reset_postdata();
+	return $cursos;
+}
+
 /*------------------------------------*\
 	#AJAX FUNCTIONS
 \*------------------------------------*/

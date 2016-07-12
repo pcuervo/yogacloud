@@ -90,6 +90,15 @@ class YC_Curso {
 	}
 
 	/**
+	* Get course thumbnail
+	* @param string $class
+	* @return array $permalink
+	*/
+	public function get_thumbnail( $class ){
+		return get_the_post_thumbnail( $this->id , 'thumbnail', array('class'=> $class ) );
+	}
+
+	/**
 	* Return the progress in the course by a given user
 	* @param int $user_id
 	* @return int $progress
