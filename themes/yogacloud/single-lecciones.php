@@ -30,12 +30,12 @@
 		</article>
 	<?php endif; ?>
 
-	<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition hidden ][ js-lesson-completed ]">
+	<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
 		<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
 	</div>
 
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-			<div class="[ bg-secondary ][ padding-vertical--xsmall ]">
+			<div class="[ bg-secondary ][ padding-vertical--xsmall ][ lesson-completed ]">
 				<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
 			</div>
 	<?php endif; ?>
@@ -73,13 +73,13 @@
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
-<!-- 			<article>
+			<!-- <article>
 				<div class="[ progress progress--large ]">
 					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--90 ][ relative z-index-1 ]"></i>
 					<div class="[ progress-percent ]"></div>
 				</div>
-			</article> -->
-			<article class="[ content-user ]">
+			</article>
+ -->			<article class="[ content-user ]">
 				<div class="[ text-center ]">
 					<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
 						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>

@@ -44,7 +44,7 @@ class YC_Admin_Cursos_Settings {
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
 			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
 		}
-	
+
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
@@ -124,9 +124,9 @@ class YC_Admin_Cursos_Settings {
 					'label'			=> __( 'Horas', 'woocommerce' ),
 					'type' 			=> 'number',
 				) );
-				woocommerce_wp_checkbox( array( 
-					'id' 			=> '_coming_soon', 
-					'label' 		=> __( '¿Está disponbile el curso?', 'woocommerce' ), 
+				woocommerce_wp_checkbox( array(
+					'id' 			=> '_coming_soon',
+					'label' 		=> __( '¿Está disponbile el curso?', 'woocommerce' ),
 					'description' 	=> __( 'Seleccionar si el curso sale próximamente.', 'woocommerce' ) ) );
 			?></div>
 
@@ -150,7 +150,7 @@ class YC_Admin_Cursos_Settings {
 	 * Hide Attributes data panel.
 	 */
 	public function manage_attributes_data_panel( $tabs) {
-		
+
 		// Other default values for 'attribute' are; general, inventory, shipping, linked_product, variations, advanced
 		$tabs['attribute']['class'][] = 'hide_if_simple_course hide_if_variable_course';
 		$tabs['linked_product']['class'][] = 'hide_if_simple_course hide_if_variable_course';
@@ -204,7 +204,7 @@ class YC_Admin_Cursos_Settings {
 	public function update_custom_taxonomies() {
 		if( 'maestros' == get_post_type() OR 'modulos' == get_post_type() OR 'lecciones' == get_post_type() ){
 			$this->insert_custom_taxonomy_term( get_post_type() );
-		}		
+		}
 	}
 
 	/**
@@ -212,7 +212,7 @@ class YC_Admin_Cursos_Settings {
 	 */
 	public function update_courses_modules() {
 		if( ! is_curso( get_the_id() ) ) return;
-			
+
 		$curso = new YC_Curso( get_the_id() );
 		foreach ( $curso->get_modulos_from_terms() as $modulo ) {
 			if( ! $curso->has_modulo( $modulo->id ) ){
@@ -226,11 +226,13 @@ class YC_Admin_Cursos_Settings {
 	 * Update the relationship between Modulos and Lecciones
 	 */
 	public function update_modules_lessons() {
+		error_log('update_modules_lessons');
 		if( 'modulos' != get_post_type() ) return;
 
 		$modulo = new YC_Modulo( get_the_id() );
 		foreach ( $modulo->get_lecciones_from_terms() as $leccion ) {
 			if( ! $modulo->has_leccion( $leccion->id ) ){
+				error_log($leccion->id);
 				$id = $modulo->add_lesson( $leccion->id );
 			}
 		}
@@ -671,11 +673,10 @@ class YC_Admin_Cursos_Settings {
 
 			wp_insert_term($modulo->post_title, $post_type );
 		}// foreach
-		
+
 	}// insert_custom_taxonomy_term
 
 }// YC_Admin_Cursos_Settings
 
 
 
-		

@@ -68,7 +68,7 @@
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
 							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-							<div class="[ progress-20 ]"></div>
+							<div class="[ progress-percent progress-20 ]"></div>
 						</div>
 					</div>
 				</section>

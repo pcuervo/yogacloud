@@ -87,7 +87,7 @@
 
 										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>"><?php echo $current_user->user_login; ?></a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
-										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('orders')) echo 'active'; ?>" href="<?php echo site_url('/my-account/orders/'); ?>">Mis cursos</a></h5>
+										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Mis cursos</a></h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
 										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
 									<?php } ?>
@@ -195,13 +195,13 @@
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<i class="[ icon icon-user icon-iconed ][ color-light ][ line-height--64 ]"></i>
-								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_login; ?></div>
+								<i class="[ icon icon-user icon--small ][ no-margin-sides ][ color-light ][ line-height--64 ]"></i>
+								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap width--100 inline-block middle ]">Raúl De Zamacona</div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="<?php echo site_url('/my-account/orders/'); ?>" class="<?php if(is_page('orders')) echo 'active'; ?>">Mis cursos</a></li>
+								<li><a href="<?php echo site_url('/my-account/'); ?>" class="<?php if(is_page('my-account')) echo 'active'; ?>">Mis cursos</a></li>
 								<li><a href="<?php echo site_url('/my-account/customer-logout/'); ?>">Sign out</a></li>
 							</ul>
 						<?php } ?>
