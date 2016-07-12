@@ -35,23 +35,23 @@
 		</a>
 		<br />
 		<?php if( $previous_post_link ) : ?>
-			<a href="<?php $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<a href="<?php $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
 		<?php else : ?>
-			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
+			<button class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</button>
 		<?php endif; ?>
 		<?php if( $next_post_link ) : ?>
-			<a href="<?php echo $next_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+			<a href="<?php echo $next_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
 		<?php else : ?>
-			<button class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
+			<button class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</button>
@@ -63,12 +63,12 @@
 	<div class="[ row ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $previous_post_link ) : ?>
-				<a href="<?php echo $previous_post_link; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+				<a href="<?php echo $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 					<span class="[ middle inline-block ]">anterior</span>
 				</a>
 			<?php else : ?>
-				<button href="<?php echo $previous_post_link; ?>" class="[ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
+				<button href="<?php echo $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-right--xsmall ]" disabled="disabled">
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 					<span class="[ middle inline-block ]">anterior</span>
 				</button>
@@ -78,7 +78,7 @@
 <!-- 			<article>
 				<div class="[ progress progress--large ]">
 					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--90 ][ relative z-index-1 ]"></i>
-					<div class="[ progress-percent ][ progress-height ]"></div>
+					<div class="[ progress-percent ]"></div>
 				</div>
 			</article> -->
 			<article class="[ content-user ]">
@@ -102,12 +102,12 @@
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $next_post_link ) : ?>
-				<a href="<?php echo $next_post_link; ?>" class="[ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+				<a href="<?php echo $next_post_link; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</a>
 			<?php else : ?>
-				<button class="[ float-right ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
+				<button class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ btn-gray ][ waves-effect waves-light ][ margin-left--xsmall ]" disabled="disabled">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</button>

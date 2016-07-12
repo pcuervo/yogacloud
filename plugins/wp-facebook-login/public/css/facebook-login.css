@@ -2,7 +2,12 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
-.css-fbl{
+
+/**
+ * Login facebook user
+ */
+
+a.css-fbl{
     display: block;
     padding:  0 2rem; 
     max-width: 300px;
@@ -17,6 +22,7 @@
 a.css-fbl:hover{
     background-color: #36ebd5;
 }
+
 a.css-fbl div {
     height: 45px;
     display: table-cell;
@@ -38,4 +44,5 @@ a.css-fbl div {
     color: red;
     width: 100%;
 }
+
 
