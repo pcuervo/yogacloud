@@ -31,7 +31,7 @@
 	<?php endif; ?>
 
 	<div class="[ text-center ][ hide-on-large-only ]">
-		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
 			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
 		</a>
 		<br />
@@ -83,9 +83,11 @@
 				</div>
 			</article> -->
 			<article class="[ content-user ]">
-				<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
-					<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
-				</a>
+				<div class="[ text-center ]">
+					<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
+						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
+					</a>
+				</div>
 				<h5><?php the_title(); ?></h5>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
