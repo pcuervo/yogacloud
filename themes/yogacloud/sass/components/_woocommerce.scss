@@ -143,4 +143,17 @@ address { margin-top: 20px; }
 
 .woocommerce-checkout #payment ul.payment_methods li{ padding: 15px 0 !important ;}
 
+.woocommerce-checkout-pedido{
+	padding: 10px 20px;
+    background: #e5f5f3;
+    border-radius: 30px;
+}
 
+@media(min-width:768px){
+	.woocommerce-checkout-pedido{
+		padding: 10px 40px;
+		position: fixed;
+		width: 30%;
+		z-index: 1
+	}
+}
