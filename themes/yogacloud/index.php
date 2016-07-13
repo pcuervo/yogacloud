@@ -24,11 +24,17 @@
 	</article>
 
 	<?php
-
 		$cursos_args = array(
-			'post_type' => 'product',
-			'posts_per_page' => '-1'
-		);
+	        'post_type' => 'product',
+	        'posts_per_page' => -1,
+	        'tax_query' => array(
+		        array(
+		            'taxonomy' => 'product_type',
+		            'field'    => 'slug',
+		            'terms'    => 'simple_course', 
+		        ),
+		    ),
+	   	);
 		$cursos_query = new WP_Query( $cursos_args );
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">

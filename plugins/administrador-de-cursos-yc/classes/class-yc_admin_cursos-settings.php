@@ -36,6 +36,11 @@ class YC_Admin_Cursos_Settings {
 	private function hooks() {
 		// Custom data for Cursos
 		if( is_admin() ){
+			add_action( 'wp_ajax_nopriv_update_position_modulo_curso', array( $this, 'update_position_modulo_curso' ) );
+			add_action( 'wp_ajax_update_position_modulo_curso', array( $this, 'update_position_modulo_curso' ) );
+			add_action( 'wp_ajax_nopriv_update_position_leccion_modulo', array( $this, 'update_position_leccion_modulo' ) );
+			add_action( 'wp_ajax_update_position_leccion_modulo', array( $this, 'update_position_leccion_modulo' ) );
+
 			add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
 			add_action( 'woocommerce_product_data_panels', array( $this, 'course_options_product_tab_content' ) );
@@ -43,6 +48,7 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'admin_footer', array( $this, 'simple_course_custom_js' ) );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
 			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
 		}
 
 		// Custom data for Módulos and lecciones
@@ -239,19 +245,30 @@ class YC_Admin_Cursos_Settings {
 	 * Add menu pages
 	 */
 	public function add_menu_pages() {
-		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'menu_sondeo_cdmx', array( $this, 'add_admin_cursos_page' ) );
-		add_submenu_page( 'menu_sondeo_cdmx', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
-		add_submenu_page( 'menu_sondeo_cdmx', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
-		add_submenu_page( 'menu_sondeo_cdmx', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
-		add_submenu_page( 'menu_sondeo_cdmx', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
+		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'menu_admin_cursos', array( $this, 'add_admin_cursos_page' ) );
+		add_submenu_page( 'menu_admin_cursos', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
+		add_submenu_page( 'menu_admin_cursos', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
+		add_submenu_page( 'menu_admin_cursos', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'menu_admin_cursos', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
+		add_submenu_page( null, 'Gestión Cursos', 'Gestión Cursos', 'manage_options', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
+		add_submenu_page( null, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_options', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
+		add_submenu_page( null, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_options', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
 	}
 
 	/**
 	 * Add javascript and style files
 	 */
-	function enqueue_and_localize_scripts(){
+	public function enqueue_and_localize_scripts(){
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
-		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
+	}
+
+	/**
+	 * Add javascript and style files
+	 */
+	public function enqueue_and_localize_admin_scripts(){
+		wp_enqueue_script( 'jquery_ui', 'https://code.jquery.com/ui/1.12.0/jquery-ui.js', 'jquery', '1.12.0', true );
+		wp_enqueue_script( 'admin_functions', YC_CURSOS_PLUGIN_URL . 'inc/js/admin-functions.js', 'jquery', false, true );
+		wp_localize_script( 'jquery_ui', 'ajax_url', admin_url('admin-ajax.php') );
 	}
 
 	/**
@@ -267,16 +284,131 @@ class YC_Admin_Cursos_Settings {
 			<hr>
 			<div class="[ ]">
 				<ul>
-					<li><a href="#">Gestionar cursos</a></li>
-					<li><a href="#">Gestionar módulos</a></li>
-					<li><a href="#">Gestionar clases</a></li>
-					<li><a href="#">Gestionar badges</a></li>
-					<li><a href="#">Gestionar instructores</a></li>
+					<li><a href="<?php echo admin_url( '/admin.php?page=gestionar_curso', 'http' ) ?>">Gestionar cursos</a></li>
+					<li><a href="<?php echo admin_url( '/admin.php?page=gestionar_modulos', 'http' ) ?>">Gestionar módulos</a></li>
 				</ul>
 			</div>
 		</div>
 		<?php
 	}// add_admin_cursos_page
+
+	/**
+	 * Course management page
+	 */
+	public function add_gestionar_curso_page() {
+		$cursos = YC_Curso::get_cursos(); ?>
+
+		<div class="[ wrap ]">
+			<h1>Cursos Yogacloud</h1>
+			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
+			<hr>
+			<table class="[ form-table ]">
+				<thead>
+					<tr>
+						<th style="text-align:center">#</th>
+						<th style="text-align:center">Nombre</th>
+						<th style="text-align:center">Agregar módulos</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ( $cursos as $key => $curso ) : ?>
+						<tr>
+							<td align="center"><?php echo $key+1 ?></td>
+							<td><?php echo $curso->get_name() ?></td>
+							<td align="center"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
+		<?php
+	}// add_gestionar_curso_page
+
+	/**
+	 * Add modulos to course page 
+	 */
+	public function add_agregar_modulos_curso_page() {
+
+		if( ! isset( $_GET['cid'] ) ){
+			wp_redirect( admin_url( '/admin.php?page=gestionar_curso', 'http' ) );
+			exit();
+		}
+		$curso =  new YC_Curso( $_GET['cid'] ); 
+		$modulos = $curso->get_modulos();
+		?>
+		<div class="[ wrap ]">
+			<h1><?php echo $curso->get_name(); ?></h1>
+			<p><?php echo $curso->get_short_description(); ?></p>
+			<hr>
+			<div id="modulos" data-curso="<?php echo $curso->id ?>">
+				<h2>Orden Módulos</h2>
+				<ul id="sortable-modulos">
+					<?php foreach ($modulos as $key => $modulo) : ?>
+						<li data-id="<?php echo $modulo->id ?>">
+							<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . '&mid=' . $modulo->id ?>"><?php echo $modulo->name ?></a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<?php
+	}// add_agregar_modulos_curso_page
+
+	/**
+	 * Add modulos to course page 
+	 */
+	public function add_agregar_lecciones_modulo_page() {
+
+		if( ! isset( $_GET['mid'] ) ){
+			wp_redirect( admin_url( '/admin.php?page=gestionar_curso', 'http' ) );
+			exit();
+		}
+		$modulo =  new YC_Modulo( array( 'id' => $_GET['mid'] ) ); 
+		$lecciones = $modulo->get_lecciones();
+		?>
+		<div class="[ wrap ]">
+			<h1><?php echo $modulo->name; ?></h1>
+			<p><?php echo $modulo->description; ?></p>
+			<hr>
+			<div id="lecciones" data-modulo="<?php echo $modulo->id ?>">
+				<h2>Orden Lecciones</h2>
+				<ul id="sortable-lecciones">
+					<?php foreach ($lecciones as $key => $leccion) : ?>
+						<li data-id="<?php echo $leccion->id ?>">
+							<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>"><?php echo $leccion->name ?></a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<?php
+	}// add_agregar_lecciones_modulo_page
+
+	/**
+	* Update positions of modules inside course
+	*/
+	public function update_position_modulo_curso(){
+		$positions_modulo = $_POST['positions_modulo'];
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		foreach ( $positions_modulo as $position_modulo ) {
+			$curso->update_modulo_position( $position_modulo['id'], $position_modulo['position'] );
+		}
+		echo 'Se ha actualizado la posición de los módulos...';
+		wp_die();
+	}
+
+	/**
+	* Update positions of lessons inside module
+	*/
+	public function update_position_leccion_modulo(){
+		$positions_leccion = $_POST['positions_leccion'];
+		$modulo = new YC_Modulo( array( 'id' => $_POST['id_modulo'] ) );
+		foreach ( $positions_leccion as $position_leccion ) {
+			$modulo->update_leccion_position( $position_leccion['id'], $position_leccion['position'] );
+		}
+		echo 'Se ha actualizado la posición de las lecciones...';
+		wp_die();
+	}
 
 
 	/******************************************

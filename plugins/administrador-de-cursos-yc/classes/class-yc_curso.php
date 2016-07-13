@@ -20,7 +20,6 @@ define( 'VIMEO_CLIENT_TOKEN_DEV', '4241e8adccd0229fae229401b587da6f' );
 class YC_Curso {
 
 	public $id;
-	public $short_description;
 	public $description;
 	public $num_lessons; 
 	public $lessons_per_week; 
@@ -79,6 +78,16 @@ class YC_Curso {
 	public function get_name(){
 		$curso_query = get_post( $this->id );
 		return $curso_query->post_title;
+	}
+
+	/**
+	* Get course name
+	* @return array $name
+	*/
+	public function get_short_description(){
+		$curso_query = get_post( $this->id );
+		the_excerpt();
+		return get_the_excerpt();
 	}
 
 	/**
@@ -207,17 +216,39 @@ class YC_Curso {
 	public function add_modulo( $module_id, $position=-1 ) {
 		global $wpdb;
 
-		$delegacion_data = array(
+		$module_data = array(
 			'course_id'	=> $this->id,
 			'module_id'	=> $module_id,
 			'position'	=> $position,
 		);
 		$wpdb->insert(
 			$wpdb->prefix . 'courses_modules',
-			$delegacion_data,
+			$module_data,
 			array( '%s' )
 		);
 		return $wpdb->insert_id;
+	}
+
+	/**
+	* Update position of module
+	* @param int $module_id 
+	* @param int $position
+	* @return boolean
+	*/
+	public function update_modulo_position( $module_id, $position ) {
+		global $wpdb;
+
+		$module_data = array( 'position'=> $position );
+		$where = array(
+			'module_id'	=> $module_id,
+			'course_id' => $this->id,
+		);
+		$update = $wpdb->update(
+			$wpdb->prefix . 'courses_modules',
+			$module_data,
+			$where,
+			array( '%d', '%d' )
+		);
 	}
 
 	/**
@@ -272,6 +303,34 @@ class YC_Curso {
 			$lib->setToken( VIMEO_CLIENT_TOKEN_STAGE );
 		}
 		return $lib;
+	}
+
+
+	/**
+	 * Return an instance of Vimeo lib
+	 * @return Vimeo $lib
+	 */
+	public static function get_cursos(){
+		$cursos = array();
+		$args = array(
+	        'post_type' => 'product',
+	        'posts_per_page' => -1,
+	        'tax_query' => array(
+		        array(
+		            'taxonomy' => 'product_type',
+		            'field'    => 'slug',
+		            'terms'    => 'simple_course', 
+		        ),
+		    ),
+	   	);
+		$cursos_query = new WP_Query( $args );
+	    if ( ! $cursos_query->have_posts() ) return $cursos;
+	    
+	    while ( $cursos_query->have_posts() ) : $cursos_query->the_post(); 
+	    	$curso = new YC_Curso( $cursos_query->post->ID );
+			array_push( $cursos, $curso );
+		endwhile; wp_reset_postdata();
+		return $cursos;
 	}
 
 }// YC_Curso
