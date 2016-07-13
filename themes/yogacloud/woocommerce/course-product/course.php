@@ -77,7 +77,7 @@
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<?php foreach ( $maestros as $maestro ) : ?>
-					<article class="[ ]">
+					<article>
 						<?php echo $maestro->thumbnail; ?>
 						<div class="[ clearfix ]"></div>
 						<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
@@ -144,7 +144,7 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
-									<a class="[ color-dark ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 										<div class="[ padding ][ course--module--lesson ]">
 											<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
 											<div class="[ row ][ no-margin ]">
@@ -153,7 +153,7 @@
 												</div>
 												<div class="[ col s12 m3 ][ text-center ]">
 													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary ][ width--50 border-radius---50 ][ text-center ]"></i>
+														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
 													<?php endif; ?>
 												</div>
 											</div>
