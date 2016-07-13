@@ -43,6 +43,8 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'wp_ajax_update_position_leccion_modulo', array( $this, 'update_position_leccion_modulo' ) );
 			add_action( 'wp_ajax_nopriv_remove_leccion_modulo', array( $this, 'remove_leccion_modulo' ) );
 			add_action( 'wp_ajax_remove_leccion_modulo', array( $this, 'remove_leccion_modulo' ) );
+			add_action( 'wp_ajax_nopriv_remove_modulo_curso', array( $this, 'remove_modulo_curso' ) );
+			add_action( 'wp_ajax_remove_modulo_curso', array( $this, 'remove_modulo_curso' ) );
 
 			add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
@@ -337,25 +339,63 @@ class YC_Admin_Cursos_Settings {
 			exit();
 		}
 		$curso =  new YC_Curso( $_GET['cid'] ); 
-		$modulos = $curso->get_modulos();
+		$modulos_en_curso = $curso->get_modulos();
+		$modulos_todos = YC_Modulo::get_modulos();
 		?>
-		<div class="[ wrap ]">
+		<div class="wrap">
+			<div class="[ notices ]"></div>
 			<h1><?php echo $curso->get_name(); ?></h1>
 			<p><?php echo $curso->get_short_description(); ?></p>
 			<hr>
-			<div id="modulos" data-curso="<?php echo $curso->id ?>">
-				<h2>Orden Módulos</h2>
-				<ul id="sortable-modulos">
-					<?php foreach ($modulos as $key => $modulo) : ?>
-						<li data-id="<?php echo $modulo->id ?>">
-							<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . '&mid=' . $modulo->id ?>"><?php echo $modulo->name ?></a>
-						</li>
-					<?php endforeach; ?>
-				</ul>
+			<div id="dashboard-widget-wrap">
+				<div id="dashboard-widgets" class="[ metabox-holder ][ columns-2 ]">
+					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+						<div class="[  ]">
+							<div id="modulos-curso" data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Orden de módulos en curso</span></h2>
+								<div class="inside">
+									<ul id="sortable-modulos-curso" class="[ sortable-list ]" style="min-height: 50px">
+										<?php foreach ($modulos_en_curso as $key => $modulo) : ?>
+											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="lesson">
+												<span><?php echo $key+1; ?>. </span>
+												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>"><?php echo $modulo->name ?></a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+						<div class="[ meta-box-sortables ui-sortable ]">
+							<div data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Módulos que no están en curso</span></h2>
+								<div class="inside">
+									<ul id="sortable-modulos-todos" class="[ sortable-list ]" style="min-height: 50px">
+										<?php foreach ($modulos_todos as $key => $modulo) : ?>
+											<?php if( $curso->has_modulo( $modulo->id) ) continue; ?>
+											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="module">
+												<span></span>
+												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>"><?php echo $modulo->name ?></a>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
+						<div class="[ meta-box-sortables ui-sortable ]">
+							<div class="[ postbox ]" style="border: dashed; height: 300px;">
+								<h2>Arrastrar aquí para eliminar lección del curso</h2>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<?php
-	}// add_agregar_modulos_curso_page
+	}// add_agregar_modulo_curso_page
 
 	/**
 	 * Add modulos to course page 
@@ -371,17 +411,18 @@ class YC_Admin_Cursos_Settings {
 		$lecciones_todas 		= YC_Leccion::get_lecciones();
 		?>
 		<div class="wrap">
+			<div class="[ notices ]"></div>
 			<h1><?php echo $modulo->name; ?></h1>
 			<p><?php echo $modulo->description; ?></p>
 			<hr>
 			<div id="dashboard-widget-wrap">
 				<div id="dashboard-widgets" class="[ metabox-holder ][ columns-2 ]">
-					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%;">
+					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
 						<div class="[  ]">
 							<div id="lecciones-modulo" data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
-								<h2 class=""><span>Orden de lecciones en módulo</span></h2>
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Orden de lecciones en módulo</span></h2>
 								<div class="inside">
-									<ul id="sortable-lecciones-modulo" class="[ sortable-list ]">
+									<ul id="sortable-lecciones-modulo" class="[ sortable-list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_en_modulo as $key => $leccion) : ?>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">
 												<span><?php echo $key+1; ?>. </span>
@@ -396,13 +437,13 @@ class YC_Admin_Cursos_Settings {
 					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
-								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en curso</span></h2>
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>
 								<div class="inside">
-									<ul id="sortable-lecciones-todas" class="[ sortable-list ]">
+									<ul id="sortable-lecciones-todas" class="[ sortable-list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_todas as $key => $leccion) : ?>
 											<?php if( $modulo->has_leccion( $leccion->id) ) continue; ?>
-											<span></span>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">
+												<span></span>
 												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>"><?php echo $leccion->name ?></a>
 											</li>
 										<?php endforeach; ?>
@@ -420,7 +461,6 @@ class YC_Admin_Cursos_Settings {
 					</div>
 				</div>
 			</div>
- 
 		</div>
 		<?php
 	}// add_agregar_lecciones_modulo_page
@@ -431,8 +471,8 @@ class YC_Admin_Cursos_Settings {
 	public function update_position_modulo_curso(){
 		$positions_modulo = $_POST['positions_modulo'];
 		$curso = new YC_Curso( $_POST['id_curso'] );
-		foreach ( $positions_modulo as $position_modulo ) {
-			$curso->update_modulo_position( $position_modulo['id'], $position_modulo['position'] );
+		foreach ( $positions_modulo as $modulo ) {
+			$curso->update_modulo_position( $modulo['id'], $modulo['position'] );
 		}
 		echo 'Se ha actualizado la posición de los módulos...';
 		wp_die();
@@ -463,6 +503,17 @@ class YC_Admin_Cursos_Settings {
 		$modulo = new YC_Modulo( array( 'id' => $_POST['id_modulo'] ) );
 		$lesson_id = $_POST['id_leccion'];
 		echo $modulo->remove_leccion( $lesson_id );
+		wp_die();
+	}
+
+	/**
+	* Remove module from lessons
+	*/
+	public function remove_modulo_curso(){
+		global $wpdb;
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		$module_id = $_POST['id_modulo'];
+		echo $curso->remove_modulo( $module_id );
 		wp_die();
 	}
 
