@@ -1,5 +1,5 @@
 function YogaCloudVideo( lessonId, player, watched ){
-    this.PERCENT_TO_MARK_AS_WATCHED = 80;
+    this.PERCENT_TO_MARK_AS_WATCHED = 95;
     this.INTERVAL = 2000;
 
     this._lessonId = lessonId;
@@ -30,9 +30,7 @@ YogaCloudVideo.prototype = {
             console.log('go to next course PENDING...');
             clearInterval( self._elapsedTimeInterval );
         });
-        console.log('are we here?');
         $('#play-button').on('click', function(e){
-            console.log('playing');
             e.preventDefault();
             self._player.play();
         });

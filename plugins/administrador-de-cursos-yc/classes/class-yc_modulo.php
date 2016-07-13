@@ -146,6 +146,28 @@ class YC_Modulo {
 		return $lesson->permalink . '?mid=' . $this->id;
 	}
 
+	/**
+	* Update position of lección
+	* @param int $lesson_id 
+	* @param int $position
+	* @return boolean
+	*/
+	public function update_leccion_position( $lesson_id, $position ) {
+		global $wpdb;
+
+		$lesson_data = array( 'position' => $position );
+		$where = array(
+			'lesson_id'	=> $lesson_id,
+			'module_id' => $this->id,
+		);
+		$update = $wpdb->update(
+			$wpdb->prefix . 'modules_lessons',
+			$lesson_data,
+			$where,
+			array( '%d', '%d' )
+		);
+	}
+
 }// YC_Modulo
 
  

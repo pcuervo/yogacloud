@@ -12,7 +12,7 @@
 						<div class="[ col s12 ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
 							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.
-							<h2 class="[ padding-sides no-margin ]">Tú elijes la hora y el lugar, nosotros a los expertos.</h2>
+							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
 					</div>
 				</div>
@@ -24,11 +24,17 @@
 	</article>
 
 	<?php
-
 		$cursos_args = array(
-			'post_type' => 'product',
-			'posts_per_page' => '-1'
-		);
+	        'post_type' => 'product',
+	        'posts_per_page' => -1,
+	        'tax_query' => array(
+		        array(
+		            'taxonomy' => 'product_type',
+		            'field'    => 'slug',
+		            'terms'    => 'simple_course',
+		        ),
+		    ),
+	   	);
 		$cursos_query = new WP_Query( $cursos_args );
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
