@@ -100,7 +100,7 @@ class YC_Modulo {
 	* @param int $position
 	* @return boolean
 	*/
-	public function add_lesson( $lesson_id, $position=-1 ) {
+	public function add_leccion( $lesson_id, $position=-1 ) {
 		global $wpdb;
 
 		$delegacion_data = array(
@@ -163,6 +163,25 @@ class YC_Modulo {
 		$update = $wpdb->update(
 			$wpdb->prefix . 'modules_lessons',
 			$lesson_data,
+			$where,
+			array( '%d', '%d' )
+		);
+	}
+
+	/**
+	* Remove lección fromm módulo
+	* @param int $lesson_id 
+	* @return int|false
+	*/
+	public function remove_leccion( $lesson_id ) {
+		global $wpdb;
+
+		$where = array(
+			'lesson_id'	=> $lesson_id,
+			'module_id' => $this->id,
+		);
+		return $wpdb->delete(
+			$wpdb->prefix . 'modules_lessons',
 			$where,
 			array( '%d', '%d' )
 		);

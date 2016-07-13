@@ -1,5 +1,7 @@
 $ = jQuery.noConflict();
 $( document ).ready( function() {
+    var dropped = false;
+
     $( "#sortable-modulos" ).sortable({
         stop: function( event, ui ) {
             var modulosObj = getNewPosition( '#sortable-modulos' );
@@ -7,15 +9,71 @@ $( document ).ready( function() {
             updateOrderModulos( modulosObj, cursoId );
         }
     });
-    $( "#sortable-lecciones" ).sortable({
+
+    $( "#sortable-lecciones-modulo" ).sortable({
         stop: function( event, ui ) {
-            var leccionesObj = getNewPosition( '#sortable-lecciones' );
-            var moduloId = $('#lecciones').data('modulo');
-            updateOrderLecciones( leccionesObj, moduloId );
+            if( !dropped ){
+                var leccionesObj = getNewPosition( '#sortable-lecciones-modulo' );
+                var moduloId = $('#lecciones-modulo').data('modulo');
+                updateOrderLecciones( leccionesObj, moduloId );
+            }
+            $( '#droppable' ).hide();
+        },
+        start: function( event, ui ) {
+            $( '#droppable' ).show();
         }
     });
+
+    $( "#sortable-lecciones-todas" ).sortable({
+        connectWith: '#sortable-lecciones-modulo',
+        stop: function( event, ui ) {
+            if( !dropped ){
+                var leccionesObj = getNewPosition( '#sortable-lecciones-modulo' );
+                var moduloId = $('#lecciones-modulo').data('modulo');
+                updateOrderLecciones( leccionesObj, moduloId );
+            }
+            //$( '#droppable' ).hide();
+        },
+        start: function( event, ui ) {
+            //$( '#droppable' ).show();
+        }
+    });
+
+    $( "#droppable" ).droppable({
+        drop: function( event, ui ) {
+            dropped = true;
+            var $droppedEl = $('.sortable-list').find( 'li#'+ui.draggable.attr('id') );
+            var itemType = $droppedEl.data('type');
+            console.log( itemType );
+            console.log( $droppedEl.clone()[0] );
+
+            if( 'lesson' == itemType ){
+                var lessonId = ui.draggable.attr('id');
+                var moduleId = $('#lecciones-modulo').data('modulo');
+                removeFromModulo( lessonId, moduleId );
+            }
+        }
+    });
+
     $( "#sortable-modulos" ).disableSelection();
+    $( "#sortable-lecciones-modulo" ).disableSelection();
 });
+
+function removeFromModulo( idLeccion, idModulo ){
+    $.post(
+        ajax_url,
+        {
+            id_leccion:     idLeccion,
+            id_modulo:      idModulo,         
+            action:         'remove_leccion_modulo'
+        },
+        function( response ){
+            $('#sortable-lecciones-todas').append( $droppedEl.clone().removeAttr('style') );
+            $('#sortable-lecciones-modulo li#'+idLeccion ).remove();
+            console.log( response );
+        }
+    );
+}
 
 function getNewPosition( el ){
     var positions = [];
@@ -47,7 +105,7 @@ function updateOrderLecciones( positionsLeccion, idModulo ){
         ajax_url,
         {
             id_modulo:          idModulo,
-            positions_leccion:   positionsLeccion,
+            positions_leccion:  positionsLeccion,
             action:             'update_position_leccion_modulo'
         },
         function( codigo ){
