@@ -160,7 +160,7 @@ class YC_Modulo {
 			'lesson_id'	=> $lesson_id,
 			'module_id' => $this->id,
 		);
-		$update = $wpdb->update(
+		return $wpdb->update(
 			$wpdb->prefix . 'modules_lessons',
 			$lesson_data,
 			$where,
@@ -185,6 +185,26 @@ class YC_Modulo {
 			$where,
 			array( '%d', '%d' )
 		);
+	}
+
+	/**
+	 * Return all modules
+	 * @return array YC_Modulos
+	 */
+	public static function get_modulos(){
+		$modules = array();
+		$args = array(
+	        'post_type' => 'modulos',
+	        'posts_per_page' => -1,
+	   	);
+		$modules_query = new WP_Query( $args );
+	    if ( ! $modules_query->have_posts() ) return $modules;
+	    
+	    while ( $modules_query->have_posts() ) : $modules_query->the_post(); 
+	    	$curso = new YC_Modulo( array( 'id' => $modules_query->post->ID ) );
+			array_push( $modules, $curso );
+		endwhile; wp_reset_postdata();
+		return $modules;
 	}
 
 }// YC_Modulo

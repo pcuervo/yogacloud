@@ -213,6 +213,11 @@ button.btn-floating {
     @media (min-width: $medium-screen) { left: 35%}
 }
 
+.btn-main-proceed{
+    font-size: 1.5em;
+    background: #009688;
+}
+
 .btn-light{
   background-color: $light-color;
   color: $primary-color;
