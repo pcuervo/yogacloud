@@ -2,7 +2,7 @@
 /**
  * Lección YogaCloud.
  *
- * This class represent a course in the platform. 
+ * This class represent a course in the platform.
  *
  * @since 1.0.0
  */
@@ -12,6 +12,7 @@ class YC_Leccion {
 	public $id;
 	public $name;
 	public $description;
+	public $short_description;
 	public $permalink;
 	private $video_info = array();
 	private $soundcloud_url;
@@ -36,6 +37,7 @@ class YC_Leccion {
 		$this->id 				= $lecciones_query->ID;
 		$this->name 			= $lecciones_query->post_title;
 		$this->description 		= $lecciones_query->post_content;
+		$this->short_description 		= $lecciones_query->post_excerpt;
 		$this->permalink 		= get_permalink( $lecciones_query->ID );
 		$this->soundcloud_url 	= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
 		$this->is_free 			= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
@@ -106,7 +108,7 @@ class YC_Leccion {
 
 	/**
 	* Check if a lesson exists in the module
-	* @param int $lesson_id 
+	* @param int $lesson_id
 	* @return boolean
 	*/
 	public function get_position( $module_id ) {
@@ -124,7 +126,7 @@ class YC_Leccion {
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
-	}	
+	}
 
 	/**
 	 * Return information about the lessons's video, if any
@@ -134,13 +136,13 @@ class YC_Leccion {
 		$video_url = get_post_meta( $this->id, '_vimeo_url_meta', true );
 		if( empty( $video_url ) ) return array();
 
-		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1]; 
-		$lib = $this->get_vimeo_lib();  
+		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1];
+		$lib = $this->get_vimeo_lib();
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
 			error_log( 'no jala dev' );
-			$lib = $this->get_vimeo_lib( 'stage' );  
+			$lib = $this->get_vimeo_lib( 'stage' );
 			$vimeo_response = $lib->request('/me/videos/' . $video_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 		}
 
@@ -174,4 +176,3 @@ class YC_Leccion {
 
 }// YC_Leccion
 
- 
