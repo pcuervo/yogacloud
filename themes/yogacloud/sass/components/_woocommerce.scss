@@ -131,3 +131,14 @@ address { margin-top: 20px; }
 
 .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads,
 .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--orders{ display: none;}
+
+// Checkout
+
+// select checkout form
+
+.checkout.woocommerce-checkout .woocommerce-billing-fields select{ display: block !important}
+.select2-container{ display: none !important;}
+.woocommerce form .form-row.woocommerce-validated select{ border-color: #13c2ac; }
+
+
+.woocommerce-checkout #payment ul.payment_methods li{ padding: 15px 0 !important ;}
