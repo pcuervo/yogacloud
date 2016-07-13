@@ -248,8 +248,27 @@ function heightScreen(){
 function boxCard(){
 
         //image size
+        // var image_alto = $('.bg-image--rectangle').width();
+        // $('.bg-image--rectangle').css('height', image_alto + 'px');
+
+         //image size
         var image_alto = $('.bg-image--rectangle').width();
+        console.log('Tamaño imagen:', image_alto + 'px', '*',  image_alto + 'px');
         $('.bg-image--rectangle').css('height', image_alto + 'px');
+
+        //Ellipsis text
+        var ellipsis_alto = (((image_alto - 20) - 25 ) + 'px'); //(height imagen - padding-top ) - height button
+        console.log('Tamaño ellipsis:', ellipsis_alto);
+        $('.height-box-ellipsis').css('height', ellipsis_alto);
+
+        var containerHeight = $(".text-ellipsis").height();
+        var $text = $(".text-ellipsis p");
+
+        while ( $text.outerHeight() > containerHeight ) {
+                $text.text(function (index, text) {
+                    return text.replace(/\W*\s(\S)*$/, '...');
+               });
+        }
 
 }
 

@@ -65,9 +65,9 @@
 									</div>
 								</div>
 								<div class="[ col s12 xl6 ][ height-content ]">
-									<div class="[ card-content ][ overflow-hidden ]">
-										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
-										<?php the_excerpt(); ?>
+									<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
+<!-- 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
+ -->										<?php the_excerpt(); ?>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
