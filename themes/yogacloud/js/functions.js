@@ -26,8 +26,6 @@ var $=jQuery.noConflict();
             #HOME
         \*------------------------------------*/
         if( parseInt( isHome ) ){
-            console.log('home');
-
             boxCard(); //Index y resultados
             $(window).resize(function() {
                 boxCard(); //Index y resultados
@@ -45,8 +43,6 @@ var $=jQuery.noConflict();
             #CURSOS
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
-            console.log('CURSOS');
-
             heightScreen();
             $('.rating').addRating();
             $('.modal-trigger').leanModal();
@@ -56,15 +52,13 @@ var $=jQuery.noConflict();
             #MÓDULOS
         \*------------------------------------*/
         if( parseInt( isModulo ) ){
-            console.log('MÓDULOS');
+
         }
 
         /*------------------------------------*\
             #LECCIONES
         \*------------------------------------*/
         if( parseInt( isLeccion ) ){
-            console.log('LECCIONES');
-
             heightScreen();
 
             $('.tooltipped').tooltip();
@@ -74,14 +68,13 @@ var $=jQuery.noConflict();
             #PRODUCTOS TIENDA
         \*------------------------------------*/
         if( parseInt( isProdcut ) ){
-            console.log('PRODUCTOS TIENDA');
+
         }
 
          /*------------------------------------*\
             #MY ACCOUNT
         \*------------------------------------*/
         if( parseInt( isMyAccount ) ){
-            console.log('MY ACCOUNT');
             $('form').parsley();
         }
 

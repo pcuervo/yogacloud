@@ -123,7 +123,6 @@ class YC_Leccion {
 	private function hooks() {
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
 	}	
 
 	/**
@@ -133,6 +132,8 @@ class YC_Leccion {
 	public function get_video_info(){
 		$video_url = get_post_meta( $this->id, '_vimeo_url_meta', true );
 		if( empty( $video_url ) ) return array();
+
+		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
 
 		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1]; 
 		$lib = $this->get_vimeo_lib();  
