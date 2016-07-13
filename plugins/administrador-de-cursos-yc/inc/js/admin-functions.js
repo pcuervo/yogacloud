@@ -68,7 +68,7 @@ function removeFromModulo( idLeccion, idModulo ){
             action:         'remove_leccion_modulo'
         },
         function( response ){
-            $('#sortable-lecciones-todas').append( $droppedEl.clone().removeAttr('style') );
+            $('#sortable-lecciones-todas').append( $('#sortable-lecciones-modulo li#'+idLeccion ).clone().removeAttr('style') );
             $('#sortable-lecciones-modulo li#'+idLeccion ).remove();
             console.log( response );
         }
