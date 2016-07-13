@@ -1,6 +1,7 @@
 <?php
 	if( ! isset( $_GET['cid'] ) ){
-		wp_redirect( home_url() );
+		wp_redirect( site_url() );
+		exit;
 	}
 
 	$curso = new YC_Curso( $_GET['cid'] );
@@ -28,72 +29,56 @@
 		</div>
 	</article>
 </section>
-<section class="[ text-center ]">
-	<?php if ( 100 == $modulo->get_progress_by_user( get_current_user_id() ) ) : ?>
-		<h5 class="[ text-center ][ margin-bottom ]">Completado</h5>
-	<?php else : ?>
-		<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
-	<?php endif; ?>
+
+<div class="[ container ]">
 	<div class="[ row ]">
-		<div class="[ progress progress--large ]">
-			<p><i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ relative z-index-1 ]"></i></p>
-			<div class="[ progress-percent progress-<?php echo $modulo->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
-		</div>
-	</div>
-</section>
-<section class="[ no-margin ]">
-	<h4 class="[ text-center ][ margin-bottom ]">Lecciones</h4>
-	<div class="[ container--on-med-and-up ]">
-		<div class="[ row ][ margin-bottom--xlarge ]">
-		<?php if( empty( $lecciones ) ) : ?>
-			<p class="[ text-center ]">Por el momento no hay lecciones en este módulo.</p>
-		<?php else : ?>
-			
-			<?php foreach ( $lecciones as $lesson ) : ?>
-			<div class="[ col col s12 m10 offset-m1 l8 offset-l2  ]">
-				<a class="[ color-dark ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
-					<div class="[ border-bottom--dark ]">
-							
-						<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"></h5>
-							<i class="[ icon icon-badge-star-1 icon-iconed ][ color-primary ][ float-right ]"></i>
-							<p><?php echo $lesson->name ?><br><?php echo $lesson->description ?></p>
-						<?php else : ?>
-							<h5 class="[ padding-sides padding-vertical--small ][ no-margin ][ inline-block ]"><?php echo $lesson->name ?></h5>
-							<p><?php echo $lesson->description ?></p>
-						<?php endif; ?>
-					</div>
-				</a>
-			</div>
-			<?php endforeach; ?>
-
-		<?php endif; ?>
-		</div>
-		<div class="[ row ][ text-center ]">
-			<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
-				<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-				<span class="[ middle inline-block ]">ir a curso</span>
-			</a>		
-		</div>
-	</div>
-</section>
-
-
-<!-- BLOQUEADO -->
-<!-- <div class="[ col s12 m6 ][ margin-bottom--on-med-and-up ]">
-		<a class="[ white-text ]" data-position="bottom" data-delay="50" onclick="Materialize.toast('Esta lección se desbloqueara una vez que termines con las lecciones anteriores.', 4000)">
-			<div class="[ main-banner ]" style="background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/photo-1463214551910-9d4d4e4ee844.jpg)">
-				<div class="[ gradient-linear-opacity ]">
-					<div class="[ min-height--160 ][ relative ]">
-						<h2 class="[ padding-sides padding-vertical--small ][ no-margin ][ color-secondary--transparent--light ]"><strong>Lección 4</strong><br>Placet igitur tibi cato cum res sumpseris non concessas.</h2>
-						<!-- bloqueado
-						<div class="[ valign-wrapper ][ absolute ][ width---100 ][ height---100 ][ top--0 ][ text-center ]">
-							<i class="[ valign ][ width---100 ][ icon icon-look icon-small padding-sides--xsmall white-text ]"></i>
-						</div>
+		<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
+			<section class="[ text-center ]">
+				<?php if ( 100 == $modulo->get_progress_by_user( get_current_user_id() ) ) : ?>
+					<h5 class="[ text-center ][ margin-bottom ]">Completado</h5>
+				<?php else : ?>
+					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+				<?php endif; ?>
+				<div class="[ row ]">
+					<div class="[ progress progress--large ]">
+						<p><i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ relative z-index-1 ]"></i></p>
+						<div class="[ progress-percent progress-<?php echo $modulo->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 					</div>
 				</div>
-			</div>
-		</a>
-	</div> -->
+			</section>
+		</div>
+		<div class="[ col s12 m6 l8 ]">
+			<section>
+				<h4 class="[ text-center ]">Lecciones</h4>
+				<div class="[ container--on-med-and-up ]">
+					<div class="[ row ][ margin-bottom--xlarge ]">
+						<?php if( empty( $lecciones ) ) : ?>
+							<p class="[ text-center ]">Por el momento no hay lecciones en este módulo.</p>
+						<?php else : ?>
+							<?php foreach ( $lecciones as $lesson ) : ?>
+								<div class="[ border-bottom--dark ]">
+									<h5><?php echo $lesson->name ?></h5>
+									<p><?php echo $lesson->short_description ?></p>
+									<div class="[ padding-bottom ]">
+										<a href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
+									</div>
+									<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+										vista
+									<?php endif; ?>
+								</div>
+							<?php endforeach; ?>
+						<?php endif; ?>
+					</div>
+					<div class="[ row ][ text-center ]">
+						<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+							<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
+							<span class="[ middle inline-block ]">ir a curso</span>
+						</a>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
 
 <?php get_footer(); ?>
