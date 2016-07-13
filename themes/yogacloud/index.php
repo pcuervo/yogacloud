@@ -11,7 +11,7 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
-							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.
+							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
 					</div>
@@ -64,10 +64,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="[ col s12 xl6 ][ height-content ]">
-									<div class="[ card-content ][ text-ellipsis height-box-ellipsis ]">
-<!-- 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
- -->										<?php the_excerpt(); ?>
+								<div class="[ col s12 xl6 ]">
+									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
+										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
+										<?php the_excerpt(); ?>
+										<div class="[ gradient-text ]"></div>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
