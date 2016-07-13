@@ -114,10 +114,3 @@ select:disabled {
     padding-left: 1rem;
   }
 }
-
-
-// select checkout 
-
-.checkout.woocommerce-checkout .woocommerce-billing-fields select{ display: block !important}
-.select2-container{ display: none !important;}
-.woocommerce form .form-row.woocommerce-validated select{ border-color: #13c2ac; }
