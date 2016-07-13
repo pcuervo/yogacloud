@@ -62,7 +62,7 @@
 </section>
 <div class="[ container ]">
 	<div class="[ row ]">
-		<div class="[ col s12 m6 l4 ][ float-right--on-med-and-up ]">
+		<div class="[ col s12 m4 l2 ][ float-right--on-med-and-up ]">
 			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 				<section class="[ text-center ]">
 					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
@@ -76,17 +76,12 @@
 			<?php endif; ?>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
-				<div class="[ row ]">
-					<?php foreach ( $maestros as $maestro ) : ?>
-						<article class="[ col s6 ]">
-							<?php echo $maestro->thumbnail; ?>
-							<div class="[ clearfix ]"></div>
-							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
-						</article>
-					<?php endforeach; ?>
-				</div>
-
 				<?php foreach ( $maestros as $maestro ) : ?>
+					<article>
+						<?php echo $maestro->thumbnail; ?>
+						<div class="[ clearfix ]"></div>
+						<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
+					</article>
 
 					<!-- Modal Structure -->
 					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
@@ -124,20 +119,51 @@
 			</section>
 
 		</div>
-		<div class="[ col s12 m6 l8 ]">
+		<div class="[ col s12 m8 l10 ]">
 			<section>
 				<h4 class="[ text-center ]">Módulos</h4>
-				<?php foreach ( $modulos as $modulo ) : ?>
-					<div class="[ border-bottom--dark ]">
-						<h5><?php echo $modulo->name ?></h5>
-						<p><?php echo $modulo->description ?></p>
-						<div class="[ padding-bottom ]">
-							<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-								<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">ver más</a>
-							<?php endif; ?>
-						</div>
-					</div>
-				<?php endforeach; ?>
+				<ul class="collapsible" data-collapsible="expandable">
+					<?php foreach ( $modulos as $modulo ) :
+						$lecciones = $modulo->get_lecciones();
+						?>
+						<li class="[ active ]">
+							<div class="[ collapsible-header active ]">
+								<div class="[ padding ][ course--module ]">
+									<div class="[ row ][ no-margin ]">
+										<div class="[ col s12 m9 ]">
+											<h5 class="[ no-margin ]"><?php echo $modulo->name ?></h5>
+											<p class="[ no-margin-bottom ]"><?php echo $modulo->description ?></p>
+										</div>
+										<div class="[ col s12 m3 ][ text-center ]">
+											<?php if ( $modulo->get_progress_by_user( get_current_user_id() ) === 100 ) : ?>
+												<i class="[ icon icon-badge-star-1 icon-medium ][ line-height--80 ][ bg-primary ][ width--80 border-radius---50 ][ white-text text-center ]"></i>
+											<?php endif; ?>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="[ collapsible-body ]">
+								<?php foreach ( $lecciones as $lesson ) : ?>
+									<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+										<div class="[ padding ][ course--module--lesson ]">
+											<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
+											<div class="[ row ][ no-margin ]">
+												<div class="[ col s12 m9 ]">
+													<p><?php echo $lesson->short_description ?></p>
+												</div>
+												<div class="[ col s12 m3 ][ text-center ]">
+													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
+													<?php endif; ?>
+												</div>
+											</div>
+										</div>
+									</a>
+								<?php endforeach; ?>
+							</div>
+						</li>
+					<?php endforeach; ?>
+				</ul>
 			</section>
 		</div>
 	</div>

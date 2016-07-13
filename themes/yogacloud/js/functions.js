@@ -46,6 +46,9 @@ var $=jQuery.noConflict();
             heightScreen();
             $('.rating').addRating();
             $('.modal-trigger').leanModal();
+
+            $('.collapsible').collapsible({
+            });
         }
 
         /*------------------------------------*\
