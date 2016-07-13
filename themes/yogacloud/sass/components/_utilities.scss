@@ -218,6 +218,10 @@
 .border-radius---50 	{ border-radius: 50%;}
 
 
+.border-color--secondary { border: 1px solid $secondary-color; }
+.border-color--primary { border: 1px solid $primary-color; }
+
+
 .border-right-color--secondary { border-right-color: $secondary-color; }
 .border-top-color--secondary { border-top-color: $secondary-color; }
 .border-right-color--primary { border-right-color: $primary-color;; }
