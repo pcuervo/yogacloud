@@ -125,8 +125,7 @@ class YC_Leccion {
 	private function hooks() {
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
-	}
+	}	
 
 	/**
 	 * Return information about the lessons's video, if any
@@ -136,8 +135,10 @@ class YC_Leccion {
 		$video_url = get_post_meta( $this->id, '_vimeo_url_meta', true );
 		if( empty( $video_url ) ) return array();
 
-		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1];
-		$lib = $this->get_vimeo_lib();
+		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
+
+		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1]; 
+		$lib = $this->get_vimeo_lib();  
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
