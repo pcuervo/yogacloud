@@ -72,8 +72,8 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 									</td>
 									<td>
 										<div class="[ progress ][ no-margin ]">
-											<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?>  ]"></div>
+											<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 										</div>
 									</td>
 									<td class="[ text-right ]">
