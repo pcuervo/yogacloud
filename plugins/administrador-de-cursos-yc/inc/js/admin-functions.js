@@ -101,6 +101,7 @@ function getNewPosition( el ){
 
 function updateOrderModulos( positionsModulo, idCurso ){
     console.log( idCurso );
+    console.log( positionsModulo );
     $.post(
         ajax_url,
         {

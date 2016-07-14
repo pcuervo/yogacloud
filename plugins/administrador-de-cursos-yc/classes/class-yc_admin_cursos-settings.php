@@ -56,6 +56,8 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
 		}
 
+		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
@@ -264,6 +266,7 @@ class YC_Admin_Cursos_Settings {
 	 * Add javascript and style files
 	 */
 	public function enqueue_and_localize_scripts(){
+		wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
 	}
 
@@ -358,7 +361,7 @@ class YC_Admin_Cursos_Settings {
 										<?php foreach ($modulos_en_curso as $key => $modulo) : ?>
 											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="lesson">
 												<span><?php echo $key+1; ?>. </span>
-												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>"><?php echo $modulo->name ?></a>
+												<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>"><?php echo $modulo->name ?></a>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -376,7 +379,7 @@ class YC_Admin_Cursos_Settings {
 											<?php if( $curso->has_modulo( $modulo->id) ) continue; ?>
 											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="module">
 												<span></span>
-												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>"><?php echo $modulo->name ?></a>
+												<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>"><?php echo $modulo->name ?></a>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -472,6 +475,10 @@ class YC_Admin_Cursos_Settings {
 		$positions_modulo = $_POST['positions_modulo'];
 		$curso = new YC_Curso( $_POST['id_curso'] );
 		foreach ( $positions_modulo as $modulo ) {
+			if( ! $curso->has_modulo( $modulo['id'] ) ) {
+				$curso->add_modulo( $modulo['id'], $modulo['position'] );
+				continue;
+			}
 			$curso->update_modulo_position( $modulo['id'], $modulo['position'] );
 		}
 		echo 'Se ha actualizado la posición de los módulos...';
@@ -514,6 +521,31 @@ class YC_Admin_Cursos_Settings {
 		$curso = new YC_Curso( $_POST['id_curso'] );
 		$module_id = $_POST['id_modulo'];
 		echo $curso->remove_modulo( $module_id );
+		wp_die();
+	}
+
+	/**
+	* Mark a lesson as watched
+	*/
+	public function mark_lesson_as_watched(){
+		$user_id = get_current_user_id();
+		$lesson_id = $_POST['lesson_id'];
+
+		if( 0 == $user_id ) wp_die();
+
+		global $wpdb;
+		$user_lesson_data = array(
+			'user_id'			=> $user_id,
+			'lesson_id' 		=> $lesson_id,
+			'is_completed'		=> true,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'user_lessons',
+			$user_lesson_data,
+			array( '%d', '%d', '%d' )
+		);
+
+		echo $lesson_id;
 		wp_die();
 	}
 

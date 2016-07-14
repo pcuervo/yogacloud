@@ -10,7 +10,7 @@
 	$leccion->get_position( $modulo->id );
 	$video_info = $leccion->get_video_info();
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
-	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) ) . '&cid=' . $curso->id;
+	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) ){
 		wp_redirect( $curso->get_permalink() );
@@ -53,13 +53,13 @@
 		</a>
 		<br />
 		<?php if( $previous_post_link ) : ?>
-			<a href="<?php $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+			<a href="<?php $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 				<span class="[ middle inline-block ]">anterior</span>
 			</a>
 		<?php endif; ?>
 		<?php if( $next_post_link ) : ?>
-			<a href="<?php echo $next_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+			<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
@@ -71,7 +71,7 @@
 	<div class="[ row ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $previous_post_link ) : ?>
-				<a href="<?php echo $previous_post_link; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
+				<a href="<?php echo $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
 					<span class="[ middle inline-block ]">anterior</span>
 				</a>
@@ -80,13 +80,7 @@
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
-			<!-- <article>
-				<div class="[ progress progress--large ]">
-					<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--90 ][ relative z-index-1 ]"></i>
-					<div class="[ progress-percent ]"></div>
-				</div>
-			</article>
- -->			<article class="[ content-user ]">
+ 			<article class="[ content-user ]">
 				<div class="[ text-center ]">
 					<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
 						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
@@ -95,7 +89,6 @@
 				<h5><?php the_title(); ?></h5>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
-<!-- 					<iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/256340512&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe> -->
 				<?php endif; ?>
 			</article>
 			<?php
@@ -108,13 +101,10 @@
 					</a>
 				</article>
 			<?php } ?>
-
-
-
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $next_post_link ) : ?>
-				<a href="<?php echo $next_post_link; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+				<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</a>

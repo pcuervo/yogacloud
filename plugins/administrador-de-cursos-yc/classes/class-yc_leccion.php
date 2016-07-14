@@ -111,8 +111,10 @@ class YC_Leccion {
 	 * Hooks
 	 */
 	private function hooks() {
-		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		// wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
+		// wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
+		// add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		// add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 	}	
 
 	/**
@@ -182,6 +184,35 @@ class YC_Leccion {
 		endwhile; wp_reset_postdata();
 		return $lessons;
 	}
+
+	/********************
+	* AJAX RELATED 
+	*********************/
+
+	/**
+	 * Mark lesson as watched
+	 */
+	// function mark_as_watched(){
+	// 	$user_id = get_current_user_id();
+	// 	$lesson_id = $_POST['lesson_id'];
+
+	// 	if( 0 == $user_id ) wp_die();
+
+	// 	global $wpdb;
+	// 	$user_lesson_data = array(
+	// 		'user_id'			=> $user_id,
+	// 		'lesson_id' 		=> $lesson_id,
+	// 		'is_completed'		=> true,
+	// 	);
+	// 	$wpdb->insert(
+	// 		$wpdb->prefix . 'user_lessons',
+	// 		$user_lesson_data,
+	// 		array( '%d', '%d', '%d' )
+	// 	);
+
+	// 	echo $lesson_id;
+	// 	wp_die();
+	// }
 
 }// YC_Leccion
 
