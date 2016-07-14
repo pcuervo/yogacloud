@@ -191,6 +191,7 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
+						<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
