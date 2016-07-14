@@ -122,6 +122,4 @@
 		</ul>
 	</section>
 
-
-
 <?php get_footer(); ?>
