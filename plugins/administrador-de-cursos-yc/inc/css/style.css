@@ -1,0 +1,49 @@
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+
+
+/**
+ * Box model
+**/
+.no-margin{ margin: 0 !important; }
+
+.margin-bottom{ margin-bottom: 20px !important; }
+
+.margin-sides--small{ margin-left: 10px !important; margin-right: 10px !important; }
+.margin-sides{ margin-left: 20px !important; margin-right: 20px !important; }
+
+
+/**
+ * Text
+**/
+.text-center{ text-align: center; }
+
+
+/**
+ * Visibility
+**/
+.hidden{ display: none; }
+
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+.button-large{
+	height: auto !important;
+	padding: 30px !important;
+	line-height: 1 !important;
+	font-size: 1.3em !important;
+}
+
+
+
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+.form-table{ }
+
+.form-table tr{ border-bottom: 1px solid #ddd; }
