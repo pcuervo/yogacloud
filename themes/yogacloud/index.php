@@ -11,8 +11,8 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
-							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.
-							<h2 class="[ padding-sides no-margin ]">Tú elijes la hora y el lugar, nosotros a los expertos.</h2>
+							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
+							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
 					</div>
 				</div>
@@ -31,7 +31,7 @@
 		        array(
 		            'taxonomy' => 'product_type',
 		            'field'    => 'slug',
-		            'terms'    => 'simple_course', 
+		            'terms'    => 'simple_course',
 		        ),
 		    ),
 	   	);
@@ -64,10 +64,11 @@
 										</div>
 									</div>
 								</div>
-								<div class="[ col s12 xl6 ][ height-content ]">
-									<div class="[ card-content ][ overflow-hidden ]">
+								<div class="[ col s12 xl6 ]">
+									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
 										<?php the_excerpt(); ?>
+										<div class="[ gradient-text ]"></div>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
@@ -162,7 +163,7 @@
 			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
 					<h5>Regístrate y obtén lecciones gratis.</h5>
-					<a class="[ btn btn-rounded btn-light waves-effect waves-light ] modal-trigger" href="#registrate">registrarme</a>
+					<a class="[ btn btn-rounded btn-light waves-effect waves-light ]" href="<?php echo site_url('/my-account/'); ?>">registrarme</a>
 				</div>
 			</div>
 		</section>

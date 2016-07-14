@@ -276,6 +276,7 @@ class YC_Admin_Cursos_Settings {
 	public function enqueue_and_localize_admin_scripts(){
 		wp_enqueue_script( 'jquery_ui', 'https://code.jquery.com/ui/1.12.0/jquery-ui.js', 'jquery', '1.12.0', true );
 		wp_enqueue_script( 'admin_functions', YC_CURSOS_PLUGIN_URL . 'inc/js/admin-functions.js', 'jquery', false, true );
+		wp_enqueue_style( 'admin_styles', YC_CURSOS_PLUGIN_URL . 'inc/css/style.css' );
 		wp_localize_script( 'jquery_ui', 'ajax_url', admin_url('admin-ajax.php') );
 	}
 
@@ -286,15 +287,16 @@ class YC_Admin_Cursos_Settings {
 		echo '<div class="notice-success notice is-dismissible"><p>¡Esta parte está en construcción!</p></div>';
 		$answered_surveys = array();
 		?>
-		<div class="[ wrap ]">
+		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Administrador de Cursos YogaCloud</h1>
-			<p>Aquí podrás gestionar los cursos, módulos y lecciones de la plataforma... [COPY PENDING]</p>
+			<h3>Aquí podrás gestionar los cursos, módulos y lecciones de la plataforma... [COPY PENDING]</h3>
 			<hr>
-			<div class="[ ]">
-				<ul>
-					<li><a href="<?php echo admin_url( '/admin.php?page=gestionar_curso', 'http' ) ?>">Gestionar cursos</a></li>
-					<li><a href="<?php echo admin_url( '/admin.php?page=gestionar_modulos', 'http' ) ?>">Gestionar módulos</a></li>
-				</ul>
+			<div class="[ text-center ]">
+				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_curso', 'http' ) ?>">Gestionar Cursos</a>
+				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_modulos', 'http' ) ?>">Gestionar Módulos</a>
+				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_lecciones', 'http' ) ?>">Gestionar Lecciones</a>
+				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_maestros', 'http' ) ?>">Gestionar Maestros</a>
+				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_badges', 'http' ) ?>">Gestionar Badges</a>
 			</div>
 		</div>
 		<?php
@@ -306,24 +308,25 @@ class YC_Admin_Cursos_Settings {
 	public function add_gestionar_curso_page() {
 		$cursos = YC_Curso::get_cursos(); ?>
 
-		<div class="[ wrap ]">
+		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Cursos Yogacloud</h1>
 			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
-			<hr>
 			<table class="[ form-table ]">
 				<thead>
 					<tr>
-						<th style="text-align:center">#</th>
-						<th style="text-align:center">Nombre</th>
-						<th style="text-align:center">Agregar módulos</th>
+						<th>Nombre</th>
+						<th># de módulos</th>
+						<th># de lecciones</th>
+						<th>Agregar módulos</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ( $cursos as $key => $curso ) : ?>
 						<tr>
-							<td align="center"><?php echo $key+1 ?></td>
 							<td><?php echo $curso->get_name() ?></td>
-							<td align="center"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
+							<td><?php echo $curso->get_name() ?></td>
+							<td><?php echo $curso->get_name() ?></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -333,7 +336,7 @@ class YC_Admin_Cursos_Settings {
 	}// add_gestionar_curso_page
 
 	/**
-	 * Add modulos to course page 
+	 * Add modulos to course page
 	 */
 	public function add_agregar_modulos_curso_page() {
 
@@ -341,11 +344,14 @@ class YC_Admin_Cursos_Settings {
 			wp_redirect( admin_url( '/admin.php?page=gestionar_curso', 'http' ) );
 			exit();
 		}
-		$curso =  new YC_Curso( $_GET['cid'] ); 
+
+		$curso =  new YC_Curso( $_GET['cid'] );
+		$modulos = $curso->get_modulos();
 		$modulos_en_curso = $curso->get_modulos();
 		$modulos_todos = YC_Modulo::get_modulos();
+
 		?>
-		<div class="wrap">
+		<div class="[ wrap ][ admin-cuervos admin-modulos ]">
 			<div class="[ notices ]"></div>
 			<h1><?php echo $curso->get_name(); ?></h1>
 			<p><?php echo $curso->get_short_description(); ?></p>
@@ -355,13 +361,22 @@ class YC_Admin_Cursos_Settings {
 					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
 						<div class="[  ]">
 							<div id="modulos-curso" data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
-								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Orden de módulos en curso</span></h2>
+								<h2 class="[ hndle ][ ui-sortable-handle ]">Orden de módulos en curso</h2>
 								<div class="inside">
-									<ul id="sortable-modulos-curso" class="[ sortable-list ]" style="min-height: 50px">
+									<ul id="sortable-modulos-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
 										<?php foreach ($modulos_en_curso as $key => $modulo) : ?>
 											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="lesson">
-												<span><?php echo $key+1; ?>. </span>
-												<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>"><?php echo $modulo->name ?></a>
+												<span class="[ modulo__name ]">
+													<span class="[ modulo__number ]"><?php echo $key+1; ?>. </span>
+													<?php echo $modulo->name ?>
+												</span><span
+												class="[ modulo__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>">editar</a>
+												</span><span
+												class="[ modulo__add-lesson ]">
+													<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>">agregar lección</a>
+												</span><span
+												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -387,6 +402,9 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
+					<div class="[ modulo__add ]">
+						<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">agregar módulo</a>
+					</div>
 					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div class="[ postbox ]" style="border: dashed; height: 300px;">
@@ -401,7 +419,7 @@ class YC_Admin_Cursos_Settings {
 	}// add_agregar_modulo_curso_page
 
 	/**
-	 * Add modulos to course page 
+	 * Add modulos to course page
 	 */
 	public function add_agregar_lecciones_modulo_page() {
 		if( ! isset( $_GET['mid'] ) ){
@@ -409,11 +427,11 @@ class YC_Admin_Cursos_Settings {
 			exit();
 		}
 
-		$modulo 				= new YC_Modulo( array( 'id' => $_GET['mid'] ) ); 
+		$modulo 				= new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 		$lecciones_en_modulo 	= $modulo->get_lecciones();
 		$lecciones_todas 		= YC_Leccion::get_lecciones();
 		?>
-		<div class="wrap">
+		<div class="[ wrap ][ admin-cuervos admin-lecciones ]">
 			<div class="[ notices ]"></div>
 			<h1><?php echo $modulo->name; ?></h1>
 			<p><?php echo $modulo->description; ?></p>
@@ -437,7 +455,7 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
-					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+					<div id="postbox-container-2" class="[ postbox-container ]" style="width: 50%">
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>

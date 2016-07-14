@@ -201,7 +201,7 @@
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<i class="[ icon icon-user icon-iconed ][ no-margin-sides ][ color-light ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-light ][ line-height--64 ]"></i>
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_firstname; ?></div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>

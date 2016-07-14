@@ -204,6 +204,15 @@
 .gradient-linear-opacity--light-2	{ @include linear-gradient( $secondary-transparent, $primary-transparent--light); }
 .gradient-diagonal					{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity			{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
+.gradient-text {
+  background: rgba(255, 255, 255, 0.2);
+  background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.2),rgba(255,255,255,0.8));
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
 
 //Borders
 

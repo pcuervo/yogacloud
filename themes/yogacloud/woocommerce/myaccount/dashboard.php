@@ -25,7 +25,7 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 
 ?>
 
-<section style="background-color: #f8f8f8;">
+<section>
 	<div class="">
 		<div class="[ row ]">
 			<div class="[ col s12 m6 ][ text-center ][ border-right--primary ][ margin-bottom ]">
@@ -42,6 +42,8 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 				<?php foreach ( $user_cursos as $curso ) : ?>
 					<?php if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : ?>
 						<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i><?php echo $curso->get_name(); ?></p>
+					<?php else: ?>
+						<p class="[ text-center ]">No tienes ningún badge por el momento.</p>
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>

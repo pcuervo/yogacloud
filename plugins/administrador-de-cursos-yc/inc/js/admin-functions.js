@@ -65,7 +65,7 @@ function removeFromModulo( idLeccion, idModulo ){
         ajax_url,
         {
             id_leccion:     idLeccion,
-            id_modulo:      idModulo,         
+            id_modulo:      idModulo,
             action:         'remove_leccion_modulo'
         },
         function( response ){
@@ -79,7 +79,7 @@ function removeFromCurso( idModulo, idCurso ){
         ajax_url,
         {
             id_curso:     idCurso,
-            id_modulo:    idModulo,         
+            id_modulo:    idModulo,
             action:       'remove_modulo_curso'
         },
         function( response ){
@@ -135,13 +135,13 @@ function updateOrderLecciones( positionsLeccion, idModulo ){
 
 function updateListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('span').text(i+1+'. ');
+        $(li).find('.modulo__number').text(i+1+'. ');
     })
 }
 
 function eraseListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('span').text('');
+        $(li).find('.modulo__number').text('');
     })
 }
 
