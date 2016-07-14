@@ -68,7 +68,7 @@
 					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
-							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
 							<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 						</div>
 					</div>

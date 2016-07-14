@@ -33,7 +33,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 ?>
 
 	<div class="[ row ]">
-		<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+		<form name="checkout" method="post" class="checkout woocommerce-checkout [ form-pago ]" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
 			<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
 
@@ -46,7 +46,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 								<?php do_action( 'woocommerce_checkout_shipping' ); ?>
 							</div>
 						</div>
-	
+
 
 				<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
@@ -65,11 +65,12 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 					</div>
 
 					<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-					
-				</div>				
-			</div>			
 
-		</form>	
+				</div>
+			</div>
+			<div class="[ before-loader ]"></div>
+
+		</form>
 	</div>
 
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
