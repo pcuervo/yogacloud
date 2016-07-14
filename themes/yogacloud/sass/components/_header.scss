@@ -43,6 +43,11 @@ header{
 	}
 
 	//language
+
+	.dropdown-language{
+
+	}
+
 	div#lang_sel {
 		float: left;
 		li { width: auto; }
@@ -52,13 +57,14 @@ header{
 			color: $primary-color!important;
 			border: none;
 			font-size: 20px;
-			padding-left:($padding-size/2); padding-right:($padding-size/2);
+			padding-left:($padding-size*2.2); padding-right:($padding-size/2);
 			line-height: 64px;
 			font-family: 'Open Sans', 'Roboto', sans-serif;
-			background: url(../img/nav-arrow-down.png) #fff right no-repeat;;
+			background: url(images/world.png) #fff 10px no-repeat;;
 			&:hover {
 				background-color: $primary-color!important;
 				color: $light-color!important;
+				background: url(images/world-light.png) #fff 10px no-repeat;;
 			}
 		}
 		& ul ul { top: 64px; }
