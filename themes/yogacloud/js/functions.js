@@ -8,7 +8,7 @@ var $=jQuery.noConflict();
         /*------------------------------------*\
             #GLOBAL
         \*------------------------------------*/
-        $(window).load(function(){
+        $(window).ready(function(){
             footerBottom();
         });
 
@@ -44,7 +44,9 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             heightScreen();
-            $('.rating').addRating();
+            $('.rating').addRating({
+                'icon': 'favorite'
+            });
             $('.modal-trigger').leanModal();
 
             $('.collapsible').collapsible({

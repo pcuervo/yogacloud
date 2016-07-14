@@ -54,10 +54,13 @@ class YC_Admin_Cursos_Settings {
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
 			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
+		} else {
+			add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+			add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+			add_shortcode( 'show-survey', array( $this, 'display_survey' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 		}
 
-		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
 		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
@@ -66,7 +69,6 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
 		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
 		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 
 	}
 
@@ -278,6 +280,12 @@ class YC_Admin_Cursos_Settings {
 		wp_enqueue_script( 'admin_functions', YC_CURSOS_PLUGIN_URL . 'inc/js/admin-functions.js', 'jquery', false, true );
 		wp_enqueue_style( 'admin_styles', YC_CURSOS_PLUGIN_URL . 'inc/css/style.css' );
 		wp_localize_script( 'jquery_ui', 'ajax_url', admin_url('admin-ajax.php') );
+	}
+
+	/**
+	 * Shortcode to display rating in courses
+	 */
+	public function add_admin_cursos_page() {
 	}
 
 	/**
