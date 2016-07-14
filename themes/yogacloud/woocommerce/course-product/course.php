@@ -74,6 +74,11 @@
 					</div>
 				</section>
 			<?php endif; ?>
+			<section>
+				<!-- Rating -->
+				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
+				<div class="rating"></div>
+			</section>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<?php foreach ( $maestros as $maestro ) : ?>
