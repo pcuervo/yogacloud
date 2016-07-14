@@ -312,11 +312,11 @@ class YC_Admin_Cursos_Settings {
 			<h1>Cursos Yogacloud</h1>
 			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
 			<hr>
-			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=product') ?>">crear nuevo curso</a>
-			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">crear nuevo módulo</a>
-			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=lecciones') ?>">crear nueva lección</a>
-			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=maestros') ?>">crear nuevo maestro</a>
-			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=badges') ?>">crear nuevo badge</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=product') ?>">crear curso</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">crear módulo</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=lecciones') ?>">crear lección</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=maestros') ?>">crear maestro</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=badges') ?>">crear badge</a>
 			<hr>
 			<table class="[ form-table ]">
 				<thead>
@@ -325,7 +325,6 @@ class YC_Admin_Cursos_Settings {
 						<th># de módulos</th>
 						<th># de lecciones</th>
 						<th>Agregar Módulo</th>
-						<th>Agregar Lección</th>
 						<th>Agregar Maestro</th>
 						<th>Agregar Badge</th>
 					</tr>
@@ -337,7 +336,6 @@ class YC_Admin_Cursos_Settings {
 							<td><?php echo $curso->get_name() ?></td>
 							<td><?php echo $curso->get_name() ?></td>
 							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
-							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . '&mid=' . $modulo->id  ?>">+</a></td>
 							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_maestros_curso', 'http' )?>">+</a></td>
 							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_badges_curso', 'http' )?>">+</a></td>
 						</tr>
