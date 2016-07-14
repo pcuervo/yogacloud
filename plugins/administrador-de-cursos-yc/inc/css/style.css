@@ -74,20 +74,13 @@
 	vertical-align: middle;
 }
 
-.admin-cuervos .modulo__name{ width: 74%; }
-.admin-cuervos .modulo__edit{ width: 19%; }
-.admin-cuervos .modulo__add-lesson{ width: 19%; }
-.admin-cuervos .modulo__drag{ width: 7%; }
-
-@media screen and (max-width: 782px){
-	.admin-cuervos .modulo__name{ width: 66%; }
-	.admin-cuervos .modulo__edit{ width: 25%; }
-	.admin-cuervos .modulo__add-lesson{ width: 19%; }
-	.admin-cuervos .modulo__drag{ width: 9%; }
-}
+.admin-cuervos .modulo__name{ width: 55%; }
+.admin-cuervos .modulo__edit{ width: 14%; }
+.admin-cuervos .modulo__add-lesson{ width: 25%; }
+.admin-cuervos .modulo__drag{ width: 6%; }
 
 
-.admin-cuervos .modulo__add{ float: left; }
+.admin-cuervos .modulo__add{  }
 
 
 
@@ -95,7 +88,8 @@
     #MÓDULOS
 \*------------------------------------*/
 
-.admin-cuervos.admin-modulos{}
+.admin-cuervos.admin-modulos{ width: 1000px; }
+.admin-cuervos.admin-modulos .postbox-container{ width: 500px; }
 .admin-cuervos.admin-modulos .postbox{}
 .admin-cuervos.admin-modulos .postbox .inside{
 	height: 400px;

@@ -311,6 +311,13 @@ class YC_Admin_Cursos_Settings {
 		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Cursos Yogacloud</h1>
 			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
+			<hr>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=product') ?>">crear nuevo curso</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">crear nuevo módulo</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=lecciones') ?>">crear nueva lección</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=maestros') ?>">crear nuevo maestro</a>
+			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=badges') ?>">crear nuevo badge</a>
+			<hr>
 			<table class="[ form-table ]">
 				<thead>
 					<tr>
@@ -384,7 +391,7 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
-					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+					<div id="postbox-container-2" class="[ postbox-container ]" style="width: 50%">
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Módulos que no están en curso</span></h2>
@@ -393,17 +400,24 @@ class YC_Admin_Cursos_Settings {
 										<?php foreach ($modulos_todos as $key => $modulo) : ?>
 											<?php if( $curso->has_modulo( $modulo->id) ) continue; ?>
 											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="module">
+												<span class="[ modulo__name ]">
+													<span class="[ modulo__number ]"></span>
+													<?php echo $modulo->name ?>
+												</span><span
+												class="[ modulo__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>">editar</a>
+												</span><span
+												class="[ modulo__add-lesson ]">
+													<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>">agregar lección</a>
+												</span><span
+												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
 												<span></span>
-												<a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . "&mid=" . $modulo->id ?>"><?php echo $modulo->name ?></a>
 											</li>
 										<?php endforeach; ?>
 									</ul>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="[ modulo__add ]">
-						<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">agregar módulo</a>
 					</div>
 					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
 						<div class="[ meta-box-sortables ui-sortable ]">
