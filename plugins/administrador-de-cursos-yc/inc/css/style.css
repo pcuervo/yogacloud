@@ -30,7 +30,7 @@
     #BUTTONS
 \*------------------------------------*/
 
-.button-large{
+.admin-cuervos .button-large{
 	height: auto !important;
 	padding: 30px !important;
 	line-height: 1 !important;
@@ -44,6 +44,58 @@
     #TABLES
 \*------------------------------------*/
 
-.form-table{ }
+.admin-cuervos .form-table{ }
 
-.form-table tr{ border-bottom: 1px solid #ddd; }
+.admin-cuervos .form-table th{ text-align: center; }
+.admin-cuervos .form-table tr{ border-bottom: 1px solid #ddd; }
+
+
+
+
+
+/*------------------------------------*\
+    #SORTABLE
+\*------------------------------------*/
+..admin-cuervos .sortable-list{
+	margin: 0;
+}
+
+.sortable-list li{
+	padding: 5px; border-bottom: 1px solid #ddd; margin: 0;
+	cursor: move;
+}
+
+.sortable-list li:hover{
+	background: #ececec;
+}
+
+.admin-cuervos .modulo__name, .modulo__drag, .modulo__edit{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.admin-cuervos .modulo__name{ width: 74%; }
+.admin-cuervos .modulo__edit{ width: 19%; }
+.admin-cuervos .modulo__drag{ width: 7%; }
+
+@media screen and (max-width: 782px){
+	.admin-cuervos .modulo__name{ width: 66%; }
+	.admin-cuervos .modulo__edit{ width: 25%; }
+	.admin-cuervos .modulo__drag{ width: 9%; }
+}
+
+
+.admin-cuervos .modulo__add{ float: left; }
+
+
+
+/*------------------------------------*\
+    #MÓDULOS
+\*------------------------------------*/
+
+.admin-cuervos.admin-modulos{}
+.admin-cuervos.admin-modulos .postbox{}
+.admin-cuervos.admin-modulos .postbox .inside{
+	height: 400px;
+	overflow-y: scroll;
+}

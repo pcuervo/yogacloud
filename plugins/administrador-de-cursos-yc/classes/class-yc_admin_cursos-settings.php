@@ -284,7 +284,7 @@ class YC_Admin_Cursos_Settings {
 		echo '<div class="notice-success notice is-dismissible"><p>¡Esta parte está en construcción!</p></div>';
 		$answered_surveys = array();
 		?>
-		<div class="[ wrap ]">
+		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Administrador de Cursos YogaCloud</h1>
 			<h3>Aquí podrás gestionar los cursos, módulos y lecciones de la plataforma... [COPY PENDING]</h3>
 			<hr>
@@ -305,7 +305,7 @@ class YC_Admin_Cursos_Settings {
 	public function add_gestionar_curso_page() {
 		$cursos = YC_Curso::get_cursos(); ?>
 
-		<div class="[ wrap ]">
+		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Cursos Yogacloud</h1>
 			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
 			<table class="[ form-table ]">
@@ -323,7 +323,7 @@ class YC_Admin_Cursos_Settings {
 							<td><?php echo $curso->get_name() ?></td>
 							<td><?php echo $curso->get_name() ?></td>
 							<td><?php echo $curso->get_name() ?></td>
-							<td><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -348,7 +348,7 @@ class YC_Admin_Cursos_Settings {
 		$modulos_todos = YC_Modulo::get_modulos();
 
 		?>
-		<div class="wrap">
+		<div class="[ wrap ][ admin-cuervos admin-modulos ]">
 			<div class="[ notices ]"></div>
 			<h1><?php echo $curso->get_name(); ?></h1>
 			<p><?php echo $curso->get_short_description(); ?></p>
@@ -358,13 +358,19 @@ class YC_Admin_Cursos_Settings {
 					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
 						<div class="[  ]">
 							<div id="modulos-curso" data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
-								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Orden de módulos en curso</span></h2>
+								<h2 class="[ hndle ][ ui-sortable-handle ]">Orden de módulos en curso</h2>
 								<div class="inside">
-									<ul id="sortable-modulos-curso" class="[ sortable-list ]" style="min-height: 50px">
+									<ul id="sortable-modulos-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
 										<?php foreach ($modulos_en_curso as $key => $modulo) : ?>
 											<li id="<?php echo $modulo->id ?>" data-id="<?php echo $modulo->id ?>" data-type="lesson">
-												<span><?php echo $key+1; ?>. </span>
-												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>"><?php echo $modulo->name ?></a>
+												<span class="[ modulo__name ]">
+													<span class="[ modulo__number ]"><?php echo $key+1; ?>. </span>
+													<?php echo $modulo->name ?>
+												</span><span
+												class="[ modulo__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>">editar</a>
+												</span><span
+												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -389,6 +395,9 @@ class YC_Admin_Cursos_Settings {
 								</div>
 							</div>
 						</div>
+					</div>
+					<div class="[ modulo__add ]">
+						<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">agregar módulo</a>
 					</div>
 					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
 						<div class="[ meta-box-sortables ui-sortable ]">
@@ -416,7 +425,7 @@ class YC_Admin_Cursos_Settings {
 		$lecciones_en_modulo 	= $modulo->get_lecciones();
 		$lecciones_todas 		= YC_Leccion::get_lecciones();
 		?>
-		<div class="wrap">
+		<div class="[ wrap ][ admin-cuervos admin-lecciones ]">
 			<div class="[ notices ]"></div>
 			<h1><?php echo $modulo->name; ?></h1>
 			<p><?php echo $modulo->description; ?></p>
@@ -440,7 +449,7 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
-					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+					<div id="postbox-container-2" class="[ postbox-container ]" style="width: 50%">
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>
