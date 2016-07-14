@@ -191,6 +191,7 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
+						<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
@@ -214,6 +215,8 @@
 						<?php if ( ! is_user_logged_in() ){ ?>
 							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
+						<!-- language -->
+						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>
