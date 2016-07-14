@@ -21,57 +21,65 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <header><h5><?php _e( 'Customer Details', 'woocommerce' ); ?></h5></header>
+<div class="[ row ]">
+	<div class="[ col s12 m6 ][ margin-bottom ]">
+		<table class="shop_table customer_details">
+			<?php if ( $order->customer_note ) : ?>
+				<tr>
+					<th><?php _e( 'Note:', 'woocommerce' ); ?></th>
+					<td><?php echo wptexturize( $order->customer_note ); ?></td>
+				</tr>
+			<?php endif; ?>
 
-<table class="shop_table customer_details">
-	<?php if ( $order->customer_note ) : ?>
-		<tr>
-			<th><?php _e( 'Note:', 'woocommerce' ); ?></th>
-			<td><?php echo wptexturize( $order->customer_note ); ?></td>
-		</tr>
-	<?php endif; ?>
+			<?php if ( $order->billing_email ) : ?>
+				<tr>
+					<th><?php _e( 'Email:', 'woocommerce' ); ?></th>
+					<td><?php echo esc_html( $order->billing_email ); ?></td>
+				</tr>
+			<?php endif; ?>
 
-	<?php if ( $order->billing_email ) : ?>
-		<tr>
-			<th><?php _e( 'Email:', 'woocommerce' ); ?></th>
-			<td><?php echo esc_html( $order->billing_email ); ?></td>
-		</tr>
-	<?php endif; ?>
+			<?php if ( $order->billing_phone ) : ?>
+				<tr>
+					<th><?php _e( 'Telephone:', 'woocommerce' ); ?></th>
+					<td><?php echo esc_html( $order->billing_phone ); ?></td>
+				</tr>
+			<?php endif; ?>
 
-	<?php if ( $order->billing_phone ) : ?>
-		<tr>
-			<th><?php _e( 'Telephone:', 'woocommerce' ); ?></th>
-			<td><?php echo esc_html( $order->billing_phone ); ?></td>
-		</tr>
-	<?php endif; ?>
+			<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+		</table>
 
-	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
-</table>
+		<div class="">
+			<a class="[ btn btn-rounded waves-effect waves-light ][ white-text ][ text-bold ]" href="<?php echo site_url('/my-account/'); ?>">ir a mis cursos</a>
+		</div>
+	</div>
+	<div class="[ col s12 m6 ]">
+		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
 
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
+		<div class="col2-set addresses">
+			<div class="col-1">
 
-<div class="col2-set addresses">
-	<div class="col-1">
+		<?php endif; ?>
 
-<?php endif; ?>
-
-<header class="title">
-	<h5><?php _e( 'Billing Address', 'woocommerce' ); ?></h5>
-</header>
-<address>
-	<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
-</address>
-
-<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
-
-	</div><!-- /.col-1 -->
-	<div class="col-2">
-		<header class="title">
-			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>
+		<header class="title [ height-auto ]">
+			<h6 class="[ no-margin-top ]"><?php _e( 'Billing Address', 'woocommerce' ); ?></h6>
 		</header>
-		<address>
-			<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+		<address class="[ no-margin-top ]">
+			<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
 		</address>
-	</div><!-- /.col-2 -->
-</div><!-- /.col2-set -->
 
-<?php endif; ?>
+		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() ) : ?>
+
+			</div><!-- /.col-1 -->
+			<div class="col-2">
+				<header class="title">
+					<h6><?php _e( 'Shipping Address', 'woocommerce' ); ?></h6>
+				</header>
+				<address>
+					<?php echo ( $address = $order->get_formatted_shipping_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
+				</address>
+			</div><!-- /.col-2 -->
+		</div><!-- /.col2-set -->
+
+		<?php endif; ?>
+	</div>
+</div>

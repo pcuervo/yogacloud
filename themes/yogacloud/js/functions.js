@@ -248,8 +248,9 @@ function heightScreen(){
 function boxCard(){
 
         //image size
-        var image_alto = $('.bg-image--rectangle').width();
-        $('.bg-image--rectangle').css('height', image_alto + 'px');
+        var rectangle_height = $('.bg-image--rectangle').width();
+        $('.bg-image--rectangle').css('height', rectangle_height + 'px');
+        $('.height-content').css('height', (rectangle_height - 45) + 'px');
 
 }
 

@@ -86,7 +86,6 @@ class YC_Curso {
 	*/
 	public function get_short_description(){
 		$curso_query = get_post( $this->id );
-		the_excerpt();
 		return get_the_excerpt();
 	}
 
@@ -243,7 +242,7 @@ class YC_Curso {
 			'module_id'	=> $module_id,
 			'course_id' => $this->id,
 		);
-		$update = $wpdb->update(
+		return $wpdb->update(
 			$wpdb->prefix . 'courses_modules',
 			$module_data,
 			$where,
@@ -331,6 +330,25 @@ class YC_Curso {
 			array_push( $cursos, $curso );
 		endwhile; wp_reset_postdata();
 		return $cursos;
+	}
+
+	/**
+	* Remove lección fromm módulo
+	* @param int $module_id 
+	* @return int|false
+	*/
+	public function remove_modulo( $module_id ) {
+		global $wpdb;
+
+		$where = array(
+			'module_id'	=> $module_id,
+			'course_id' => $this->id,
+		);
+		return $wpdb->delete(
+			$wpdb->prefix . 'courses_modules',
+			$where,
+			array( '%d', '%d' )
+		);
 	}
 
 }// YC_Curso
