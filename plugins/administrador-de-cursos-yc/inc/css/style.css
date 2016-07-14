@@ -65,11 +65,12 @@
 	cursor: move;
 }
 
-.sortable-list li:hover{
-	background: #ececec;
-}
+.sortable-list li:hover{ background: #ececec; }
 
-.admin-cuervos .modulo__name, .modulo__drag, .modulo__edit, .modulo__add-lesson{
+.sortable-list li span{ cursor: move; }
+
+.modulo__name, .modulo__drag, .modulo__edit, .modulo__add-lesson,
+.lesson__name, .lesson__edit, .lesson__drag{
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -78,6 +79,10 @@
 .admin-cuervos .modulo__edit{ width: 14%; }
 .admin-cuervos .modulo__add-lesson{ width: 25%; }
 .admin-cuervos .modulo__drag{ width: 6%; }
+
+.lesson__name{ width: 83%; }
+.lesson__edit{ width: 12%; }
+.lesson__drag{ width: 5%; }
 
 
 .admin-cuervos .modulo__add{  }

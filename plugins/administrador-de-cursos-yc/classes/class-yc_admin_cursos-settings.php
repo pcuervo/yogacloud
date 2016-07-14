@@ -306,7 +306,7 @@ class YC_Admin_Cursos_Settings {
 	 * Course management page
 	 */
 	public function add_gestionar_curso_page() {
-		$cursos = YC_Curso::get_cursos(); ?>
+		$cursos = YC_Curso::get_cursos();?>
 
 		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Cursos Yogacloud</h1>
@@ -324,7 +324,10 @@ class YC_Admin_Cursos_Settings {
 						<th>Nombre</th>
 						<th># de módulos</th>
 						<th># de lecciones</th>
-						<th>Agregar módulos</th>
+						<th>Agregar Módulo</th>
+						<th>Agregar Lección</th>
+						<th>Agregar Maestro</th>
+						<th>Agregar Badge</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -334,6 +337,9 @@ class YC_Admin_Cursos_Settings {
 							<td><?php echo $curso->get_name() ?></td>
 							<td><?php echo $curso->get_name() ?></td>
 							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_lecciones_modulo', 'http' ) . '&mid=' . $modulo->id  ?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_maestros_curso', 'http' )?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_badges_curso', 'http' )?>">+</a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -460,8 +466,14 @@ class YC_Admin_Cursos_Settings {
 									<ul id="sortable-lecciones-modulo" class="[ sortable-list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_en_modulo as $key => $leccion) : ?>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">
-												<span><?php echo $key+1; ?>. </span>
-												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>"><?php echo $leccion->name ?></a>
+												<span class="[ lesson__name ]">
+													<span class="[ lesson__number ]"><?php echo $key+1; ?>. </span>
+													<?php echo $leccion->name ?>
+												</span><span
+												class="[ lesson__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>">editar</a>
+												</span><span
+												class="[ lesson__drag ] dashicons dashicons-editor-justify"></span>
 											</li>
 										<?php endforeach; ?>
 									</ul>
@@ -478,8 +490,14 @@ class YC_Admin_Cursos_Settings {
 										<?php foreach ($lecciones_todas as $key => $leccion) : ?>
 											<?php if( $modulo->has_leccion( $leccion->id) ) continue; ?>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">
-												<span></span>
-												<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>"><?php echo $leccion->name ?></a>
+												<span class="[ lesson__name ]">
+													<span class="[ lesson__number ]"></span>
+													<?php echo $leccion->name ?>
+												</span><span
+												class="[ lesson__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $leccion->id ) ?>">editar</a>
+												</span><span
+												class="[ lesson__drag ] dashicons dashicons-editor-justify"></span>
 											</li>
 										<?php endforeach; ?>
 									</ul>

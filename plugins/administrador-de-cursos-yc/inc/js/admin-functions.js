@@ -135,13 +135,13 @@ function updateOrderLecciones( positionsLeccion, idModulo ){
 
 function updateListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('.modulo__number').text(i+1+'. ');
+        $(li).find('.modulo__number, .lesson__number').text(i+1+'. ');
     })
 }
 
 function eraseListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('.modulo__number').text('');
+        $(li).find('.modulo__number, .lesson__number').text('');
     })
 }
 
