@@ -8,7 +8,7 @@ var $=jQuery.noConflict();
         /*------------------------------------*\
             #GLOBAL
         \*------------------------------------*/
-        $(window).load(function(){
+        $(window).ready(function(){
             footerBottom();
         });
 
@@ -75,6 +75,13 @@ var $=jQuery.noConflict();
         }
 
         if( parseInt( isTienda ) ){
+            boxCard(); //Index y resultados
+            $(window).resize(function() {
+                boxCard(); //Index y resultados
+            });
+        }
+
+        if( parseInt( isProductos ) ){
             boxCard(); //Index y resultados
             $(window).resize(function() {
                 boxCard(); //Index y resultados
