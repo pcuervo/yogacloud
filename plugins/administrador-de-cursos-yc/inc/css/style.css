@@ -69,18 +69,20 @@
 	background: #ececec;
 }
 
-.admin-cuervos .modulo__name, .modulo__drag, .modulo__edit{
+.admin-cuervos .modulo__name, .modulo__drag, .modulo__edit, .modulo__add-lesson{
 	display: inline-block;
 	vertical-align: middle;
 }
 
 .admin-cuervos .modulo__name{ width: 74%; }
 .admin-cuervos .modulo__edit{ width: 19%; }
+.admin-cuervos .modulo__add-lesson{ width: 19%; }
 .admin-cuervos .modulo__drag{ width: 7%; }
 
 @media screen and (max-width: 782px){
 	.admin-cuervos .modulo__name{ width: 66%; }
 	.admin-cuervos .modulo__edit{ width: 25%; }
+	.admin-cuervos .modulo__add-lesson{ width: 19%; }
 	.admin-cuervos .modulo__drag{ width: 9%; }
 }
 
@@ -97,5 +99,9 @@
 .admin-cuervos.admin-modulos .postbox{}
 .admin-cuervos.admin-modulos .postbox .inside{
 	height: 400px;
-	overflow-y: scroll;
+}
+
+.admin-cuervos.admin-modulos .postbox .inside ul{
+	height: 100%;
+	overflow: scroll;
 }

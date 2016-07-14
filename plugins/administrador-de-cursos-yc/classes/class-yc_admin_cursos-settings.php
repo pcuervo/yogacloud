@@ -370,6 +370,9 @@ class YC_Admin_Cursos_Settings {
 												class="[ modulo__edit ]">
 													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>">editar</a>
 												</span><span
+												class="[ modulo__add-lesson ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $modulo->id ) ?>">agregar lección</a>
+												</span><span
 												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
 											</li>
 										<?php endforeach; ?>
