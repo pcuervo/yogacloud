@@ -242,12 +242,13 @@ class YC_Curso {
 			'module_id'	=> $module_id,
 			'course_id' => $this->id,
 		);
-		return $wpdb->update(
+		$wpdb->update(
 			$wpdb->prefix . 'courses_modules',
 			$module_data,
 			$where,
 			array( '%d', '%d' )
 		);
+		error_log( $wpdb->last_query );
 	}
 
 	/**

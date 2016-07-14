@@ -49,8 +49,8 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 			</div>
 		</div>
 		<div class="[ row ]">
-			<?php
-		        if ( ! empty( $user_cursos ) ) : ?>
+			<div class="[ col s12 ][ text-center ][ margin-bottom ]">
+				<?php if ( ! empty( $user_cursos ) ) : ?>
 		        	<h5>Mis cursos</h5>
 					<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
 						<thead>
@@ -84,6 +84,7 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 				       	</tbody>
 					</table>
 				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </section>

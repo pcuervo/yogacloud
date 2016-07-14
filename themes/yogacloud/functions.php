@@ -93,6 +93,17 @@ function print_title(){
 	}
 }
 
+/**
+ * Redirect after password reset.
+ * @return string
+ */
+add_action( 'woocommerce_customer_reset_password', 'woocommerce_new_pass_redirect' );
+function woocommerce_new_pass_redirect( $user ) {
+  	wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ) );
+  	exit;
+}
+
+
 
 /*------------------------------------*\
 	#GET/SET FUNCTIONS
@@ -200,34 +211,3 @@ function save_customer_register( $user_id ) {
         update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
     }
 }
-
-/** MOVE TO PLUGIN **/
-
-/**
- * Mark lesson as watched
- */
-function mark_lesson_as_watched(){
-	$user_id = get_current_user_id();
-	$lesson_id = $_POST['lesson_id'];
-
-	if( 0 == $user_id ) wp_die();
-
-	global $wpdb;
-	$user_lesson_data = array(
-		'user_id'			=> $user_id,
-		'lesson_id' 		=> $lesson_id,
-		'is_completed'		=> true,
-	);
-	$wpdb->insert(
-		$wpdb->prefix . 'user_lessons',
-		$user_lesson_data,
-		array( '%d', '%d', '%d' )
-	);
-
-	echo $lesson_id;
-	wp_die();
-}
-add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', 'mark_lesson_as_watched' );
-add_action( 'wp_ajax_mark_lesson_as_watched', 'mark_lesson_as_watched' );
-
-

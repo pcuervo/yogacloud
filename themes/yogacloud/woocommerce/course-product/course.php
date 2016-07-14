@@ -127,7 +127,7 @@
 						$lecciones = $modulo->get_lecciones();
 						?>
 						<li class="[ active ]">
-							<div class="[ collapsible-header active ]">
+							<div class="[ collapsible-header active ][ waves-effect ]">
 								<div class="[ padding ][ course--module ]">
 									<div class="[ row ][ no-margin ]">
 										<div class="[ col s12 m9 ]">
@@ -144,7 +144,7 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
-									<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 										<div class="[ padding ][ course--module--lesson ]">
 											<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
 											<div class="[ row ][ no-margin ]">
