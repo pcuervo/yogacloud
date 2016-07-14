@@ -41,7 +41,30 @@ header{
 			}
 		}
 	}
-}
+
+	//language
+	div#lang_sel {
+		float: left;
+		li { width: auto; }
+		a.lang_sel_sel,
+		& ul ul li a{
+			background-color: $light-color!important;
+			color: $primary-color!important;
+			border: none;
+			font-size: 20px;
+			padding-left:($padding-size/2); padding-right:($padding-size/2);
+			line-height: 64px;
+			font-family: 'Open Sans', 'Roboto', sans-serif;
+			background: url(../img/nav-arrow-down.png) #fff right no-repeat;;
+			&:hover {
+				background-color: $primary-color!important;
+				color: $light-color!important;
+			}
+		}
+		& ul ul { top: 64px; }
+	}
+
+} /*end header*/
 
 @media (orientation: portrait){
 	.footer-menu {

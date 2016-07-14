@@ -214,6 +214,8 @@
 						<?php if ( ! is_user_logged_in() ){ ?>
 							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
+						<!-- language -->
+						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>
