@@ -56,9 +56,9 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
 		} else {
 			add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-			add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-			add_shortcode( 'show-survey', array( $this, 'display_survey' ) );
+			add_action( 'wp_ajax_nopriv_save_user_rating', array( $this, 'save_user_rating' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
+			add_shortcode( 'show_rating', array( $this, 'add_shortcode_rating' ) );
 		}
 
 		// Custom data for Módulos and lecciones
@@ -270,6 +270,9 @@ class YC_Admin_Cursos_Settings {
 	public function enqueue_and_localize_scripts(){
 		wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
+		if ( 'product' == get_post_type() ) {
+			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
+		}
 	}
 
 	/**
@@ -285,7 +288,12 @@ class YC_Admin_Cursos_Settings {
 	/**
 	 * Shortcode to display rating in courses
 	 */
-	public function add_admin_cursos_page() {
+	public function add_shortcode_rating() {
+		?>
+		<!-- Rating -->
+		<h5 class="[ margin-bottom ]">Califica este curso</h5>
+		<div class="rating"></div>
+		<?php
 	}
 
 	/**

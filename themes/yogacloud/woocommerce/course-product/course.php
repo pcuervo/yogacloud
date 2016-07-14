@@ -75,9 +75,7 @@
 				</section>
 			<?php endif; ?>
 			<section class="[ text-center ]">
-				<!-- Rating -->
-				<h5 class="[ margin-bottom ]">Rating</h5>
-				<div class="rating"></div>
+				<?php echo do_shortcode('[show_rating]'); ?>
 			</section>
 			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>

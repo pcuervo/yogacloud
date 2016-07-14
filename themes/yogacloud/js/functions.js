@@ -44,9 +44,6 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             heightScreen();
-            $('.rating').addRating({
-                'icon': 'favorite'
-            });
             $('.modal-trigger').leanModal();
 
             $('.collapsible').collapsible({
