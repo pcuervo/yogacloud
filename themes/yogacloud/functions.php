@@ -51,6 +51,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_localize_script( 'functions', 'isMyAccount', (string) is_page('my-account') );
 	wp_localize_script( 'functions', 'isCart', (string) is_page('cart') );
 	wp_localize_script( 'functions', 'isCheckout', (string) is_page('checkout') );
+	wp_localize_script( 'functions', 'isTienda', (string) is_page('tienda') );
 
 	// styles
 	wp_enqueue_style( 'styles', get_stylesheet_uri() );
@@ -125,15 +126,15 @@ function get_user_cursos( $user_id ) {
 	        array(
 	            'taxonomy' => 'product_type',
 	            'field'    => 'slug',
-	            'terms'    => 'simple_course', 
+	            'terms'    => 'simple_course',
 	        ),
 	    ),
    	);
     $course_query = new WP_Query( $args );
     if ( ! $course_query->have_posts() ) return $cursos;
-    
-    while ( $course_query->have_posts() ) : $course_query->the_post(); 
-    	$_product = get_product( $course_query->post->ID ); 
+
+    while ( $course_query->have_posts() ) : $course_query->the_post();
+    	$_product = get_product( $course_query->post->ID );
     	if ( wc_customer_bought_product( $customer_email, $user_id,$_product->id ) ) {
 			$curso = new YC_Curso( $course_query->post->ID );
 			array_push( $cursos, $curso );
@@ -167,8 +168,8 @@ function is_curso( $product_id ){
  * Set a custom add to cart URL to redirect to
  * @return string
  */
-function custom_add_to_cart_redirect() { 
-    return site_url('cart'); 
+function custom_add_to_cart_redirect() {
+    return site_url('cart');
 }
 add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
 
@@ -177,7 +178,7 @@ add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
  * Auto Complete all WooCommerce orders.
  */
 add_action( 'woocommerce_thankyou', 'custom_woocommerce_auto_complete_order' );
-function custom_woocommerce_auto_complete_order( $order_id ) { 
+function custom_woocommerce_auto_complete_order( $order_id ) {
     if ( ! $order_id ) {
         return;
     }
@@ -195,12 +196,12 @@ function extended_register_form() {
 	<p>
     <label for="first_name"><?php _e( 'Name', 'woocommerce' ) ?><br />
     <input type="text" name="first_name" id="first_name" class="input" value="<?php echo esc_attr( wp_unslash( $first_name ) ); ?>" size="25" /></label>
-    </p> 
+    </p>
     <p>
     <label for="last_name"><?php _e( 'Last Name', 'woocommerce' ) ?><br />
     <input type="text" name="last_name" id="last_name" class="input" value="<?php echo esc_attr( wp_unslash( $last_name ) ); ?>" size="25" /></label>
-    </p> 
-    <?php 
+    </p>
+    <?php
 
 }
 

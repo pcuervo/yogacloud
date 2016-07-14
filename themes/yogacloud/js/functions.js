@@ -74,6 +74,13 @@ var $=jQuery.noConflict();
 
         }
 
+        if( parseInt( isTienda ) ){
+            boxCard(); //Index y resultados
+            $(window).resize(function() {
+                boxCard(); //Index y resultados
+            });
+        }
+
          /*------------------------------------*\
             #MY ACCOUNT
         \*------------------------------------*/
