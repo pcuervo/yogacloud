@@ -35,11 +35,17 @@
 				</div>
 			</div>
 		</article>
+	<?php else : ?>
+		<h3 class="[ color-secondary ][ margin-top--large no-margin-bottom ]">La lección aún no está disponible, lo sentimos.</h3>
 	<?php endif; ?>
+
+	<!-- <div class="[ bg-primary ][ padding-vertical ][ course-completed ]">
+		<h6 class="[ white-text ][ no-margin ]"><strong>¡Haz completado el curso!</strong><i class="[ icon icon-badge-star-1 icon-medium ][ color-light ]"></i></h6>
+	</div> -->
 
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 		<div class="[ bg-secondary ][ padding-vertical--xsmall ][ lesson-completed ]">
-			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
+			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon-xsmall ][ color-light ]"></i></h6>
 		</div>
 	<?php else : ?>
 		<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
@@ -86,7 +92,7 @@
 						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
 					</a>
 				</div>
-				<h5><?php the_title(); ?></h5>
+				<h1 class="[ h5 ]"><?php the_title(); ?></h1>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
 				<?php endif; ?>
