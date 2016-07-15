@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 		<header class="title [ height-auto ]">
-			<h6 class="[ no-margin-top ]"><?php _e( 'Billing Address', 'woocommerce' ); ?></h6>
+			<h6 class="[ no-margin-top ]"><?php _e( 'Mi dirección', 'woocommerce' ); ?></h6>
 		</header>
 		<address class="[ no-margin-top ]">
 			<?php echo ( $address = $order->get_formatted_billing_address() ) ? $address : __( 'N/A', 'woocommerce' ); ?>
