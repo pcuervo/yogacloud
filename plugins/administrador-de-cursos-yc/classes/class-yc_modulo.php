@@ -52,6 +52,20 @@ class YC_Modulo {
 	}
 
 	/**
+	* Return number of Lecciones in Curso
+	* @return int $num_lecciones
+	*/
+	public function get_num_lecciones(){
+		global $wpdb;
+		$lecciones_results = $wpdb->get_results(
+			"SELECT lesson_id FROM " . $wpdb->prefix . "modules_lessons WHERE module_id = " . $this->id . " ORDER BY position"  
+			);
+		if( empty( $lecciones_results ) ) return 0;
+
+		return count( $lecciones_results );
+	}
+
+	/**
 	* Return all Módulos from the course
 	* @return array $lecciones
 	*/

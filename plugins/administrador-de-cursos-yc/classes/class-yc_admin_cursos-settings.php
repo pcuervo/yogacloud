@@ -34,6 +34,7 @@ class YC_Admin_Cursos_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
+		
 		// Custom data for Cursos
 		if( is_admin() ){
 			// AJAX functions
@@ -45,6 +46,14 @@ class YC_Admin_Cursos_Settings {
 			add_action( 'wp_ajax_remove_leccion_modulo', array( $this, 'remove_leccion_modulo' ) );
 			add_action( 'wp_ajax_nopriv_remove_modulo_curso', array( $this, 'remove_modulo_curso' ) );
 			add_action( 'wp_ajax_remove_modulo_curso', array( $this, 'remove_modulo_curso' ) );
+			add_action( 'wp_ajax_nopriv_add_maestro_curso', array( $this, 'add_maestro_curso' ) );
+			add_action( 'wp_ajax_add_maestro_curso', array( $this, 'add_maestro_curso' ) );
+			add_action( 'wp_ajax_nopriv_remove_maestro_curso', array( $this, 'remove_maestro_curso' ) );
+			add_action( 'wp_ajax_remove_maestro_curso', array( $this, 'remove_maestro_curso' ) );
+			add_action( 'wp_ajax_nopriv_add_badge_curso', array( $this, 'add_badge_curso' ) );
+			add_action( 'wp_ajax_add_badge_curso', array( $this, 'add_badge_curso' ) );
+			add_action( 'wp_ajax_nopriv_remove_badge_curso', array( $this, 'remove_badge_curso' ) );
+			add_action( 'wp_ajax_remove_badge_curso', array( $this, 'remove_badge_curso' ) );
 
 			add_filter( 'product_type_selector', array( $this, 'add_simple_course_product' ), 10, 1 );
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'custom_product_tabs' ) );
@@ -54,19 +63,23 @@ class YC_Admin_Cursos_Settings {
 			add_filter( 'woocommerce_product_data_tabs', array( $this, 'manage_attributes_data_panel' ) );
 			add_action( 'admin_menu', array( $this, 'add_menu_pages' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_and_localize_admin_scripts' ) );
+		} else {
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
+			add_shortcode( 'show_rating', array( $this, 'add_shortcode_rating' ) );
 		}
-
+		add_action( 'wp_ajax_nopriv_save_user_rating', array( $this, 'save_user_rating' ) );
+		add_action( 'wp_ajax_save_user_rating', array( $this, 'save_user_rating' ) );
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
-		add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
+		//add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
 		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
 		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
 
 	}
 
@@ -252,22 +265,27 @@ class YC_Admin_Cursos_Settings {
 	 * Add menu pages
 	 */
 	public function add_menu_pages() {
-		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'menu_admin_cursos', array( $this, 'add_admin_cursos_page' ) );
-		add_submenu_page( 'menu_admin_cursos', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
-		add_submenu_page( 'menu_admin_cursos', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
-		add_submenu_page( 'menu_admin_cursos', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
-		add_submenu_page( 'menu_admin_cursos', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
-		add_submenu_page( null, 'Gestión Cursos', 'Gestión Cursos', 'manage_options', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
-		add_submenu_page( null, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_options', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
-		add_submenu_page( null, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_options', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
+		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
+		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
+		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
+		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'gestionar_curso', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
+		add_submenu_page( NULL, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_options', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar maestros a curso', 'Agregar maestros a curso', 'manage_options', 'agregar_maestros_curso', array( $this, 'add_agregar_maestros_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar badges a curso', 'Agregar badges a curso', 'manage_options', 'agregar_badges_curso', array( $this, 'add_agregar_badges_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_options', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
 	}
 
 	/**
 	 * Add javascript and style files
 	 */
 	public function enqueue_and_localize_scripts(){
-		wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
+		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
+		if ( 'product' == get_post_type() ) {
+			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
+			wp_localize_script( 'course_rating', 'ajax_url', admin_url('admin-ajax.php') );
+		}
 	}
 
 	/**
@@ -281,26 +299,19 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
-	 * The main screen
+	 * Shortcode to display rating in courses
 	 */
-	public function add_admin_cursos_page() {
-		echo '<div class="notice-success notice is-dismissible"><p>¡Esta parte está en construcción!</p></div>';
-		$answered_surveys = array();
-		?>
-		<div class="[ wrap ][ admin-cuervos ]">
-			<h1>Administrador de Cursos YogaCloud</h1>
-			<h3>Aquí podrás gestionar los cursos, módulos y lecciones de la plataforma... [COPY PENDING]</h3>
-			<hr>
-			<div class="[ text-center ]">
-				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_curso', 'http' ) ?>">Gestionar Cursos</a>
-				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_modulos', 'http' ) ?>">Gestionar Módulos</a>
-				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_lecciones', 'http' ) ?>">Gestionar Lecciones</a>
-				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_maestros', 'http' ) ?>">Gestionar Maestros</a>
-				<a class="[ button-primary button-large ][ margin-bottom margin-sides--small ]" href="<?php echo admin_url( '/admin.php?page=gestionar_badges', 'http' ) ?>">Gestionar Badges</a>
-			</div>
-		</div>
-		<?php
-	}// add_admin_cursos_page
+	public function add_shortcode_rating() {
+		$curso = new YC_Curso( get_the_id() );
+		$user_rating = $curso->get_user_rating( get_current_user_id() );
+		if ( ! $user_rating ) : ?>
+			<!-- Rating -->
+			<h5 class="[ margin-bottom ]">Califica este curso</h5>
+			<div class="rating" data-curso="<?php echo get_the_id(); ?>" ></div>
+		<?php else : ?>
+			<p>DEFINIR COPY SI YA ESTA CALIFICADO...</p>
+		<?php endif ; 
+	}
 
 	/**
 	 * Course management page
@@ -310,7 +321,7 @@ class YC_Admin_Cursos_Settings {
 
 		<div class="[ wrap ][ admin-cuervos ]">
 			<h1>Cursos Yogacloud</h1>
-			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de cursos disponibles.</p>
+			<p>Aquí podrás editar los módulos, maestros y badges que tiene cada curso. A continuación encontrarás el listado de los cursos disponibles.</p>
 			<hr>
 			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=product') ?>">crear curso</a>
 			<a class="[ button-primary ]" href="<?php echo site_url('wp-admin/post-new.php?post_type=modulos') ?>">crear módulo</a>
@@ -324,20 +335,20 @@ class YC_Admin_Cursos_Settings {
 						<th>Nombre</th>
 						<th># de módulos</th>
 						<th># de lecciones</th>
-						<th>Agregar Módulo</th>
-						<th>Agregar Maestro</th>
-						<th>Agregar Badge</th>
+						<th>Administrar Módulos</th>
+						<th>Administrar Maestros</th>
+						<th>Administrar Badges</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ( $cursos as $key => $curso ) : ?>
 						<tr>
 							<td><?php echo $curso->get_name() ?></td>
-							<td><?php echo $curso->get_name() ?></td>
-							<td><?php echo $curso->get_name() ?></td>
+							<td class="[ text-center ]"><?php echo $curso->get_num_modulos() ?></td>
+							<td class="[ text-center ]"><?php echo $curso->get_num_lecciones() ?></td>
 							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_modulos_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
-							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_maestros_curso', 'http' )?>">+</a></td>
-							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_badges_curso', 'http' )?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_maestros_curso', 'http' ) . '&cid=' . $curso->id  ?>">+</a></td>
+							<td class="[ text-center ]"><a class="[ button-primary ]" href="<?php echo admin_url( '/admin.php?page=agregar_badges_curso', 'http' ) . '&cid=' . $curso->id ?>">+</a></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -423,10 +434,75 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
-					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
+				</div>
+			</div>
+		</div>
+		<?php
+	}// add_agregar_modulo_curso_page
+
+	/**
+	 * Add maestros to course page
+	 */
+	public function add_agregar_maestros_curso_page() {
+		if( ! isset( $_GET['cid'] ) ){
+			wp_redirect( admin_url( '/admin.php?page=gestionar_curso', 'http' ) );
+			exit();
+		}
+
+		$curso =  new YC_Curso( $_GET['cid'] );
+		$maestros_en_curso = $curso->get_maestros();
+		$maestros_todos = YC_Maestro::get_maestros();
+		?>
+		<div class="[ wrap ][ admin-cuervos admin-modulos ]">
+			<div class="[ notices ]"></div>
+			<h1><?php echo $curso->get_name(); ?></h1>
+			<p><?php echo $curso->get_short_description(); ?></p>
+			<hr>
+			<div id="dashboard-widget-wrap">
+				<div id="dashboard-widgets" class="[ metabox-holder ][ columns-2 ]">
+					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+						<div class="[  ]">
+							<div id="maestros-curso" data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]">Maestros en curso</h2>
+								<div class="inside">
+									<ul id="sortable-maestros-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
+										<?php foreach ($maestros_en_curso as $maestro) : ?>
+											<li id="<?php echo $maestro->id ?>" data-id="<?php echo $maestro->id ?>" data-type="lesson">
+												<span class="[ maestro__name ]">
+													<?php echo $maestro->name ?>
+												</span><span
+												class="[ maestro__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $maestro->id ) ?>">editar</a>
+												</span><span
+												class="[ maestro__drag ] dashicons dashicons-editor-justify"></span>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="postbox-container-2" class="[ postbox-container ]" style="width: 50%">
 						<div class="[ meta-box-sortables ui-sortable ]">
-							<div class="[ postbox ]" style="border: dashed; height: 300px;">
-								<h2>Arrastrar aquí para eliminar lección del curso</h2>
+							<div data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Maestros que no están en curso</span></h2>
+								<div class="inside">
+									<ul id="sortable-maestros-todos" class="[ sortable-list ]" style="min-height: 50px">
+										<?php foreach ($maestros_todos as $maestro) : ?>
+											<?php if( $curso->has_maestro( $maestro->id) ) continue; ?>
+											<li id="<?php echo $maestro->id ?>" data-id="<?php echo $maestro->id ?>" data-type="module">
+												<span class="[ maestro__name ]">
+													<?php echo $maestro->name ?>
+												</span><span
+												class="[ maestro__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $maestro->id ) ?>">editar</a>
+												</span><span
+												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
+												<span></span>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -434,7 +510,79 @@ class YC_Admin_Cursos_Settings {
 			</div>
 		</div>
 		<?php
-	}// add_agregar_modulo_curso_page
+	}// add_agregar_maestros_curso_page
+
+	/**
+	 * Add maestros to course page
+	 */
+	public function add_agregar_badges_curso_page() {
+		if( ! isset( $_GET['cid'] ) ){
+			wp_redirect( admin_url( '/admin.php?page=gestionar_curso', 'http' ) );
+			exit();
+		}
+
+		$curso =  new YC_Curso( $_GET['cid'] );
+		$badges_en_curso = $curso->get_badges();
+		$badges_todos = YC_Badge::get_badges();
+		?>
+		<div class="[ wrap ][ admin-cuervos admin-modulos ]">
+			<div class="[ notices ]"></div>
+			<h1><?php echo $curso->get_name(); ?></h1>
+			<p><?php echo $curso->get_short_description(); ?></p>
+			<hr>
+			<div id="dashboard-widget-wrap">
+				<div id="dashboard-widgets" class="[ metabox-holder ][ columns-2 ]">
+					<div id="postbox-container-1" class="[ postbox-container ]" style="width: 50%">
+						<div class="[  ]">
+							<div id="badges-curso" data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]">Badges del curso</h2>
+								<div class="inside">
+									<ul id="sortable-badges-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
+										<?php foreach ($badges_en_curso as $badge) : ?>
+											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="lesson">
+												<span class="[ badge__name ]">
+													<?php echo $badge->name ?>
+												</span><span
+												class="[ badge__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $badge->id ) ?>">editar</a>
+												</span><span
+												class="[ badge__drag ] dashicons dashicons-editor-justify"></span>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="postbox-container-2" class="[ postbox-container ]" style="width: 50%">
+						<div class="[ meta-box-sortables ui-sortable ]">
+							<div data-curso="<?php echo $curso->id ?>" class="[ postbox ]">
+								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Badges que no están en curso</span></h2>
+								<div class="inside">
+									<ul id="sortable-badges-todos" class="[ sortable-list ]" style="min-height: 50px">
+										<?php foreach ($badges_todos as $badge) : ?>
+											<?php if( $curso->has_badge( $badge->id) ) continue; ?>
+											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="module">
+												<span class="[ badge__name ]">
+													<?php echo $badge->name ?>
+												</span><span
+												class="[ badge__edit ]">
+													<a class="[ button-primary ]" href="<?php echo get_edit_post_link( $badge->id ) ?>">editar</a>
+												</span><span
+												class="[ modulo__drag ] dashicons dashicons-editor-justify"></span>
+												<span></span>
+											</li>
+										<?php endforeach; ?>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php
+	}// add_agregar_badges_curso_page
 
 	/**
 	 * Add modulos to course page
@@ -503,13 +651,6 @@ class YC_Admin_Cursos_Settings {
 							</div>
 						</div>
 					</div>
-					<div id="droppable" class="[ postbox-container ]" style="width: 100%; display: none">
-						<div class="[ meta-box-sortables ui-sortable ]">
-							<div class="[ postbox ]" style="border: dashed; height: 300px;">
-								<h2>Arrastrar aquí para eliminar lección del curso</h2>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -565,7 +706,6 @@ class YC_Admin_Cursos_Settings {
 	* Remove module from lessons
 	*/
 	public function remove_modulo_curso(){
-		global $wpdb;
 		$curso = new YC_Curso( $_POST['id_curso'] );
 		$module_id = $_POST['id_modulo'];
 		echo $curso->remove_modulo( $module_id );
@@ -573,9 +713,50 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
+	* Add teacher to course
+	*/
+	public function add_maestro_curso(){
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		$teacher_id = $_POST['id_maestro'];
+		echo $curso->add_maestro( $teacher_id );
+		wp_die();
+	}
+
+	/**
+	* Remove teacher from course
+	*/
+	public function remove_maestro_curso(){
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		$teacher_id = $_POST['id_maestro'];
+		echo $curso->remove_maestro( $teacher_id );
+		wp_die();
+	}
+
+	/**
+	* Add badge to course
+	*/
+	public function add_badge_curso(){
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		$badge_id = $_POST['id_badge'];
+		echo $curso->add_badge( $badge_id );
+		wp_die();
+	}
+
+	/**
+	* Remove badge from course
+	*/
+	public function remove_badge_curso(){
+		$curso = new YC_Curso( $_POST['id_curso'] );
+		$badge_id = $_POST['id_badge'];
+		echo $curso->remove_badge( $badge_id );
+		wp_die();
+	}
+
+	/**
 	* Mark a lesson as watched
 	*/
 	public function mark_lesson_as_watched(){
+		error_log('mark_lesson_as_watched');
 		$user_id = get_current_user_id();
 		$lesson_id = $_POST['lesson_id'];
 
@@ -594,6 +775,31 @@ class YC_Admin_Cursos_Settings {
 		);
 
 		echo $lesson_id;
+		wp_die();
+	}
+
+	/**
+	* Mark a lesson as watched
+	*/
+	public function save_user_rating(){
+		$user_id 	= get_current_user_id();
+		$course_id 	= $_POST['course_id'];
+		$rating 	= $_POST['rating'];
+
+		if( 0 == $user_id ) wp_die();
+
+		global $wpdb;
+		$user_lesson_data = array(
+			'course_id'		=> $course_id,
+			'user_id'		=> $user_id,
+			'rating' 		=> $rating,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'user_courses_rating',
+			$user_lesson_data,
+			array( '%d', '%d', '%d' )
+		);
+		'Rating guardado...';
 		wp_die();
 	}
 
@@ -993,6 +1199,7 @@ class YC_Admin_Cursos_Settings {
 	}// insert_custom_taxonomy_term
 
 }// YC_Admin_Cursos_Settings
+
 
 
 

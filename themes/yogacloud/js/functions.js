@@ -44,7 +44,6 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             heightScreen();
-            $('.rating').addRating();
             $('.modal-trigger').leanModal();
 
             $('.collapsible').collapsible({
@@ -260,11 +259,10 @@ function heightScreen(){
 //Imagen cuadrada
 
 function boxCard(){
-
-        //image size
-        var rectangle_height = $('.bg-image--rectangle').width();
-        $('.bg-image--rectangle').css('height', rectangle_height + 'px');
-        $('.height-content').css('height', (rectangle_height - 45) + 'px');
+    //image size
+    var rectangle_height = $('.bg-image--rectangle').width();
+    $('.bg-image--rectangle').css('height', rectangle_height + 'px');
+    $('.height-content').css('height', (rectangle_height - 45) + 'px');
 
 }
 
