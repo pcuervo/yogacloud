@@ -181,13 +181,16 @@ button.btn-floating {
   }
 }
 
+// Hollow button
+.btn-hollow{
+  color: $button-raised-background;
+  background-color: $button-raised-color;
+  border: 1px solid $button-raised-background;
+}
+
 // Rounded button
-.btn-rounded {
-  border-radius: 50px;
-}
-.btn-rounded--xsmall {
-  border-radius: 10px;
-}
+.btn-rounded { border-radius: 50px; }
+.btn-rounded--xsmall { border-radius: 10px; }
 
 // Large button
 .btn-large {

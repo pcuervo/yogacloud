@@ -74,7 +74,7 @@
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
 										<?php else : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
 										<?php endif; ?>
 									</div>
 								</div>

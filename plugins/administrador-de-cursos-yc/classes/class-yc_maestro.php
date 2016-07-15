@@ -18,6 +18,7 @@ class YC_Maestro {
 	public $twitter;
 	public $instagram;
 	public $thumbnail;
+	public $medium;
 
 	/**
 	 * Constructor
@@ -38,6 +39,7 @@ class YC_Maestro {
 		$this->twitter 		= get_post_meta( $maestros_query->ID, '_twitter_meta', true) ;
 		$this->instagram 	= get_post_meta( $maestros_query->ID, '_instagram_meta', true) ;
 		$this->thumbnail 	= get_the_post_thumbnail( $maestros_query->ID, 'thumbnail', array('class'=>'[ border-radius---50 ][ width--80 height-auto ]') );
+		$this->medium 	= get_the_post_thumbnail( $maestros_query->ID, 'medium', array('class'=>'[ border-radius---50 ][ width--120 height-auto ]') );
 	}
 
 }// YC_Maestro

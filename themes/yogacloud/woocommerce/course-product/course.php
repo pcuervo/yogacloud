@@ -89,11 +89,11 @@
 					<!-- Modal Structure -->
 					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
 						<div class="modal-content [ white-text ]">
-							<div class="[ row ]">
+							<div class="[ row ][ padding-top--large ]">
 								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
 									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-									<h5 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h5>
-									<?php echo $maestro->thumbnail; ?>
+									<h3 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h3>
+									<?php echo $maestro->medium; ?>
 									<div class="[ text-center ][ margin-bottom ]">
 										<?php if ( !empty($maestro->twitter) ){ ?>
 											<a target="_blank" href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
@@ -105,8 +105,8 @@
 											<a target="_blank" href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 										<?php } ?>
 									</div>
-									<div class="[ margin-bottom ]">
-										<?php echo $maestro->description; ?>
+									<div class="[ margin-bottom ][ flow-text ]">
+										<?php echo apply_filters('the_content', $maestro->description); ?>
 									</div>
 									<?php if ( !empty($maestro->url) ){ ?>
 										<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
