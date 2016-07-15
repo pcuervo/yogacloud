@@ -23,7 +23,7 @@
 
 <section class="[ text-center ]">
 	<?php if ( ! empty( $video_info ) ) : ?>
-		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen min-height--500-l ][ no-margin ]" >
+		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button min-height--500-l ][ no-margin ]" >
 			<div class="video-container [ controls-show ]">
 				<?php echo $video_info['iframe']; ?>
 			</div>
