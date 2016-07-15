@@ -31,13 +31,13 @@ class YC_Leccion {
 			$lecciones_query = get_post( $args['id'], OBJECT, 'lecciones' );
 		}
 
-		$this->id 				= $lecciones_query->ID;
-		$this->name 			= $lecciones_query->post_title;
-		$this->description 		= $lecciones_query->post_content;
-		$this->short_description 		= $lecciones_query->post_excerpt;
-		$this->permalink 		= get_permalink( $lecciones_query->ID );
-		$this->soundcloud_url 	= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
-		$this->is_free 			= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
+		$this->id 					= $lecciones_query->ID;
+		$this->name 				= $lecciones_query->post_title;
+		$this->description 			= $lecciones_query->post_content;
+		$this->short_description 	= $lecciones_query->post_excerpt;
+		$this->permalink 			= get_permalink( $lecciones_query->ID );
+		$this->soundcloud_url 		= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
+		$this->is_free 				= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
 
 		$this->hooks();
 	}
@@ -133,6 +133,7 @@ class YC_Leccion {
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
 			error_log( 'no jala dev' );
+			var_dump( $vimeo_response );
 			$lib = $this->get_vimeo_lib( 'stage' );
 			$vimeo_response = $lib->request('/me/videos/' . $video_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 		}
