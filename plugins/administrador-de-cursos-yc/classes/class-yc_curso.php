@@ -2,7 +2,7 @@
 /**
  * Curso YogaCloud.
  *
- * This class represent a course in the platform. 
+ * This class represent a course in the platform.
  *
  * @since 1.0.0
  */
@@ -22,13 +22,14 @@ class YC_Curso {
 
 	public $id;
 	public $description;
-	public $num_lessons; 
-	public $lessons_per_week; 
-	public $hours; 
-	public $is_coming_soon; 
+	public $num_lessons;
+	public $lessons_per_week;
+	public $hours;
+	public $is_coming_soon;
 	public $is_new;
-	private $trailer_info = array(); 
-	
+	public $subtitle;
+	private $trailer_info = array();
+
 	/**
 	 * Constructor
 	 */
@@ -39,6 +40,7 @@ class YC_Curso {
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
 		$this->is_coming_soon 	= get_post_meta( $course_id, '_coming_soon', true );
 		$this->is_new			= $this->is_new();
+		$this->subtitle			= get_post_meta( $course_id, '_subtitle', true );
 		$this->hooks();
 	}
 
@@ -51,7 +53,7 @@ class YC_Curso {
 		$modulos = array();
 
 		$modulos_results = $wpdb->get_results(
-			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"  
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"
 			);
 		if( empty( $modulos_results ) ) return $modulos;
 
@@ -67,7 +69,7 @@ class YC_Curso {
 	public function get_num_modulos(){
 		global $wpdb;
 		$modulos_results = $wpdb->get_results(
-			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"  
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"
 			);
 		if( empty( $modulos_results ) ) return 0;
 
@@ -94,7 +96,7 @@ class YC_Curso {
 		global $wpdb;
 		$maestros = array();
 		$maestros_results = $wpdb->get_results(
-			"SELECT teacher_id FROM " . $wpdb->prefix . "courses_teachers WHERE course_id = " . $this->id  
+			"SELECT teacher_id FROM " . $wpdb->prefix . "courses_teachers WHERE course_id = " . $this->id
 			);
 		if( empty( $maestros_results ) ) return $maestros;
 
@@ -111,7 +113,7 @@ class YC_Curso {
 		global $wpdb;
 		$badges = array();
 		$badges_results = $wpdb->get_results(
-			"SELECT badge_id FROM " . $wpdb->prefix . "courses_badges WHERE course_id = " . $this->id  
+			"SELECT badge_id FROM " . $wpdb->prefix . "courses_badges WHERE course_id = " . $this->id
 			);
 		if( empty( $badges_results ) ) return $badges;
 
@@ -213,8 +215,8 @@ class YC_Curso {
         $current_user= wp_get_current_user();
         $customer_email = $current_user->email;
         if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
-        
-		return false;		
+
+		return false;
 	}
 
 	/**
@@ -263,7 +265,7 @@ class YC_Curso {
 
 	/**
 	* Check if a module exists in the course
-	* @param int $module_id 
+	* @param int $module_id
 	* @return boolean
 	*/
 	public function has_modulo( $module_id ) {
@@ -273,7 +275,7 @@ class YC_Curso {
 
 	/**
 	* Check if a teacher exists in the course
-	* @param int $teacher_id 
+	* @param int $teacher_id
 	* @return boolean
 	*/
 	public function has_maestro( $teacher_id ) {
@@ -283,7 +285,7 @@ class YC_Curso {
 
 	/**
 	* Check if a badge exists in the course
-	* @param int $badge_id 
+	* @param int $badge_id
 	* @return boolean
 	*/
 	public function has_badge( $badge_id ) {
@@ -292,8 +294,8 @@ class YC_Curso {
 	}
 
 	/**
-	* Add module to course 
-	* @param int $module_id 
+	* Add module to course
+	* @param int $module_id
 	* @param int $position
 	* @return boolean
 	*/
@@ -315,7 +317,7 @@ class YC_Curso {
 
 	/**
 	* Remove lección fromm módulo
-	* @param int $module_id 
+	* @param int $module_id
 	* @return int|false
 	*/
 	public function remove_modulo( $module_id ) {
@@ -333,8 +335,8 @@ class YC_Curso {
 	}
 
 	/**
-	* Add teacher to course 
-	* @param int $teacher_id 
+	* Add teacher to course
+	* @param int $teacher_id
 	* @return boolean
 	*/
 	public function add_maestro( $teacher_id ) {
@@ -354,7 +356,7 @@ class YC_Curso {
 
 	/**
 	* Remove maestro from curso
-	* @param int $teacher_id 
+	* @param int $teacher_id
 	* @return int|false
 	*/
 	public function remove_maestro( $teacher_id ) {
@@ -372,8 +374,8 @@ class YC_Curso {
 	}
 
 	/**
-	* Add badge to course 
-	* @param int $badge_id 
+	* Add badge to course
+	* @param int $badge_id
 	* @return boolean
 	*/
 	public function add_badge( $badge_id ) {
@@ -393,7 +395,7 @@ class YC_Curso {
 
 	/**
 	* Remove badge from course
-	* @param int $badge_id 
+	* @param int $badge_id
 	* @return int|false
 	*/
 	public function remove_badge( $badge_id ) {
@@ -412,7 +414,7 @@ class YC_Curso {
 
 	/**
 	* Update position of module
-	* @param int $module_id 
+	* @param int $module_id
 	* @param int $position
 	* @return boolean
 	*/
@@ -441,7 +443,7 @@ class YC_Curso {
 		//add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		//add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_footer', array( $this, 'init_course_trailer_js' ) );
-	}	
+	}
 
 	/**
 	 * Return information about the course's trailer, if any
@@ -451,13 +453,13 @@ class YC_Curso {
 		$trailer_url = get_post_meta( $this->id, '_vimeo_url', true );
 		if( empty( $trailer_url ) ) return array();
 
-		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1]; 
-		$lib = $this->get_vimeo_lib();  
+		$trailer_vimeo_id = explode( 'vimeo.com/', $trailer_url )[1];
+		$lib = $this->get_vimeo_lib();
 		$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
 			error_log( 'no jala dev' );
-			$lib = $this->get_vimeo_lib( 'stage' );  
+			$lib = $this->get_vimeo_lib( 'stage' );
 			$vimeo_response = $lib->request('/me/videos/' . $trailer_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 		}
 
@@ -501,14 +503,14 @@ class YC_Curso {
 		        array(
 		            'taxonomy' => 'product_type',
 		            'field'    => 'slug',
-		            'terms'    => 'simple_course', 
+		            'terms'    => 'simple_course',
 		        ),
 		    ),
 	   	);
 		$cursos_query = new WP_Query( $args );
 	    if ( ! $cursos_query->have_posts() ) return $cursos;
-	    
-	    while ( $cursos_query->have_posts() ) : $cursos_query->the_post(); 
+
+	    while ( $cursos_query->have_posts() ) : $cursos_query->the_post();
 	    	$curso = new YC_Curso( $cursos_query->post->ID );
 			array_push( $cursos, $curso );
 		endwhile; wp_reset_postdata();

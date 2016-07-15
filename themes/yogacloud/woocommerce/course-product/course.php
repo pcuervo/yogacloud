@@ -30,7 +30,8 @@
 <?php endif; ?>
 
 <section class="[ container ]">
-	<h1 class="[ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
+	<h1 class="[ h2 ][ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
+	<h2 class="[ h4 ][ width---100 ][ text-center ]"><?php echo $curso->subtitle; ?></h2>
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
 			<div class="[ row ][ text-center ][ margin-top ]">
