@@ -5,7 +5,7 @@
 /*
 Plugin Name: Administrador de Cursos YogaCloud
 Description: Creación y gestión de lecciones, módulos y cursos para la plataforma YogaCloud.
-Version: 1.1.0
+Version: 1.0.2
 Author: Miguel Cabral
 Author URI: http://pcuervo.com
 */
@@ -26,7 +26,7 @@ add_action( 'plugins_loaded', create_function( '', 'Admin_Cursos_YC::get();' ) )
 
 class Admin_Cursos_YC {
 
-	const YC_CURSOS_VERSION = '1.1.0';
+	const YC_CURSOS_VERSION = '1.0.2';
 
 	private static $instance = null;
 
@@ -51,11 +51,12 @@ class Admin_Cursos_YC {
 		$this->hooks();
 		$this->init();
 		// Check version for update
-		//if( get_option() )
 		if( get_option( 'admin_curso_yc_version' ) != Admin_Cursos_YC::YC_CURSOS_VERSION  ){
-			$this->create_user_courses_rating_table();
+			$this->create_courses_teachers_table();
+			$this->create_courses_badges_table();
+			$this->create_user_badges_table();
 			update_option( 'admin_curso_yc_version', Admin_Cursos_YC::YC_CURSOS_VERSION );
-			error_log('new version: ' . Admin_Cursos_YC::YC_CURSOS_VERSION );
+			error_log('Updating plugin "Administrador de Cursos YogaCloud" to version: ' . Admin_Cursos_YC::YC_CURSOS_VERSION );
 		}
 		
 	}
@@ -68,6 +69,10 @@ class Admin_Cursos_YC {
 		$admin_cursos->create_user_lesson_table();
 		$admin_cursos->create_courses_modules_table();
 		$admin_cursos->create_modules_lessons_table();
+		$admin_cursos->create_user_courses_rating_table();
+		$admin_cursos->create_courses_teachers_table();
+		$admin_cursos->create_courses_badges_table();
+		$admin_cursos->create_user_badges_table();
 		add_option( 'admin_curso_yc_version', Admin_Cursos_YC::YC_CURSOS_VERSION );
 	}
 
@@ -169,7 +174,7 @@ class Admin_Cursos_YC {
 	}// create_modules_lessons_table
 
 	/**
-	 * Create table "modules_lessons"
+	 * Create table "user_courses_rating"
 	 */
 	private function create_user_courses_rating_table(){
 		global $wpdb;
@@ -189,6 +194,71 @@ class Admin_Cursos_YC {
 			dbDelta( $sql );
 		}
 	}// create_user_courses_rating_table
+
+	/**
+	 * Create table "courses_teachers"
+	 */
+	private function create_courses_teachers_table(){
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'courses_teachers';
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+			$charset_collate = $wpdb->get_charset_collate();
+			$sql = "CREATE TABLE $table_name (
+				id MEDIUMINT(9) NOT NULL AUTO_INCREMENT,
+				course_id INT NOT NULL,
+				teacher_id INT NOT NULL,
+				UNIQUE KEY id (id)
+			) $charset_collate;";
+
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
+		}
+	}// create_courses_teachers_table
+
+	/**
+	 * Create table "courses_badges"
+	 */
+	private function create_courses_badges_table(){
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'courses_badges';
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+			$charset_collate = $wpdb->get_charset_collate();
+			$sql = "CREATE TABLE $table_name (
+				id MEDIUMINT(9) NOT NULL AUTO_INCREMENT,
+				course_id INT NOT NULL,
+				badge_id INT NOT NULL,
+				UNIQUE KEY id (id)
+			) $charset_collate;";
+
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
+		}
+	}// create_courses_badges_table
+
+	/**
+	 * Create table "user_badges"
+	 */
+	private function create_user_badges_table(){
+		global $wpdb;
+
+		$table_name = $wpdb->prefix . 'user_badges';
+		if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+			$charset_collate = $wpdb->get_charset_collate();
+			$sql = "CREATE TABLE $table_name (
+				id MEDIUMINT(9) NOT NULL AUTO_INCREMENT,
+				badge_id INT NOT NULL,
+				user_id INT NOT NULL,
+				coupon_code VARCHAR(30),
+				is_redeemed BOOLEAN DEFAULT FALSE,
+				UNIQUE KEY id (id)
+			) $charset_collate;";
+
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			dbDelta( $sql );
+		}
+	}// create_user_badges_table
 
 
 }// Admin_Cursos_YC
