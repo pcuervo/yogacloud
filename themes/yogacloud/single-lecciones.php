@@ -24,7 +24,7 @@
 <section class="[ text-center ]">
 	<?php if ( ! empty( $video_info ) ) : ?>
 		<article class="[ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen min-height--500-l ][ no-margin ]" >
-			<div class="video-container">
+			<div class="video-container [ controls-show ]">
 				<?php echo $video_info['iframe']; ?>
 			</div>
 			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $video_info['thumbnail']; ?>)">

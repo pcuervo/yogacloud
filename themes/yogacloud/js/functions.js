@@ -48,6 +48,9 @@ var $=jQuery.noConflict();
 
             $('.collapsible').collapsible({
             });
+            $(window).resize(function() {
+                heightScreen();
+            });
         }
 
         /*------------------------------------*\
@@ -64,6 +67,10 @@ var $=jQuery.noConflict();
             heightScreen();
 
             $('.tooltipped').tooltip();
+
+            $(window).resize(function() {
+                heightScreen();
+            });
         }
 
         /*------------------------------------*\
