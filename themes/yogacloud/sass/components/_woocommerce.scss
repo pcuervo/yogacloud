@@ -1,4 +1,5 @@
 //Box Model
+.margin-top---large		{ margin-top: ($margin-size*2)!important; }
 
 .padding-right--small--all *	{ padding-right: ($padding-size/2); }
 
@@ -76,6 +77,17 @@ nav.woocommerce-breadcrumb { display: none; }
 .woocommerce input.button:disabled,
 .woocommerce input.button:disabled[disabled] { color: $light-color; }
 
+.woocommerce input.button.btn-primary-disabled {
+	border: solid 1px $primary-color;
+	background-color: $light-color;
+	color: $primary-color!important;
+	box-shadow: none;
+	&:hover {
+		color: $light-color!important;
+		background-color: $primary-color!important;
+	}
+}
+
 //form
 .woocommerce table.cart td.actions .input-text { width: 120px; }
 
@@ -148,14 +160,3 @@ address { margin-top: 20px; }
     background: #e5f5f3;
     border-radius: 30px;
 }
-
-@media(min-width:768px){
-	.woocommerce-checkout-pedido{
-		padding: 10px 40px;
-		position: fixed;
-		width: 30%;
-		z-index: 1
-	}
-}
-
-// form.checkout .blockUI { position: absolute!important; bottom: 1050px!important; }
