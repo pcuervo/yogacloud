@@ -21,8 +21,8 @@ function saveRating( rating, idCurso ){
             action:     'save_user_rating'
         },
         function( response ){
-            // $('.rating').empty();
-            // $('.rating').html('<p>[DEFINIR COPY O ACCIÓN]</p>');
+            $('.rating').empty();
+            $('.rating').html('<p>¡gracias!</p>');
             console.log( response );
         }
     );

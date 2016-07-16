@@ -37,9 +37,10 @@
 		<h3 class="[ color-secondary ][ margin-top--large no-margin-bottom ]">La lección aún no está disponible, lo sentimos.</h3>
 	<?php endif; ?>
 
-	<!-- <div class="[ bg-primary ][ padding-vertical ][ course-completed ]">
+	<div class="[ bg-primary ][ padding-vertical ][ course-completed ]">
 		<h6 class="[ white-text ][ no-margin ]"><strong>¡Haz completado el curso!</strong><i class="[ icon icon-badge-star-1 icon-medium ][ color-light ]"></i></h6>
-	</div> -->
+		<?php echo do_shortcode('[show_rating]'); ?>
+	</div>
 
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 		<div class="[ bg-secondary ][ padding-vertical--xsmall ][ lesson-completed ]">
