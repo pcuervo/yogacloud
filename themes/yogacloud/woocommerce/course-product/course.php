@@ -1,9 +1,10 @@
 <?php
 	global $product;
-	$curso 		= new YC_Curso( $product->id );
-	$modulos 	= $curso->get_modulos();
-	$maestros 	= $curso->get_maestros();
-	$trailer_info = $curso->get_trailer_info();
+	$curso 			= new YC_Curso( $product->id );
+	$badge 			= $curso->get_badges();
+	$modulos 		= $curso->get_modulos();
+	$maestros 		= $curso->get_maestros();
+	$trailer_info 	= $curso->get_trailer_info();
 ?>
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
@@ -63,12 +64,12 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 m4 l2 ][ float-right--on-med-and-up ]">
-			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+			<?php if( $curso->was_bought_by_user( get_current_user_id() ) && ! empty( $badge ) ) : ?>
 				<section class="[ text-center ]">
 					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
-							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo $badge[0]->thumb_url ?>" alt="icon badge">
 							<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 						</div>
 					</div>
@@ -149,7 +150,12 @@
 								<?php foreach ( $lecciones as $lesson ) : ?>
 									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 										<div class="[ padding ][ course--module--lesson ]">
-											<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
+											<h6 class="[ no-margin ]">
+												<?php echo $lesson->name ?>
+												<?php if( $lesson->is_free() ) : ?>
+													<span class="new badge">gratis</span>
+												<?php endif; ?>
+											</h6>
 											<div class="[ row ][ no-margin ]">
 												<div class="[ col s12 m9 ]">
 													<p><?php echo $lesson->short_description ?></p>

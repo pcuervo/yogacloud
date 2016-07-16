@@ -12,13 +12,11 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
-	if ( ! $curso->was_bought_by_user( get_current_user_id() ) ){
+	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
-
 	get_header();
 	the_post();
-
 ?>
 
 <section class="[ text-center ]">
