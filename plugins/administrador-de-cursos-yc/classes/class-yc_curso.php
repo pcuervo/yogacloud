@@ -225,7 +225,7 @@ class YC_Curso {
 			$rating_total += intval($rating_result->{'rating'});
 		}
 
-		$average_rating = floor($rating_total / $count_rating);
+		$average_rating = ceil($rating_total / $count_rating);
 
 		return $average_rating;
 	}
