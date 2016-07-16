@@ -136,7 +136,7 @@
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical--xlarge ][ valign-wrapper ]">
 							<div class="[ valign ][ width---100 ]">
 								<h4 class="[ white-text ][ no-margin-top ]">Descuentos en calzado</h4>
-								<a href="<?php echo site_url('/tienda/'); ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--170 ][ valign ]">ver productos</a>
+								<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--170 ][ valign ]">ver productos</a>
 							</div>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
 									<div class="[ valign ][ width---100 ]">
 										<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">20% de descuento en mats</h4>
-										<a href="<?php echo site_url('/tienda/'); ?>" class="[ btn btn-rounded btn-light ]">ver productos</a>
+										<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ]">ver productos</a>
 									</div>
 								</div>
 							</div>
@@ -162,7 +162,7 @@
 								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
 									<div class="[ valign ][ width---100 ]">
 										<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">10% en toda la tienda con el código</h4>
-										<a href="<?php echo site_url('/tienda/'); ?>" class="[ btn btn-rounded btn-light ]">yogclouder16</a>
+										<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ]">yogclouder16</a>
 									</div>
 								</div>
 							</div>

@@ -55,10 +55,8 @@
 								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-											<!-- promo -->
-											<?php if ( 'yes' ==  $curso->is_coming_soon ) : ?>
-												<div id="promo" class="[ proximamente ]"></div>
-											<?php elseif( $curso->is_new ) : ?>
+											<!-- new -->
+											<?php if( $curso->is_new ) : ?>
 												<div id="promo" class="[ nuevo ]"></div>
 											<?php endif; ?>
 										</div>
@@ -67,14 +65,16 @@
 								<div class="[ col s6 no-padding-left ]">
 									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
-										<?php the_excerpt(); ?>
+										<?php echo $curso->subtitle; ?>
 										<div class="[ gradient-text ]"></div>
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
+											<button class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</button>
 										<?php else : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">más info</a>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
 										<?php endif; ?>
 									</div>
 								</div>
