@@ -34,7 +34,7 @@ class YC_Admin_Cursos_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
-		
+
 		// Custom data for Cursos
 		if( is_admin() ){
 			// AJAX functions
@@ -129,9 +129,16 @@ class YC_Admin_Cursos_Settings {
 		?><div id='course_options' class='panel woocommerce_options_panel'><?php
 			?><div class='options_group'><?php
 				woocommerce_wp_text_input( array(
+					'id'			=> '_subtitle',
+					'label'			=> __( 'Subtítulo', 'woocommerce' ),
+					'type' 			=> 'text',
+				) );
+				woocommerce_wp_text_input( array(
 					'id'			=> '_vimeo_url',
 					'label'			=> __( 'URL Vimeo Trailer', 'woocommerce' ),
 					'type' 			=> 'text',
+					'desc_tip'		=> 'true',
+					'description'	=> __( 'Máximo 50 caracteres', 'woocommerce' )
 				) );
 				woocommerce_wp_text_input( array(
 					'id'			=> '_num_lessons',
@@ -164,6 +171,7 @@ class YC_Admin_Cursos_Settings {
 	 */
 	public function save_course_option_field( $post_id ) {
 		if ( isset( $_POST['_vimeo_url'] ) ) :
+			update_post_meta( $post_id, '_subtitle', sanitize_text_field( $_POST['_subtitle'] ) );
 			update_post_meta( $post_id, '_vimeo_url', sanitize_text_field( $_POST['_vimeo_url'] ) );
 			update_post_meta( $post_id, '_num_lessons', sanitize_text_field( $_POST['_num_lessons'] ) );
 			update_post_meta( $post_id, '_lessons_per_week', sanitize_text_field( $_POST['_lessons_per_week'] ) );
@@ -311,7 +319,7 @@ class YC_Admin_Cursos_Settings {
 			<div class="rating" data-curso="<?php echo get_the_id(); ?>" ></div>
 		<?php else : ?>
 			<p>DEFINIR COPY SI YA ESTA CALIFICADO...</p>
-		<?php endif ; 
+		<?php endif ;
 	}
 
 	/**

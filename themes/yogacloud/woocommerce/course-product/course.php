@@ -9,7 +9,7 @@
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
 	<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
-		<div class="video-container">
+		<div class="video-container [ controls-show ]">
 			<?php echo $trailer_info['iframe']; ?>
 		</div>
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
@@ -31,7 +31,8 @@
 <?php endif; ?>
 
 <section class="[ container ]">
-	<h1 class="[ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
+	<h1 class="[ h2 ][ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
+	<h2 class="[ h4 ][ width---100 ][ text-center ]"><?php echo $curso->subtitle; ?></h2>
 	<div class="[ row ]">
 		<div class="[ col s12 offset-m2 m8 offset-l3 l6 ]">
 			<div class="[ row ][ text-center ][ margin-top ]">
@@ -76,9 +77,6 @@
 				</section>
 			<?php endif; ?>
 			<section class="[ text-center ]">
-				<?php echo do_shortcode('[show_rating]'); ?>
-			</section>
-			<section class="[ text-center ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
 				<?php foreach ( $maestros as $maestro ) : ?>
 					<article>
@@ -90,11 +88,11 @@
 					<!-- Modal Structure -->
 					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
 						<div class="modal-content [ white-text ]">
-							<div class="[ row ]">
+							<div class="[ row ][ padding-top--large ]">
 								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
 									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-									<h5 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h5>
-									<?php echo $maestro->thumbnail; ?>
+									<h3 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h3>
+									<?php echo $maestro->medium; ?>
 									<div class="[ text-center ][ margin-bottom ]">
 										<?php if ( !empty($maestro->twitter) ){ ?>
 											<a target="_blank" href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
@@ -106,8 +104,8 @@
 											<a target="_blank" href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 										<?php } ?>
 									</div>
-									<div class="[ margin-bottom ]">
-										<?php echo $maestro->description; ?>
+									<div class="[ margin-bottom ][ flow-text ]">
+										<?php echo apply_filters('the_content', $maestro->description); ?>
 									</div>
 									<?php if ( !empty($maestro->url) ){ ?>
 										<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
@@ -131,7 +129,7 @@
 						$lecciones = $modulo->get_lecciones();
 						?>
 						<li class="[ active ]">
-							<div class="[ collapsible-header active ][ waves-effect ]">
+							<div class="[ collapsible-header active ]">
 								<div class="[ padding ][ course--module ]">
 									<div class="[ row ][ no-margin ]">
 										<div class="[ col s12 m9 ]">
@@ -148,6 +146,7 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
+<<<<<<< HEAD
 									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 										<div class="[ padding ][ course--module--lesson ]">
 											<h6 class="[ no-margin ]">
@@ -164,10 +163,25 @@
 													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
 													<?php endif; ?>
+=======
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+										<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<?php endif; ?>
+											<div class="[ padding ][ course--module--lesson ]">
+												<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
+												<div class="[ row ][ no-margin ]">
+													<div class="[ col s12 m9 ]">
+														<p><?php echo $lesson->short_description ?></p>
+													</div>
+													<div class="[ col s12 m3 ][ text-center ]">
+														<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+															<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
+														<?php endif; ?>
+													</div>
+>>>>>>> 0f8e7f05008bb034152955773c6a1ecfe44181f2
 												</div>
 											</div>
-										</div>
-									</a>
+										</a>
 								<?php endforeach; ?>
 							</div>
 						</li>

@@ -70,19 +70,29 @@
 .sortable-list li span{ cursor: move; }
 
 .modulo__name, .modulo__drag, .modulo__edit, .modulo__add-lesson,
-.lesson__name, .lesson__edit, .lesson__drag{
+.lesson__name, .lesson__edit, .lesson__drag,
+.maestro__name, .maestro__edit, .maestro__drag,
+.badge__name, .badge__edit, .badge__drag{
 	display: inline-block;
 	vertical-align: middle;
 }
 
-.admin-cuervos .modulo__name{ width: 55%; }
-.admin-cuervos .modulo__edit{ width: 14%; }
-.admin-cuervos .modulo__add-lesson{ width: 25%; }
-.admin-cuervos .modulo__drag{ width: 6%; }
+.modulo__name{ width: 54%; }
+.modulo__edit{ width: 14%; }
+.modulo__add-lesson{ width: 26%; }
+.modulo__drag{ width: 6%; }
 
-.lesson__name{ width: 83%; }
-.lesson__edit{ width: 12%; }
-.lesson__drag{ width: 5%; }
+.lesson__name,
+.maestro__name,
+.badge__name { width: 80%; }
+
+.lesson__edit,
+.maestro__edit,
+.badge__edit { width: 14%; }
+
+.lesson__drag,
+.modulo__drag,
+.badge__drag { width: 6%; }
 
 
 .admin-cuervos .modulo__add{  }
@@ -93,14 +103,14 @@
     #MÓDULOS
 \*------------------------------------*/
 
-.admin-cuervos.admin-modulos{ width: 1000px; }
-.admin-cuervos.admin-modulos .postbox-container{ width: 500px; }
-.admin-cuervos.admin-modulos .postbox{}
-.admin-cuervos.admin-modulos .postbox .inside{
+.admin-cuervos{ width: 1000px; }
+.admin-cuervos .postbox-container{ width: 500px; }
+.admin-cuervos .postbox{}
+.admin-cuervos .postbox .inside{
 	height: 400px;
 }
 
-.admin-cuervos.admin-modulos .postbox .inside ul{
+.admin-cuervos .postbox .inside ul{
 	height: 100%;
 	overflow: scroll;
 }

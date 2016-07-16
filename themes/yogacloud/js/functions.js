@@ -48,6 +48,9 @@ var $=jQuery.noConflict();
 
             $('.collapsible').collapsible({
             });
+            $(window).resize(function() {
+                heightScreen();
+            });
         }
 
         /*------------------------------------*\
@@ -64,6 +67,10 @@ var $=jQuery.noConflict();
             heightScreen();
 
             $('.tooltipped').tooltip();
+
+            $(window).resize(function() {
+                heightScreen();
+            });
         }
 
         /*------------------------------------*\
@@ -74,6 +81,13 @@ var $=jQuery.noConflict();
         }
 
         if( parseInt( isTienda ) ){
+            boxCard(); //Index y resultados
+            $(window).resize(function() {
+                boxCard(); //Index y resultados
+            });
+        }
+
+        if( parseInt( isProductos ) ){
             boxCard(); //Index y resultados
             $(window).resize(function() {
                 boxCard(); //Index y resultados
