@@ -301,6 +301,7 @@ class YC_Admin_Cursos_Settings {
 	 */
 	public function enqueue_and_localize_admin_scripts(){
 		wp_enqueue_script( 'jquery_ui', 'https://code.jquery.com/ui/1.12.0/jquery-ui.js', 'jquery', '1.12.0', true );
+		wp_enqueue_script( 'list', YC_CURSOS_PLUGIN_URL . 'inc/js/list.min.js', 'jquery', false, true );
 		wp_enqueue_script( 'admin_functions', YC_CURSOS_PLUGIN_URL . 'inc/js/admin-functions.js', 'jquery', false, true );
 		wp_enqueue_style( 'admin_styles', YC_CURSOS_PLUGIN_URL . 'inc/css/style.css' );
 		wp_localize_script( 'jquery_ui', 'ajax_url', admin_url('admin-ajax.php') );
@@ -548,6 +549,9 @@ class YC_Admin_Cursos_Settings {
 									<ul id="sortable-badges-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
 										<?php foreach ($badges_en_curso as $badge) : ?>
 											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="lesson">
+												<span class="[ badge__img ]">
+													<img src="<?php echo $badge->thumb_url ?>" alt="">
+												</span>
 												<span class="[ badge__name ]">
 													<?php echo $badge->name ?>
 												</span><span
@@ -571,6 +575,9 @@ class YC_Admin_Cursos_Settings {
 										<?php foreach ($badges_todos as $badge) : ?>
 											<?php if( $curso->has_badge( $badge->id) ) continue; ?>
 											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="module">
+												<span class="[ badge__img ]">
+													<img src="<?php echo $badge->thumb_url ?>" alt="">
+												</span>
 												<span class="[ badge__name ]">
 													<?php echo $badge->name ?>
 												</span><span
@@ -639,8 +646,10 @@ class YC_Admin_Cursos_Settings {
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>
-								<div class="inside">
-									<ul id="sortable-lecciones-todas" class="[ sortable-list ]" style="min-height: 50px">
+								<div class="inside" id="lecciones-list">
+									<input class="search" placeholder="Ingresa el nombre de una lección" />
+									<hr>
+									<ul id="sortable-lecciones-todas" class="[ sortable-list ][ list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_todas as $key => $leccion) : ?>
 											<?php if( $modulo->has_leccion( $leccion->id) ) continue; ?>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">

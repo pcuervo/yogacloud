@@ -50,6 +50,13 @@ class YC_Leccion {
 	}
 
 	/**
+	* Get $soundcloud_url
+	*/
+	public function is_free(){
+		return $this->is_free;
+	}
+
+	/**
 	* Initialize video player for lesson
 	*/
 	public function init_lesson_video_js() {

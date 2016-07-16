@@ -1,9 +1,10 @@
 <?php
 	global $product;
-	$curso 		= new YC_Curso( $product->id );
-	$modulos 	= $curso->get_modulos();
-	$maestros 	= $curso->get_maestros();
-	$trailer_info = $curso->get_trailer_info();
+	$curso 			= new YC_Curso( $product->id );
+	$badge 			= $curso->get_badges();
+	$modulos 		= $curso->get_modulos();
+	$maestros 		= $curso->get_maestros();
+	$trailer_info 	= $curso->get_trailer_info();
 ?>
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
@@ -64,12 +65,12 @@
 <div class="[ container ]">
 	<div class="[ row ]">
 		<div class="[ col s12 m4 l2 ][ float-right--on-med-and-up ]">
-			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+			<?php if( $curso->was_bought_by_user( get_current_user_id() ) && ! empty( $badge ) ) : ?>
 				<section class="[ text-center ]">
 					<h5 class="[ margin-bottom ]">Progreso</h5>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
-							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
+							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo $badge[0]->thumb_url ?>" alt="icon badge">
 							<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 						</div>
 					</div>
@@ -157,6 +158,24 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
+<<<<<<< HEAD
+									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+										<div class="[ padding ][ course--module--lesson ]">
+											<h6 class="[ no-margin ]">
+												<?php echo $lesson->name ?>
+												<?php if( $lesson->is_free() ) : ?>
+													<span class="new badge">gratis</span>
+												<?php endif; ?>
+											</h6>
+											<div class="[ row ][ no-margin ]">
+												<div class="[ col s12 m9 ]">
+													<p><?php echo $lesson->short_description ?></p>
+												</div>
+												<div class="[ col s12 m3 ][ text-center ]">
+													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
+													<?php endif; ?>
+=======
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
@@ -171,6 +190,7 @@
 															<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
 														<?php endif; ?>
 													</div>
+>>>>>>> 0f8e7f05008bb034152955773c6a1ecfe44181f2
 												</div>
 											</div>
 										</a>
