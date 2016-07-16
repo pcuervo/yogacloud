@@ -80,11 +80,11 @@
 				<h5 class=" margin-bottom ]">Rating</h5>
 				<div class="[ rating-show ]" >
 					<?php for ($x = 1; $x <= $curso->get_ratings(); $x++) :  ?>
-						<i class="[ material-icons ">favorite</i>
+						<i class="[ material-icons ][ color-primary ]">favorite</i>
 					<?php endfor;
 					$border = 5 - $curso->get_ratings();
 					for ($x = 1; $x <= $border; $x++) :  ?>
-						<i class="[ material-icons ">favorite_border</i>
+						<i class="[ material-icons ][ color-primary ]">favorite_border</i>
 					<?php endfor; ?>
 				</div>
 			</section>

@@ -290,7 +290,7 @@ class YC_Admin_Cursos_Settings {
 	public function enqueue_and_localize_scripts(){
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
 		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
-		if ( 'product' == get_post_type() ) {
+		if ( 'lecciones' == get_post_type() ) {
 			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
 			wp_localize_script( 'course_rating', 'ajax_url', admin_url('admin-ajax.php') );
 		}
@@ -314,11 +314,8 @@ class YC_Admin_Cursos_Settings {
 		$curso = new YC_Curso( get_the_id() );
 		$user_rating = $curso->get_user_rating( get_current_user_id() );
 		if ( ! $user_rating ) : ?>
-			<!-- Rating -->
-			<h5 class="[ margin-bottom ]">Califica este curso</h5>
-			<div class="[ rating ]" data-curso="<?php echo get_the_id(); ?>" ></div>
-		<?php else : ?>
-			<p>DEFINIR COPY SI YA ESTA CALIFICADO...</p>
+			<h6 class="[ no-margin-bottom ][ white-text ]"><small>Califica este curso</small></h6>
+			<div class="[ rating ][ color-light ]" data-curso="<?php echo get_the_id(); ?>" ></div>
 		<?php endif ;
 	}
 
