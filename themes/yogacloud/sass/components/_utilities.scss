@@ -60,6 +60,7 @@
 .padding-left--small		{padding-left:($padding-size/2);}
 .padding-left				{padding-left:$padding-size;}
 .padding-left--large		{padding-left:($padding-size*1.5);}
+.no-padding-left			{padding-left:0px;}
 
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
@@ -389,3 +390,5 @@ div.progress {
 .progress-98 { height: 98%; }
 .progress-99 { height: 99%; }
 .progress-100 { height: 100%; }
+
+.video-container.controls-show { position: initial!important;}

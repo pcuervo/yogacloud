@@ -52,6 +52,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_localize_script( 'functions', 'isCart', (string) is_page('cart') );
 	wp_localize_script( 'functions', 'isCheckout', (string) is_page('checkout') );
 	wp_localize_script( 'functions', 'isTienda', (string) is_page('tienda') );
+	wp_localize_script( 'functions', 'isProductos', (string) is_page('productos') );
 
 	// styles
 	wp_enqueue_style( 'styles', get_stylesheet_uri() );

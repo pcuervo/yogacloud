@@ -64,11 +64,11 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 						<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 					</div>
 
-					<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+						<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
+
 
 				</div>
 			</div>
-			<div class="[ before-loader ]"></div>
 
 		</form>
 	</div>

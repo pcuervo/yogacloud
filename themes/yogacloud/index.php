@@ -52,7 +52,7 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s12 xl6 ][  waves-effect waves-block waves-light ]">
+								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 											<!-- new -->
@@ -62,7 +62,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="[ col s12 xl6 ]">
+								<div class="[ col s6 no-padding-left ]">
 									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
 										<?php echo $curso->subtitle; ?>

@@ -8,7 +8,7 @@
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
 	<section id="video-whit-button" class="[ min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
-		<div class="video-container">
+		<div class="video-container [ controls-show ]">
 			<?php echo $trailer_info['iframe']; ?>
 		</div>
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
@@ -69,13 +69,14 @@
 					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
-							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
 							<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 						</div>
 					</div>
 				</section>
 			<?php endif; ?>
 			<section class="[ text-center ]">
+				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
 				<div class="[ rating-show ]" >
 					<?php for ($x = 1; $x <= $curso->get_ratings(); $x++) :  ?>
 						<i class="[ material-icons ">favorite</i>
@@ -139,7 +140,7 @@
 						$lecciones = $modulo->get_lecciones();
 						?>
 						<li class="[ active ]">
-							<div class="[ collapsible-header active ][ waves-effect ]">
+							<div class="[ collapsible-header active ]">
 								<div class="[ padding ][ course--module ]">
 									<div class="[ row ][ no-margin ]">
 										<div class="[ col s12 m9 ]">
@@ -156,21 +157,23 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
-									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
-										<div class="[ padding ][ course--module--lesson ]">
-											<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
-											<div class="[ row ][ no-margin ]">
-												<div class="[ col s12 m9 ]">
-													<p><?php echo $lesson->short_description ?></p>
-												</div>
-												<div class="[ col s12 m3 ][ text-center ]">
-													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
-													<?php endif; ?>
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+										<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<?php endif; ?>
+											<div class="[ padding ][ course--module--lesson ]">
+												<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
+												<div class="[ row ][ no-margin ]">
+													<div class="[ col s12 m9 ]">
+														<p><?php echo $lesson->short_description ?></p>
+													</div>
+													<div class="[ col s12 m3 ][ text-center ]">
+														<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+															<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
+														<?php endif; ?>
+													</div>
 												</div>
 											</div>
-										</div>
-									</a>
+										</a>
 								<?php endforeach; ?>
 							</div>
 						</li>
