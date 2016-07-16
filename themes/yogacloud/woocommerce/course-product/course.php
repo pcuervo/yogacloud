@@ -66,7 +66,7 @@
 		<div class="[ col s12 m4 l2 ][ float-right--on-med-and-up ]">
 			<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 				<section class="[ text-center ]">
-					<h5 class="[ text-center ][ margin-bottom ]">Progreso</h5>
+					<h5 class="[ margin-bottom ]">Progreso</h5>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
 							<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
@@ -76,7 +76,7 @@
 				</section>
 			<?php endif; ?>
 			<section class="[ text-center ]">
-				<h5 class="[ text-center ][ margin-bottom ]">Rating</h5>
+				<h5 class=" margin-bottom ]">Rating</h5>
 				<div class="[ rating-show ]" >
 					<?php for ($x = 1; $x <= $curso->get_ratings(); $x++) :  ?>
 						<i class="[ material-icons ">favorite</i>
@@ -88,7 +88,7 @@
 				</div>
 			</section>
 			<section class="[ text-center ]">
-				<h5 class="[ text-center ][ margin-bottom ]">Impartido por</h5>
+				<h5 class="[ margin-bottom ]">Impartido por</h5>
 				<?php foreach ( $maestros as $maestro ) : ?>
 					<article>
 						<?php echo $maestro->thumbnail; ?>
