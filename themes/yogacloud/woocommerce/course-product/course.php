@@ -146,6 +146,7 @@
 								<?php foreach ( $lecciones as $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<?php endif; ?>
 											<div class="[ padding ][ course--module--lesson ]">
 												<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
 												<div class="[ row ][ no-margin ]">
@@ -160,7 +161,6 @@
 												</div>
 											</div>
 										</a>
-									<?php endif; ?>
 								<?php endforeach; ?>
 							</div>
 						</li>

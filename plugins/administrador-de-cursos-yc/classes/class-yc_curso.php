@@ -9,6 +9,7 @@
 require_once("vimeo-php/autoload.php");
 require_once("class-yc_modulo.php");
 require_once("class-yc_maestro.php");
+require_once("class-yc_badge.php");
 
 define( 'VIMEO_CLIENT_ID_STAGE', '9a45f811df05a8d29551a2e9c62e4addb9bcb463' );
 define( 'VIMEO_CLIENT_SECRET_STAGE', 'ys69OVgvM7oPNJNePlM74NRmUCv6Be1x5tHpKIm0RFY8M9wJVvI1Fzss5kJeNkGmxcligGGkIWwwycPT/gwz1XyaNIoz+YjjvGx3rxXD86cZK0nK2makXYHA2s3nQKUv' );
@@ -57,6 +58,66 @@ class YC_Curso {
 		foreach ( $modulos_results as $key => $result ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
 
 		return $modulos;
+	}
+
+	/**
+	* Return number of Módulos in the course
+	* @return int $num_modulos
+	*/
+	public function get_num_modulos(){
+		global $wpdb;
+		$modulos_results = $wpdb->get_results(
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"  
+			);
+		if( empty( $modulos_results ) ) return 0;
+
+		return count( $modulos_results );
+	}
+
+	/**
+	* Return number of Lecciones in the course
+	* @return int $num_lecciones
+	*/
+	public function get_num_lecciones(){
+		$lecciones = 0;
+		foreach ($this->get_modulos() as $modulo ) {
+			$lecciones += $modulo->get_num_lecciones();
+		}
+		return $lecciones;
+	}
+
+	/**
+	* Return Maestros in the course
+	* @return int $maestros
+	*/
+	public function get_maestros(){
+		global $wpdb;
+		$maestros = array();
+		$maestros_results = $wpdb->get_results(
+			"SELECT teacher_id FROM " . $wpdb->prefix . "courses_teachers WHERE course_id = " . $this->id  
+			);
+		if( empty( $maestros_results ) ) return $maestros;
+
+		foreach ( $maestros_results as $key => $result ) $maestros[$key] = new YC_Maestro( $result->teacher_id );
+
+		return $maestros;
+	}
+
+	/**
+	* Return Badges in the course
+	* @return int $badges
+	*/
+	public function get_badges(){
+		global $wpdb;
+		$badges = array();
+		$badges_results = $wpdb->get_results(
+			"SELECT badge_id FROM " . $wpdb->prefix . "courses_badges WHERE course_id = " . $this->id  
+			);
+		if( empty( $badges_results ) ) return $badges;
+
+		foreach ( $badges_results as $key => $result ) $badges[$key] = new YC_Badge( $result->badge_id );
+
+		return $badges;
 	}
 
 	/**
@@ -124,6 +185,24 @@ class YC_Curso {
 	}
 
 	/**
+	* Return the rating given by a user
+	* @param array $user_id
+	* @return boolean
+	*/
+	public function get_user_rating( $user_id ){
+		global $wpdb;
+
+		$rating_results = $wpdb->get_results(
+			"SELECT rating FROM " . $wpdb->prefix . "user_courses_rating WHERE course_id = " . $this->id
+			);
+		if( empty( $rating_results ) ) return 0;
+
+		//foreach ( $rating_results as $key => $result ) $rating[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
+
+		return $rating_results[0]->rating;
+	}
+
+	/**
 	* Check if a given user has bought a course
 	* @param int $user_id
 	* @return boolean
@@ -165,20 +244,6 @@ class YC_Curso {
 	}
 
 	/**
-	* Return all Maestros from the course
-	* @return array $maestros
-	*/
-	public function get_maestros(){
-		$maestros = array();
-		$maestros_terms = wp_get_post_terms( $this->id, 'maestros' );
-		if( empty( $maestros_terms ) ) return $maestros;
-
-		foreach ( $maestros_terms as $key => $maestro_term ) $maestros[$key] = new YC_Maestro( array( 'name' => $maestro_term->name ) );
-
-		return $maestros;
-	}
-
-	/**
 	* Initialize video player for course
 	*/
 	public function init_course_trailer_js() {
@@ -207,6 +272,26 @@ class YC_Curso {
 	}
 
 	/**
+	* Check if a teacher exists in the course
+	* @param int $teacher_id 
+	* @return boolean
+	*/
+	public function has_maestro( $teacher_id ) {
+		global $wpdb;
+		return $wpdb->get_row( "SELECT teacher_id FROM " . $wpdb->prefix . "courses_teachers WHERE teacher_id =" . $teacher_id . " AND course_id = " . $this->id, "ARRAY_A" );
+	}
+
+	/**
+	* Check if a badge exists in the course
+	* @param int $badge_id 
+	* @return boolean
+	*/
+	public function has_badge( $badge_id ) {
+		global $wpdb;
+		return $wpdb->get_row( "SELECT badge_id FROM " . $wpdb->prefix . "courses_badges WHERE badge_id =" . $badge_id . " AND course_id = " . $this->id, "ARRAY_A" );
+	}
+
+	/**
 	* Add module to course 
 	* @param int $module_id 
 	* @param int $position
@@ -229,6 +314,103 @@ class YC_Curso {
 	}
 
 	/**
+	* Remove lección fromm módulo
+	* @param int $module_id 
+	* @return int|false
+	*/
+	public function remove_modulo( $module_id ) {
+		global $wpdb;
+
+		$where = array(
+			'module_id'	=> $module_id,
+			'course_id' => $this->id,
+		);
+		return $wpdb->delete(
+			$wpdb->prefix . 'courses_modules',
+			$where,
+			array( '%d', '%d' )
+		);
+	}
+
+	/**
+	* Add teacher to course 
+	* @param int $teacher_id 
+	* @return boolean
+	*/
+	public function add_maestro( $teacher_id ) {
+		global $wpdb;
+
+		$teacher_data = array(
+			'course_id'		=> $this->id,
+			'teacher_id'	=> $teacher_id,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'courses_teachers',
+			$teacher_data,
+			array( '%d', '%d' )
+		);
+		return $wpdb->insert_id;
+	}
+
+	/**
+	* Remove maestro from curso
+	* @param int $teacher_id 
+	* @return int|false
+	*/
+	public function remove_maestro( $teacher_id ) {
+		global $wpdb;
+
+		$where = array(
+			'teacher_id'	=> $teacher_id,
+			'course_id' => $this->id,
+		);
+		return $wpdb->delete(
+			$wpdb->prefix . 'courses_teachers',
+			$where,
+			array( '%d', '%d' )
+		);
+	}
+
+	/**
+	* Add badge to course 
+	* @param int $badge_id 
+	* @return boolean
+	*/
+	public function add_badge( $badge_id ) {
+		global $wpdb;
+
+		$badge_data = array(
+			'course_id'		=> $this->id,
+			'badge_id'	=> $badge_id,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'courses_badges',
+			$badge_data,
+			array( '%d', '%d' )
+		);
+		return $wpdb->insert_id;
+	}
+
+	/**
+	* Remove badge from course
+	* @param int $badge_id 
+	* @return int|false
+	*/
+	public function remove_badge( $badge_id ) {
+		global $wpdb;
+
+		$where = array(
+			'badge_id'	=> $badge_id,
+			'course_id' => $this->id,
+		);
+		return $wpdb->delete(
+			$wpdb->prefix . 'courses_badges',
+			$where,
+			array( '%d', '%d' )
+		);
+	}
+
+	/**
 	* Update position of module
 	* @param int $module_id 
 	* @param int $position
@@ -242,13 +424,15 @@ class YC_Curso {
 			'module_id'	=> $module_id,
 			'course_id' => $this->id,
 		);
-		return $wpdb->update(
+		$wpdb->update(
 			$wpdb->prefix . 'courses_modules',
 			$module_data,
 			$where,
 			array( '%d', '%d' )
 		);
+		error_log( $wpdb->last_query );
 	}
+
 
 	/**
 	 * Hooks
@@ -304,7 +488,6 @@ class YC_Curso {
 		return $lib;
 	}
 
-
 	/**
 	 * Return an instance of Vimeo lib
 	 * @return Vimeo $lib
@@ -330,25 +513,6 @@ class YC_Curso {
 			array_push( $cursos, $curso );
 		endwhile; wp_reset_postdata();
 		return $cursos;
-	}
-
-	/**
-	* Remove lección fromm módulo
-	* @param int $module_id 
-	* @return int|false
-	*/
-	public function remove_modulo( $module_id ) {
-		global $wpdb;
-
-		$where = array(
-			'module_id'	=> $module_id,
-			'course_id' => $this->id,
-		);
-		return $wpdb->delete(
-			$wpdb->prefix . 'courses_modules',
-			$where,
-			array( '%d', '%d' )
-		);
 	}
 
 }// YC_Curso

@@ -65,6 +65,7 @@ YogaCloudVideo.prototype = {
                 action:     'mark_lesson_as_watched'
             },
             function( response ){
+                console.log( response );
                 // Hacer algo cuando se termina el curso
                 console.log('watched');
                 $('.js-lesson-completed').removeClass('not-visible').addClass('visible');

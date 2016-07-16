@@ -1,15 +1,12 @@
 $ = jQuery.noConflict();
 $( document ).ready( function() {
-
+    // Sort Módulos
     $( "#sortable-modulos-curso" ).sortable({
         connectWith: '#sortable-modulos-todos',
         stop: function( event, ui ) {
             var modulosObj = getNewPosition( '#sortable-modulos-curso' );
             var moduloId = $('#modulos-curso').data('curso');
             updateOrderModulos( modulosObj, moduloId );
-        },
-        start: function( event, ui ) {
-            // agregar color aquí
         }
     });
     $( "#sortable-modulos-todos" ).sortable({
@@ -23,21 +20,15 @@ $( document ).ready( function() {
             var modulosObj = getNewPosition( '#sortable-modulos-curso' );
             var moduloId = $('#modulos-curso').data('curso');
             updateOrderModulos( modulosObj, moduloId );
-        },
-        start: function( event, ui ) {
-            //$( '#droppable' ).show();
         }
     });
-
+    // Sort Lecciones
     $( "#sortable-lecciones-modulo" ).sortable({
         connectWith: '#sortable-lecciones-todas',
         stop: function( event, ui ) {
             var leccionesObj = getNewPosition( '#sortable-lecciones-modulo' );
             var moduloId = $('#lecciones-modulo').data('modulo');
             updateOrderLecciones( leccionesObj, moduloId );
-        },
-        start: function( event, ui ) {
-            // agregar color aquí
         }
     });
     $( "#sortable-lecciones-todas" ).sortable({
@@ -51,21 +42,57 @@ $( document ).ready( function() {
             var leccionesObj = getNewPosition( '#sortable-lecciones-modulo' );
             var moduloId = $('#lecciones-modulo').data('modulo');
             updateOrderLecciones( leccionesObj, moduloId );
-        },
-        start: function( event, ui ) {
-            //$( '#droppable' ).show();
+        }
+    });
+    // Sort Maestros
+    $( "#sortable-maestros-curso" ).sortable({
+        connectWith: '#sortable-maestros-todos',
+        receive: function( event, ui ) {
+            var teacherId = ui.item.attr('id');
+            var courseId = $('#maestros-curso').data('curso');
+            addMaestroCurso( teacherId, courseId );
+        }
+    });
+    $( "#sortable-maestros-todos" ).sortable({
+        connectWith: '#sortable-maestros-curso',
+        receive: function( event, ui ){
+            var teacherId = ui.item.attr('id');
+            var courseId = $('#maestros-curso').data('curso');
+            removeMaestroCurso( teacherId, courseId );
+        }
+    });
+    // Sort Badges
+    $( "#sortable-badges-curso" ).sortable({
+        connectWith: '#sortable-badges-todos',
+        receive: function( event, ui ) {
+            var badgeId = ui.item.attr('id');
+            var courseId = $('#badges-curso').data('curso');
+            addBadgeCurso( badgeId, courseId );
+        }
+    });
+    $( "#sortable-badges-todos" ).sortable({
+        connectWith: '#sortable-badges-curso',
+        receive: function( event, ui ){
+            var badgeId = ui.item.attr('id');
+            var courseId = $('#badges-curso').data('curso');
+            removeBadgeCurso( badgeId, courseId );
         }
     });
 
-    $( "#sortable-lecciones-modulo, #sortable-lecciones-todas, #sortable-modulos" ).disableSelection();
+    $( "#sortable-lecciones-modulo, #sortable-lecciones-todas, #sortable-modulos, #sortable-maestros-todos, #sortable-maestros-curso, #sortable-badges-curso, #sortable-badges-todos" ).disableSelection();
 });
+
+
+/******************************
+ * AJAX FUNCTIONS
+ ******************************/
 
 function removeFromModulo( idLeccion, idModulo ){
     $.post(
         ajax_url,
         {
             id_leccion:     idLeccion,
-            id_modulo:      idModulo,         
+            id_modulo:      idModulo,
             action:         'remove_leccion_modulo'
         },
         function( response ){
@@ -79,7 +106,7 @@ function removeFromCurso( idModulo, idCurso ){
         ajax_url,
         {
             id_curso:     idCurso,
-            id_modulo:    idModulo,         
+            id_modulo:    idModulo,
             action:       'remove_modulo_curso'
         },
         function( response ){
@@ -101,6 +128,7 @@ function getNewPosition( el ){
 
 function updateOrderModulos( positionsModulo, idCurso ){
     console.log( idCurso );
+    console.log( positionsModulo );
     $.post(
         ajax_url,
         {
@@ -132,15 +160,89 @@ function updateOrderLecciones( positionsLeccion, idModulo ){
     );
 }
 
+function removeFromModulo( idLeccion, idModulo ){
+    $.post(
+        ajax_url,
+        {
+            id_leccion:     idLeccion,
+            id_modulo:      idModulo,
+            action:         'remove_leccion_modulo'
+        },
+        function( response ){
+            console.log( response );
+        }
+    );
+}
+
+function addMaestroCurso( idMaestro, idCurso ){
+    $.post(
+        ajax_url,
+        {
+            id_maestro:     idMaestro,
+            id_curso:       idCurso,
+            action:         'add_maestro_curso'
+        },
+        function( response ){
+            console.log( response );
+        }
+    );
+}
+
+function removeMaestroCurso( idMaestro, idCurso ){
+    $.post(
+        ajax_url,
+        {
+            id_maestro:     idMaestro,
+            id_curso:       idCurso,
+            action:         'remove_maestro_curso'
+        },
+        function( response ){
+            console.log( response );
+        }
+    );
+}
+
+function addBadgeCurso( idBadge, idCurso ){
+    $.post(
+        ajax_url,
+        {
+            id_badge:   idBadge,
+            id_curso:   idCurso,
+            action:     'add_badge_curso'
+        },
+        function( response ){
+            console.log( response );
+        }
+    );
+}
+
+function removeBadgeCurso( idBadge, idCurso ){
+    $.post(
+        ajax_url,
+        {
+            id_badge:   idBadge,
+            id_curso:   idCurso,
+            action:     'remove_badge_curso'
+        },
+        function( response ){
+            console.log( response );
+        }
+    );
+}
+
+/******************************
+ * GENERAL FUNCTIONS
+ ******************************/
+
 function updateListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('span').text(i+1+'. ');
+        $(li).find('.modulo__number, .lesson__number').text(i+1+'. ');
     })
 }
 
 function eraseListNumbers( listSelector ){
     $( listSelector + ' li' ).each( function(i, li){
-        $(li).find('span').text('');
+        $(li).find('.modulo__number, .lesson__number').text('');
     })
 }
 

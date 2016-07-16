@@ -31,13 +31,13 @@ class YC_Leccion {
 			$lecciones_query = get_post( $args['id'], OBJECT, 'lecciones' );
 		}
 
-		$this->id 				= $lecciones_query->ID;
-		$this->name 			= $lecciones_query->post_title;
-		$this->description 		= $lecciones_query->post_content;
-		$this->short_description 		= $lecciones_query->post_excerpt;
-		$this->permalink 		= get_permalink( $lecciones_query->ID );
-		$this->soundcloud_url 	= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
-		$this->is_free 			= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
+		$this->id 					= $lecciones_query->ID;
+		$this->name 				= $lecciones_query->post_title;
+		$this->description 			= $lecciones_query->post_content;
+		$this->short_description 	= $lecciones_query->post_excerpt;
+		$this->permalink 			= get_permalink( $lecciones_query->ID );
+		$this->soundcloud_url 		= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
+		$this->is_free 				= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
 
 		$this->hooks();
 	}
@@ -111,8 +111,10 @@ class YC_Leccion {
 	 * Hooks
 	 */
 	private function hooks() {
-		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		// wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
+		// wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
+		// add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		// add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 	}	
 
 	/**
@@ -131,6 +133,7 @@ class YC_Leccion {
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
 			error_log( 'no jala dev' );
+			var_dump( $vimeo_response );
 			$lib = $this->get_vimeo_lib( 'stage' );
 			$vimeo_response = $lib->request('/me/videos/' . $video_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 		}
@@ -182,6 +185,35 @@ class YC_Leccion {
 		endwhile; wp_reset_postdata();
 		return $lessons;
 	}
+
+	/********************
+	* AJAX RELATED 
+	*********************/
+
+	/**
+	 * Mark lesson as watched
+	 */
+	// function mark_as_watched(){
+	// 	$user_id = get_current_user_id();
+	// 	$lesson_id = $_POST['lesson_id'];
+
+	// 	if( 0 == $user_id ) wp_die();
+
+	// 	global $wpdb;
+	// 	$user_lesson_data = array(
+	// 		'user_id'			=> $user_id,
+	// 		'lesson_id' 		=> $lesson_id,
+	// 		'is_completed'		=> true,
+	// 	);
+	// 	$wpdb->insert(
+	// 		$wpdb->prefix . 'user_lessons',
+	// 		$user_lesson_data,
+	// 		array( '%d', '%d', '%d' )
+	// 	);
+
+	// 	echo $lesson_id;
+	// 	wp_die();
+	// }
 
 }// YC_Leccion
 

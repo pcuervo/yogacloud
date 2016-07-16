@@ -25,7 +25,7 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 
 ?>
 
-<section style="background-color: #f8f8f8;">
+<section>
 	<div class="">
 		<div class="[ row ]">
 			<div class="[ col s12 m6 ][ text-center ][ border-right--primary ][ margin-bottom ]">
@@ -42,13 +42,15 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 				<?php foreach ( $user_cursos as $curso ) : ?>
 					<?php if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : ?>
 						<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i><?php echo $curso->get_name(); ?></p>
+					<?php else: ?>
+						<p class="[ text-center ]">No tienes ningún badge por el momento.</p>
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>
 		</div>
 		<div class="[ row ]">
-			<?php
-		        if ( ! empty( $user_cursos ) ) : ?>
+			<div class="[ col s12 ][ text-center ][ margin-bottom ]">
+				<?php if ( ! empty( $user_cursos ) ) : ?>
 		        	<h5>Mis cursos</h5>
 					<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
 						<thead>
@@ -70,8 +72,8 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 									</td>
 									<td>
 										<div class="[ progress ][ no-margin ]">
-											<i class="[ icon icon-badge-star-2 icon-iconed ][ white-text ][ line-height--50 ][ relative z-index-1 ]"></i>
-											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?>  ]"></div>
+											<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 										</div>
 									</td>
 									<td class="[ text-right ]">
@@ -82,6 +84,7 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 				       	</tbody>
 					</table>
 				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 </section>

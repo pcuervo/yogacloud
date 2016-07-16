@@ -60,6 +60,7 @@
 .padding-left--small		{padding-left:($padding-size/2);}
 .padding-left				{padding-left:$padding-size;}
 .padding-left--large		{padding-left:($padding-size*1.5);}
+.no-padding-left			{padding-left:0px;}
 
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
@@ -92,6 +93,7 @@
 .height--90			{ height:90px; }
 .height--320		{ height: 320px; }
 
+.height---70 		{ height: 70%; }
 .height---100 		{ height: 100%; }
 
 .min-height--350	{ min-height: 350px; }
@@ -204,6 +206,15 @@
 .gradient-linear-opacity--light-2	{ @include linear-gradient( $secondary-transparent, $primary-transparent--light); }
 .gradient-diagonal					{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity			{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
+.gradient-text {
+  background: rgba(255, 255, 255, 0.2);
+  background: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0.2),rgba(255,255,255,0.8));
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.8));
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
 
 //Borders
 
@@ -253,11 +264,13 @@ div.progress {
 	border-radius: 50%;
 	text-align: center;
 	margin: auto;
+	padding: 10px;
 	position: relative;
 	background-color: $primary-color-gray;
 	&.progress--large {
 		width: 80px;
 		height: 80px;
+		padding: 15px;
 		.progress-percent { width: 80px; }
 		i {
 			line-height: 80px;

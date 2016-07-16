@@ -1,0 +1,106 @@
+/*------------------------------------*\
+    #UTILITIES
+\*------------------------------------*/
+
+
+/**
+ * Box model
+**/
+.no-margin{ margin: 0 !important; }
+
+.margin-bottom{ margin-bottom: 20px !important; }
+
+.margin-sides--small{ margin-left: 10px !important; margin-right: 10px !important; }
+.margin-sides{ margin-left: 20px !important; margin-right: 20px !important; }
+
+
+/**
+ * Text
+**/
+.text-center{ text-align: center; }
+
+
+/**
+ * Visibility
+**/
+.hidden{ display: none; }
+
+
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+.admin-cuervos .button-large{
+	height: auto !important;
+	padding: 30px !important;
+	line-height: 1 !important;
+	font-size: 1.3em !important;
+}
+
+
+
+
+/*------------------------------------*\
+    #TABLES
+\*------------------------------------*/
+
+.admin-cuervos .form-table{ }
+
+.admin-cuervos .form-table th{ text-align: center; }
+.admin-cuervos .form-table tr{ border-bottom: 1px solid #ddd; }
+
+
+
+
+
+/*------------------------------------*\
+    #SORTABLE
+\*------------------------------------*/
+..admin-cuervos .sortable-list{
+	margin: 0;
+}
+
+.sortable-list li{
+	padding: 5px; border-bottom: 1px solid #ddd; margin: 0;
+	cursor: move;
+}
+
+.sortable-list li:hover{ background: #ececec; }
+
+.sortable-list li span{ cursor: move; }
+
+.modulo__name, .modulo__drag, .modulo__edit, .modulo__add-lesson,
+.lesson__name, .lesson__edit, .lesson__drag{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.admin-cuervos .modulo__name{ width: 55%; }
+.admin-cuervos .modulo__edit{ width: 14%; }
+.admin-cuervos .modulo__add-lesson{ width: 25%; }
+.admin-cuervos .modulo__drag{ width: 6%; }
+
+.lesson__name{ width: 83%; }
+.lesson__edit{ width: 12%; }
+.lesson__drag{ width: 5%; }
+
+
+.admin-cuervos .modulo__add{  }
+
+
+
+/*------------------------------------*\
+    #MÓDULOS
+\*------------------------------------*/
+
+.admin-cuervos.admin-modulos{ width: 1000px; }
+.admin-cuervos.admin-modulos .postbox-container{ width: 500px; }
+.admin-cuervos.admin-modulos .postbox{}
+.admin-cuervos.admin-modulos .postbox .inside{
+	height: 400px;
+}
+
+.admin-cuervos.admin-modulos .postbox .inside ul{
+	height: 100%;
+	overflow: scroll;
+}

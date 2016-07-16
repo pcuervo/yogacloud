@@ -8,7 +8,7 @@ var $=jQuery.noConflict();
         /*------------------------------------*\
             #GLOBAL
         \*------------------------------------*/
-        $(window).load(function(){
+        $(window).ready(function(){
             footerBottom();
         });
 
@@ -44,7 +44,6 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isCurso ) ){
             heightScreen();
-            $('.rating').addRating();
             $('.modal-trigger').leanModal();
 
             $('.collapsible').collapsible({
@@ -72,6 +71,13 @@ var $=jQuery.noConflict();
         \*------------------------------------*/
         if( parseInt( isProdcut ) ){
 
+        }
+
+        if( parseInt( isTienda ) ){
+            boxCard(); //Index y resultados
+            $(window).resize(function() {
+                boxCard(); //Index y resultados
+            });
         }
 
          /*------------------------------------*\
@@ -246,10 +252,10 @@ function heightScreen(){
 //Imagen cuadrada
 
 function boxCard(){
-
-        //image size
-        var image_alto = $('.bg-image--rectangle').width();
-        $('.bg-image--rectangle').css('height', image_alto + 'px');
+    //image size
+    var rectangle_height = $('.bg-image--rectangle').width();
+    $('.bg-image--rectangle').css('height', rectangle_height + 'px');
+    $('.height-content').css('height', (rectangle_height - 45) + 'px');
 
 }
 
