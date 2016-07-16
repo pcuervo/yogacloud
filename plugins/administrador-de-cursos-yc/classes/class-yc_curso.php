@@ -205,6 +205,32 @@ class YC_Curso {
 	}
 
 	/**
+	* Return the average rating of a course
+	* @param array $user_id
+	* @return boolean
+	*/
+	public function get_ratings(){
+		global $wpdb;
+		$average_rating = 0;
+		$rating_total = 0;
+		$count_rating = 0;
+		$rating_results = $wpdb->get_results(
+			"SELECT rating FROM " . $wpdb->prefix . "user_courses_rating WHERE course_id = " . $this->id
+			);
+		if( empty( $rating_results ) ) return 0;
+
+		$count_rating = count($rating_results );
+
+		foreach( $rating_results as $rating_result ){
+			$rating_total += intval($rating_result->{'rating'});
+		}
+
+		$average_rating = floor($rating_total / $count_rating);
+
+		return $average_rating;
+	}
+
+	/**
 	* Check if a given user has bought a course
 	* @param int $user_id
 	* @return boolean

@@ -316,7 +316,7 @@ class YC_Admin_Cursos_Settings {
 		if ( ! $user_rating ) : ?>
 			<!-- Rating -->
 			<h5 class="[ margin-bottom ]">Califica este curso</h5>
-			<div class="rating" data-curso="<?php echo get_the_id(); ?>" ></div>
+			<div class="[ rating ]" data-curso="<?php echo get_the_id(); ?>" ></div>
 		<?php else : ?>
 			<p>DEFINIR COPY SI YA ESTA CALIFICADO...</p>
 		<?php endif ;
