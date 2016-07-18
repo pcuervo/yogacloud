@@ -164,7 +164,7 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $key => $lesson ) : ?>
-									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
 										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
