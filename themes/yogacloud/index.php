@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
-			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
+			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop poster="<?php echo THEMEPATH; ?>images/video-poster.png">
 				<source src="<?php echo THEMEPATH; ?>video/landing.mp4" type="video/mp4">
 				<source src="<?php echo THEMEPATH; ?>video/landing.webm" type="video/webm">
 				<source src="<?php echo THEMEPATH; ?>video/landing.ogv" type="video/ogg">
@@ -105,11 +105,11 @@
 							</div>
 							<div class="[ text-center ]">
 								<a href="http://agoralucis.com/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralusis.png">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralucis.png" alt="Agora Lucis - Centro de yoga">
 								</a>
-								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png">
+								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png" alt="Shambalanté - Centro de desarrollo humano">
 								<a href="http://yogacloud.tv/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png" alt="YogaCloud - Clases de yoga en línea">
 								</a>
 							</div>
 						</div>

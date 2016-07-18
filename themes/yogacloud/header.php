@@ -30,6 +30,9 @@
 		<!-- Google font(s) -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
 
+		<!-- Sitemap Google Verify -->
+		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
+
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
 			<script src="js/html5shiv.js"></script>
@@ -134,7 +137,7 @@
 								<div class="[ container ]">
 									<!-- header menu -->
 									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
-										<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ][ line-height--64 ]">
 										<div class="[ block ][ float-left ]">
@@ -191,7 +194,7 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
-						<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a> -->
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>

@@ -826,3 +826,6 @@ nav ul a span.badge {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
+// Hide Language switcher.
+.lang_sel_list{ display: none}
