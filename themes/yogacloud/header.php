@@ -134,7 +134,7 @@
 								<div class="[ container ]">
 									<!-- header menu -->
 									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
-										<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ][ line-height--64 ]">
 										<div class="[ block ][ float-left ]">
