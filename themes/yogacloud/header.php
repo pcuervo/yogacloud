@@ -6,8 +6,10 @@
 		<!-- Sets initial viewport load and disables zooming -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- SEO -->
-		<meta name="keywords" content="">
+		<meta name="keywords" content="cursos, cursos en línea, meditación, meditación en línea, yoga cloud, yoga, yoga en línea, despertar espiritual, budismo y paz interior, paz interior, budismo,  técnicas del nahual, nahual, tradición oculta occidental, shambalanté, the yoga project, agora lucis, lecciones gratis, yogacloud, concepción cosmogónica de los toltecas, equilibrio físico y mental, prácticas prehispánicas naguales, frank díaz, fundación dondé, fundación donde">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://cursos.yogacloud.tv/" />
 		<!-- Compatibility -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta http-equiv="cleartype" content="on">
