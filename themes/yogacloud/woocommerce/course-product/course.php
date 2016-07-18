@@ -76,6 +76,7 @@
 					</div>
 				</section>
 			<?php endif; ?>
+
 			<section class="[ text-center ]">
 				<h5 class=" margin-bottom ]">Rating</h5>
 				<div class="[ rating-show ]" >
@@ -88,54 +89,59 @@
 					<?php endfor; ?>
 				</div>
 			</section>
-			<section class="[ text-center ]">
-				<h5 class="[ margin-bottom ]">Impartido por</h5>
-				<?php foreach ( $maestros as $maestro ) : ?>
-					<article>
-						<?php echo $maestro->thumbnail; ?>
-						<div class="[ clearfix ]"></div>
-						<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
-					</article>
 
-					<!-- Modal Structure -->
-					<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
-						<div class="modal-content [ white-text ]">
-							<div class="[ row ][ padding-top--large ]">
-								<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
-									<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
-									<h3 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h3>
-									<?php echo $maestro->medium; ?>
-									<div class="[ text-center ][ margin-bottom ]">
-										<?php if ( !empty($maestro->twitter) ){ ?>
-											<a target="_blank" href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
-										<?php } ?>
-										<?php if ( !empty($maestro->facebook) ){ ?>
-											<a target="_blank" href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-										<?php } ?>
-										<?php if ( !empty($maestro->instagram) ){ ?>
-											<a target="_blank" href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+			<?php if ( ! empty($maestros) ): ?>
+
+				<section class="[ text-center ]">
+					<h5 class="[ margin-bottom ]">Impartido por</h5>
+					<?php foreach ( $maestros as $maestro ) : ?>
+						<article>
+							<?php echo $maestro->thumbnail; ?>
+							<div class="[ clearfix ]"></div>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
+						</article>
+
+						<!-- Modal Structure -->
+						<div id="maestro-modal-<?php echo $maestro->id ?>" class="modal [ maestros-transparent ][ white-text ]">
+							<div class="modal-content [ white-text ]">
+								<div class="[ row ][ padding-top--large ]">
+									<div class="[ col s12 m8 offset-m2 l6 offset-l3 ]">
+										<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+										<h3 class="[ text-center ][ margin-bottom ]"><?php echo $maestro->name; ?></h3>
+										<?php echo $maestro->medium; ?>
+										<div class="[ text-center ][ margin-bottom ]">
+											<?php if ( !empty($maestro->twitter) ){ ?>
+												<a target="_blank" href="<?php echo $maestro->twitter; ?>" class="[ white-text ]"><i class="[ icon-twitter icon-iconed padding-sides--xsmall ]"></i></a>
+											<?php } ?>
+											<?php if ( !empty($maestro->facebook) ){ ?>
+												<a target="_blank" href="<?php echo $maestro->facebook; ?>" class="[ white-text ]"><i class="[ icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+											<?php } ?>
+											<?php if ( !empty($maestro->instagram) ){ ?>
+												<a target="_blank" href="<?php echo $maestro->instagram; ?>" class="[ white-text ]"><i class="[ icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+											<?php } ?>
+										</div>
+										<div class="[ margin-bottom ][ flow-text ]">
+											<?php echo apply_filters('the_content', $maestro->description); ?>
+										</div>
+										<?php if ( !empty($maestro->url) ){ ?>
+											<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
 										<?php } ?>
 									</div>
-									<div class="[ margin-bottom ][ flow-text ]">
-										<?php echo apply_filters('the_content', $maestro->description); ?>
-									</div>
-									<?php if ( !empty($maestro->url) ){ ?>
-										<a class="[ white-text ][ text-underline ]" href="<?php echo $maestro->url; ?>"><?php echo $maestro->url; ?></a>
-									<?php } ?>
 								</div>
+
 							</div>
-
 						</div>
-					</div>
 
-				<?php endforeach; ?>
+					<?php endforeach; ?>
 
-			</section>
+				</section>
+
+			<?php endif; ?>
 
 		</div>
 		<div class="[ col s12 m8 l10 ]">
 			<section>
-				<h4 class="[ text-center ]">Módulos</h4>
+				<h4 class="[ text-center ]">Temario</h4>
 				<ul class="collapsible" data-collapsible="expandable">
 					<?php foreach ( $modulos as $modulo ) :
 						$lecciones = $modulo->get_lecciones();
@@ -157,17 +163,17 @@
 								</div>
 							</div>
 							<div class="[ collapsible-body ]">
-								<?php foreach ( $lecciones as $lesson ) : ?>
+								<?php foreach ( $lecciones as $key => $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
 										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
-											<h6 class="[ no-margin ]">
-												<?php echo $lesson->name ?>
+											<h6 class="[ no-margin ][ relative ]">
+												<?php echo $key+1 . '. ' . $lesson->name ?>
 												<?php if( $lesson->is_free() ) : ?>
-													<span class="new badge">gratis</span>
+													<span class="[ gratis badge ]"></span>
 												<?php endif; ?>
-										</h6>
+											</h6>
 											<div class="[ row ][ no-margin ]">
 												<div class="[ col s12 m9 ]">
 													<p><?php echo $lesson->short_description ?></p>
