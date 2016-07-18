@@ -825,11 +825,17 @@ class YC_Admin_Cursos_Settings {
 	*/
 	public function is_course_completed(){
 		$curso = new YC_Curso( $_POST['course_id'] );
+		$msg = array();
+
 		if( $curso->was_completed_by_user( get_current_user_id() ) ) {
-			echo 'course completed';
+			$msg['is_completed'] = 1;
+			$msg['message'] = 'Curso completado.';
+			echo json_encode( $msg );
 			wp_die();
 		}
-		echo 'not completed yet';
+		$msg['is_completed'] = 0;
+		$msg['message'] = 'Curso no completado.';
+		echo json_encode( $msg );
 		wp_die();
 	}
 
