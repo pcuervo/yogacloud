@@ -76,9 +76,6 @@ YogaCloudVideo.prototype = {
     },
     isCourseCompleted: function(){
         console.log('checking if course has been completed...');
-        //if( this._isMarkedAsWatched ) return;
-
-        //this._isCourseCompleted = true;
         $.post(
             ajax_url,
             {
@@ -86,7 +83,12 @@ YogaCloudVideo.prototype = {
                 action:     'is_course_completed'
             },
             function( response ){
-                console.log( response );
+                var jsonResponse = $.parseJSON( response );
+                if( parseInt( jsonResponse.is_completed ) ){
+                    console.log( jsonResponse.message );
+                    return;
+                }
+                console.log( jsonResponse.message );
             }
         );
     }
