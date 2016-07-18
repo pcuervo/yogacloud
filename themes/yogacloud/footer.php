@@ -5,7 +5,7 @@
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
 					<div class="col s12 offset-m1 m5 offset-l2 l4 [ margin-bottom ]">
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
-						<a href="tel:+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
+						<a href="tel://+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
 						<a href="mailto:contacto@yogacloud.net" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 					</div>
 					<div class="col s12 m5 l4">
