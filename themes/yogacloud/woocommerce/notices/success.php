@@ -26,6 +26,6 @@ if ( ! $messages ){
 
 ?>
 
-<?php foreach ( $messages as $message ) : ?>
+<?php /* foreach ( $messages as $message ) : ?>
 	<div class="[ container ][ margin-vertical ] woocommerce-message"><?php echo wp_kses_post( $message ); ?></div>
-<?php endforeach; ?>
+<?php endforeach; */ ?>

@@ -61,7 +61,7 @@
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
-								<i class="[ icon icon-user icon-iconed ][ color-light ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--64 ]"></i>
 							</div>
 						</div>
 
@@ -124,7 +124,7 @@
 						<!-- btn Menú -->
 						<div class="[ block ][ float-right ][ line-height--62 ]">
 							<div id="js-btn-nav">
-								<i class="[ icon icon-hamburger-menu icon--small ][ color-light ]"></i>
+								<i class="[ icon icon-hamburger-menu icon--small ][ color-primary ]"></i>
 							</div>
 						</div>
 
@@ -139,12 +139,12 @@
 									<div class="[ inline-block ][ float-right ][ line-height--64 ]">
 										<div class="[ block ][ float-left ]">
 											<div id="js-btn-user--nav">
-												<i class="[ icon icon-user icon-iconed ][ color-light ]"></i>
+												<i class="[ icon icon-user icon-iconed ][ color-primary ]"></i>
 											</div>
 										</div>
 										<div class="[ block ][ float-right ]">
 											<div id="js-hide-nav">
-												<i class="[ icon icon-close icon-small ][ color-light ][ no-margin-right ]"></i>
+												<i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i>
 											</div>
 										</div>
 									</div>
