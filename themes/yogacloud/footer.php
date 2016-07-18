@@ -17,7 +17,7 @@
 				</div>
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
-						<a href="https://yogacloud.tv/" target="_blank">
+						<a href="http://yogacloud.tv/" target="_blank">
 							<img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 						</a>
 						<div class="[ row ][ no-margin ]">
