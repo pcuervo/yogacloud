@@ -646,7 +646,7 @@ class YC_Admin_Cursos_Settings {
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>
 								<div class="inside" id="lecciones-list">
-									<input class="search" placeholder="Ingresa el nombre de una lección" />
+									<input class="[ search ]" placeholder="Ingresa el nombre de una lección" />
 									<hr>
 									<ul id="sortable-lecciones-todas" class="[ sortable-list ][ list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_todas as $key => $leccion) : ?>
