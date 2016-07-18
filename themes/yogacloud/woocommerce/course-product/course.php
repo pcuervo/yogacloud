@@ -158,15 +158,16 @@
 							</div>
 							<div class="[ collapsible-body ]">
 								<?php foreach ( $lecciones as $lesson ) : ?>
-<<<<<<< HEAD
-									<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+									<?php endif; ?>
 										<div class="[ padding ][ course--module--lesson ]">
 											<h6 class="[ no-margin ]">
 												<?php echo $lesson->name ?>
 												<?php if( $lesson->is_free() ) : ?>
 													<span class="new badge">gratis</span>
 												<?php endif; ?>
-											</h6>
+										</h6>
 											<div class="[ row ][ no-margin ]">
 												<div class="[ col s12 m9 ]">
 													<p><?php echo $lesson->short_description ?></p>
@@ -175,25 +176,12 @@
 													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
 														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
 													<?php endif; ?>
-=======
-									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-										<a class="[ color-dark ][ transition ]" href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
-									<?php endif; ?>
-											<div class="[ padding ][ course--module--lesson ]">
-												<h6 class="[ no-margin ]"><?php echo $lesson->name ?></h6>
-												<div class="[ row ][ no-margin ]">
-													<div class="[ col s12 m9 ]">
-														<p><?php echo $lesson->short_description ?></p>
-													</div>
-													<div class="[ col s12 m3 ][ text-center ]">
-														<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-															<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
-														<?php endif; ?>
-													</div>
->>>>>>> 0f8e7f05008bb034152955773c6a1ecfe44181f2
 												</div>
 											</div>
+										</div>
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										</a>
+									<?php endif; ?>
 								<?php endforeach; ?>
 							</div>
 						</li>
