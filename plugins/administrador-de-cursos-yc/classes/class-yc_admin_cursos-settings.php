@@ -80,8 +80,8 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
-		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
-		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
+		//add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
+		//add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
 
 	}
 

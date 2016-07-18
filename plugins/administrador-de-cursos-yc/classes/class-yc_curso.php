@@ -278,7 +278,12 @@ class YC_Curso {
 	* @return boolean
 	*/
 	public function is_new(){
-		return 1;
+		$curso_query = get_post( $this->id );
+		$time_now = date("Y-m-d");
+		$time_difference = round( ( strtotime( $time_now ) - strtotime( $curso_query->post_date ) )  / ( 60 * 60 * 24 ), 2 );
+		if( 30 > $time_difference ) return 1;
+		error_log('not new');
+		return 0;	
 	}
 
 	/**
