@@ -71,6 +71,8 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'wp_ajax_save_user_rating', array( $this, 'save_user_rating' ) );
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		add_action( 'wp_ajax_nopriv_is_course_completed', array( $this, 'is_course_completed' ) );
+		add_action( 'wp_ajax_is_course_completed', array( $this, 'is_course_completed' ) );
 
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
@@ -813,7 +815,16 @@ class YC_Admin_Cursos_Settings {
 			$user_lesson_data,
 			array( '%d', '%d', '%d' )
 		);
-		'Rating guardado...';
+		echo 'Rating guardado...';
+		wp_die();
+	}
+
+	/**
+	* Check if current user has completed the course
+	* @return boolean
+	*/
+	public function is_course_completed(){
+		echo 'is_course_completed';
 		wp_die();
 	}
 
