@@ -157,13 +157,13 @@
 								</div>
 							</div>
 							<div class="[ collapsible-body ]">
-								<?php foreach ( $lecciones as $lesson ) : ?>
+								<?php foreach ( $lecciones as $key => $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
 										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
 											<h6 class="[ no-margin ]">
-												<?php echo $lesson->name ?>
+												<?php echo $key+1 . '. ' . $lesson->name ?>
 												<?php if( $lesson->is_free() ) : ?>
 													<span class="new badge">gratis</span>
 												<?php endif; ?>
