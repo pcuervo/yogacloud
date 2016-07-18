@@ -16,6 +16,10 @@
   border-radius: 2px;
   @extend .z-depth-1;
 
+  button.disabled{ 
+    font-size: .8rem !important;
+    padding: 0 1rem !important;
+  }
 
   .card-title {
     &.activator {
