@@ -108,7 +108,7 @@
 									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralusis.png">
 								</a>
 								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png">
-								<a href="https://yogacloud.tv/" target="_blank">
+								<a href="http://yogacloud.tv/" target="_blank">
 									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png">
 								</a>
 							</div>
