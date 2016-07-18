@@ -161,7 +161,7 @@
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
-										<div class="[ padding ][ course--module--lesson ]">
+										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
 											<h6 class="[ no-margin ]">
 												<?php echo $lesson->name ?>
 												<?php if( $lesson->is_free() ) : ?>
