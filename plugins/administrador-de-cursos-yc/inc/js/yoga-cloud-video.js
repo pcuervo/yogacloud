@@ -1,7 +1,8 @@
-function YogaCloudVideo( lessonId, player, isWatched ){
+function YogaCloudVideo( courseId, lessonId, player, isWatched ){
     this.PERCENT_TO_MARK_AS_WATCHED = 95;
     this.INTERVAL = 2000;
 
+    this._courseId = courseId;
     this._lessonId = lessonId;
     this._player = player;
     this._elapsedTimeInterval;
@@ -75,12 +76,13 @@ YogaCloudVideo.prototype = {
     },
     isCourseCompleted: function(){
         console.log('checking if course has been completed...');
-        if( this._isMarkedAsWatched ) return;
+        //if( this._isMarkedAsWatched ) return;
 
         //this._isCourseCompleted = true;
         $.post(
             ajax_url,
             {
+                course_id:  this._courseId,
                 action:     'is_course_completed'
             },
             function( response ){

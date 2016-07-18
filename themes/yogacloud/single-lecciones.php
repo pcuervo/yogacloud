@@ -8,6 +8,7 @@
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
+	$leccion->set_curso_id( $curso->id );
 	$video_info = $leccion->get_video_info();
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );

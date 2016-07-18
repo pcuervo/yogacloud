@@ -824,7 +824,12 @@ class YC_Admin_Cursos_Settings {
 	* @return boolean
 	*/
 	public function is_course_completed(){
-		echo 'is_course_completed';
+		$curso = new YC_Curso( $_POST['course_id'] );
+		if( $curso->was_completed_by_user( get_current_user_id() ) ) {
+			echo 'course completed';
+			wp_die();
+		}
+		echo 'not completed yet';
 		wp_die();
 	}
 
