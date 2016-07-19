@@ -1,11 +1,11 @@
 header{
-	height: 64px;
+	height: 55px;
 	width: 100%;
 	nav {
 		padding: 0px;
-		height: 64px;
+		height: 55px;
 		a.logo{
-			line-height: 64px;
+			line-height: 55px;
 			display: block;
 			float: left;
 			img{
@@ -16,7 +16,7 @@ header{
 		.menu-desktop {
 			display: inline-block;
 			float: right;
-			line-height: 64px;
+			line-height: 55px;
 			a {
 				display: inline-block;
 				padding-left:($padding-size/2); padding-right:($padding-size/2);
@@ -61,7 +61,7 @@ header{
 			font-size: 16px;
 			font-weight: lighter;
 			padding-left:($padding-size*2.2); padding-right:($padding-size/2);
-			line-height: 64px;
+			line-height: 55px;
 			font-family: 'Open Sans', 'Roboto', sans-serif;
 			background: url(images/world.png) #fff 10px no-repeat;;
 			&:hover {
@@ -70,7 +70,7 @@ header{
 				background: url(images/world-light.png) #fff 10px no-repeat;
 			}
 		}
-		& ul ul { top: 64px; }
+		& ul ul { top: 55px; }
 	}
 
 } /*end header*/
@@ -84,4 +84,14 @@ header{
 
 	a i 		{ @include transition( 0.3s ease-in-out );}
 	a i:hover	{ color: lighten($primary-color, 25%);}
+}
+
+@media only screen and (min-width: 601px){
+	nav,
+	nav .nav-wrapper i,
+	nav a.button-collapse,
+	nav a.button-collapse i {
+		height: 55px;
+		line-height: 55px;
+	}
 }

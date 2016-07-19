@@ -66,7 +66,7 @@
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
-								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--55 ]"></i>
 							</div>
 						</div>
 
@@ -79,12 +79,12 @@
 										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ]">
-										<div class="[ block ][ float-left ][ margin-right--small ][ line-height--64 ]">
+										<div class="[ block ][ float-left ][ margin-right--small ][ line-height--55 ]">
 											<div id="js-btn-nav--user">
 												<i class="[ icon icon-hamburger-menu icon--small ][ color-primary ]"></i>
 											</div>
 										</div>
-										<div class="[ block ][ float-right ][ line-height--62 ]">
+										<div class="[ block ][ float-right ][ line-height--55 ]">
 											<div id="js-hide-user">
 												<i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i>
 											</div>
@@ -127,7 +127,7 @@
 						<!-- end user menu -->
 
 						<!-- btn Menú -->
-						<div class="[ block ][ float-right ][ line-height--62 ]">
+						<div class="[ block ][ float-right ][ line-height--54 ]">
 							<div id="js-btn-nav">
 								<i class="[ icon icon-hamburger-menu icon--small ][ color-primary ]"></i>
 							</div>
@@ -141,7 +141,7 @@
 									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
 										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
-									<div class="[ inline-block ][ float-right ][ line-height--64 ]">
+									<div class="[ inline-block ][ float-right ][ line-height--54 ]">
 										<div class="[ block ][ float-left ]">
 											<div id="js-btn-user--nav">
 												<i class="[ icon icon-user icon-iconed ][ color-primary ]"></i>
@@ -207,7 +207,7 @@
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-primary ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-primary ][ line-height--55 ]"></i>
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_firstname; ?></div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>
