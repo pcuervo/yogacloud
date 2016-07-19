@@ -8,6 +8,26 @@
 		<!-- SEO -->
 		<meta name="keywords" content="cursos, cursos en línea, meditación, meditación en línea, yoga cloud, yoga, yoga en línea, despertar espiritual, budismo y paz interior, paz interior, budismo,  técnicas del nahual, nahual, tradición oculta occidental, shambalanté, the yoga project, agora lucis, lecciones gratis, yogacloud, concepción cosmogónica de los toltecas, equilibrio físico y mental, prácticas prehispánicas naguales, frank díaz, fundación dondé, fundación donde">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<!-- Facebook, Twitter metas -->
+		<?php if( is_curso( get_the_id() ) ) : ?>
+			<meta property="og:title" content="<?php echo get_the_title(); ?>">
+			<meta name="twitter:title" content="<?php echo get_the_title(); ?>" />
+			<meta property="og:type" content="article" />
+		<?php else : ?>
+			<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+			<meta name="twitter:title" content="<?php bloginfo('name'); ?>" />
+			<meta property="og:type" content="website" />
+		<?php endif; ?>
+		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
+		<meta name="og:url" content="<?php echo site_url(); ?>" />
+		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png">
+		<meta property="og:image:width" content="210" />
+		<meta property="og:image:height" content="110" />
+		<meta property="fb:app_id" content="1750075545245803" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@TheYogaCloud" />
+		<meta name="twitter:description" content="<?php bloginfo('description'); ?>" />
+		<meta name="twitter:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png" />
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://cursos.yogacloud.tv/" />
 		<!-- Compatibility -->
@@ -113,7 +133,7 @@
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 										<a href="tel:+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-										<a href="mailto:contacto@yogacloud.tv" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+										<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
@@ -173,7 +193,7 @@
 										<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 											<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 											<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-											<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+											<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 										</div>
 										<div>
 											<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
@@ -196,14 +216,7 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
-						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a> -->
 						<!-- Dropdown Structure -->
-						<ul id="dropdown-search" class="dropdown-content">
-							<form>
-								<input class="[ input-search-nav ]" id="search" type="search" required>
-								<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
-							</form>
-						</ul>
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">

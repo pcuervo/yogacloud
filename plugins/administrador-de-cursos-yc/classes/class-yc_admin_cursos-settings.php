@@ -80,8 +80,8 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
-		add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
-		add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
+		//add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
+		//add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
 
 	}
 
@@ -1040,6 +1040,7 @@ class YC_Admin_Cursos_Settings {
 		$vimeo_url = get_post_meta($post->ID, '_vimeo_url_meta', true);
 		$soundcloud_url = get_post_meta($post->ID, '_soundcloud_url_meta', true);
 		$is_free = get_post_meta($post->ID, '_is_free_meta', true);
+		$full_module = get_post_meta($post->ID, '_full_module_meta', true);
 
 		wp_nonce_field(__FILE__, '_vimeo_url_meta_nonce');
 		wp_nonce_field(__FILE__, '_soundcloud_url_meta_nonce');
@@ -1049,8 +1050,11 @@ class YC_Admin_Cursos_Settings {
 		echo "<input type='text' class='[ widefat ]' name='_vimeo_url_meta' value='$vimeo_url'><br><br>";
 		echo "<label><strong>URL SoundCloud</strong><br><small>Ejemplo: https://soundcloud.com/miguel-cabral-alcocer/children-of-the-forest-stolen-edit-mc-alcocer </small></label>";
 		echo "<input type='text' class='[ widefat ]' name='_soundcloud_url_meta' value='$soundcloud_url'><br><br>";
-		$checked = $is_free == 1 ? 'checked' : '';
-		echo "<input type='checkbox' class='[ widefat ]' name='_is_free_meta' value=1 $checked />";
+		$checked_free = $is_free == 1 ? 'checked' : '';
+		echo "<input type='checkbox' class='[ widefat ]' name='_is_free_meta' value=1 $checked_free />";
+		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
+		$checked_full = $full_module == 1 ? 'checked' : '';
+		echo "<input type='checkbox' class='[ widefat ]' name='_full_module_meta' value=1 $checked_full />";
 		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
 	}// meta_box_info_leccion
 
