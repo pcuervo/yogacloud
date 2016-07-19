@@ -65,7 +65,7 @@
 												<?php endif; ?>
 
 												<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-													<i class="[ icon icon-look icon-iconed ][ color-light ][ absolute bottom-10 ]"></i>
+													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-look icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
 												<?php endif; ?>
 											</div>
 									</div>
