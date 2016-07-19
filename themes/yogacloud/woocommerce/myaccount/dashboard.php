@@ -39,13 +39,20 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 			</div>
 			<div class="[ col s12 m6 ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Badges</h5>
-				<?php foreach ( $user_cursos as $curso ) : ?>
-					<?php if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : ?>
-						<p><i class="[ icon icon-badge-star-1 icon-large ][ color-primary ]"></i><?php echo $curso->get_name(); ?></p>
-					<?php else: ?>
-						<p class="[ text-center ]">No tienes ningún badge por el momento.</p>
-					<?php endif; ?>
-				<?php endforeach; ?>
+				<div class="[ row ]">
+					<?php foreach ( $user_cursos as $curso ) : ?>
+						<?php /* if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : */ ?>
+							<div class="[ col s6 m4 ][ margin-bottom--small ]">
+								<div class="[ progress ][ no-margin ][ tooltipped ]" data-position="bottom" data-delay="50" data-tooltip="<?php echo $curso->get_name(); ?>">
+									<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+									<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
+								</div>
+							</div>
+						<?php /* else: ?>
+							<p class="[ text-center ]">No tienes ningún badge por el momento.</p>
+						<?php endif; */ ?>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 		<div class="[ row ]">

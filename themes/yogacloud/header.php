@@ -2,12 +2,14 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Yoga Cloud Cursos</title>
+		<title><?php bloginfo('name'); ?></title>
 		<!-- Sets initial viewport load and disables zooming -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- SEO -->
-		<meta name="keywords" content="">
+		<meta name="keywords" content="cursos, cursos en línea, meditación, meditación en línea, yoga cloud, yoga, yoga en línea, despertar espiritual, budismo y paz interior, paz interior, budismo,  técnicas del nahual, nahual, tradición oculta occidental, shambalanté, the yoga project, agora lucis, lecciones gratis, yogacloud, concepción cosmogónica de los toltecas, equilibrio físico y mental, prácticas prehispánicas naguales, frank díaz, fundación dondé, fundación donde">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<!-- Canonical URL -->
+		<link rel="canonical" href="https://cursos.yogacloud.tv/" />
 		<!-- Compatibility -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta http-equiv="cleartype" content="on">
@@ -29,6 +31,9 @@
 
 		<!-- Google font(s) -->
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+
+		<!-- Sitemap Google Verify -->
+		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
@@ -61,7 +66,7 @@
 						<!-- btn user menu -->
 						<div class="[ block ][ float-left ]">
 							<div id="js-btn-user">
-								<i class="[ icon icon-user icon-iconed ][ color-light ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--64 ]"></i>
 							</div>
 						</div>
 
@@ -112,9 +117,9 @@
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-										<a href="" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
-										<a href="" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-										<a href="" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="https://twitter.com/theyogacloud" target="_blank"  class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
+										<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+										<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 									</div>
 								</div>
 							</div>
@@ -124,7 +129,7 @@
 						<!-- btn Menú -->
 						<div class="[ block ][ float-right ][ line-height--62 ]">
 							<div id="js-btn-nav">
-								<i class="[ icon icon-hamburger-menu icon--small ][ color-light ]"></i>
+								<i class="[ icon icon-hamburger-menu icon--small ][ color-primary ]"></i>
 							</div>
 						</div>
 
@@ -134,17 +139,17 @@
 								<div class="[ container ]">
 									<!-- header menu -->
 									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
-										<img src="<?php echo THEMEPATH; ?>images/logo-horizontal.png" alt="Logo yogacloud">
+										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ][ line-height--64 ]">
 										<div class="[ block ][ float-left ]">
 											<div id="js-btn-user--nav">
-												<i class="[ icon icon-user icon-iconed ][ color-light ]"></i>
+												<i class="[ icon icon-user icon-iconed ][ color-primary ]"></i>
 											</div>
 										</div>
 										<div class="[ block ][ float-right ]">
 											<div id="js-hide-nav">
-												<i class="[ icon icon-close icon-small ][ color-light ][ no-margin-right ]"></i>
+												<i class="[ icon icon-close icon-small ][ color-primary ][ no-margin-right ]"></i>
 											</div>
 										</div>
 									</div>
@@ -172,9 +177,9 @@
 										</div>
 										<div>
 											<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-											<a href="" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
-											<a href="" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
-											<a href="" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
+											<a href="https://twitter.com/theyogacloud" target="_blank"  class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
+											<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
+											<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
 										</div>
 									</div>
 								</div>
@@ -191,7 +196,7 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
-						<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a>
+						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a> -->
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
@@ -202,7 +207,7 @@
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-light ][ line-height--64 ]"></i>
+								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-primary ][ line-height--64 ]"></i>
 								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_firstname; ?></div>
 								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
 							</a>

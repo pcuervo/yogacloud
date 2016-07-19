@@ -63,6 +63,20 @@ class YC_Curso {
 	}
 
 	/**
+	* Return all lessons from the course
+	* @return array $lecciones
+	*/
+	public function get_lecciones(){
+		$lecciones = array();
+		foreach ($this->get_modulos() as $modulo ) {
+			foreach ( $modulo->get_lecciones() as $leccion ) {
+				array_push( $lecciones, $leccion );
+			}
+		}
+		return $lecciones;
+	}
+
+	/**
 	* Return number of Módulos in the course
 	* @return int $num_modulos
 	*/
@@ -205,6 +219,32 @@ class YC_Curso {
 	}
 
 	/**
+	* Return the average rating of a course
+	* @param array $user_id
+	* @return boolean
+	*/
+	public function get_ratings(){
+		global $wpdb;
+		$average_rating = 0;
+		$rating_total = 0;
+		$count_rating = 0;
+		$rating_results = $wpdb->get_results(
+			"SELECT rating FROM " . $wpdb->prefix . "user_courses_rating WHERE course_id = " . $this->id
+			);
+		if( empty( $rating_results ) ) return 0;
+
+		$count_rating = count($rating_results );
+
+		foreach( $rating_results as $rating_result ){
+			$rating_total += intval($rating_result->{'rating'});
+		}
+
+		$average_rating = ceil($rating_total / $count_rating);
+
+		return $average_rating;
+	}
+
+	/**
 	* Check if a given user has bought a course
 	* @param int $user_id
 	* @return boolean
@@ -217,6 +257,20 @@ class YC_Curso {
         if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
 
 		return false;
+	}
+
+	/**
+	* Check if a given user has seen a course
+	* @param int $user_id
+	* @return boolean
+	*/
+	public function was_completed_by_user( $user_id ){
+		if( 0 == $user_id ) return 0;
+
+        foreach ( $this->get_lecciones() as $lesson ) {
+        	if( ! $lesson->has_been_watched_by_user( $user_id ) ) return false;
+        }
+		return true;
 	}
 
 	/**
@@ -241,7 +295,6 @@ class YC_Curso {
 			'name'			=> $modulo_query->post_title,
 			'description'	=> $modulo_query->post_content,
 			'permalink'		=> get_permalink( $modulo_query->ID ),
-			'lessons'		=> get_lesso
 		);
 	}
 
@@ -256,7 +309,7 @@ class YC_Curso {
 				var iframe = $('.video-container iframe')[0];
 				if( 'undefined' != typeof iframe ){
 					var player = new Vimeo.Player(iframe);
-					var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, player, true );
+					var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, <?php echo $this->id ?>, player, true );
 					yc_course._init();
 				}
 			});

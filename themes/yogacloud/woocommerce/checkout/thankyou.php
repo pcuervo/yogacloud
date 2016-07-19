@@ -59,6 +59,10 @@ if ( $order ) : ?>
 		</ul>
 		<div class="clear"></div>
 
+		<?php if(WC()->session->__isset('pdf_url')): ?>                  
+            <iframe id="pdf" src="<?php echo WC()->session->get( 'pdf_url' ) ?>" style="width:100%; height:950px;" frameborder="0"></iframe>
+        <?php endif; ?>
+
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>

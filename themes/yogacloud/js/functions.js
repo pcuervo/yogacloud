@@ -110,36 +110,36 @@ var $=jQuery.noConflict();
             toggleUser();
         });
 
-        $('#js-hide-user').on('click', function(event){
-            event.preventDefault();
+        $('#js-hide-user').on('click touchstart', function(e){
+            e.preventDefault();
             toggleUser();
         });
 
 
-        $('#js-btn-nav--user').on('click', function(event){
-            event.preventDefault();
+        $('#js-btn-nav--user').on('click touchstart', function(e){
+            e.preventDefault();
             toggleUser();
             toggleMenu();
         });
 
 
-        $('#js-btn-nav').click(function(e){
+        $('#js-btn-nav').on('click touchstart', function(e){
             e.preventDefault();
             toggleMenu();
         });
 
-        $('#js-hide-nav').on('click', function(event){
-            event.preventDefault();
+        $('#js-hide-nav').on('click touchstart', function(e){
+            e.preventDefault();
             toggleMenu();
         });
 
-        $('#js-btn-user--nav').on('click', function(event){
-            event.preventDefault();
+        $('#js-btn-user--nav').on('click touchstart', function(e){
+            e.preventDefault();
             toggleMenu();
             toggleUser();
         });
 
-        $('#cursos-nav').on('click', function(event){
+        $('#cursos-nav').on('click touchstart', function(e){
             if($("#cursos").length > 0) {
                 toggleMenu();
             }
@@ -147,15 +147,15 @@ var $=jQuery.noConflict();
 
 
         //Search Nav
-        $('#title-search-nav').on('click', function(event){
-            event.preventDefault();
+        $('#title-search-nav').on('click touchstart', function(e){
+            e.preventDefault();
             toggleSearch();
         });
 
 
         // Videos
-        $('#play-button').on('click', function(event){
-            event.preventDefault();
+        $('#play-button').on('click touchstart', function(e){
+            e.preventDefault();
             videoPlayer();
         });
 
@@ -241,8 +241,6 @@ function videoPlayer(){
             //Animated complete
         });
         $( "#play-button img" ).addClass('hidden');
-        //$(".video-container iframe")[0].play(); //autoplay <video>
-        // $(".video-container iframe")[0].src += "&autoplay=1"; //autoplay <iframe>
     }
 }
 

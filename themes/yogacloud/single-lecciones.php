@@ -8,17 +8,16 @@
 	$modulo = new YC_Modulo( array( 'id' => $_GET['mid'] ) );
 	$leccion = new YC_Leccion( array( 'id' => get_the_id() ) );
 	$leccion->get_position( $modulo->id );
+	$leccion->set_curso_id( $curso->id );
 	$video_info = $leccion->get_video_info();
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
-	if ( ! $curso->was_bought_by_user( get_current_user_id() ) ){
+	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
-
 	get_header();
 	the_post();
-
 ?>
 
 <section class="[ text-center ]">
@@ -27,7 +26,7 @@
 			<div class="video-container [ controls-show ]">
 				<?php echo $video_info['iframe']; ?>
 			</div>
-			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $video_info['thumbnail']; ?>)">
+			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $video_info['thumbnail']; ?>)">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
 						<img class="[ center-full ]" src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
@@ -39,16 +38,12 @@
 		<h3 class="[ color-secondary ][ margin-top--large no-margin-bottom ]">La lección aún no está disponible, lo sentimos.</h3>
 	<?php endif; ?>
 
-	<!-- <div class="[ bg-primary ][ padding-vertical ][ course-completed ]">
-		<h6 class="[ white-text ][ no-margin ]"><strong>¡Haz completado el curso!</strong><i class="[ icon icon-badge-star-1 icon-medium ][ color-light ]"></i></h6>
-	</div> -->
-
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-		<div class="[ bg-secondary ][ padding-vertical--xsmall ][ lesson-completed ]">
+		<div class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ lesson-completed ]">
 			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon-xsmall ][ color-light ]"></i></h6>
 		</div>
 	<?php else : ?>
-		<div class="[ bg-secondary ][ padding-vertical--xsmall ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
+		<div class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
 			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
 		</div>
 	<?php endif; ?>
@@ -118,6 +113,21 @@
 				&nbsp;
 			<?php endif; ?>
 		</div>
+	</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="curso-modal" class="[ modal ][ maestros-transparent ][ white-text ]">
+	<div class="modal-content [ white-text ]">
+		<div class="[ row ][ padding-top--large ]">
+			<div class="[ col s12 m8 offset-m2 l6 offset-l3 ][ text-center ]">
+				<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
+				<h3 class="[ white-text ][ ]"><strong>¡Haz completado el curso!</strong></h3>
+				<i class="[ icon icon-badge-star-1 icon-xlarge ][ color-light ][ margin-bottom--large ]"></i>
+				<?php  echo do_shortcode('[show_rating]');  ?>
+			</div>
+		</div>
+
 	</div>
 </div>
 

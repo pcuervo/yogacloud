@@ -71,6 +71,8 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'wp_ajax_save_user_rating', array( $this, 'save_user_rating' ) );
 		add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
+		add_action( 'wp_ajax_nopriv_is_course_completed', array( $this, 'is_course_completed' ) );
+		add_action( 'wp_ajax_is_course_completed', array( $this, 'is_course_completed' ) );
 
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
@@ -290,7 +292,7 @@ class YC_Admin_Cursos_Settings {
 	public function enqueue_and_localize_scripts(){
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
 		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
-		if ( 'product' == get_post_type() ) {
+		if ( 'lecciones' == get_post_type() ) {
 			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
 			wp_localize_script( 'course_rating', 'ajax_url', admin_url('admin-ajax.php') );
 		}
@@ -301,6 +303,7 @@ class YC_Admin_Cursos_Settings {
 	 */
 	public function enqueue_and_localize_admin_scripts(){
 		wp_enqueue_script( 'jquery_ui', 'https://code.jquery.com/ui/1.12.0/jquery-ui.js', 'jquery', '1.12.0', true );
+		wp_enqueue_script( 'list', YC_CURSOS_PLUGIN_URL . 'inc/js/list.min.js', 'jquery', false, true );
 		wp_enqueue_script( 'admin_functions', YC_CURSOS_PLUGIN_URL . 'inc/js/admin-functions.js', 'jquery', false, true );
 		wp_enqueue_style( 'admin_styles', YC_CURSOS_PLUGIN_URL . 'inc/css/style.css' );
 		wp_localize_script( 'jquery_ui', 'ajax_url', admin_url('admin-ajax.php') );
@@ -313,11 +316,8 @@ class YC_Admin_Cursos_Settings {
 		$curso = new YC_Curso( get_the_id() );
 		$user_rating = $curso->get_user_rating( get_current_user_id() );
 		if ( ! $user_rating ) : ?>
-			<!-- Rating -->
-			<h5 class="[ margin-bottom ]">Califica este curso</h5>
-			<div class="rating" data-curso="<?php echo get_the_id(); ?>" ></div>
-		<?php else : ?>
-			<p>DEFINIR COPY SI YA ESTA CALIFICADO...</p>
+			<h6 class="[ white-text ]">Califica este curso</h6>
+			<div class="[ rating ][ color-light ]" data-curso="<?php echo get_the_id(); ?>" ></div>
 		<?php endif ;
 	}
 
@@ -548,6 +548,9 @@ class YC_Admin_Cursos_Settings {
 									<ul id="sortable-badges-curso" class="[ sortable-list ][ margin-bottom ]" style="min-height: 50px">
 										<?php foreach ($badges_en_curso as $badge) : ?>
 											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="lesson">
+												<span class="[ badge__img ]">
+													<img src="<?php echo $badge->thumb_url ?>" alt="">
+												</span>
 												<span class="[ badge__name ]">
 													<?php echo $badge->name ?>
 												</span><span
@@ -571,6 +574,9 @@ class YC_Admin_Cursos_Settings {
 										<?php foreach ($badges_todos as $badge) : ?>
 											<?php if( $curso->has_badge( $badge->id) ) continue; ?>
 											<li id="<?php echo $badge->id ?>" data-id="<?php echo $badge->id ?>" data-type="module">
+												<span class="[ badge__img ]">
+													<img src="<?php echo $badge->thumb_url ?>" alt="">
+												</span>
 												<span class="[ badge__name ]">
 													<?php echo $badge->name ?>
 												</span><span
@@ -639,8 +645,10 @@ class YC_Admin_Cursos_Settings {
 						<div class="[ meta-box-sortables ui-sortable ]">
 							<div data-modulo="<?php echo $modulo->id ?>" class="[ postbox ]">
 								<h2 class="[ hndle ][ ui-sortable-handle ]"><span>Lecciones que no están en módulo</span></h2>
-								<div class="inside">
-									<ul id="sortable-lecciones-todas" class="[ sortable-list ]" style="min-height: 50px">
+								<div class="inside" id="lecciones-list">
+									<input class="[ search ]" placeholder="Ingresa el nombre de una lección" />
+									<hr>
+									<ul id="sortable-lecciones-todas" class="[ sortable-list ][ list ]" style="min-height: 50px">
 										<?php foreach ($lecciones_todas as $key => $leccion) : ?>
 											<?php if( $modulo->has_leccion( $leccion->id) ) continue; ?>
 											<li id="<?php echo $leccion->id ?>" data-id="<?php echo $leccion->id ?>" data-type="lesson">
@@ -807,7 +815,27 @@ class YC_Admin_Cursos_Settings {
 			$user_lesson_data,
 			array( '%d', '%d', '%d' )
 		);
-		'Rating guardado...';
+		echo 'Rating guardado...';
+		wp_die();
+	}
+
+	/**
+	* Check if current user has completed the course
+	* @return boolean
+	*/
+	public function is_course_completed(){
+		$curso = new YC_Curso( $_POST['course_id'] );
+		$msg = array();
+
+		if( $curso->was_completed_by_user( get_current_user_id() ) ) {
+			$msg['is_completed'] = 1;
+			$msg['message'] = 'Curso completado.';
+			echo json_encode( $msg );
+			wp_die();
+		}
+		$msg['is_completed'] = 0;
+		$msg['message'] = 'Curso no completado.';
+		echo json_encode( $msg );
 		wp_die();
 	}
 

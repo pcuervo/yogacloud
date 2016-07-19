@@ -17,6 +17,7 @@ class YC_Leccion {
 	private $video_info = array();
 	private $soundcloud_url;
 	private $is_free;
+	private $curso_id;
 
 	/*****************
 	* PUBLIC METHODS
@@ -50,6 +51,13 @@ class YC_Leccion {
 	}
 
 	/**
+	* Get $soundcloud_url
+	*/
+	public function is_free(){
+		return $this->is_free;
+	}
+
+	/**
 	* Initialize video player for lesson
 	*/
 	public function init_lesson_video_js() {
@@ -62,7 +70,7 @@ class YC_Leccion {
 				var iframe = $('.video-container iframe')[0];
 				if( 'undefined' != typeof iframe ){
 					var player = new Vimeo.Player(iframe);
-					var yc_lesson = new YogaCloudVideo( <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
+					var yc_lesson = new YogaCloudVideo( <?php echo $this->curso_id ?>, <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
 					yc_lesson._init();
 				}
 			});
@@ -186,34 +194,13 @@ class YC_Leccion {
 		return $lessons;
 	}
 
-	/********************
-	* AJAX RELATED 
-	*********************/
-
 	/**
-	 * Mark lesson as watched
-	 */
-	// function mark_as_watched(){
-	// 	$user_id = get_current_user_id();
-	// 	$lesson_id = $_POST['lesson_id'];
-
-	// 	if( 0 == $user_id ) wp_die();
-
-	// 	global $wpdb;
-	// 	$user_lesson_data = array(
-	// 		'user_id'			=> $user_id,
-	// 		'lesson_id' 		=> $lesson_id,
-	// 		'is_completed'		=> true,
-	// 	);
-	// 	$wpdb->insert(
-	// 		$wpdb->prefix . 'user_lessons',
-	// 		$user_lesson_data,
-	// 		array( '%d', '%d', '%d' )
-	// 	);
-
-	// 	echo $lesson_id;
-	// 	wp_die();
-	// }
+	* Set the id for the course the lesson belongs to
+	* @param int $course_id
+	*/
+	public function set_curso_id( $curso_id ) {
+		$this->curso_id = $curso_id;
+	}
 
 }// YC_Leccion
 

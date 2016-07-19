@@ -44,6 +44,10 @@ $( document ).ready( function() {
             updateOrderLecciones( leccionesObj, moduloId );
         }
     });
+    var options = {
+        valueNames: [ 'lesson__name' ]
+    };
+    var hackerList = new List('lecciones-list', options);
     // Sort Maestros
     $( "#sortable-maestros-curso" ).sortable({
         connectWith: '#sortable-maestros-todos',

@@ -22,7 +22,7 @@ function saveRating( rating, idCurso ){
         },
         function( response ){
             $('.rating').empty();
-            $('.rating').html('<p>[DEFINIR COPY O ACCIÓN]</p>');
+            $('.rating').html('<p>¡gracias!</p>');
             console.log( response );
         }
     );

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
-			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop>
+			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop poster="<?php echo THEMEPATH; ?>images/video-poster.png">
 				<source src="<?php echo THEMEPATH; ?>video/landing.mp4" type="video/mp4">
 				<source src="<?php echo THEMEPATH; ?>video/landing.webm" type="video/webm">
 				<source src="<?php echo THEMEPATH; ?>video/landing.ogv" type="video/ogg">
@@ -10,7 +10,7 @@
 				<div class="[ container ][ white-text text-center ]">
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
-							<img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud">
+							<h1><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
 							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
@@ -52,7 +52,7 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s12 xl6 ][  waves-effect waves-block waves-light ]">
+								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
 											<!-- new -->
@@ -62,7 +62,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="[ col s12 xl6 ]">
+								<div class="[ col s6 no-padding-left ]">
 									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
 										<?php echo $curso->subtitle; ?>
@@ -105,11 +105,11 @@
 							</div>
 							<div class="[ text-center ]">
 								<a href="http://agoralucis.com/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralusis.png">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/agoralucis.png" alt="Agora Lucis - Centro de yoga">
 								</a>
-								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png">
-								<a href="https://yogacloud.tv/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png">
+								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png" alt="Shambalanté - Centro de desarrollo humano">
+								<a href="http://yogacloud.tv/" target="_blank">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png" alt="YogaCloud - Clases de yoga en línea">
 								</a>
 							</div>
 						</div>

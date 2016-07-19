@@ -186,6 +186,10 @@ button.btn-floating {
   color: $button-raised-background;
   background-color: $button-raised-color;
   border: 1px solid $button-raised-background;
+
+  &:hover {
+    color: $button-raised-color;
+  }
 }
 
 // Rounded button
