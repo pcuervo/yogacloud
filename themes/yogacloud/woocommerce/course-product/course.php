@@ -167,22 +167,20 @@
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
-										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
-											<h6 class="[ no-margin ][ relative ]">
-												<?php echo $key+1 . '. ' . $lesson->name ?>
-												<?php if( $lesson->is_free() ) : ?>
-													<span class="[ gratis badge ]"></span>
-												<?php endif; ?>
-											</h6>
-											<div class="[ row ][ no-margin ]">
-												<div class="[ col s12 m9 ]">
-													<p><?php echo $lesson->short_description ?></p>
-												</div>
-												<div class="[ col s12 m3 ][ text-center ]">
-													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
+										<div class="[ course--module--lesson ][ color-dark ]">
+											<div class="[ width---80-m ][ inline-block ][ middle ]">
+												<h6 class="[ no-margin ][ relative ]">
+													<?php echo $key+1 . '. ' . $lesson->name ?>
+													<?php if( $lesson->is_free() ) : ?>
+														<span class="[ gratis badge ]"></span>
 													<?php endif; ?>
-												</div>
+												</h6>
+												<p class="[ no-margin-bottom ]"><?php echo $lesson->short_description ?></p>
+											</div>
+											<div class="[ width---19-m height---100 ][ inline-block ][ middle ][ text-center ]">
+												<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+													<i class="[ icon icon-badge-star-1 icon-large ][ color-secondary ][ text-center ]"></i>
+												<?php endif; ?>
 											</div>
 										</div>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
