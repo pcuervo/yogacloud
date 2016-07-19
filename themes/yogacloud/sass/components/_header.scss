@@ -1,7 +1,6 @@
 header{
 	height: 64px;
 	width: 100%;
-	text-transform: uppercase;
 	nav {
 		padding: 0px;
 		height: 64px;
@@ -24,6 +23,7 @@ header{
 				font-size: 16px;
 				font-weight: lighter;
 				float: left;
+				text-transform: uppercase;
 				@media (max-width: 1034px){ font-size: 18px; }
 				&:hover, &.active {
 					background-color: $primary-color;
@@ -37,11 +37,11 @@ header{
 			}
 		}
 		.menu-mobile{
-			// a:not(.footer-menu a) {
-			// 	font-weight: lighter;
-			// 	font-size: 16px;
-			// 	text-transform: uppercase;
-			// }
+			a {
+				font-weight: lighter;
+				font-size: 16px;
+				text-transform: uppercase;
+			}
 			a.active {
 				background-color: $light-color;
 				color: $primary-color!important;
