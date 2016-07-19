@@ -139,10 +139,11 @@
 								<div class="[  center-align ]">
 									<?php the_post_thumbnail('thumbnail', array('class' => '[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]') ); ?>
 								</div>
-								<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+								<i class="[ icon icon-quote icon-xxsmall ][ color-primary ][ absolute ][ no-margin-sides ]"></i>
 								<div class="[ content-testimonial ]">
-									<div class="[ font-italic ]">
+									<div class="[ font-italic ][ relative ]">
 										<?php the_content(); ?>
+										<i class="[ icon icon-quote icon-xxsmall ][ color-primary ][ rotate-180 ][ absolute bottom-0 right-0 ]"></i>
 									</div>
 									<h6 class="[ color-dark ][ text-uppercase ]"><?php the_title(); ?></h6>
 								</div>

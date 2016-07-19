@@ -153,6 +153,7 @@
 .bottom--30 { bottom: 30px; }
 .bottom--22 { bottom: 22px; } //button middle
 
+.right-0		{ right: 0px; }
 .right-767		{ right: -767px;}
 .right-1000		{ right: -1000px;}
 .right-999999	{ right: -999999px;}
@@ -393,3 +394,10 @@ div.progress {
 .progress-100 { height: 100%; }
 
 .video-container.controls-show { position: initial!important;}
+
+
+/*Rotate*/
+.rotate-180 {
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+}

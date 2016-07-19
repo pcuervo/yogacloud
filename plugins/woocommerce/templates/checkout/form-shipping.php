@@ -10,7 +10,7 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woothemes.com/document/template-structure/
+ * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
  * @version 2.2.0
@@ -24,10 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="woocommerce-shipping-fields">
 	<?php if ( true === WC()->cart->needs_shipping_address() ) : ?>
 
-		<h5 id="ship-to-different-address">
+		<h3 id="ship-to-different-address">
 			<label for="ship-to-different-address-checkbox" class="checkbox"><?php _e( 'Ship to a different address?', 'woocommerce' ); ?></label>
 			<input id="ship-to-different-address-checkbox" class="input-checkbox" <?php checked( apply_filters( 'woocommerce_ship_to_different_address_checked', 'shipping' === get_option( 'woocommerce_ship_to_destination' ) ? 1 : 0 ), 1 ); ?> type="checkbox" name="ship_to_different_address" value="1" />
-		</h5>
+		</h3>
 
 		<div class="shipping_address">
 
@@ -51,7 +51,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( ! WC()->cart->needs_shipping() || wc_ship_to_billing_address_only() ) : ?>
 
-			<h5><?php _e( 'Additional Information', 'woocommerce' ); ?></h5>
+			<h3><?php _e( 'Additional Information', 'woocommerce' ); ?></h3>
 
 		<?php endif; ?>
 
