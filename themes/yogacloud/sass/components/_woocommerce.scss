@@ -164,4 +164,26 @@ address { margin-top: 20px; }
 
 // CART
 
+.woocommerce table.cart td.actions .coupon{ @media #{$medium-and-down} { margin: 53px 0;}}
 .coupon input.btn{ padding: 0 1em !important}
+
+.woocommerce table.shop_table td{  @media #{$medium-and-down} {border-top: none !important;}}
+.woocommerce table.shop_table td.product-price,
+.woocommerce table.shop_table td.product-quantity,
+.woocommerce table.shop_table td.product-subtotal{  
+	@media #{$medium-and-down} {
+		text-align: right !important; 
+		font-weight: bold;
+	}
+}
+.woocommerce table.shop_table_responsive tr.cart-subtotal td{ @media #{$medium-and-down} { display: none;} }
+
+.woocommerce table.shop_table_responsive tr.order-total td{ 
+	@media #{$medium-and-down} { 
+		text-align: right !important; 
+		font-weight: bold;
+		font-size: 1.5rem;
+	} 
+}
+
+div.quantity{ @media #{$medium-and-down}{ display: inline;}}

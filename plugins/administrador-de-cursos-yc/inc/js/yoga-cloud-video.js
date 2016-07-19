@@ -67,9 +67,6 @@ YogaCloudVideo.prototype = {
                 action:     'mark_lesson_as_watched'
             },
             function( response ){
-                console.log( response );
-                // Hacer algo cuando se termina el curso
-                console.log('watched');
                 $('.js-lesson-completed').removeClass('not-visible').addClass('visible');
             }
         );
@@ -85,10 +82,11 @@ YogaCloudVideo.prototype = {
             function( response ){
                 var jsonResponse = $.parseJSON( response );
                 if( parseInt( jsonResponse.is_completed ) ){
-                    console.log( jsonResponse.message );
+                    $('#curso-modal').openModal();
+                    //console.log( jsonResponse.message );
                     return;
                 }
-                console.log( jsonResponse.message );
+                //console.log( jsonResponse.message );
             }
         );
     }
