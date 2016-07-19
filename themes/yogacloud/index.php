@@ -54,12 +54,20 @@
 							<div class="[ row ]">
 								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
-										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-											<!-- new -->
-											<?php if( $curso->is_new ) : ?>
-												<div id="promo" class="[ nuevo ]"></div>
-											<?php endif; ?>
-										</div>
+										<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+											<div class="[ gradient-linear-opacity--gray ][ width---100 height---100 ][ relative ]">
+										<?php else : ?>
+											<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+										<?php endif; ?>
+												<!-- new -->
+												<?php if( $curso->is_new ) : ?>
+													<div id="promo" class="[ nuevo ]"></div>
+												<?php endif; ?>
+
+												<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+													<i class="[ icon icon-look icon-iconed ][ color-light ][ absolute bottom-10 ]"></i>
+												<?php endif; ?>
+											</div>
 									</div>
 								</div>
 								<div class="[ col s6 no-padding-left ]">
