@@ -138,6 +138,11 @@
 
 			<?php endif; ?>
 
+			<section class="[ text-center ]">
+				<h5 class="[ margin-bottom ]">Comparte este curso</h5>
+				<?php echo do_shortcode("[apss_share networks='facebook, twitter' share_text='']"); ?>
+			</section>
+
 		</div>
 		<div class="[ col s12 m8 l10 ]">
 			<section>

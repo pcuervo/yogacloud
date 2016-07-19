@@ -36,13 +36,18 @@
 		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
 
 		<!-- Facebook metas -->
-		<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+		
 
+		<?php if( is_curso( get_the_id() ) ) : ?>
+			<meta property="og:title" content="<?php echo get_the_title(); ?>">
+		<?php else : ?>
+			<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+		<?php endif; ?>
 		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
 		<meta property="fb:app_id" content="1750075545245803" />
-		
+
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
