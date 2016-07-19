@@ -36,8 +36,6 @@
 		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
 
 		<!-- Facebook metas -->
-		
-
 		<?php if( is_curso( get_the_id() ) ) : ?>
 			<meta property="og:title" content="<?php echo get_the_title(); ?>">
 		<?php else : ?>
@@ -127,7 +125,7 @@
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 										<a href="tel:+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-										<a href="mailto:contacto@yogacloud.tv" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+										<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 									</div>
 									<div>
 										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
@@ -187,7 +185,7 @@
 										<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
 											<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 											<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-											<a href="mailto:contacto@yogacloud.com" class="[ white-text ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+											<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 										</div>
 										<div>
 											<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
@@ -210,7 +208,6 @@
 							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
-						<!-- <a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda/'); ?>">Tienda</a> -->
 						<!-- Dropdown Structure -->
 						<ul id="dropdown-search" class="dropdown-content">
 							<form>
