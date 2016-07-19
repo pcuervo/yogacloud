@@ -8,6 +8,24 @@
 		<!-- SEO -->
 		<meta name="keywords" content="cursos, cursos en línea, meditación, meditación en línea, yoga cloud, yoga, yoga en línea, despertar espiritual, budismo y paz interior, paz interior, budismo,  técnicas del nahual, nahual, tradición oculta occidental, shambalanté, the yoga project, agora lucis, lecciones gratis, yogacloud, concepción cosmogónica de los toltecas, equilibrio físico y mental, prácticas prehispánicas naguales, frank díaz, fundación dondé, fundación donde">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
+		<!-- Facebook, Twitter metas -->
+		<?php if( is_curso( get_the_id() ) ) : ?>
+			<meta property="og:title" content="<?php echo get_the_title(); ?>">
+			<meta name="twitter:title" content="<?php echo get_the_title(); ?>" />
+			<meta property="og:type" content="article" />
+		<?php else : ?>
+			<meta property="og:title" content="<?php bloginfo('name'); ?>" />
+			<meta name="twitter:title" content="<?php bloginfo('name'); ?>" />
+			<meta property="og:type" content="website" />
+		<?php endif; ?>
+		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png">
+		<meta property="og:image:width" content="210" />
+		<meta property="og:image:height" content="110" />
+		<meta property="fb:app_id" content="1750075545245803" />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="@TheYogaCloud" />
+		<meta name="twitter:description" content="<?php bloginfo('description'); ?>" />
+		<meta name="twitter:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png" />
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://cursos.yogacloud.tv/" />
 		<!-- Compatibility -->
@@ -34,18 +52,6 @@
 
 		<!-- Sitemap Google Verify -->
 		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
-
-		<!-- Facebook metas -->
-		<?php if( is_curso( get_the_id() ) ) : ?>
-			<meta property="og:title" content="<?php echo get_the_title(); ?>">
-		<?php else : ?>
-			<meta property="og:title" content="<?php bloginfo('name'); ?>" />
-		<?php endif; ?>
-		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png">
-		<meta property="og:image:width" content="210" />
-		<meta property="og:image:height" content="110" />
-		<meta property="fb:app_id" content="1750075545245803" />
-
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
@@ -209,12 +215,6 @@
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 						<!-- Dropdown Structure -->
-						<ul id="dropdown-search" class="dropdown-content">
-							<form>
-								<input class="[ input-search-nav ]" id="search" type="search" required>
-								<button class="btn [ btn-rounded btn-light-hollow btn-small ] waves-effect waves-light" type="submit" name="action">buscar</button>
-							</form>
-						</ul>
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
 							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
