@@ -17,6 +17,7 @@
 .margin-bottom--xsmall		{ margin-bottom: ($margin-size/4); }
 .margin-bottom--small		{ margin-bottom: ($margin-size/2); }
 .margin-bottom				{ margin-bottom: $margin-size; }
+@media(max-width:600px){.margin-bottom-s	{ margin-bottom: $margin-size; }}
 .margin-bottom--large		{ margin-bottom: ($margin-size*1.5); }
 .margin-bottom--xlarge		{ margin-bottom: ($margin-size*2); }
 

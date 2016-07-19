@@ -3,7 +3,7 @@
 		<footer class="page-footer">
 			<div class="container">
 				<div class="row [ border-bottom--light ][ padding-bottom ]">
-					<div class="col s12 offset-m1 m5 offset-l2 l4 [ margin-bottom ]">
+					<div class="col s12 offset-m1 m5 offset-l2 l4 [ margin-bottom-s ]">
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 						<a href="tel://+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
 						<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
@@ -18,7 +18,7 @@
 				<div class="[ row ][ margin-bottom--small">
 					<div class="col s12 offset-l2 l8">
 						<a href="http://yogacloud.tv/" target="_blank">
-							<img class="logo center-block [ margin-bottom ]" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
+							<img class="logo center-block" src="<?php echo THEMEPATH; ?>images/logo-horizontal-light.png" alt="Logo yogacloud">
 						</a>
 						<div class="[ row ][ no-margin ]">
 							<div class="[ col s4 ]">
