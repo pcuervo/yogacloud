@@ -52,7 +52,7 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
+								<div class="[ card-image ][ col s6 ]">
 									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
 										<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 											<div class="[ gradient-linear-opacity--gray ][ width---100 height---100 ][ relative ]">
@@ -117,7 +117,7 @@
 								</a>
 								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png" alt="Shambalanté - Centro de desarrollo humano">
 								<a href="http://yogacloud.tv/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png" alt="YogaCloud - Clases de yoga en línea">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="YogaCloud - Clases de yoga en línea">
 								</a>
 							</div>
 						</div>
