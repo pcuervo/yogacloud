@@ -316,7 +316,7 @@ class YC_Admin_Cursos_Settings {
 		$curso = new YC_Curso( get_the_id() );
 		$user_rating = $curso->get_user_rating( get_current_user_id() );
 		if ( ! $user_rating ) : ?>
-			<h6 class="[ no-margin-bottom ][ white-text ]"><small>Califica este curso</small></h6>
+			<h6 class="[ white-text ]">Califica este curso</h6>
 			<div class="[ rating ][ color-light ]" data-curso="<?php echo get_the_id(); ?>" ></div>
 		<?php endif ;
 	}
