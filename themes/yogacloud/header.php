@@ -18,6 +18,8 @@
 			<meta name="twitter:title" content="<?php bloginfo('name'); ?>" />
 			<meta property="og:type" content="website" />
 		<?php endif; ?>
+		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
+		<meta name="og:url" content="<?php echo site_url(); ?>" />
 		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/logo-vertical-light.png">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
