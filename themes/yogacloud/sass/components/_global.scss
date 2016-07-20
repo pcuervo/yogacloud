@@ -374,7 +374,8 @@ ul.staggered-list li {
 // Footer
 footer.page-footer {
 //  margin-top: 20px;
-  padding-top: $padding-size; padding-bottom: ($padding-size/4);
+   padding-top: $padding-size;
+  //padding-bottom: ($padding-size/4);
   background-color: $footer-bg-color;
 
   .footer-copyright {
