@@ -10,7 +10,7 @@
 				<div class="[ container ][ white-text text-center ]">
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
-							<h1><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
+							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
 							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>

@@ -159,7 +159,7 @@
 											<h5 class="[ no-margin ]"><?php echo $modulo->name ?></h5>
 											<p class="[ no-margin-bottom ]"><?php echo $modulo->description ?></p>
 										</div>
-										<div class="[ col s12 m3 ][ text-center ]">
+										<div class="[ col s12 m3 ][ width---19-m padding-left-m ][ text-center ]">
 											<?php if ( $modulo->get_progress_by_user( get_current_user_id() ) === 100 ) : ?>
 												<i class="[ icon icon-badge-star-1 icon-medium ][ line-height--80 ][ bg-primary ][ width--80 border-radius---50 ][ white-text text-center ]"></i>
 											<?php endif; ?>
@@ -173,7 +173,7 @@
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
 										<div class="[ course--module--lesson ][ color-dark ]">
-											<div class="[ width---80-m ][ inline-block ][ middle ]">
+											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
 												<h6 class="[ no-margin ][ relative ]">
 													<?php echo $key+1 . '. ' . $lesson->name ?>
 												</h6>

@@ -63,6 +63,8 @@
 .padding-left--large		{padding-left:($padding-size*1.5);}
 .no-padding-left			{padding-left:0px;}
 
+@media(min-width: 782px){ .padding-left-m { padding-left:6%!important; } }
+
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
 .padding-bottom				{padding-bottom:$padding-size;}
@@ -84,7 +86,7 @@
 .width--170 		{ width: 170px; }
 
 @media(min-width: 782px){
-	.width---19-m 		{ width: 19%; }
+	.width---19-m 		{ width: 19%!important; }
 	.width---80-m 		{ width: 80%; }
 }
 
