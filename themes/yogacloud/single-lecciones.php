@@ -69,7 +69,7 @@
 </section>
 
 <div class="[ container ]">
-	<div class="[ row ]">
+	<div class="[ row ][ no-margin ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $previous_post_link ) : ?>
 				<a href="<?php echo $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">

@@ -138,7 +138,7 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<h5 class="[ text-center ][ padding-top ]">Testimoniales</h5>
+			<h5 class="[ text-center ]">Testimoniales</h5>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>

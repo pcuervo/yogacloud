@@ -6,7 +6,7 @@
 					<div class="col s12 offset-m1 m5 offset-l2 l4 [ margin-bottom-s ]">
 						<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
 						<a href="tel://+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
-						<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
+						<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ margin-right ][ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 					</div>
 					<div class="col s12 m5 l4">
 						<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
