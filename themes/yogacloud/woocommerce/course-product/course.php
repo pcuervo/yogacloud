@@ -189,7 +189,7 @@
 												<?php endif; ?>
 											</div>
 										</div>
-									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										</a>
 									<?php endif; ?>
 								<?php endforeach; ?>
