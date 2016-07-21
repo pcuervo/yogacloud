@@ -64,8 +64,8 @@
 													<div id="promo" class="[ nuevo ]"></div>
 												<?php endif; ?>
 
-												<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-look icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
+												<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-candado-cerrado icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
 												<?php endif; ?>
 											</div>
 									</div>
@@ -80,7 +80,7 @@
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-											<button class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</button>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</a>
 										<?php else : ?>
 											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
 										<?php endif; ?>
