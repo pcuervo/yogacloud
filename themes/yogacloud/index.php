@@ -64,11 +64,7 @@
 													<div id="promo" class="[ nuevo ]"></div>
 												<?php endif; ?>
 
-												<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-candado-abierto icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
-												<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-candado-cerrado icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
-												<?php else : ?>
+												<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-candado-cerrado icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
 												<?php endif; ?>
 											</div>
