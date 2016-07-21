@@ -1041,18 +1041,22 @@ class YC_Admin_Cursos_Settings {
 		$soundcloud_url = get_post_meta($post->ID, '_soundcloud_url_meta', true);
 		$is_free = get_post_meta($post->ID, '_is_free_meta', true);
 		$full_module = get_post_meta($post->ID, '_full_module_meta', true);
+		$lesson_duration = get_post_meta($post->ID, '_lesson_duration_meta', true);
 
 		wp_nonce_field(__FILE__, '_vimeo_url_meta_nonce');
 		wp_nonce_field(__FILE__, '_soundcloud_url_meta_nonce');
 		wp_nonce_field(__FILE__, '_is_free_meta_nonce');
+		wp_nonce_field(__FILE__, '_lesson_duration_meta_nonce');
 
+		echo "<label><strong>Duración (minutos)</strong><br><small>Ejemplo: 120</small></label>";
+		echo "<input type='text' class='[ widefat ]' name='_lesson_duration_meta' value='$lesson_duration'><br /><br />";
 		echo "<label><strong>URL Vimeo</strong><br><small>Ejemplo: https://vimeo.com/171807697</small></label>";
-		echo "<input type='text' class='[ widefat ]' name='_vimeo_url_meta' value='$vimeo_url'><br><br>";
+		echo "<input type='text' class='[ widefat ]' name='_vimeo_url_meta' value='$vimeo_url'><br /><br />";
 		echo "<label><strong>URL SoundCloud</strong><br><small>Ejemplo: https://soundcloud.com/miguel-cabral-alcocer/children-of-the-forest-stolen-edit-mc-alcocer </small></label>";
-		echo "<input type='text' class='[ widefat ]' name='_soundcloud_url_meta' value='$soundcloud_url'><br><br>";
+		echo "<input type='text' class='[ widefat ]' name='_soundcloud_url_meta' value='$soundcloud_url'><br /><br />";
 		$checked_free = $is_free == 1 ? 'checked' : '';
 		echo "<input type='checkbox' class='[ widefat ]' name='_is_free_meta' value=1 $checked_free />";
-		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
+		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label><br /><br />";
 		$checked_full = $full_module == 1 ? 'checked' : '';
 		echo "<input type='checkbox' class='[ widefat ]' name='_full_module_meta' value=1 $checked_full />";
 		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label>";
@@ -1102,6 +1106,10 @@ class YC_Admin_Cursos_Settings {
 	* Save the metaboxes for post type "lecciones"
 	**/
 	private function save_meta_boxes_lecciones( $post_id ){
+		// Duración
+		if ( isset($_POST['_lesson_duration_meta']) and check_admin_referer( __FILE__, '_lesson_duration_meta_nonce') ){
+			update_post_meta($post_id, '_lesson_duration_meta', $_POST['_lesson_duration_meta']);
+		}
 		// Vimeo
 		if ( isset($_POST['_vimeo_url_meta']) and check_admin_referer( __FILE__, '_vimeo_url_meta_nonce') ){
 			update_post_meta($post_id, '_vimeo_url_meta', $_POST['_vimeo_url_meta']);
@@ -1112,7 +1120,6 @@ class YC_Admin_Cursos_Settings {
 		}
 		// Is free
 		if ( isset($_POST['_is_free_meta']) and check_admin_referer( __FILE__, '_is_free_meta_nonce') ){
-
 			update_post_meta($post_id, '_is_free_meta', $_POST['_is_free_meta']);
 		} else {
 			update_post_meta($post_id, '_is_free_meta', 0);
