@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<section class="[ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
+	<section class="[ main-banner ][ background-image ][ background-image--woman ]">
 		<div class="[ gradient-linear-opacity ][ padding-vertical--xlarge ]">
 			<div class="[ container ]">
 				<div class="[ row ][ no-margin ]">

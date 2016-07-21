@@ -10,7 +10,7 @@
 				<div class="[ container ][ white-text text-center ]">
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
-							<h1><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
+							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
 							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
@@ -52,14 +52,22 @@
 					<article class="[ col s12 m6 ]">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
-								<div class="[ card-image ][ col s6 ][  waves-effect waves-block waves-light ]">
-									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
-										<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-											<!-- new -->
-											<?php if( $curso->is_new ) : ?>
-												<div id="promo" class="[ nuevo ]"></div>
-											<?php endif; ?>
-										</div>
+								<div class="[ card-image ][ col s6 ]">
+									<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
+										<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+											<div class="[ gradient-linear-opacity--gray ][ width---100 height---100 ][ relative ]">
+										<?php else : ?>
+											<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+										<?php endif; ?>
+												<!-- new -->
+												<?php if( $curso->is_new ) : ?>
+													<div id="promo" class="[ nuevo ]"></div>
+												<?php endif; ?>
+
+												<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-look icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
+												<?php endif; ?>
+											</div>
 									</div>
 								</div>
 								<div class="[ col s6 no-padding-left ]">
@@ -109,7 +117,7 @@
 								</a>
 								<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/shambalante.png" alt="Shambalanté - Centro de desarrollo humano">
 								<a href="http://yogacloud.tv/" target="_blank">
-									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logos/yogacloud.png" alt="YogaCloud - Clases de yoga en línea">
+									<img class="[ width--170 ][ margin-sides ][ ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="YogaCloud - Clases de yoga en línea">
 								</a>
 							</div>
 						</div>
@@ -130,7 +138,7 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<h5 class="[ text-center ][ padding-top ]">Testimoniales</h5>
+			<h5 class="[ text-center ]">Testimoniales</h5>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>
@@ -139,10 +147,11 @@
 								<div class="[  center-align ]">
 									<?php the_post_thumbnail('thumbnail', array('class' => '[  center-align ][ margin-bottom--small ][ border-radius---50 ][ profile ]') ); ?>
 								</div>
-								<i class="[ icon icon-quote icon-xsmall ][ color-primary ][ absolute ]"></i>
+								<i class="[ icon icon-quote icon-xxsmall ][ color-primary ][ absolute ][ no-margin-sides ]"></i>
 								<div class="[ content-testimonial ]">
-									<div class="[ font-italic ]">
+									<div class="[ font-italic ][ relative ]">
 										<?php the_content(); ?>
+										<i class="[ icon icon-quote icon-xxsmall ][ color-primary ][ rotate-180 ][ absolute bottom-0 right-0 ]"></i>
 									</div>
 									<h6 class="[ color-dark ][ text-uppercase ]"><?php the_title(); ?></h6>
 								</div>
@@ -159,7 +168,7 @@
 
 	<?php if ( ! is_user_logged_in() ){ ?>
 
-		<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
+		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
 			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
 					<h5>Regístrate y obtén lecciones gratis.</h5>

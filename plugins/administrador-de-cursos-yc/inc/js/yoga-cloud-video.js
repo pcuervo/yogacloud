@@ -32,7 +32,7 @@ YogaCloudVideo.prototype = {
             clearInterval( self._elapsedTimeInterval );
             self.isCourseCompleted();
         });
-        $('#play-button').on('click touchstart', function(e){
+        $('#play-button').on('click', function(e){
             e.preventDefault();
             self._player.play();
         });

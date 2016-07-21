@@ -17,6 +17,7 @@
 .margin-bottom--xsmall		{ margin-bottom: ($margin-size/4); }
 .margin-bottom--small		{ margin-bottom: ($margin-size/2); }
 .margin-bottom				{ margin-bottom: $margin-size; }
+@media(max-width:600px){.margin-bottom-s	{ margin-bottom: $margin-size; }}
 .margin-bottom--large		{ margin-bottom: ($margin-size*1.5); }
 .margin-bottom--xlarge		{ margin-bottom: ($margin-size*2); }
 
@@ -27,7 +28,7 @@
 .margin-top--xsmall			{ margin-top: ($margin-size/4); }
 .margin-top--small			{ margin-top: ($margin-size/2); }
 .margin-top					{ margin-top: $margin-size; }
-.margin-top--large		{ margin-top: ($margin-size*2); }
+.margin-top--large			{ margin-top: ($margin-size*2); }
 
 .no-margin-left				{ margin-left: 0px; }
 .margin-left--xsmall		{ margin-left: ($margin-size/4); }
@@ -62,6 +63,8 @@
 .padding-left--large		{padding-left:($padding-size*1.5);}
 .no-padding-left			{padding-left:0px;}
 
+@media(min-width: 782px){ .padding-left-m { padding-left:6%!important; } }
+
 .padding-bottom--xsmall		{padding-bottom:($padding-size/4);}
 .padding-bottom--small		{padding-bottom:($padding-size/2);}
 .padding-bottom				{padding-bottom:$padding-size;}
@@ -81,8 +84,21 @@
 .width--100 		{ width: 100px; }
 .width--120 		{ width: 120px; }
 .width--170 		{ width: 170px; }
+.width--190 		{ width: 190px; }
 
+@media(min-width: 782px){
+	.width---19-m 		{ width: 19%!important; }
+	.width---80-m 		{ width: 80%; }
+}
+
+@media(max-width: 781px){
+	.width---19-m,
+	.width---80-m { display: block!important; text-align: left; }
+}
+
+.width---20 		{ width: 20%; }
 .width---33			{ width: 33%; }
+.width---80 		{ width: 80%; }
 .width---100 		{ width: 100%; }
 .max-width---100 	{ max-width: 100%; }
 .min-width---100 	{ min-width: 100%; }
@@ -93,7 +109,9 @@
 .height--64			{ height:64px; }
 .height--80			{ height:80px; }
 .height--90			{ height:90px; }
+.height--210		{ height: 210px; }
 .height--320		{ height: 320px; }
+.height--440		{ height: 440px; }
 
 .height---70 		{ height: 70%; }
 .height---100 		{ height: 100%; }
@@ -149,10 +167,12 @@
 .bottom-2 { bottom: 2px; }
 .bottom-3 { bottom: 3px; }
 .bottom-5 { bottom: 5px; }
+.bottom-10 { bottom: 10px; }
 .bottom--20 { bottom: 20px; }
 .bottom--30 { bottom: 30px; }
 .bottom--22 { bottom: 22px; } //button middle
 
+.right-0		{ right: 0px; }
 .right-767		{ right: -767px;}
 .right-1000		{ right: -1000px;}
 .right-999999	{ right: -999999px;}
@@ -207,6 +227,7 @@
 .gradient-linear-opacity			{ @include linear-gradient( $primary-transparent, $secondary-transparent); }
 .gradient-linear-opacity--light		{ @include linear-gradient( $primary-transparent--light, $secondary-transparent); }
 .gradient-linear-opacity--light-2	{ @include linear-gradient( $secondary-transparent, $primary-transparent--light); }
+.gradient-linear-opacity--gray		{ @include linear-gradient( $primary-transparent--gray, $secondary-transparent--gray); }
 .gradient-diagonal					{ @include linear-gradient(45deg, $primary-color, $secondary-color); }
 .gradient-diagonal-opacity			{ @include linear-gradient(45deg, $primary-transparent, $secondary-transparent); }
 .gradient-text {
@@ -393,3 +414,10 @@ div.progress {
 .progress-100 { height: 100%; }
 
 .video-container.controls-show { position: initial!important;}
+
+
+/*Rotate*/
+.rotate-180 {
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+}

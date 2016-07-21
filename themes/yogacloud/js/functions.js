@@ -21,6 +21,12 @@ var $=jQuery.noConflict();
                 hover: true, // Activate on hover
         });
 
+        $('.js-contacto-email').click(function(e){
+            console.log('email');
+            e.preventDefault();
+            window.open( 'mailto:contacto@yogacloud.net', '_blank' );
+        })
+
 
         /*------------------------------------*\
             #HOME

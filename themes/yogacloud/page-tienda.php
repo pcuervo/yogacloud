@@ -1,6 +1,6 @@
 <?php get_header(); the_post();  ?>
 
-	<section class="[ main-banner ][ box-btn ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1456426531648-850ec2f5a462.jpg)">
+	<section class="[ main-banner ][ box-btn ][ background-image ][ background-image--woman ]">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
@@ -20,7 +20,7 @@
 		<div class="[ row ]">
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -32,7 +32,7 @@
 			</article>
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -44,7 +44,7 @@
 			</article>
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda3.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -56,7 +56,7 @@
 			</article>
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -68,7 +68,7 @@
 			</article>
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda1.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -80,7 +80,7 @@
 			</article>
 			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ]" style="width: 100%; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
 							<span class="[ title-image ]">Título del producto</span>
 						</div>
@@ -132,11 +132,11 @@
 		<div class="[ row ]">
 			<article class="[ col s12 l6 ]">
 				<div class="[ card-image ][ relative ][ text-center ]">
-					<div style="height: 440px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+					<div class="[ background-image ][ height--440 ]" style="background-image: url(<?php echo $image_url; ?>)">
 						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical--xlarge ][ valign-wrapper ]">
 							<div class="[ valign ][ width---100 ]">
 								<h4 class="[ white-text ][ no-margin-top ]">Descuentos en calzado</h4>
-								<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--170 ][ valign ]">ver productos</a>
+								<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--190 ][ valign ]">ver productos</a>
 							</div>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 				<div class="[ col s12 l6 ]">
 					<article>
 						<div class="[ card-image ][ relative ][ text-center ]">
-							<div style="height: 210px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+							<div class="[ background-image ][ height--210 ]" style="background-image: url(<?php echo $image_url; ?>)">
 								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
 									<div class="[ valign ][ width---100 ]">
 										<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">20% de descuento en mats</h4>
@@ -158,7 +158,7 @@
 					</article>
 					<article>
 						<div class="[ card-image ][ relative ][ text-center ]">
-							<div style="height: 210px; background-size: cover; background-position: center bottom; background-image: url(<?php echo THEMEPATH; ?>images/tienda4.png)">
+							<div  class="[ background-image ][ height--210 ]" style="background-image: url(<?php echo $image_url; ?>)">
 								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
 									<div class="[ valign ][ width---100 ]">
 										<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">10% en toda la tienda con el código</h4>

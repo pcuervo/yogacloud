@@ -12,7 +12,7 @@
 		<div class="video-container [ controls-show ]">
 			<?php echo $trailer_info['iframe']; ?>
 		</div>
-		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ][ background-image ]" style="background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
 			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
@@ -138,6 +138,11 @@
 
 			<?php endif; ?>
 
+			<section class="[ text-center ]">
+				<h5 class="[ margin-bottom ]">Comparte este curso</h5>
+				<?php echo do_shortcode("[apss_share networks='facebook, twitter' share_text='']"); ?>
+			</section>
+
 		</div>
 		<div class="[ col s12 m8 l10 ]">
 			<section>
@@ -154,7 +159,7 @@
 											<h5 class="[ no-margin ]"><?php echo $modulo->name ?></h5>
 											<p class="[ no-margin-bottom ]"><?php echo $modulo->description ?></p>
 										</div>
-										<div class="[ col s12 m3 ][ text-center ]">
+										<div class="[ col s12 m3 ][ width---19-m padding-left-m ][ text-center ]">
 											<?php if ( $modulo->get_progress_by_user( get_current_user_id() ) === 100 ) : ?>
 												<i class="[ icon icon-badge-star-1 icon-medium ][ line-height--80 ][ bg-primary ][ width--80 border-radius---50 ][ white-text text-center ]"></i>
 											<?php endif; ?>
@@ -167,25 +172,24 @@
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
 									<?php endif; ?>
-										<div class="[ padding ][ course--module--lesson ][ color-dark ]">
-											<h6 class="[ no-margin ][ relative ]">
-												<?php echo $key+1 . '. ' . $lesson->name ?>
+										<div class="[ course--module--lesson ][ color-dark ]">
+											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
+												<h6 class="[ no-margin ][ relative ]">
+													<?php echo $key+1 . '. ' . $lesson->name ?>
+												</h6>
+												<p class="[ no-margin-bottom ]"><?php echo $lesson->short_description ?></p>
+											</div>
+											<div class="[ width---19-m height---100 ][ inline-block ][ middle ][ text-center ]">
 												<?php if( $lesson->is_free() ) : ?>
-													<span class="[ gratis badge ]"></span>
+													<div id="promo" class="[ gratis badge ]"></div>
+													<!-- <span class="[ gratis badge ]"></span> -->
 												<?php endif; ?>
-											</h6>
-											<div class="[ row ][ no-margin ]">
-												<div class="[ col s12 m9 ]">
-													<p><?php echo $lesson->short_description ?></p>
-												</div>
-												<div class="[ col s12 m3 ][ text-center ]">
-													<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-														<i class="[ icon icon-badge-star-1 icon--small ][ line-height--50 ][ border-color--secondary color-secondary bg-light ][ width--50 border-radius---50 ][ text-center ]"></i>
-													<?php endif; ?>
-												</div>
+												<?php if ( $lesson->has_been_watched_by_user( get_current_user_id() ) ) : ?>
+													<i class="[ icon icon-badge-star-1 icon-large ][ color-secondary ][ text-center ]"></i>
+												<?php endif; ?>
 											</div>
 										</div>
-									<?php if( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										</a>
 									<?php endif; ?>
 								<?php endforeach; ?>

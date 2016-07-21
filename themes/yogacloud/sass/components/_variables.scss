@@ -41,9 +41,11 @@ $primary-color-dark: darken($primary-color, 15%) !default;
 $primary-color-gray: color("primary", "gray") !default;
 $primary-transparent: color("primary","transparent")!default;
 $primary-transparent--light: color("primary","transparent-light")!default;
+$primary-transparent--gray: color("primary","transparent-gray")!default;
 $secondary-color: color("secondary", "lighten-1") !default;
 $secondary-transparent: color("secondary","transparent")!default;
 $secondary-transparent--light: color("secondary","transparent-light")!default;
+$secondary-transparent--gray: color("secondary","transparent-gray")!default;
 $secondary-color-dark: color("secondary", "darken-1") !default;
 
 $secondary-color: color("teal", "lighten-1") !default;

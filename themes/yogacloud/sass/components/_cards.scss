@@ -16,7 +16,7 @@
   border-radius: 2px;
   @extend .z-depth-1;
 
-  button.disabled{ 
+  button.disabled{
     font-size: .8rem !important;
     padding: 0 1rem !important;
   }
@@ -190,11 +190,23 @@
       }
     }
 
+     &.gratis{
+      border-right-color: $secondary-color;
+      border-top-color: $secondary-color;
+      top: 0px;
+
+      &::after{
+        content: 'gratis';
+        left: -10px; bottom: 4px;
+        font-size: 14px;
+      }
+    }
+
   }
-  
+
 //padding content
 
-@media (max-width: 767px){#box-card .no-padding-left {padding-left:0px !important;} } 
+@media (max-width: 767px){#box-card .no-padding-left {padding-left:0px !important;} }
 
 h5.card-title{ font-size: 1.1em}
 @media (min-width: 905px){ h5.card-title{ font-size: 1.4em} }

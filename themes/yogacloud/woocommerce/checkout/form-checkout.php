@@ -40,7 +40,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 				<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
 
-						<div class="[ col s12 m6 ] [ margin-bottom--large ]" id="customer_details">
+						<div class="[ col s12 l6 ] [ margin-bottom--large ]" id="customer_details">
 							<div class="col-1">
 								<?php do_action( 'woocommerce_checkout_billing' ); ?>
 								<?php do_action( 'woocommerce_checkout_shipping' ); ?>
@@ -52,7 +52,7 @@ if ( ! $checkout->enable_signup && ! $checkout->enable_guest_checkout && ! is_us
 
 			<?php endif; ?>
 
-			<div class="[ col s12 m6 ]">
+			<div class="[ col s12 l6 ]">
 
 				<div class="[ woocommerce-checkout-pedido ]">
 

@@ -19,10 +19,10 @@ html,
 body { height: 100%; }
 
 .main-body {
-  min-height: -moz-calc(100% - 64px);
-  min-height: -o-calc(100% - 64px);
-  min-height: -webkit-calc(100% - 64px);
-  min-height: calc(100% - 64px);
+  min-height: -moz-calc(100% - 55px);
+  min-height: -o-calc(100% - 55px);
+  min-height: -webkit-calc(100% - 55px);
+  min-height: calc(100% - 55px);
   position: relative;
 }
 
@@ -374,7 +374,8 @@ ul.staggered-list li {
 // Footer
 footer.page-footer {
 //  margin-top: 20px;
-  padding-top: $padding-size; padding-bottom: ($padding-size/4);
+   padding-top: $padding-size;
+  //padding-bottom: ($padding-size/4);
   background-color: $footer-bg-color;
 
   .footer-copyright {

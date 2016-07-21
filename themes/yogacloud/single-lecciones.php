@@ -26,7 +26,7 @@
 			<div class="video-container [ controls-show ]">
 				<?php echo $video_info['iframe']; ?>
 			</div>
-			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $video_info['thumbnail']; ?>)">
+			<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ][ background-image ]" style="background-image: url(<?php echo $video_info['thumbnail']; ?>)">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
 						<img class="[ center-full ]" src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
@@ -69,7 +69,7 @@
 </section>
 
 <div class="[ container ]">
-	<div class="[ row ]">
+	<div class="[ row ][ no-margin ]">
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $previous_post_link ) : ?>
 				<a href="<?php echo $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
