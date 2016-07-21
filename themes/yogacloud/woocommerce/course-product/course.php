@@ -12,7 +12,7 @@
 		<div class="video-container [ controls-show ]">
 			<?php echo $trailer_info['iframe']; ?>
 		</div>
-		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ]" style=" background-size: cover; background-position: center bottom; background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ][ background-image ]" style="background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
 			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">

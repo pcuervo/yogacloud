@@ -53,7 +53,7 @@
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
 								<div class="[ card-image ][ col s6 ]">
-									<div class="[ bg-image--rectangle ]" style="width: 100%; background-position: center; background-size: cover; background-position: center bottom; background-image: url(<?php echo $image_url; ?>)">
+									<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 										<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 											<div class="[ gradient-linear-opacity--gray ][ width---100 height---100 ][ relative ]">
 										<?php else : ?>
@@ -168,7 +168,7 @@
 
 	<?php if ( ! is_user_logged_in() ){ ?>
 
-		<section class="[ relative ][ no-margin-bottom ][ main-banner ]" style="background-position: center; background-size: cover; background-image: url(<?php echo THEMEPATH; ?>images/photo-1435459183098-d8ad15d23c54.jpg)">
+		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
 			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
 					<h5>Regístrate y obtén lecciones gratis.</h5>
