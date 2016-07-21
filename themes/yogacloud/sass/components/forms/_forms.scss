@@ -21,4 +21,10 @@ label {
 @import 'file-input';
 @import 'range';
 
-// .form-pago .blockUI.blockOverlay:before{ margin-top: 17em!important;}
+form.form-pago>div.blockUI.blockOverlay:before{
+	margin-top: 45em!important;
+	@media (max-width: 480px){ margin-top: 48em!important; }
+	@media (min-width: 993px){ margin-top: 20em!important; margin-left: 4em!important; }
+	@media (min-width: 1218px){ margin-top: 19em!important; margin-left: 5em!important; }
+	@media (min-width: 1490px){  margin-left: 7em!important; }
+}
