@@ -187,6 +187,8 @@
 									<h5 class="[ no-margin ]">
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
+									<div class="divider [ width--50 ][ margin-auto ]"></div>
+									<?php do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
@@ -234,7 +236,7 @@
 							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
 						<!-- language -->
-						<?php //do_action('wpml_add_language_selector'); ?>
+						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>

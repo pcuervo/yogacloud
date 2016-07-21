@@ -70,9 +70,35 @@ header{
 			}
 		}
 		& ul ul { top: 55px; }
-	}
 
+
+		@media(max-width:992px){
+			float: none!important;
+			width: 240px!important;
+			padding-top: 10px;
+			ul li a.lang_sel_sel {
+				background-color: $primary-color!important;
+				color: $light-color!important;
+				background: url(images/world-light.png) #fff 10px no-repeat;
+				font-weight: bold;
+			}
+			ul ul {
+				border: none!important;
+				visibility: visible!important;
+				top: 0px!important;
+				left: 122px;
+				li a {
+					padding-top: 0px; padding-bottom: 0px;
+					background-color: $primary-color!important;
+					color: $light-color!important;
+					background: url(images/world-light.png) #fff 10px no-repeat;
+				}
+			}
+
+		}
+	}
 } /*end header*/
+
 
 @media (orientation: portrait){
 	.footer-menu {
