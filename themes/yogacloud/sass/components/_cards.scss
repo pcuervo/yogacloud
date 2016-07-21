@@ -91,7 +91,7 @@
   @media (max-width: 767px){ .card-content { padding: 10px 10px 0px 0px !important;}}
 
   .card-content {
-    padding: $card-padding ($card-padding/2) 0px 0px ;
+    padding: $card-padding $card-padding 0px 0px ;
     border-radius: 0 0 2px 2px;
 
     p {

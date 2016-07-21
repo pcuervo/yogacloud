@@ -70,7 +70,7 @@
 											</div>
 									</div>
 								</div>
-								<div class="[ col s6 no-padding-left ]">
+								<div class="[ col s6 ]">
 									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
 										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
 										<?php echo $curso->subtitle; ?>
