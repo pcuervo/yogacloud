@@ -73,7 +73,6 @@
 			ga('send', 'pageview');
 		</script>
 	</head>
-
 	<body>
 		<header class="[ js-header ]">
 			<nav>
@@ -89,7 +88,6 @@
 								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--55 ]"></i>
 							</div>
 						</div>
-
 						<!-- User menu -->
 						<div class="[ js-hidden ][ user-mobile right-1000 ]">
 							<!-- header User -->
@@ -209,7 +207,7 @@
 						</div>
 
 					</div>
-				<!-- menu desktop -->
+					<!-- menu desktop -->
 					<div class="[ menu-desktop ][ hide-on-med-and-down ]">
 						<?php if(is_front_page() ) { ?>
 							<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Cursos</a>
