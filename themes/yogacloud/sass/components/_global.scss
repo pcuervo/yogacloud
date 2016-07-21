@@ -52,6 +52,7 @@ ul {
   list-style-type: none;
 }
 
+// Links
 a {
 	color: $link-color;
 	text-decoration: none;
@@ -60,6 +61,7 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
+.gradient-diagonal a { color: $light-color;}
 
 // Positioning
 .valign-wrapper {

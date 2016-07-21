@@ -107,7 +107,7 @@
 				<div class="[ container ]">
 					<div class="[ row ][ no-margin-bottom ]">
 						<div class="[ col s12 m10 offset-m1 l8 offset-l2 ][ white-text ]">
-							<h4 class="[ text-center ][ no-margin-top ]">The Yoga Project</h4>
+							<h4 class="[ text-center ][ margin-top ]">The Yoga Project</h4>
 							<div class="[ font-medium ]">
 								<?php the_content( ); ?>
 							</div>
