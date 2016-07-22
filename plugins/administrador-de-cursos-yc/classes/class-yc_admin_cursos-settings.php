@@ -73,16 +73,16 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_nopriv_is_course_completed', array( $this, 'is_course_completed' ) );
 		add_action( 'wp_ajax_is_course_completed', array( $this, 'is_course_completed' ) );
+		add_action( 'wp_ajax_nopriv_save_user_autoplay_setting', array( $this, 'save_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_save_user_autoplay_setting', array( $this, 'save_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_nopriv_get_user_autoplay_setting', array( $this, 'get_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_get_user_autoplay_setting', array( $this, 'get_user_autoplay_setting' ) );
 
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
-		//add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
-		//add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
-		//add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
-
 	}
 
 	public function add_simple_course_product( $types ){
@@ -275,7 +275,7 @@ class YC_Admin_Cursos_Settings {
 	 * Add menu pages
 	 */
 	public function add_menu_pages() {
-		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
+		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_woocommerce', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
 		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
 		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
 		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
@@ -293,6 +293,7 @@ class YC_Admin_Cursos_Settings {
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
 		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
 		if ( 'lecciones' == get_post_type() ) {
+			wp_enqueue_script( 'lesson_autoplay', YC_CURSOS_PLUGIN_URL . 'inc/js/lesson-autoplay.js', array(), false, false );
 			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
 			wp_localize_script( 'course_rating', 'ajax_url', admin_url('admin-ajax.php') );
 		}
@@ -824,6 +825,29 @@ class YC_Admin_Cursos_Settings {
 			array( '%d', '%d', '%d' )
 		);
 		echo 'Rating guardado...';
+		wp_die();
+	}
+
+	/**
+	* Save autoplay setting for user
+	*/
+	public function save_user_autoplay_setting(){
+		$user_id 	= get_current_user_id();
+		if( ! $user_id ) return;
+
+		$has_autoplay = 'true' == $_POST['has_autoplay'] ? 1 : 0;
+		update_user_meta( $user_id, 'autoplay_lessons', $has_autoplay );
+		wp_die();
+	}
+
+	/**
+	* Get autoplay setting for user
+	*/
+	public function get_user_autoplay_setting(){
+		$user_id 	= get_current_user_id();
+		if( ! $user_id ) return;
+
+		echo get_user_meta( $user_id, 'autoplay_lessons', true );
 		wp_die();
 	}
 

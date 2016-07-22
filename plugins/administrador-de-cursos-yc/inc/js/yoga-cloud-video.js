@@ -32,11 +32,18 @@ YogaCloudVideo.prototype = {
         this._player.on('ended', function(){
             clearInterval( self._elapsedTimeInterval );
             self.isCourseCompleted();
+            if( $('#autoplay').is(':checked') ){
+                console.log('next');
+                $('.js-siguiente')[0].click();
+            }
         });
         $('#play-button').on('click', function(e){
             e.preventDefault();
             self._player.play();
         });
+    },
+    play: function(){
+        this._player.play();
     },
     countElapsedTime: function(){
         var self = this;
@@ -75,6 +82,7 @@ YogaCloudVideo.prototype = {
     },
     isCourseCompleted: function(){
         console.log('checking if completed...');
+        if( this._isMarkedAsWatched ) return;
         $.post(
             ajax_url,
             {
