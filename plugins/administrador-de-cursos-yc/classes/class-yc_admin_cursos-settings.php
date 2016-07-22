@@ -772,7 +772,6 @@ class YC_Admin_Cursos_Settings {
 	* Mark a lesson as watched
 	*/
 	public function mark_lesson_as_watched(){
-		error_log('mark_lesson_as_watched');
 		$user_id = get_current_user_id();
 		$lesson_id = $_POST['lesson_id'];
 
@@ -789,6 +788,15 @@ class YC_Admin_Cursos_Settings {
 			$user_lesson_data,
 			array( '%d', '%d', '%d' )
 		);
+
+		$lesson = new YC_Leccion( array( 'id' => $lesson_id ) );
+		if( $lesson->is_full_module ) {
+			$module = new YC_Modulo( array( 'id' => $_POST['module_id'] ) );
+			foreach ( $module->get_lecciones() as $lesson ) {
+				if( $lesson->has_been_watched_by_user( $user_id ) ) continue;
+				$lesson->mark_as_watched_by_user( $user_id );
+			}
+		}
 
 		echo $lesson_id;
 		wp_die();
@@ -831,6 +839,7 @@ class YC_Admin_Cursos_Settings {
 			$msg['is_completed'] = 1;
 			$msg['message'] = 'Curso completado.';
 			echo json_encode( $msg );
+			$curso->give_badge_to_user( get_current_user_id() );
 			wp_die();
 		}
 		$msg['is_completed'] = 0;
