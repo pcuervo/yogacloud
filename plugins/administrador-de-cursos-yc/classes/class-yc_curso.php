@@ -37,7 +37,6 @@ class YC_Curso {
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
-		$this->name 			= $course_id->post_title;
 		$this->permalink 		= get_permalink( $course_id );
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );

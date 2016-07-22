@@ -175,7 +175,11 @@
 										<div class="[ course--module--lesson ][ color-dark ]">
 											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
 												<h6 class="[ no-margin ][ relative ]">
-													<?php echo $key+1 . '. ' . $lesson->name ?>
+													<?php if( $lesson->is_full_module ) : ?>
+														Ver módulo completo
+													<?php else : ?>
+														<?php echo $key+1 . '. ' . $lesson->name ?>
+													<?php endif; ?>
 												</h6>
 												<p class="[ no-margin-bottom ]"><?php echo $lesson->short_description ?></p>
 											</div>
