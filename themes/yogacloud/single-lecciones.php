@@ -50,6 +50,19 @@
 		</div>
 	<?php endif; ?>
 
+	<section class="[ container ]">
+		<p>Reproducción automática </p>
+		<!-- Switch -->
+		<div class="switch">
+			<label>
+				Off
+				<input type="checkbox">
+				<span class="lever"></span>
+				On
+			</label>
+		</div>
+	</section>
+
 	<div class="[ text-center ][ hide-on-large-only ]">
 		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
 			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>

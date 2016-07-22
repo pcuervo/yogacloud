@@ -37,6 +37,7 @@ $primary-color: color("primary", "lighten-1") !default;
 $primary-color-base: color("primary", "base") !default;
 $primary-color-blue: color("primary", "blue") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
+$primary-color-xlight: lighten($primary-color, 30%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 $primary-color-gray: color("primary", "gray") !default;
 $primary-transparent: color("primary","transparent")!default;

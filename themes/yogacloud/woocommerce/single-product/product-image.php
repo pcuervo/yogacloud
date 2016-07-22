@@ -13,11 +13,11 @@
  * @see 	    https://docs.woothemes.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.0.14
+ * @version     2.6.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 global $post, $product;
@@ -33,7 +33,15 @@ global $post, $product;
 						'title'	 => $props['title'],
 						'alt'    => $props['alt'],
 					) );
-					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '"><div class="[ width---100-all height-auto-all ]">%s</div></a>', $props['url'], $props['caption'], $image ), $post->ID );
+					echo apply_filters( 'woocommerce_single_product_image_html',
+						sprintf(
+							'<a href="%s" itemprop="image" class="woocommerce-main-image zoom" title="%s" data-rel="prettyPhoto' . $gallery . '"><div class="[ width---100-all height-auto-all ]">%s</div></a>',
+							esc_url( $props['url'] ),
+							esc_attr( $props['caption'] ),
+							$image
+						),
+						$post->ID
+					);
 				} else {
 					echo apply_filters( 'woocommerce_single_product_image_html', sprintf( '<img src="%s" alt="%s" />', wc_placeholder_img_src(), __( 'Placeholder', 'woocommerce' ) ), $post->ID );
 				}
