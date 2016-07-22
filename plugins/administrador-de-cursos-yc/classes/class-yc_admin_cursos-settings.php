@@ -1107,10 +1107,6 @@ class YC_Admin_Cursos_Settings {
 	* Save the metaboxes for post type "lecciones"
 	**/
 	private function save_meta_boxes_lecciones( $post_id ){
-		// Duración
-		if ( isset($_POST['_lesson_duration_meta']) and check_admin_referer( __FILE__, '_lesson_duration_meta_nonce') ){
-			update_post_meta($post_id, '_lesson_duration_meta', $_POST['_lesson_duration_meta']);
-		}
 		// Vimeo
 		if ( isset($_POST['_vimeo_url_meta']) and check_admin_referer( __FILE__, '_vimeo_url_meta_nonce') ){
 			update_post_meta($post_id, '_vimeo_url_meta', $_POST['_vimeo_url_meta']);
@@ -1119,7 +1115,7 @@ class YC_Admin_Cursos_Settings {
 		if ( isset($_POST['_soundcloud_url_meta']) and check_admin_referer( __FILE__, '_soundcloud_url_meta_nonce') ){
 			update_post_meta($post_id, '_soundcloud_url_meta', $_POST['_soundcloud_url_meta']);
 		}
-		// SoundCloud
+		// Lenght
 		if ( isset($_POST['_length_meta']) and check_admin_referer( __FILE__, '_length_meta_nonce') ){
 			update_post_meta($post_id, '_length_meta', $_POST['_length_meta']);
 		}

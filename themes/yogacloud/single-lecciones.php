@@ -13,6 +13,8 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
+	echo $leccion->length();
+
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
@@ -87,7 +89,7 @@
 						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
 					</a>
 				</div>
-				<h1 class="[ h5 ]"><?php the_title(); ?><small><?php echo $leccion->is_free(); ?> mins</small></h1>
+				<h1 class="[ h5 ]"><?php the_title(); ?><small><?php echo $leccion->length(); ?></small></h1>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
 				<?php endif; ?>
