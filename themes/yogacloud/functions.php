@@ -148,6 +148,10 @@ function get_user_cursos( $user_id ) {
 	#AJAX FUNCTIONS
 \*------------------------------------*/
 
+
+
+
+
 /*------------------------------------*\
 	#WOOCOMMERCE RELATED FUNCTIONS
 \*------------------------------------*/
@@ -213,3 +217,20 @@ function save_customer_register( $user_id ) {
         update_user_meta( $user_id, 'last_name', sanitize_text_field( $_POST['last_name'] ) );
     }
 }
+
+
+/*------------------------------------*\
+	#ADMIN
+\*------------------------------------*/
+
+// function additional_admin_color_schemes() {
+//   //Get the theme directory
+//   $theme_dir = get_template_directory_uri();
+
+//   //Ocean
+//   wp_admin_css_color( 'ocean', __( 'Ocean' ),
+//     $theme_dir . '/admin-colors/ocean/colors.min.css',
+//     array( '#aa9d88', '#9ebaa0', '#738e96', '#f2fcff' )
+//   );
+// }
+// add_action('admin_init', 'additional_admin_color_schemes');
