@@ -22,9 +22,15 @@ label {
 @import 'range';
 
 form.form-pago>div.blockUI.blockOverlay:before{
-	margin-top: 45em!important;
+	// margin-top: 47em!important;
+	@media (max-width: 320px){ margin-top: 51em!important; }
+	@media (max-width: 360px){ margin-top: 56em!important; }
 	@media (max-width: 480px){ margin-top: 48em!important; }
+	@media (max-width: 767px){ margin-top: 40em!important; }
+	@media (max-width: 840px){ margin-top: 30em!important; }
+	@media (max-width: 992px){ margin-top: 45.5em!important; }
+	@media (min-width: 992px){ margin-left: 2em!important; }
 	@media (min-width: 993px){ margin-top: 20em!important; margin-left: 4em!important; }
-	@media (min-width: 1218px){ margin-top: 19em!important; margin-left: 5em!important; }
+	@media (min-width: 1218px){ margin-top: 18.5em!important; margin-left: 5em!important; }
 	@media (min-width: 1490px){  margin-left: 7em!important; }
 }
