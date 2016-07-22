@@ -56,7 +56,7 @@
 		<div class="[ switch ][ margin-bottom--small ]">
 			<label>
 				<small>Reproducción automática</small>
-				<input type="checkbox">
+				<input id="autoplay" type="checkbox">
 				<span class="lever"></span>
 			</label>
 		</div>
@@ -74,7 +74,7 @@
 			</a>
 		<?php endif; ?>
 		<?php if( $next_post_link ) : ?>
-			<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+			<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ][ js-siguiente ]">
 				<span class="[ middle inline-block ]">siguiente</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
@@ -119,7 +119,7 @@
 		</section>
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $next_post_link ) : ?>
-				<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ]">
+				<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ][ js-siguiente ]">
 					<span class="[ middle inline-block ]">siguiente</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</a>

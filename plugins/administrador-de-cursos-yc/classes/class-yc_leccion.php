@@ -72,7 +72,9 @@ class YC_Leccion {
 	public function init_lesson_video_js() {
 		if ( 'lecciones' != get_post_type() ) return;
 
-		$has_been_watched = $this->has_been_watched_by_user( get_current_user_id() );
+		$user_id = get_current_user_id();
+		$has_been_watched = $this->has_been_watched_by_user( $user_id );
+		$has_autoplay = get_user_meta( $user_id, 'autoplay_lessons', true );
 		?>
 		<script type='text/javascript'>
 			jQuery( document ).ready( function() {
@@ -81,6 +83,10 @@ class YC_Leccion {
 					var player = new Vimeo.Player(iframe);
 					var yc_lesson = new YogaCloudVideo( <?php echo $this->curso_id ?>, <?php echo $this->module_id ?>, <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
 					yc_lesson._init();
+					<?php if( $has_autoplay ) : ?>
+						$('#background-video').hide();
+						player.play();
+					<?php endif; ?>
 				}
 			});
 		</script><?php
