@@ -14,8 +14,6 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
-
-
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
@@ -51,9 +49,9 @@
 		</article>
 	<?php endif; ?>
 
-	<article class="[ container ]">
+	<article class="">
 		<!-- Switch -->
-		<div class="[ switch ][ margin-bottom--small ]">
+		<div class="[ switch ]">
 			<label>
 				<small>Reproducción automática</small>
 				<input id="autoplay" type="checkbox">
@@ -63,10 +61,6 @@
 	</article>
 
 	<article class="[ text-center ][ hide-on-large-only ]">
-		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
-			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
-		</a>
-		<br />
 		<?php if( $previous_post_link ) : ?>
 			<a href="<?php $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
@@ -95,13 +89,10 @@
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
-			<article class="[ text-center ][ margin-bottom--large ]">
-				<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
-					<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
-				</a>
-			</article>
  			<article class="[ content-user ]">
-				<h1 class="[ h5 ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <small>'.$leccion->length().'</small>' : ''); ?></h1>
+				<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
+				<h2 class="[ h6 ]">Curso - <?php echo $curso->get_name(); ?></h2>
+				<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">ver curso</a>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
 				<?php endif; ?>

@@ -261,6 +261,7 @@ button.btn-floating {
   height: ($button-height - 10);
   line-height: ($button-height - 10);
   padding: 0 1rem;
+   font-size: ($button-font-size/1.5);
 }
 
 @media (min-width: 993px ){

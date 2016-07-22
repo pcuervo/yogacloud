@@ -27,7 +27,9 @@ class YC_Curso {
 	public $hours;
 	public $is_coming_soon;
 	public $is_new;
+	public $name;
 	public $subtitle;
+	public $permalink;
 	private $trailer_info = array();
 
 	/**
@@ -35,6 +37,8 @@ class YC_Curso {
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
+		$this->name 			= $course_id->post_title;
+		$this->permalink 		= get_permalink( $course_id );
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
@@ -309,8 +313,8 @@ class YC_Curso {
 		$time_now = date("Y-m-d");
 		$time_difference = round( ( strtotime( $time_now ) - strtotime( $curso_query->post_date ) )  / ( 60 * 60 * 24 ), 2 );
 		if( 30 > $time_difference ) return 1;
-		
-		return 0;	
+
+		return 0;
 	}
 
 	/**
