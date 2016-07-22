@@ -11,6 +11,8 @@
 
 .switch label {
   cursor: pointer;
+  color:rgba(0,0,0,0.87);
+  font-size: 16px;
 }
 
 .switch label input[type=checkbox] {
@@ -19,10 +21,10 @@
   height: 0;
 
   &:checked + .lever {
-    background-color: $switch-checked-lever-bg;
+    background-color: $primary-transparent;
 
     &:after {
-      background-color: $switch-bg-color;
+      background-color: $primary-color;
       left: 24px;
     }
   }

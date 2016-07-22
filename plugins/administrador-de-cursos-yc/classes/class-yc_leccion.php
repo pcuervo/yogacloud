@@ -14,6 +14,7 @@ class YC_Leccion {
 	public $description;
 	public $short_description;
 	public $permalink;
+	public $length;
 	private $video_info = array();
 	private $soundcloud_url;
 	private $is_free;
@@ -52,10 +53,17 @@ class YC_Leccion {
 	}
 
 	/**
-	* Get $soundcloud_url
+	* Get $is_free
 	*/
 	public function is_free(){
 		return $this->is_free;
+	}
+
+	/**
+	* Get $length
+	*/
+	public function length(){
+		return $this->length;
 	}
 
 	/**
@@ -117,8 +125,8 @@ class YC_Leccion {
 
 		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
 
-		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1]; 
-		$lib = $this->get_vimeo_lib();  
+		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1];
+		$lib = $this->get_vimeo_lib();
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
@@ -185,8 +193,8 @@ class YC_Leccion {
 	   	);
 		$lessons_query = new WP_Query( $args );
 	    if ( ! $lessons_query->have_posts() ) return $lessons;
-	    
-	    while ( $lessons_query->have_posts() ) : $lessons_query->the_post(); 
+
+	    while ( $lessons_query->have_posts() ) : $lessons_query->the_post();
 	    	$curso = new YC_Leccion( array( 'id' => $lessons_query->post->ID ) );
 			array_push( $lessons, $curso );
 		endwhile; wp_reset_postdata();

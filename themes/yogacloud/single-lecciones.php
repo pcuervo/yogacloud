@@ -14,6 +14,8 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
+
+
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
@@ -40,16 +42,27 @@
 	<?php endif; ?>
 
 	<?php if ( $leccion->has_been_watched_by_user( get_current_user_id() ) ) : ?>
-		<div class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ lesson-completed ]">
+		<article class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ lesson-completed ]">
 			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon-xsmall ][ color-light ]"></i></h6>
-		</div>
+		</article>
 	<?php else : ?>
-		<div class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
+		<article class="[ bg-secondary ][ padding-vertical--xsmall margin-bottom--small ][ transition not-visible ][ lesson-completed js-lesson-completed ]">
 			<h6 class="[ white-text ][ no-margin ]"><small>Lección completada</small><i class="[ icon icon-badge-star-1 icon--small ][ color-light ]"></i></h6>
-		</div>
+		</article>
 	<?php endif; ?>
 
-	<div class="[ text-center ][ hide-on-large-only ]">
+	<article class="[ container ]">
+		<!-- Switch -->
+		<div class="[ switch ][ margin-bottom--small ]">
+			<label>
+				<small>Reproducción automática</small>
+				<input type="checkbox">
+				<span class="lever"></span>
+			</label>
+		</div>
+	</article>
+
+	<article class="[ text-center ][ hide-on-large-only ]">
 		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
 			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
 		</a>
@@ -66,7 +79,7 @@
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
 		<?php endif; ?>
-	</div>
+	</article>
 </section>
 
 <div class="[ container ]">
@@ -82,13 +95,13 @@
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
+			<article class="[ text-center ][ margin-bottom--large ]">
+				<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
+					<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
+				</a>
+			</article>
  			<article class="[ content-user ]">
-				<div class="[ text-center ]">
-					<a href="<?php echo $modulo->permalink . '?cid=' . $curso->id ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ][ hide-on-med-and-down ]">
-						<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
-					</a>
-				</div>
-				<h1 class="[ h5 ]"><?php the_title(); ?></h1>
+				<h1 class="[ h5 ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <small>'.$leccion->length().'</small>' : ''); ?></h1>
 				<p><?php echo get_the_content(); ?></p>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
 				<?php endif; ?>

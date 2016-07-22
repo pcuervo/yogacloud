@@ -20,14 +20,14 @@
 		<?php endif; ?>
 		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
 		<meta name="og:url" content="<?php echo site_url(); ?>" />
-		<meta property="og:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/fb-share.jpg">
+		<meta property="og:image" content="<?php echo THEMEPATH; ?>images/fb-share.jpg">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
 		<meta property="fb:app_id" content="1750075545245803" />
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:site" content="@TheYogaCloud" />
 		<meta name="twitter:description" content="<?php bloginfo('description'); ?>" />
-		<meta name="twitter:image" content="https://cursos.yogacloud.tv/wp-content/themes/yogacloud/images/fb-share.jpg" />
+		<meta name="twitter:image" content="<?php echo THEMEPATH; ?>images/fb-share.jpg" />
 		<!-- Canonical URL -->
 		<link rel="canonical" href="https://cursos.yogacloud.tv/" />
 		<!-- Compatibility -->
@@ -73,6 +73,7 @@
 			ga('send', 'pageview');
 		</script>
 	</head>
+
 	<body>
 		<header class="[ js-header ]">
 			<nav>
@@ -88,6 +89,7 @@
 								<i class="[ icon icon-user icon-iconed ][ color-primary ][ line-height--55 ]"></i>
 							</div>
 						</div>
+
 						<!-- User menu -->
 						<div class="[ js-hidden ][ user-mobile right-1000 ]">
 							<!-- header User -->
@@ -207,7 +209,7 @@
 						</div>
 
 					</div>
-					<!-- menu desktop -->
+				<!-- menu desktop -->
 					<div class="[ menu-desktop ][ hide-on-med-and-down ]">
 						<?php if(is_front_page() ) { ?>
 							<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Cursos</a>
