@@ -14,10 +14,10 @@ class YC_Leccion {
 	public $description;
 	public $short_description;
 	public $permalink;
+	public $length;
 	private $video_info = array();
 	private $soundcloud_url;
 	private $is_free;
-	private $lesson_duration;
 	private $curso_id;
 
 	/*****************
@@ -39,8 +39,8 @@ class YC_Leccion {
 		$this->short_description 	= $lecciones_query->post_excerpt;
 		$this->permalink 			= get_permalink( $lecciones_query->ID );
 		$this->soundcloud_url 		= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
-		$this->is_free 				= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
-		$this->length 				= get_post_meta( $lecciones_query->ID, '_length_meta', true) ;
+		$this->is_free 				= get_post_meta( $lecciones_query->ID, '_is_free_meta', true);
+		$this->length 				= get_post_meta( $lecciones_query->ID, '_length_meta', true);
 
 		$this->hooks();
 	}
@@ -53,10 +53,17 @@ class YC_Leccion {
 	}
 
 	/**
-	* Get $soundcloud_url
+	* Get $is_free
 	*/
 	public function is_free(){
 		return $this->is_free;
+	}
+
+	/**
+	* Get $length
+	*/
+	public function length(){
+		return $this->length;
 	}
 
 	/**
