@@ -14,6 +14,8 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
+	$badges = $curso->get_badges();
+
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
@@ -128,7 +130,7 @@
 			<div class="[ col s12 m8 offset-m2 l6 offset-l3 ][ text-center ]">
 				<a href="#!" class="[ block ][ no-padding ] modal-action modal-close waves-effect waves-green btn-flat"><img class="[ float-right ]" src="<?php echo THEMEPATH; ?>icons/Close.png" alt="menu"></a>
 				<h3 class="[ white-text ][ ]"><strong>¡Haz completado el curso!</strong></h3>
-				<i class="[ icon icon-badge-star-1 icon-xlarge ][ color-light ][ margin-bottom--large ]"></i>
+				<img src="<?php echo $badges[0]->thumb_url; ?>" alt="Badge curso">
 				<?php  echo do_shortcode('[show_rating]');  ?>
 			</div>
 		</div>
