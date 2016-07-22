@@ -13,8 +13,6 @@
 	$previous_post_link = $modulo->get_previous_lesson_link( $leccion->get_position( $modulo->id ) );
 	$next_post_link = $modulo->get_next_lesson_link( $leccion->get_position( $modulo->id ) );
 
-
-
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
 		wp_redirect( $curso->get_permalink() );
 	}
@@ -62,8 +60,8 @@
 	</article>
 
 	<article class="[ text-center ][ hide-on-large-only ]">
-		<a href="<?php echo $modulo->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
-			<span class="[ middle inline-block ]"><?php echo $modulo->name; ?></span>
+		<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
+			<span class="[ middle inline-block ]"><?php echo $curso->get_name(); ?></span>
 		</a>
 		<br />
 		<?php if( $previous_post_link ) : ?>
