@@ -168,6 +168,7 @@
 								</div>
 							</div>
 							<div class="[ collapsible-body ]">
+								<?php $lesson_number = 1; ?>
 								<?php foreach ( $lecciones as $key => $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
@@ -176,9 +177,10 @@
 											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
 												<h6 class="[ no-margin ][ relative ]">
 													<?php if( $lesson->is_full_module ) : ?>
+														<?php $lesson_number = $lesson_number-1; ?>
 														Ver módulo completo
 													<?php else : ?>
-														<?php echo $key+1 . '. ' . $lesson->name ?>
+														<?php echo $lesson_number . '. ' . $lesson->name ?>
 													<?php endif; ?>
 												</h6>
 												<p class="[ no-margin-bottom ]"><?php echo $lesson->short_description ?></p>
@@ -196,6 +198,7 @@
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										</a>
 									<?php endif; ?>
+									<?php $lesson_number += 1; ?>
 								<?php endforeach; ?>
 							</div>
 						</li>

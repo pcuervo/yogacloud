@@ -14,6 +14,7 @@ class YC_Modulo {
 	public $id;
 	public $name;
 	public $description;
+	public $short_description;
 	public $permalink;
 	public $course_name;
 
@@ -27,10 +28,11 @@ class YC_Modulo {
 			$modulo_query = get_post( $args['id'], OBJECT, 'modulos' );
 		}
 
-		$this->id = $modulo_query->ID;
-		$this->name = $modulo_query->post_title;
-		$this->description = $modulo_query->post_content;
-		$this->permalink = get_permalink( $modulo_query->ID );
+		$this->id 					= $modulo_query->ID;
+		$this->name 				= $modulo_query->post_title;
+		$this->description 			= $modulo_query->post_content;
+		$this->short_description 	= $modulo_query->post_excerpt;
+		$this->permalink 			= get_permalink( $modulo_query->ID );
 	}
 
 	/**
