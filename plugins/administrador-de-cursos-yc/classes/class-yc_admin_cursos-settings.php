@@ -907,7 +907,7 @@ class YC_Admin_Cursos_Settings {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => 6,
-			'supports'           => array( 'title', 'editor', 'thumbnail' )
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
 		);
 		register_post_type( 'modulos', $args );
 	}// register_post_type_modulos
