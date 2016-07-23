@@ -91,11 +91,15 @@
 			<?php endif; ?>
 		</div>
 		<section class="[ col s12 l8 ]">
- 			<article class="[ content-user ]">
-				<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
-				<h2 class="[ h6 ]">Curso - <?php echo $curso->get_name(); ?></h2>
-				<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">ver curso</a>
-				<p><?php echo get_the_content(); ?></p>
+ 			<article class="">
+ 				<div class="[ text-center ]">
+					<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
+					<h2 class="[ h6 ]">Curso - <?php echo $curso->get_name(); ?></h2>
+					<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">ver curso</a>
+				</div>
+				<div class="[ content-user ]">
+					<?php the_content(); ?>
+				</div>
 				<?php if( '' != $leccion->get_soundcloud_url() ) : ?>
 				<?php endif; ?>
 			</article>

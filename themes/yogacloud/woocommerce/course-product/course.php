@@ -5,6 +5,7 @@
 	$modulos 		= $curso->get_modulos();
 	$maestros 		= $curso->get_maestros();
 	$trailer_info 	= $curso->get_trailer_info();
+	$url = wp_get_attachment_url( get_post_thumbnail_id($product->id) );
 ?>
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
@@ -20,6 +21,12 @@
 					</a>
 				</div>
 			</div>
+		</div>
+	</section>
+<?php else: ?>
+	<section id="video-whit-button" class="[ min-height--350 min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ background-image ]" style="background-image: url(<?php echo $url; ?>">
+			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]"></div>
 		</div>
 	</section>
 <?php endif; ?>
