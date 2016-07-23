@@ -164,7 +164,7 @@
 									<div class="[ row ][ no-margin ]">
 										<div class="[ col s12 m9 ]">
 											<h5 class="[ no-margin ]"><?php echo $modulo->name ?></h5>
-											<p class="[ no-margin-bottom ]"><?php echo $modulo->description ?></p>
+											<p class="[ no-margin-bottom ]"><?php echo $modulo->short_description ?></p>
 										</div>
 										<div class="[ col s12 m3 ][ width---19-m padding-left-m ][ text-center ]">
 											<?php if ( $modulo->get_progress_by_user( get_current_user_id() ) === 100 ) : ?>
