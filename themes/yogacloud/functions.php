@@ -99,7 +99,7 @@ function print_title(){
  * Redirect after password reset.
  * @return string
  */
-add_action( 'woocommerce_customer_reset_password', 'woocommerce_new_pass_redirect' );
+//add_action( 'woocommerce_customer_reset_password', 'woocommerce_new_pass_redirect' );
 function woocommerce_new_pass_redirect( $user ) {
   	wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ) );
   	exit;
