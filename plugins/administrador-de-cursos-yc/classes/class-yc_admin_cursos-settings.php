@@ -276,14 +276,14 @@ class YC_Admin_Cursos_Settings {
 	 */
 	public function add_menu_pages() {
 		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_woocommerce', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
-		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
-		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
-		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
-		add_submenu_page( 'gestionar_curso', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
-		add_submenu_page( NULL, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_options', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar maestros a curso', 'Agregar maestros a curso', 'manage_options', 'agregar_maestros_curso', array( $this, 'add_agregar_maestros_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar badges a curso', 'Agregar badges a curso', 'manage_options', 'agregar_badges_curso', array( $this, 'add_agregar_badges_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_options', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
+		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_woocommerce', 'edit.php?post_type=modulos', NULL );
+		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_woocommerce', 'edit.php?post_type=lecciones', NULL );
+		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_woocommerce', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'gestionar_curso', 'Badges', 'Badges', 'manage_woocommerce', 'edit.php?post_type=badges', NULL );
+		add_submenu_page( NULL, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_woocommerce', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar maestros a curso', 'Agregar maestros a curso', 'manage_woocommerce', 'agregar_maestros_curso', array( $this, 'add_agregar_maestros_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar badges a curso', 'Agregar badges a curso', 'manage_woocommerce', 'agregar_badges_curso', array( $this, 'add_agregar_badges_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_woocommerce', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
 	}
 
 	/**

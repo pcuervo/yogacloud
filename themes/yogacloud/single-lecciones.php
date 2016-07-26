@@ -93,7 +93,7 @@
 		<section class="[ col s12 l8 ]">
  			<article class="">
  				<div class="[ text-center ]">
-					<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( !empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
+					<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( ! empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
 					<h2 class="[ h6 ]">Curso - <?php echo $curso->get_name(); ?></h2>
 					<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">ver curso</a>
 				</div>
