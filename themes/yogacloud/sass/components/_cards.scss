@@ -164,6 +164,7 @@
         content: 'nuevo';
         left: -8px; bottom: 4px;
       }
+      &.promo-traduction::after { content: 'new'; }
     }
 
     &.destacado{
@@ -209,6 +210,7 @@
 h5.card-title{ font-size: 1.1em}
 @media (min-width: 905px){ h5.card-title{ font-size: 1.4em} }
 
+//curso impar y último centrado
 #cursos article.last-odd {
   margin: 0 auto;
   float: none;
