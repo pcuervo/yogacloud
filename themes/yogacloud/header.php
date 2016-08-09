@@ -21,7 +21,7 @@
 			<meta name="og:url" content="<?php echo site_url(); ?>" />
 		<?php endif; ?>
 		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
-		
+
 		<meta property="og:image" content="<?php echo THEMEPATH; ?>images/fb-share.jpg">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
@@ -202,7 +202,7 @@
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
-									<?php // do_action('wpml_add_language_selector'); ?>
+									<?php do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
@@ -250,7 +250,7 @@
 							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
 						<!-- language -->
-						<?php // do_action('wpml_add_language_selector'); ?>
+						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>
