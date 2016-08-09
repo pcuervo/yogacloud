@@ -6,6 +6,8 @@
 	$maestros 		= $curso->get_maestros();
 	$trailer_info 	= $curso->get_trailer_info();
 	$url = wp_get_attachment_url( get_post_thumbnail_id($product->id) );
+
+	$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
@@ -45,17 +47,29 @@
 			<div class="[ row ][ text-center ][ margin-top ]">
 				<div class="[ col s4 ][ border-right--dark ][ <?php echo empty( $curso->lessons_per_week ) ? 'offset-s2' : ''  ?> ]">
 					<h5 class="[ no-margin-bottom ]"><?php echo $curso->num_lessons ?></h5>
-					<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
+					<?php if( 'es' == $lang ) : ?>
+						<p class="[ margin-bottom--xsmall no-margin-top ]">lecciones</p>
+					<?php else : ?>
+						<p class="[ margin-bottom--xsmall no-margin-top ]">lessons</p>
+					<?php endif; ?>
 				</div>
 				<?php if ( ! empty( $curso->lessons_per_week ) ) : ?>
 					<div class="[ col s4 ][ border-right--dark ]">
 						<h5 class="[ no-margin-bottom ]">1</h5>
-						<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
+						<?php if( 'es' == $lang ) : ?>
+							<p class="[ margin-bottom--xsmall no-margin-top ]">por semana</p>
+						<?php else : ?>
+							<p class="[ margin-bottom--xsmall no-margin-top ]">for week</p>
+						<?php endif; ?>
 					</div>
 				<?php endif; ?>
 				<div class="[ col s4 ]">
 					<h5 class="[ no-margin-bottom ]"><?php echo $curso->hours?></h5>
-					<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
+					<?php if( 'es' == $lang ) : ?>
+						<p class="[ margin-bottom--xsmall no-margin-top ]">horas</p>
+					<?php else : ?>
+						<p class="[ margin-bottom--xsmall no-margin-top ]">hours</p>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
@@ -74,7 +88,11 @@
 		<div class="[ col s12 m4 l2 ][ float-right--on-med-and-up ]">
 			<?php if( $curso->was_bought_by_user( get_current_user_id() ) && ! empty( $badge ) ) : ?>
 				<section class="[ text-center ]">
-					<h5 class="[ margin-bottom ]">Progreso</h5>
+					<?php if( 'es' == $lang ) : ?>
+						<h5 class="[ margin-bottom ]">Progreso</h5>
+					<?php else : ?>
+						<h5 class="[ margin-bottom ]">Progress</h5>
+					<?php endif; ?>
 					<div class="[ row ]">
 						<div class="[ progress progress--large ]">
 							<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo $badge[0]->thumb_url ?>" alt="icon badge">
@@ -100,12 +118,22 @@
 			<?php if ( ! empty($maestros) ): ?>
 
 				<section class="[ text-center ]">
-					<h5 class="[ margin-bottom ]">Impartido por</h5>
+					<?php if( 'es' == $lang ) : ?>
+						<h5 class="[ margin-bottom ]">Impartido por</h5>
+					<?php else : ?>
+						<h5 class="[ margin-bottom ]">Meet the author</h5>
+					<?php endif; ?>
 					<?php foreach ( $maestros as $maestro ) : ?>
 						<article>
 							<?php echo $maestro->thumbnail; ?>
 							<div class="[ clearfix ]"></div>
-							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">ver más</a>
+							<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ] waves-effect waves-light modal-trigger" href="#maestro-modal-<?php echo $maestro->id ?>">
+								<?php if( 'es' == $lang ) : ?>
+									ver más
+								<?php else : ?>
+									see more
+								<?php endif; ?>
+							</a>
 						</article>
 
 						<!-- Modal Structure -->
@@ -146,7 +174,11 @@
 			<?php endif; ?>
 
 			<section class="[ text-center ]">
-				<h5 class="[ margin-bottom ]">Comparte este curso</h5>
+				<?php if( 'es' == $lang ) : ?>
+					<h5 class="[ margin-bottom ]">Comparte este curso</h5>
+				<?php else : ?>
+					<h5 class="[ margin-bottom ]">Share this course</h5>
+				<?php endif; ?>
 				<?php echo do_shortcode("[apss_share networks='facebook, twitter' share_text='']"); ?>
 			</section>
 
@@ -185,7 +217,11 @@
 												<h6 class="[ no-margin ][ relative ]">
 													<?php if( $lesson->is_full_module ) : ?>
 														<?php $lesson_number = $lesson_number-1; ?>
-														Ver módulo completo
+														<?php if( 'es' == $lang ) : ?>
+															Ver módulo completo
+														<?php else : ?>
+															See full module
+														<?php endif; ?>
 													<?php else : ?>
 														<?php echo $lesson_number . '. ' . $lesson->name ?>
 													<?php endif; ?>

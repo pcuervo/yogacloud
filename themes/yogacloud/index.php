@@ -82,7 +82,11 @@
 										<?php endif; ?>
 												<!-- new -->
 												<?php if( $curso->is_new ) : ?>
-													<div id="promo" class="[ nuevo ]"></div>
+													<?php if( 'es' == $lang ) : ?>
+														<div id="promo" class="[ nuevo ]"></div>
+													<?php else : ?>
+														<div id="promo" class="[ nuevo promo-traduction ]"></div>
+													<?php endif; ?>
 												<?php endif; ?>
 
 												<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
@@ -99,11 +103,23 @@
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+											<?php if( 'es' == $lang ) : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+											<?php else : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
+											<?php endif; ?>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</a>
+											<?php if( 'es' == $lang ) : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</a>
+											<?php else : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">coming soon</a>
+											<?php endif; ?>
 										<?php else : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
+											<?php if( 'es' == $lang ) : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
+											<?php else : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">more info</a>
+											<?php endif; ?>
 										<?php endif; ?>
 									</div>
 								</div>
