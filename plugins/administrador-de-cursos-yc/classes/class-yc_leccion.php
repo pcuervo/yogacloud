@@ -14,6 +14,7 @@ class YC_Leccion {
 	public $description;
 	public $short_description;
 	public $permalink;
+	public $length;
 	private $video_info = array();
 	private $soundcloud_url;
 	private $is_free;
@@ -39,9 +40,9 @@ class YC_Leccion {
 		$this->permalink 			= get_permalink( $lecciones_query->ID );
 		$this->soundcloud_url 		= get_post_meta( $lecciones_query->ID, '_soundcloud_url_meta', true );
 		$this->is_free 				= get_post_meta( $lecciones_query->ID, '_is_free_meta', true) ;
+		$this->is_full_module 		= get_post_meta( $lecciones_query->ID, '_full_module_meta', true) ;
 		$this->length 				= get_post_meta( $lecciones_query->ID, '_length_meta', true) ;
 
-		$this->hooks();
 	}
 
 	/**
@@ -52,10 +53,17 @@ class YC_Leccion {
 	}
 
 	/**
-	* Get $soundcloud_url
+	* Get $is_free
 	*/
 	public function is_free(){
 		return $this->is_free;
+	}
+
+	/**
+	* Get $length
+	*/
+	public function length(){
+		return $this->length;
 	}
 
 	/**
@@ -64,27 +72,24 @@ class YC_Leccion {
 	public function init_lesson_video_js() {
 		if ( 'lecciones' != get_post_type() ) return;
 
-		$has_been_watched = $this->has_been_watched_by_user( get_current_user_id() );
+		$user_id = get_current_user_id();
+		$has_been_watched = $this->has_been_watched_by_user( $user_id );
+		$has_autoplay = get_user_meta( $user_id, 'autoplay_lessons', true );
 		?>
 		<script type='text/javascript'>
 			jQuery( document ).ready( function() {
 				var iframe = $('.video-container iframe')[0];
 				if( 'undefined' != typeof iframe ){
 					var player = new Vimeo.Player(iframe);
-					var yc_lesson = new YogaCloudVideo( <?php echo $this->curso_id ?>, <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
+					var yc_lesson = new YogaCloudVideo( <?php echo $this->curso_id ?>, <?php echo $this->module_id ?>, <?php echo $this->id ?>, player, <?php echo $has_been_watched; ?> );
 					yc_lesson._init();
+					<?php if( $has_autoplay ) : ?>
+						$('#background-video').hide();
+						player.play();
+					<?php endif; ?>
 				}
 			});
 		</script><?php
-	}
-
-	/**
-	 * Mark lesson as watched
-	 */
-	public function mark_lesson_as_watched(){
-		error_log('saving as watched...');
-		echo 1;
-		wp_die();
 	}
 
 	/**
@@ -117,16 +122,6 @@ class YC_Leccion {
 	}
 
 	/**
-	 * Hooks
-	 */
-	private function hooks() {
-		// wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
-		// wp_localize_script( 'jquery', 'ajax_url', admin_url('admin-ajax.php') );
-		// add_action( 'wp_ajax_nopriv_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-		// add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
-	}	
-
-	/**
 	 * Return information about the lessons's video, if any
 	 * @return array $info
 	 */
@@ -136,8 +131,8 @@ class YC_Leccion {
 
 		add_action( 'wp_footer', array( $this, 'init_lesson_video_js' ) );
 
-		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1]; 
-		$lib = $this->get_vimeo_lib();  
+		$video_vimeo_id = explode( 'vimeo.com/', $video_url )[1];
+		$lib = $this->get_vimeo_lib();
 		$vimeo_response = $lib->request( '/me/videos/' . $video_vimeo_id, array(), 'GET' );
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
@@ -148,7 +143,6 @@ class YC_Leccion {
 		}
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
-			var_dump( $vimeo_response );
 			error_log( 'no jala stage' );
 			return array();
 		}
@@ -176,6 +170,24 @@ class YC_Leccion {
 	}
 
 	/**
+	* Mark a lesson as watched by user
+	* @param int $user_id
+	*/
+	public function mark_as_watched_by_user( $user_id ) {
+		global $wpdb;
+		$user_lesson_data = array(
+			'user_id'			=> $user_id,
+			'lesson_id' 		=> $this->id,
+			'is_completed'		=> true,
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'user_lessons',
+			$user_lesson_data,
+			array( '%d', '%d', '%d' )
+		);
+	}
+
+	/**
 	 * Return all lessons
 	 * @return array YC_Lesson
 	 */
@@ -187,8 +199,8 @@ class YC_Leccion {
 	   	);
 		$lessons_query = new WP_Query( $args );
 	    if ( ! $lessons_query->have_posts() ) return $lessons;
-	    
-	    while ( $lessons_query->have_posts() ) : $lessons_query->the_post(); 
+
+	    while ( $lessons_query->have_posts() ) : $lessons_query->the_post();
 	    	$curso = new YC_Leccion( array( 'id' => $lessons_query->post->ID ) );
 			array_push( $lessons, $curso );
 		endwhile; wp_reset_postdata();
@@ -201,6 +213,14 @@ class YC_Leccion {
 	*/
 	public function set_curso_id( $curso_id ) {
 		$this->curso_id = $curso_id;
+	}
+
+	/**
+	* Set the id for the module the lesson belongs to
+	* @param int $module_id
+	*/
+	public function set_modulo_id( $module_id ) {
+		$this->module_id = $module_id;
 	}
 
 }// YC_Leccion

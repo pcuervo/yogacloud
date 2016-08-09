@@ -22,7 +22,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 $user_cursos = get_user_cursos( get_current_user_id() );
-
 ?>
 
 <section>
@@ -41,16 +40,15 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 				<h5 class="[ text-center ][ margin-bottom ]">Badges</h5>
 				<div class="[ row ]">
 					<?php foreach ( $user_cursos as $curso ) : ?>
-						<?php /* if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : */ ?>
+						<?php if( 100 == $curso->get_progress_by_user( get_current_user_id() ) ) : ?>
+							<?php $badges = $curso->get_badges(); ?>
 							<div class="[ col s6 m4 ][ margin-bottom--small ]">
 								<div class="[ progress ][ no-margin ][ tooltipped ]" data-position="bottom" data-delay="50" data-tooltip="<?php echo $curso->get_name(); ?>">
-									<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+									<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo $badges[0]->thumb_url ?>" alt="icon badge">
 									<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 								</div>
 							</div>
-						<?php /* else: ?>
-							<p class="[ text-center ]">No tienes ningún badge por el momento.</p>
-						<?php endif; */ ?>
+						<?php endif;  ?>
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -70,6 +68,7 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 						</thead>
 						<tbody>
 							<?php foreach ( $user_cursos as $curso ) : ?>
+								<?php $badge = $curso->get_badges(); ?>
 								<tr>
 									<td>
 										<?php echo $curso->get_thumbnail( '[ width--100 ]' ); ?>
@@ -79,7 +78,11 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 									</td>
 									<td>
 										<div class="[ progress ][ no-margin ]">
-											<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+											<?php if( empty( $badge ) ) : ?>
+												<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo THEMEPATH; ?>/images/badge-star-1.png" alt="icon badge">
+											<?php else : ?>
+												<img class="[ responsive-img ][ relative z-index-1 ]" src="<?php echo $badge[0]->thumb_url ?>" alt="icon badge">
+											<?php endif; ?>
 											<div class="[ progress-percent progress-<?php echo $curso->get_progress_by_user( get_current_user_id() ) ?> ]"></div>
 										</div>
 									</td>

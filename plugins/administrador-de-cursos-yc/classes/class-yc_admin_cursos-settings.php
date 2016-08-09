@@ -73,16 +73,16 @@ class YC_Admin_Cursos_Settings {
 		add_action( 'wp_ajax_mark_lesson_as_watched', array( $this, 'mark_lesson_as_watched' ) );
 		add_action( 'wp_ajax_nopriv_is_course_completed', array( $this, 'is_course_completed' ) );
 		add_action( 'wp_ajax_is_course_completed', array( $this, 'is_course_completed' ) );
+		add_action( 'wp_ajax_nopriv_save_user_autoplay_setting', array( $this, 'save_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_save_user_autoplay_setting', array( $this, 'save_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_nopriv_get_user_autoplay_setting', array( $this, 'get_user_autoplay_setting' ) );
+		add_action( 'wp_ajax_get_user_autoplay_setting', array( $this, 'get_user_autoplay_setting' ) );
 
 		// Custom data for Módulos and lecciones
 		add_action( 'init', array( $this, 'register_custom_post_types' ), 5 );
-		//add_action( 'init', array( $this, 'register_custom_taxonomies' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes_admin_cursos' ) );
 		add_action( 'save_post', array( $this, 'save_meta_boxes' ), 5, 1  );
 		add_action( 'save_post', array( $this, 'update_custom_taxonomies' ), 10 );
-		//add_action( 'save_post', array( $this, 'update_courses_modules' ), 10 );
-		//add_action( 'save_post', array( $this, 'update_modules_lessons' ), 10 );
-
 	}
 
 	public function add_simple_course_product( $types ){
@@ -275,15 +275,15 @@ class YC_Admin_Cursos_Settings {
 	 * Add menu pages
 	 */
 	public function add_menu_pages() {
-		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_options', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
-		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_options', 'edit.php?post_type=modulos', NULL );
-		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_options', 'edit.php?post_type=lecciones', NULL );
-		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_options', 'edit.php?post_type=maestros', NULL );
-		add_submenu_page( 'gestionar_curso', 'Badges', 'Badges', 'manage_options', 'edit.php?post_type=badges', NULL );
-		add_submenu_page( NULL, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_options', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar maestros a curso', 'Agregar maestros a curso', 'manage_options', 'agregar_maestros_curso', array( $this, 'add_agregar_maestros_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar badges a curso', 'Agregar badges a curso', 'manage_options', 'agregar_badges_curso', array( $this, 'add_agregar_badges_curso_page' ) );
-		add_submenu_page( NULL, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_options', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
+		add_menu_page( 'Administrador de Cursos', 'Administrador de Cursos', 'manage_woocommerce', 'gestionar_curso', array( $this, 'add_gestionar_curso_page' ) );
+		add_submenu_page( 'gestionar_curso', 'Módulos', 'Módulos', 'manage_woocommerce', 'edit.php?post_type=modulos', NULL );
+		add_submenu_page( 'gestionar_curso', 'Lecciones', 'Lecciones', 'manage_woocommerce', 'edit.php?post_type=lecciones', NULL );
+		add_submenu_page( 'gestionar_curso', 'Maestros', 'Maestros', 'manage_woocommerce', 'edit.php?post_type=maestros', NULL );
+		add_submenu_page( 'gestionar_curso', 'Badges', 'Badges', 'manage_woocommerce', 'edit.php?post_type=badges', NULL );
+		add_submenu_page( NULL, 'Agregar módulos a curso', 'Agregar módulos a curso', 'manage_woocommerce', 'agregar_modulos_curso', array( $this, 'add_agregar_modulos_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar maestros a curso', 'Agregar maestros a curso', 'manage_woocommerce', 'agregar_maestros_curso', array( $this, 'add_agregar_maestros_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar badges a curso', 'Agregar badges a curso', 'manage_woocommerce', 'agregar_badges_curso', array( $this, 'add_agregar_badges_curso_page' ) );
+		add_submenu_page( NULL, 'Agregar lecciones a módulo', 'Agregar lecciones a módulo', 'manage_woocommerce', 'agregar_lecciones_modulo', array( $this, 'add_agregar_lecciones_modulo_page' ) );
 	}
 
 	/**
@@ -293,6 +293,7 @@ class YC_Admin_Cursos_Settings {
 		wp_enqueue_script( 'yoga_cloud_course', YC_CURSOS_PLUGIN_URL . 'inc/js/yoga-cloud-video.js', array(), false, true );
 		wp_localize_script( 'yoga_cloud_course', 'ajax_url', admin_url('admin-ajax.php') );
 		if ( 'lecciones' == get_post_type() ) {
+			wp_enqueue_script( 'lesson_autoplay', YC_CURSOS_PLUGIN_URL . 'inc/js/lesson-autoplay.js', array(), false, false );
 			wp_enqueue_script( 'course_rating', YC_CURSOS_PLUGIN_URL . 'inc/js/course-rating.js', array(), false, true );
 			wp_localize_script( 'course_rating', 'ajax_url', admin_url('admin-ajax.php') );
 		}
@@ -772,7 +773,6 @@ class YC_Admin_Cursos_Settings {
 	* Mark a lesson as watched
 	*/
 	public function mark_lesson_as_watched(){
-		error_log('mark_lesson_as_watched');
 		$user_id = get_current_user_id();
 		$lesson_id = $_POST['lesson_id'];
 
@@ -789,6 +789,15 @@ class YC_Admin_Cursos_Settings {
 			$user_lesson_data,
 			array( '%d', '%d', '%d' )
 		);
+
+		$lesson = new YC_Leccion( array( 'id' => $lesson_id ) );
+		if( $lesson->is_full_module ) {
+			$module = new YC_Modulo( array( 'id' => $_POST['module_id'] ) );
+			foreach ( $module->get_lecciones() as $lesson ) {
+				if( $lesson->has_been_watched_by_user( $user_id ) ) continue;
+				$lesson->mark_as_watched_by_user( $user_id );
+			}
+		}
 
 		echo $lesson_id;
 		wp_die();
@@ -820,6 +829,29 @@ class YC_Admin_Cursos_Settings {
 	}
 
 	/**
+	* Save autoplay setting for user
+	*/
+	public function save_user_autoplay_setting(){
+		$user_id 	= get_current_user_id();
+		if( ! $user_id ) return;
+
+		$has_autoplay = 'true' == $_POST['has_autoplay'] ? 1 : 0;
+		update_user_meta( $user_id, 'autoplay_lessons', $has_autoplay );
+		wp_die();
+	}
+
+	/**
+	* Get autoplay setting for user
+	*/
+	public function get_user_autoplay_setting(){
+		$user_id 	= get_current_user_id();
+		if( ! $user_id ) return;
+
+		echo get_user_meta( $user_id, 'autoplay_lessons', true );
+		wp_die();
+	}
+
+	/**
 	* Check if current user has completed the course
 	* @return boolean
 	*/
@@ -831,6 +863,7 @@ class YC_Admin_Cursos_Settings {
 			$msg['is_completed'] = 1;
 			$msg['message'] = 'Curso completado.';
 			echo json_encode( $msg );
+			$curso->give_badge_to_user( get_current_user_id() );
 			wp_die();
 		}
 		$msg['is_completed'] = 0;
@@ -874,7 +907,7 @@ class YC_Admin_Cursos_Settings {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => 6,
-			'supports'           => array( 'title', 'editor', 'thumbnail' )
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'excerpt' )
 		);
 		register_post_type( 'modulos', $args );
 	}// register_post_type_modulos
@@ -1050,14 +1083,14 @@ class YC_Admin_Cursos_Settings {
 		wp_nonce_field(__FILE__, '_length_meta_nonce');
 
 		echo "<label><strong>URL Vimeo</strong><br><small>Ejemplo: https://vimeo.com/171807697</small></label>";
-		echo "<input type='text' class='[ widefat ]' name='_vimeo_url_meta' value='$vimeo_url'><br><br>";
+		echo "<input type='text' class='[ widefat ]' name='_vimeo_url_meta' value='$vimeo_url'><br /><br />";
 		echo "<label><strong>URL SoundCloud</strong><br><small>Ejemplo: https://soundcloud.com/miguel-cabral-alcocer/children-of-the-forest-stolen-edit-mc-alcocer </small></label>";
-		echo "<input type='text' class='[ widefat ]' name='_soundcloud_url_meta' value='$soundcloud_url'><br><br>";
-		echo "<label><strong>Duración</strong><br><small>Ejemplos: 7min, 1h 5min, 3min 25seg </small></label>";
-		echo "<input type='text' class='[ widefat ]' name='_length_meta' value='$length'><br><br>";
+		echo "<input type='text' class='[ widefat ]' name='_soundcloud_url_meta' value='$soundcloud_url'><br /><br />";
+		echo "<label><strong>Duración</strong><br /><small>Ejemplos: 7min, 1h 5min, 3min 25seg </small></label>";
+		echo "<input type='text' class='[ widefat ]' name='_length_meta' value='$length'><br /><br />";
 		$checked_free = $is_free == 1 ? 'checked' : '';
 		echo "<input type='checkbox' class='[ widefat ]' name='_is_free_meta' value=1 $checked_free />";
-		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label><br><br>";
+		echo "<label> Activar si esta lección puede estar disponible de manera gratuita.</label><br /><br />";
 		$checked_full = $full_module == 1 ? 'checked' : '';
 		echo "<input type='checkbox' class='[ widefat ]' name='_full_module_meta' value=1 $checked_full />";
 		echo "<label> Activar si esta lección es el video del módulo completo.</label>";
@@ -1115,13 +1148,12 @@ class YC_Admin_Cursos_Settings {
 		if ( isset($_POST['_soundcloud_url_meta']) and check_admin_referer( __FILE__, '_soundcloud_url_meta_nonce') ){
 			update_post_meta($post_id, '_soundcloud_url_meta', $_POST['_soundcloud_url_meta']);
 		}
-		// SoundCloud
+		// Lenght
 		if ( isset($_POST['_length_meta']) and check_admin_referer( __FILE__, '_length_meta_nonce') ){
 			update_post_meta($post_id, '_length_meta', $_POST['_length_meta']);
 		}
 		// Is free
 		if ( isset($_POST['_is_free_meta']) and check_admin_referer( __FILE__, '_is_free_meta_nonce') ){
-
 			update_post_meta($post_id, '_is_free_meta', $_POST['_is_free_meta']);
 		} else {
 			update_post_meta($post_id, '_is_free_meta', 0);

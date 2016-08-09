@@ -27,7 +27,9 @@ class YC_Curso {
 	public $hours;
 	public $is_coming_soon;
 	public $is_new;
+	public $name;
 	public $subtitle;
+	public $permalink;
 	private $trailer_info = array();
 
 	/**
@@ -35,6 +37,7 @@ class YC_Curso {
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
+		$this->permalink 		= get_permalink( $course_id );
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
 		$this->hours 			= get_post_meta( $course_id, '_hours', true );
@@ -64,12 +67,13 @@ class YC_Curso {
 
 	/**
 	* Return all lessons from the course
+	* @param bool $exclude_full_modules
 	* @return array $lecciones
 	*/
-	public function get_lecciones(){
+	public function get_lecciones( $exclude_full_modules=false ){
 		$lecciones = array();
 		foreach ($this->get_modulos() as $modulo ) {
-			foreach ( $modulo->get_lecciones() as $leccion ) {
+			foreach ( $modulo->get_lecciones( $exclude_full_modules ) as $leccion ) {
 				array_push( $lecciones, $leccion );
 			}
 		}
@@ -194,10 +198,11 @@ class YC_Curso {
 		$modulos = $this->get_modulos();
 		if( 0 == count( $modulos ) ) return 0;
 
-		$progress_by_modulo = 0;
-		foreach ( $modulos as $key => $modulo ) $progress_by_modulo += $modulo->get_progress_by_user( $user_id );
+		$completed_lessons = 0;
+		foreach ( $modulos as $modulo ) $completed_lessons += $modulo->get_completed_lessons( $user_id );
 
-		return ceil( $progress_by_modulo / count( $modulos ) );
+		$exclude_full_modules = true;
+		return ceil( $completed_lessons / count( $this->get_lecciones( $exclude_full_modules ) ) * 100 );
 	}
 
 	/**
@@ -268,9 +273,34 @@ class YC_Curso {
 		if( 0 == $user_id ) return 0;
 
         foreach ( $this->get_lecciones() as $lesson ) {
+        	if( $lesson->is_full_module ) continue;
+
         	if( ! $lesson->has_been_watched_by_user( $user_id ) ) return false;
         }
 		return true;
+	}
+
+	/**
+	* Assign a badge to a user
+	* @param int $user_id
+	*/
+	public function give_badge_to_user( $user_id ){
+		global $wpdb;
+		$badges = $this->get_badges();
+		if( empty( $badges) ) return;
+
+		$module_data = array(
+			'badge_id'		=> $badges[0]->id,
+			'user_id'		=> $user_id,
+			'coupon_code'	=> 'xyz',
+		);
+		$wpdb->insert(
+			$wpdb->prefix . 'user_badges',
+			$module_data,
+			array( '%d', '%d', '%s' )
+		);
+		error_log('assigning badge..');
+		return $wpdb->insert_id;
 	}
 
 	/**
@@ -282,8 +312,8 @@ class YC_Curso {
 		$time_now = date("Y-m-d");
 		$time_difference = round( ( strtotime( $time_now ) - strtotime( $curso_query->post_date ) )  / ( 60 * 60 * 24 ), 2 );
 		if( 30 > $time_difference ) return 1;
-		
-		return 0;	
+
+		return 0;
 	}
 
 	/**
@@ -314,7 +344,7 @@ class YC_Curso {
 				var iframe = $('.video-container iframe')[0];
 				if( 'undefined' != typeof iframe ){
 					var player = new Vimeo.Player(iframe);
-					var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, <?php echo $this->id ?>, player, true );
+					var yc_course = new YogaCloudVideo( <?php echo $this->id ?>, <?php echo $this->id ?>, <?php echo $this->id ?>, player, true );
 					yc_course._init();
 				}
 			});
@@ -490,7 +520,6 @@ class YC_Curso {
 			$where,
 			array( '%d', '%d' )
 		);
-		error_log( $wpdb->last_query );
 	}
 
 

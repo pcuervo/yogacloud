@@ -13,13 +13,15 @@
 			<meta property="og:title" content="<?php echo get_the_title(); ?>">
 			<meta name="twitter:title" content="<?php echo get_the_title(); ?>" />
 			<meta property="og:type" content="article" />
+			<meta name="og:url" content="<?php echo get_the_permalink(); ?>" />
 		<?php else : ?>
 			<meta property="og:title" content="<?php bloginfo('name'); ?>" />
 			<meta name="twitter:title" content="<?php bloginfo('name'); ?>" />
 			<meta property="og:type" content="website" />
+			<meta name="og:url" content="<?php echo site_url(); ?>" />
 		<?php endif; ?>
 		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
-		<meta name="og:url" content="<?php echo site_url(); ?>" />
+		
 		<meta property="og:image" content="<?php echo THEMEPATH; ?>images/fb-share.jpg">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
@@ -54,6 +56,18 @@
 
 		<!-- Sitemap Google Verify -->
 		<meta name="google-site-verification" content="wDczCCyydn5g6YFIhvgsepROo8bFj1fRT26cj-TMInM" />
+
+		<!-- Hotjar Tracking Code for https://cursos.yogacloud.tv -->
+		<script>
+		    (function(h,o,t,j,a,r){
+		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+		        h._hjSettings={hjid:254649,hjsv:5};
+		        a=o.getElementsByTagName('head')[0];
+		        r=o.createElement('script');r.async=1;
+		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+		        a.appendChild(r);
+		    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+		</script>
 
 		<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
 		<!--[if lt IE 9]>
@@ -188,7 +202,7 @@
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
-									<?php do_action('wpml_add_language_selector'); ?>
+									<?php // do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
@@ -236,7 +250,7 @@
 							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 						<?php } ?>
 						<!-- language -->
-						<?php do_action('wpml_add_language_selector'); ?>
+						<?php // do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>

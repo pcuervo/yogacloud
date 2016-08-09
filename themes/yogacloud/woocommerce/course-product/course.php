@@ -5,6 +5,7 @@
 	$modulos 		= $curso->get_modulos();
 	$maestros 		= $curso->get_maestros();
 	$trailer_info 	= $curso->get_trailer_info();
+	$url = wp_get_attachment_url( get_post_thumbnail_id($product->id) );
 ?>
 
 <?php if ( ! empty( $trailer_info ) ) : ?>
@@ -20,6 +21,12 @@
 					</a>
 				</div>
 			</div>
+		</div>
+	</section>
+<?php else: ?>
+	<section id="video-whit-button" class="[ min-height--350 min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
+		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ background-image ]" style="background-image: url(<?php echo $url; ?>">
+			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]"></div>
 		</div>
 	</section>
 <?php endif; ?>
@@ -157,7 +164,7 @@
 									<div class="[ row ][ no-margin ]">
 										<div class="[ col s12 m9 ]">
 											<h5 class="[ no-margin ]"><?php echo $modulo->name ?></h5>
-											<p class="[ no-margin-bottom ]"><?php echo $modulo->description ?></p>
+											<p class="[ no-margin-bottom ]"><?php echo $modulo->short_description ?></p>
 										</div>
 										<div class="[ col s12 m3 ][ width---19-m padding-left-m ][ text-center ]">
 											<?php if ( $modulo->get_progress_by_user( get_current_user_id() ) === 100 ) : ?>
@@ -168,6 +175,7 @@
 								</div>
 							</div>
 							<div class="[ collapsible-body ]">
+								<?php $lesson_number = 1; ?>
 								<?php foreach ( $lecciones as $key => $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
@@ -175,7 +183,12 @@
 										<div class="[ course--module--lesson ][ color-dark ]">
 											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
 												<h6 class="[ no-margin ][ relative ]">
-													<?php echo $key+1 . '. ' . $lesson->name ?>
+													<?php if( $lesson->is_full_module ) : ?>
+														<?php $lesson_number = $lesson_number-1; ?>
+														Ver módulo completo
+													<?php else : ?>
+														<?php echo $lesson_number . '. ' . $lesson->name ?>
+													<?php endif; ?>
 												</h6>
 												<p class="[ no-margin-bottom ]"><?php echo $lesson->short_description ?></p>
 											</div>
@@ -192,6 +205,7 @@
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
 										</a>
 									<?php endif; ?>
+									<?php $lesson_number += 1; ?>
 								<?php endforeach; ?>
 							</div>
 						</li>

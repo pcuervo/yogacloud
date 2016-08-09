@@ -1,13 +1,14 @@
-function YogaCloudVideo( courseId, lessonId, player, isWatched ){
+function YogaCloudVideo( courseId, moduleId, lessonId, player, isWatched ){
     this.PERCENT_TO_MARK_AS_WATCHED = 95;
     this.INTERVAL = 2000;
 
-    this._courseId = courseId;
-    this._lessonId = lessonId;
-    this._player = player;
+    this._courseId              = courseId;
+    this._moduleId              = moduleId;
+    this._lessonId              = lessonId;
+    this._player                = player;
+    this._duration              = 0;
+    this._isMarkedAsWatched     = isWatched;
     this._elapsedTimeInterval;
-    this._duration = 0;
-    this._isMarkedAsWatched = isWatched;
     //this._isCourseCompleted = completed;
 }
 
@@ -31,11 +32,18 @@ YogaCloudVideo.prototype = {
         this._player.on('ended', function(){
             clearInterval( self._elapsedTimeInterval );
             self.isCourseCompleted();
+            if( $('#autoplay').is(':checked') ){
+                console.log('next');
+                $('.js-siguiente')[0].click();
+            }
         });
         $('#play-button').on('click', function(e){
             e.preventDefault();
             self._player.play();
         });
+    },
+    play: function(){
+        this._player.play();
     },
     countElapsedTime: function(){
         var self = this;
@@ -63,6 +71,7 @@ YogaCloudVideo.prototype = {
         $.post(
             ajax_url,
             {
+                module_id:  this._moduleId,
                 lesson_id:  this._lessonId,
                 action:     'mark_lesson_as_watched'
             },
@@ -72,7 +81,8 @@ YogaCloudVideo.prototype = {
         );
     },
     isCourseCompleted: function(){
-        console.log('checking if course has been completed...');
+        console.log('checking if completed...');
+        if( this._isMarkedAsWatched ) return;
         $.post(
             ajax_url,
             {
