@@ -35,9 +35,9 @@ class ICanLocalizeQuery{
 		global $sitepress;
 
 		$website_details_cache_index = '_last_valid_icl_website_details';
-		$request_url                 = ICL_API_ENDPOINT . '/websites/' . $this->site_id . '.xml?accesskey=' . $this->access_key;
+		$request_url                 = ICL_API_ENDPOINT . '/wpml-websites/' . $this->site_id . '.xml?accesskey=' . $this->access_key;
 		$res                         = $this->_request( $request_url );
-		if ( isset( $res['info']['website'] ) ) {
+		if ( isset( $res['info']['website']['attr']['accesskey'] ) ) {
 			$res = $res['info']['website'];
 			$sitepress->set_setting( $website_details_cache_index, $res, true );
 		} else {

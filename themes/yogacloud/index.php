@@ -11,7 +11,7 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
-							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
+							<h2 class="[ padding-sides no-margin ]"><?php echo _('Vive la experiencia de cursos en línea'); ?></h2>
 							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 						</div>
 					</div>
@@ -36,6 +36,8 @@
 		    ),
 	   	);
 		$cursos_query = new WP_Query( $cursos_args );
+		$query_count = 1;
+		$post_count = $cursos_query->post_count;
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
@@ -49,7 +51,7 @@
 					$curso = new YC_Curso( $post->ID );
 				?>
 
-					<article class="[ col s12 m6 ]">
+					<article class="[ col s12 m6 ] <?php if ($query_count == $post_count AND $query_count % 2 == 1 ) { echo '[ last-odd ]'; } ?>">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
 								<div class="[ card-image ][ col s6 ]">
