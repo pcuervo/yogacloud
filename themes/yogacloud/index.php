@@ -15,19 +15,12 @@
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
 							<?php if( 'es' == $lang ) : ?>
-								<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-							<?php else : ?>
-								<h5 class="white-text [ no-margin-top ]">Let´s be friends</h5>
-							<?php endif; ?>
-
-							<?php if( 'es' == $lang ) : ?>
 								<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 								<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 							<?php else : ?>
 								<h2 class="[ padding-sides no-margin ]">Live the experience: online courses in spanish.</h2>
 								<h2 class="[ padding-sides no-margin ]">You choose the time and place, we give you the experts.</h2>
 							<?php endif; ?>
-
 						</div>
 					</div>
 				</div>
@@ -106,7 +99,7 @@
 											<?php if( 'es' == $lang ) : ?>
 												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
 											<?php else : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see courses</a>
 											<?php endif; ?>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
 											<?php if( 'es' == $lang ) : ?>
@@ -179,7 +172,11 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
+			<?php if( 'es' == $lang ) : ?>
+				<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
+			<?php else : ?>
+				<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
+			<?php endif; ?>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>

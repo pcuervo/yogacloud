@@ -185,7 +185,11 @@
 		</div>
 		<div class="[ col s12 m8 l10 ]">
 			<section>
-				<h4 class="[ text-center ]">Temario</h4>
+				<?php if( 'es' == $lang ) : ?>
+					<h4 class="[ text-center ]">Temario</h4>
+				<?php else : ?>
+					<h4 class="[ text-center ]">Temary</h4>
+				<?php endif; ?>
 				<ul class="collapsible" data-collapsible="expandable">
 					<?php foreach ( $modulos as $modulo ) :
 						$lecciones = $modulo->get_lecciones();
