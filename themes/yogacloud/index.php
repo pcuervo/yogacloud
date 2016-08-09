@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+	get_header();
+	$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+?>
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop poster="<?php echo THEMEPATH; ?>images/video-poster.png">
@@ -11,15 +14,31 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
-							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
-							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
+							<?php if( 'es' == $lang ) : ?>
+								<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+							<?php else : ?>
+								<h5 class="white-text [ no-margin-top ]">Let´s be friends</h5>
+							<?php endif; ?>
+
+							<?php if( 'es' == $lang ) : ?>
+								<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
+								<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
+							<?php else : ?>
+								<h2 class="[ padding-sides no-margin ]">Live the experience: online courses in spanish.</h2>
+								<h2 class="[ padding-sides no-margin ]">You choose the time and place, we give you the experts.</h2>
+							<?php endif; ?>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="[ relative ][ bottom--22 ][ text-center ]">
-			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
+			<?php if( 'es' == $lang ) : ?>
+				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
+			<?php else : ?>
+				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
+			<?php endif; ?>
 		</div>
 	</article>
 
@@ -36,6 +55,8 @@
 		    ),
 	   	);
 		$cursos_query = new WP_Query( $cursos_args );
+		$query_count = 1;
+        $post_count = $cursos_query->post_count;
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
@@ -49,7 +70,7 @@
 					$curso = new YC_Curso( $post->ID );
 				?>
 
-					<article class="[ col s12 m6 ]">
+					<article class="[ col s12 m6 ] <?php if ($query_count == $post_count AND $query_count % 2 == 1 ) { echo '[ last-odd ]'; } ?>">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
 								<div class="[ card-image ][ col s6 ]">
@@ -89,8 +110,12 @@
 							</div>
 						</div>
 					</article>
-
-				<?php endwhile; ?>
+					<?php
+					    if ($query_count % 2 == 0) {
+					        echo '<div class="[ clearfix ]"></div>';
+					    }
+					?>
+				<?php $query_count++; endwhile; ?>
 
 			</div>
 		</section>
