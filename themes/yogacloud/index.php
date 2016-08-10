@@ -49,7 +49,7 @@
 	   	);
 		$cursos_query = new WP_Query( $cursos_args );
 		$query_count = 1;
-        $post_count = $cursos_query->post_count;
+		$post_count = $cursos_query->post_count;
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">

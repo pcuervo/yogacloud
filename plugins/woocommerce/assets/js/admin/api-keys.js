@@ -38,6 +38,12 @@
 			});
 		},
 
+		/**
+		 * Remove jQuery.BlockUI
+		 */
+		unblock: function() {
+			$( this.el ).unblock();
+		},
 
 		/**
 		 * Init TipTip

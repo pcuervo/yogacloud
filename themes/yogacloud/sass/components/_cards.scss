@@ -210,8 +210,8 @@
 h5.card-title{ font-size: 1.1em}
 @media (min-width: 905px){ h5.card-title{ font-size: 1.4em} }
 
-//curso impar centrado
+//curso impar y último centrado
 #cursos article.last-odd {
- margin: 0 auto;
- float: none;
+  margin: 0 auto;
+  float: none;
 }
