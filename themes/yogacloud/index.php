@@ -15,12 +15,6 @@
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
 							<?php if( 'es' == $lang ) : ?>
-								<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
-							<?php else : ?>
-								<h5 class="white-text [ no-margin-top ]">Let´s be friends</h5>
-							<?php endif; ?>
-
-							<?php if( 'es' == $lang ) : ?>
 								<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
 								<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
 							<?php else : ?>

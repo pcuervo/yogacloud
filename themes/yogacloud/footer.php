@@ -19,7 +19,7 @@
 						<?php if( 'es' == $lang ) : ?>
 							<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
 						<?php else : ?>
-							<h5 class="white-text [ no-margin-top ]">Let´s be friends</h5>
+							<h5 class="white-text [ no-margin-top ]">Let's be friends</h5>
 						<?php endif; ?>
 						<a href="https://twitter.com/theyogacloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
 						<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
