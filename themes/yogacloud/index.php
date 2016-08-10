@@ -99,7 +99,7 @@
 											<?php if( 'es' == $lang ) : ?>
 												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
 											<?php else : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see courses</a>
 											<?php endif; ?>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
 											<?php if( 'es' == $lang ) : ?>
@@ -172,7 +172,11 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
+			<?php if( 'es' == $lang ) : ?>
+				<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
+			<?php else : ?>
+				<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
+			<?php endif; ?>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>
