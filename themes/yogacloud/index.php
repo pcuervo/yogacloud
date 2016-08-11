@@ -14,13 +14,20 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
-							<?php if( 'es' == $lang ) : ?>
-								<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
-								<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
-							<?php else : ?>
-								<h2 class="[ padding-sides no-margin ]">Live the experience: online courses in spanish.</h2>
-								<h2 class="[ padding-sides no-margin ]">You choose the time and place, we give you the experts.</h2>
-							<?php endif; ?>
+							<h2 class="[ padding-sides no-margin ]">
+								<?php if( 'es' == $lang ) : ?>
+									Vive la experiencia de cursos en línea.
+								<?php else : ?>
+									Live the experience: online courses in spanish.
+								<?php endif; ?>
+							</h2>
+							<h2 class="[ padding-sides no-margin ]">
+								<?php if( 'es' == $lang ) : ?>
+									Tú eliges la hora y el lugar, nosotros a los expertos.
+								<?php else : ?>
+									You choose the time and place, we give you the experts.
+								<?php endif; ?>
+							</h2>
 						</div>
 					</div>
 				</div>
@@ -172,11 +179,13 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<?php if( 'es' == $lang ) : ?>
-				<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
-			<?php else : ?>
-				<h5 class="[ text-center ][ margin-bottom ]">Testimonials</h5>
-			<?php endif; ?>
+			<h5 class="[ text-center ][ margin-bottom ]">
+				<?php if( 'es' == $lang ) : ?>
+					Testimoniales
+				<?php else : ?>
+					Testimonials
+				<?php endif; ?>
+			</h5>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>
@@ -209,8 +218,20 @@
 		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
 			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
-					<h5>Regístrate y obtén lecciones gratis.</h5>
-					<a class="[ btn btn-rounded btn-light waves-effect waves-light ]" href="<?php echo site_url('/my-account/'); ?>">registrarme</a>
+					<h5>
+						<?php if( 'es' == $lang ) : ?>
+							Regístrate y obtén lecciones gratis.
+						<?php else : ?>
+							Sign up and get free lessons.
+						<?php endif; ?>
+					</h5>
+					<a class="[ btn btn-rounded btn-light waves-effect waves-light ]" href="<?php echo site_url('/my-account/'); ?>">
+						<?php if( 'es' == $lang ) : ?>
+							registrarme
+						<?php else : ?>
+							register
+						<?php endif; ?>
+					</a>
 				</div>
 			</div>
 		</section>
