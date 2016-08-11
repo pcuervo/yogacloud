@@ -69,11 +69,13 @@
 		<!-- Switch -->
 		<div class="[ switch ]">
 			<label>
-				<?php if( 'es' == $lang ) : ?>
-					<small>Reproducción automática</small>
-				<?php else : ?>
-					<small>Autoplay</small>
-				<?php endif; ?>
+				<small>
+					<?php if( 'es' == $lang ) : ?>
+						Reproducción automática
+					<?php else : ?>
+						Autoplay
+					<?php endif; ?>
+				</small>
 				<input id="autoplay" type="checkbox">
 				<span class="lever"></span>
 			</label>
@@ -84,21 +86,24 @@
 		<?php if( $previous_post_link ) : ?>
 			<a href="<?php $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 				<i class="[ no-margin-sides ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-				<?php if( 'es' == $lang ) : ?>
-					<span class="[ middle inline-block ]">anterior</span>
-				<?php else : ?>
-					<span class="[ middle inline-block ]">before</span>
-				<?php endif; ?>
+				<span class="[ middle inline-block ]">
+					<?php if( 'es' == $lang ) : ?>
+						anterior
+					<?php else : ?>
+						before
+					<?php endif; ?>
+				</span>
 			</a>
 		<?php endif; ?>
 		<?php if( $next_post_link ) : ?>
 			<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ][ js-siguiente ]">
-
-				<?php if( 'es' == $lang ) : ?>
-					<span class="[ middle inline-block ]">siguiente</span>
-				<?php else : ?>
-					<span class="[ middle inline-block ]">after</span>
-				<?php endif; ?>
+				<span class="[ middle inline-block ]">
+					<?php if( 'es' == $lang ) : ?>
+						siguiente
+					<?php else : ?>
+						after
+					<?php endif; ?>
+				</span>
 				<i class="[ no-margin-sides ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 			</a>
 		<?php endif; ?>
@@ -111,12 +116,13 @@
 			<?php if( $previous_post_link ) : ?>
 				<a href="<?php echo $previous_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-
-					<?php if( 'es' == $lang ) : ?>
-						<span class="[ middle inline-block ]">anterior</span>
-					<?php else : ?>
-						<span class="[ middle inline-block ]">before</span>
-					<?php endif; ?>
+					<span class="[ middle inline-block ]">
+						<?php if( 'es' == $lang ) : ?>
+							anterior
+						<?php else : ?>
+							before
+						<?php endif; ?>
+					</span>
 				</a>
 			<?php else : ?>
 				&nbsp;
@@ -126,11 +132,13 @@
  			<article class="">
  				<div class="[ text-center ]">
 					<h1 class="[ h4 ][ no-margin-top ]"><?php the_title(); ?><?php echo ( ! empty($leccion->length()) ? ' <span class="[ h6 ]">'.$leccion->length().'</span>' : ''); ?></h1>
-					<?php if( 'es' == $lang ) : ?>
-						<h2 class="[ h6 ]">Curso - <?php echo $curso->get_name(); ?></h2>
-					<?php else : ?>
-						<h2 class="[ h6 ]">Course - <?php echo $curso->get_name(); ?></h2>
-					<?php endif; ?>
+					<h2 class="[ h6 ]">
+						<?php if( 'es' == $lang ) : ?>
+							Curso -
+						<?php else : ?>
+							Course -
+						<?php endif; ?>
+					<?php echo $curso->get_name(); ?></h2>
 					<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">
 
 						<?php if( 'es' == $lang ) : ?>
@@ -152,11 +160,13 @@
 				<article class="[ text-center ]">
 					<a class="[ btn btn-rounded ][ waves-effect waves-light ]" href="<?php echo $nota->guid; ?>">
 						<img class="[ middle inline-block ][ width--18 ]" src="<?php echo THEMEPATH; ?>icons/download.png" alt="download image">
-						<?php if( 'es' == $lang ) : ?>
-							<span class="[ middle inline-block ]">descargar notas</span>
-						<?php else : ?>
-							<span class="[ middle inline-block ]">download notes</span>
-						<?php endif; ?>
+						<span class="[ middle inline-block ]">
+							<?php if( 'es' == $lang ) : ?>
+								descargar notas
+							<?php else : ?>
+								download notes
+							<?php endif; ?>
+						</span>
 					</a>
 				</article>
 			<?php } ?>
@@ -164,11 +174,13 @@
 		<div class="[ hide-on-med-and-down ][ col l2 ]">
 			<?php if( $next_post_link ) : ?>
 				<a href="<?php echo $next_post_link . '&cid=' . $curso->id; ?>" class="[ height--40 line-height--37 ][ float-right ][ btn btn-rounded ][ waves-effect waves-light ][ margin-left--xsmall ][ js-siguiente ]">
-					<?php if( 'es' == $lang ) : ?>
-						<span class="[ middle inline-block ]">siguiente</span>
-					<?php else : ?>
-						<span class="[ middle inline-block ]">after</span>
-					<?php endif; ?>
+					<span class="[ middle inline-block ]">
+						<?php if( 'es' == $lang ) : ?>
+							siguiente
+						<?php else : ?>
+							after
+						<?php endif; ?>
+					</span>
 					<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-right icon-xsmall ][ color-light ]"></i>
 				</a>
 			<?php else : ?>

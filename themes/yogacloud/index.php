@@ -34,11 +34,13 @@
 			</div>
 		</div>
 		<div class="[ relative ][ bottom--22 ][ text-center ]">
-			<?php if( 'es' == $lang ) : ?>
-				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
-			<?php else : ?>
-				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
-			<?php endif; ?>
+			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">
+				<?php if( 'es' == $lang ) : ?>
+					ver cursos
+				<?php else : ?>
+					see course
+				<?php endif; ?>
+			</a>
 		</div>
 	</article>
 
@@ -103,23 +105,29 @@
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-											<?php if( 'es' == $lang ) : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
-											<?php else : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">see courses</a>
-											<?php endif; ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													ver curso
+												<?php else : ?>
+													see courses
+												<?php endif; ?>
+											</a>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-											<?php if( 'es' == $lang ) : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</a>
-											<?php else : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">coming soon</a>
-											<?php endif; ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													próximamente
+												<?php else : ?>
+													coming soon
+												<?php endif; ?>
+											</a>
 										<?php else : ?>
-											<?php if( 'es' == $lang ) : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
-											<?php else : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">more info</a>
-											<?php endif; ?>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													más info
+												<?php else : ?>
+													more info
+												<?php endif; ?>
+											</a>
 										<?php endif; ?>
 									</div>
 								</div>

@@ -4,7 +4,7 @@ Tags: social share counter, social share, social media share, social network sha
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.5
-Stable tag: 4.1.4
+Stable tag: 4.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,8 @@ it button for each images. Please upgrade to Premium version.`
         - Dedicated email, forum support.
 * <strong>Free updates</strong>
         - Get free updates for lifetime.
+
+[youtube https://www.youtube.com/watch?v=PKUbaeKpsbM&feature=youtu.be]
 
 = Premium Features: =
 
@@ -131,6 +133,13 @@ Yes. You can use the AccessPress social share by using shortcode anywhere you wa
 6. Backend Miscellaneous Settings Section
 
 == Changelog ==
+= 4.1.6 =
+* Fixed the twitter multiple popup issue.
+* Removed the dublicate css for the share text css from the frontend css. 
+
+= 4.1.5 =
+* Multisite compactibility issue fixed.
+
 = 4.1.4 =
 * Removal of unnecessary css codes from the plugin's frontend css file.
 
