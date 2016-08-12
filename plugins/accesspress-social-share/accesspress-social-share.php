@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die( "No script kiddies please!" );
   Plugin name: Social Share WordPress Plugin - AccessPress Social Share
   Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-social-share/
   Description: A plugin to add various social media shares to a site with dynamic configuration options.
-  Version: 4.1.4
+  Version: 4.1.6
   Author: AccessPress Themes
   Author URI: http://accesspressthemes.com
   Text Domain: accesspress-social-share
@@ -30,7 +30,7 @@ if ( !defined( 'APSS_LANG_DIR' ) ) {
 }
 
 if ( !defined( 'APSS_VERSION' ) ) {
-	define( 'APSS_VERSION', '4.1.4' );
+	define( 'APSS_VERSION', '4.1.6' );
 }
 
 if ( !defined( 'APSS_TEXT_DOMAIN' ) ) {
@@ -84,14 +84,35 @@ if ( !class_exists( 'APSS_Class' ) ) {
 
 		//called when plugin is activated
 		function plugin_activation() {
-			if ( !get_option( APSS_SETTING_NAME ) ) {
-				include( 'inc/backend/activation.php' );
-			}
 
-			if ( !get_option( APSS_COUNT_TRANSIENTS ) ) {
-				$apss_social_counts_transients = array();
-				update_option( APSS_COUNT_TRANSIENTS, $apss_social_counts_transients );
-			}
+			global $wpdb;
+            if ( is_multisite() ) {
+                $current_blog = $wpdb->blogid;
+                // Get all blogs in the network and activate plugin on each one
+                $blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
+                foreach ( $blog_ids as $blog_id ) {
+                    switch_to_blog( $blog_id );
+                    if ( !get_option( APSS_SETTING_NAME ) ) {
+						include( 'inc/backend/activation.php' );
+					}
+
+					if ( !get_option( APSS_COUNT_TRANSIENTS ) ) {
+						$apss_social_counts_transients = array();
+						update_option( APSS_COUNT_TRANSIENTS, $apss_social_counts_transients );
+					}
+                }
+            }else{
+                if ( !get_option( APSS_SETTING_NAME ) ) {
+					include( 'inc/backend/activation.php' );
+				}
+				
+				if ( !get_option( APSS_COUNT_TRANSIENTS ) ) {
+					$apss_social_counts_transients = array();
+					update_option( APSS_COUNT_TRANSIENTS, $apss_social_counts_transients );
+				}
+            }
+
+			
 		}
 
 		//loads the text domain for translation

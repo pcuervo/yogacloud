@@ -920,16 +920,6 @@
 	display:none;
 }
 
-.apss-share-text{
-  opacity: 0.4;
-  line-height: 16px;
-  color: #333;
-  font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
-  margin-left: 9px;
-}
-
-
 
 /**********************************************THEME 6 CSS ************************************************************/
 
@@ -1088,6 +1078,10 @@
     display:none;
 }
 
+
+/* ********************************************theme 6 ends ******************************************************** */
+
+
 .apss-share-text{
   opacity: 0.4;
   line-height: 16px;
@@ -1096,8 +1090,6 @@
   font-family: 'Open Sans', sans-serif;
   margin-left: 9px;
 }
-
-
 
 
 /************************************************responsive*************************************************************/

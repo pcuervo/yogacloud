@@ -22,6 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 wc_print_notices();
 
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 
 <div class="[ text-center ]">
@@ -34,9 +35,13 @@ wc_print_notices();
 
 	<?php if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 		<p class="return-to-shop">
-			<a class="button wc-backward" href="<?php echo site_url('/#cursos'); ?>">
-				<?php _e( 'Return To Shop', 'woocommerce' ) ?>
-			</a>
+			<?php if( 'es' == $lang ) : ?>
+				<a class="button wc-backward" href="<?php echo site_url('/#cursos'); ?>">
+			<?php else : ?>
+				<a class="button wc-backward" href="<?php echo site_url('/?lang=en'); ?>">
+			<?php endif; ?>
+					<?php _e( 'Return To Shop', 'woocommerce' ) ?>
+				</a>
 		</p>
 	<?php endif; ?>
 
