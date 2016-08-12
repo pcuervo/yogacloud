@@ -79,7 +79,11 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 					<p class="form-row [ text-center ]">
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-						<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
+						<?php if( 'es' == $lang ) : ?>
+							<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
+						<?php else : ?>
+							<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+						<?php endif; ?>
 						<br />
 						<br />
 						<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" data-parsley-multiple="rememberme">

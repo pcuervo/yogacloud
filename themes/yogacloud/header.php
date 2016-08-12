@@ -168,7 +168,7 @@
 											<?php if( 'es' == $lang ) : ?>
 												<a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
 											<?php else : ?>
-												<a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(site_url('my-account/?lang=en')) echo 'active'; ?>" href="<?php echo site_url('/my-account/?lang=en'); ?>">Login / Register</a>
+												<a class="[ white-text ][ block ][width---100 ][ padding-vertical ] " href="<?php echo site_url('/my-account/?lang=en'); ?>">Login / Register</a> <!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
 											<?php endif; ?>
 										</h5>
 									<?php } ?>
@@ -252,7 +252,7 @@
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
-									<?php do_action('wpml_add_language_selector'); ?>
+									<?php //do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
@@ -330,11 +330,11 @@
 							<?php if( 'es' == $lang ) : ?>
 								<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('my-account'); ?>">Ingresa / Registrate</a>
 							<?php else : ?>
-								<a class="<?php if(site_url('my-account/?lang=en')) echo 'active'; ?>" href="<?php echo site_url('my-account/?lang=en'); ?>">Login / Register</a>
+								<a class="" href="<?php echo site_url('my-account/?lang=en'); ?>">Login / Register</a><!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
 							<?php endif; ?>
 						<?php } ?>
 						<!-- language -->
-						<?php do_action('wpml_add_language_selector'); ?>
+						<?php //do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>
