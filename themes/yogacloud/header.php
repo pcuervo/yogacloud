@@ -244,7 +244,7 @@
 										<?php if( 'es' == $lang ) : ?>
 											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/#cursos')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 										<?php else : ?>
-											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#cursos'); ?>">Courses</a>
 										<?php endif; ?>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
@@ -297,7 +297,7 @@
 							<?php if( 'es' == $lang ) : ?>
 								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 							<?php else : ?>
-								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#cursos'); ?>">Courses</a>
 							<?php endif; ?>
 
 						<?php } ?>
