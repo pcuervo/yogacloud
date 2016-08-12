@@ -311,7 +311,7 @@ class YC_Curso {
 		$curso_query = get_post( $this->id );
 		$time_now = date("Y-m-d");
 		$time_difference = round( ( strtotime( $time_now ) - strtotime( $curso_query->post_date ) )  / ( 60 * 60 * 24 ), 2 );
-		if( 30 > $time_difference ) return 1;
+		if( 60 > $time_difference ) return 1;
 
 		return 0;
 	}
