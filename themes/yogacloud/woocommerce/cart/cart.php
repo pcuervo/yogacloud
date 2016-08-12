@@ -20,6 +20,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+global $sitepress;
+$sitepress->switch_lang('en');
+
 wc_print_notices();
 
 do_action( 'woocommerce_before_cart' ); ?>

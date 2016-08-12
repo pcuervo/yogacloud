@@ -82,7 +82,7 @@ var $=jQuery.noConflict();
         /*------------------------------------*\
             #PRODUCTOS TIENDA
         \*------------------------------------*/
-        if( parseInt( isProdcut ) ){
+        if( parseInt( isProduct ) ){
 
         }
 
