@@ -45,7 +45,7 @@ add_action( 'wp_enqueue_scripts', function(){
 	wp_localize_script( 'functions', 'theme_path', THEMEPATH );
 	wp_localize_script( 'functions', 'isHome', (string)is_front_page() );
 	wp_localize_script( 'functions', 'isCurso', (string) is_curso( get_the_id() ) );
-	wp_localize_script( 'functions', 'isProdcut', (string) ('product' == get_post_type() AND ! is_curso( get_the_id() )  ) );
+	wp_localize_script( 'functions', 'isProduct', (string) ('product' == get_post_type() AND ! is_curso( get_the_id() )  ) );
 	wp_localize_script( 'functions', 'isModulo', (string) ('modulos' == get_post_type()) );
 	wp_localize_script( 'functions', 'isLeccion', (string) ('lecciones' == get_post_type()) );
 	wp_localize_script( 'functions', 'isMyAccount', (string) is_page('my-account') );
@@ -174,6 +174,7 @@ function is_curso( $product_id ){
  * @return string
  */
 function custom_add_to_cart_redirect() {
+	if( 'en' == ICL_LANGUAGE_CODE ) return site_url('cart?lang=en');
     return site_url('cart');
 }
 add_filter( 'woocommerce_add_to_cart_redirect', 'custom_add_to_cart_redirect' );
