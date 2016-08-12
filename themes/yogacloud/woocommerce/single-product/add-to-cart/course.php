@@ -45,11 +45,13 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 	 	<?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
-	 	<?php if( 'es' == $lang ) : ?>
-	 		<button type="submit" class="[ btn btn-rounded waves-effect waves-light ][ margin-bottom ] single_add_to_cart_button button alt">tomar curso - $<?php echo esc_html( $product->price ); ?></button>
-		<?php else : ?>
-			<button type="submit" class="[ btn btn-rounded waves-effect waves-light ][ margin-bottom ] single_add_to_cart_button button alt">take course - $<?php echo esc_html( $product->price ); ?></button>
-		<?php endif; ?>
+	 	<button type="submit" class="[ btn btn-rounded waves-effect waves-light ][ margin-bottom ] single_add_to_cart_button button alt">
+	 		<?php if( 'es' == $lang ) : ?>
+				tomar curso - $<?php echo esc_html( $product->price ); ?>
+			<?php else : ?>
+				take course - $<?php echo esc_html( $product->price ); ?>
+			<?php endif; ?>
+		</button>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

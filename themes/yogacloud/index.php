@@ -30,7 +30,7 @@
 			<?php if( 'es' == $lang ) : ?>
 				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
 			<?php else : ?>
-				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">see course</a>
+				<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">see courses</a>
 			<?php endif; ?>
 		</div>
 	</article>

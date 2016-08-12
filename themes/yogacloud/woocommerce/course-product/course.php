@@ -80,7 +80,13 @@
 		</div>
 	</article>
 	<div class="[ text-center ][ hidden ]">
-		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
+		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">
+			<?php if( 'es' == $lang ) : ?>
+				regalar curso
+			<?php else : ?>
+				give as a gift
+			<?php endif; ?>
+		</a>
 	</div>
 </section>
 <div class="[ container ]">
