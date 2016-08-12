@@ -1069,16 +1069,16 @@ final class WP_Installer{
         }
         
     }
-    
+
+    /**
+     * Alias for WP_Installer::get_repository_site_key
+     * @see WP_Installer::get_repository_site_key()
+     *
+     * @param string $repository_id
+     * @return string (site key) or bool
+     */
     public function get_site_key($repository_id){
-        
-        if(isset($this->settings['repositories'][$repository_id]['subscription'])){
-            $site_key = $this->settings['repositories'][$repository_id]['subscription']['key'];
-        }else{
-            $site_key = false;
-        }
-        
-        return $site_key;
+        return WP_Installer::get_repository_site_key( $repository_id );
     }
     
     public function remove_site_key(){
@@ -1220,15 +1220,16 @@ final class WP_Installer{
             if(is_serialized($datas)){
                 $data =  unserialize($datas);            
                 $this->api_debug_log($data);
+
+                if( !empty( $data->subscription_data ) ){
+                    $subscription_data =  $data->subscription_data;
+                }
+
+                do_action( 'installer_fetched_subscription_data',  $data, $repository_id);
+
             }else{
-                $this->api_debug_log($datas);    
+                $this->api_debug_log($datas);
             }
-
-            if(!empty($data->subscription_data)){
-                $subscription_data =  $data->subscription_data;
-            }
-
-            do_action( 'installer_fetched_subscription_data',  $data, $repository_id);
 
         }else{
             

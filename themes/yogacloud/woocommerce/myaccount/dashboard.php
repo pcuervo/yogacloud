@@ -22,6 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 $user_cursos = get_user_cursos( get_current_user_id() );
+
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 
 <section>
@@ -34,7 +36,11 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 						echo sprintf( esc_attr__( '%s%s%s', 'woocommerce' ), esc_html( $current_user->display_name ), '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
 					?>
 				</h5>
-				<a href="<?php echo site_url('/my-account/edit-account/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar información</a>
+				<?php if( 'es' == $lang ) : ?>
+					<a href="<?php echo site_url('/my-account/edit-account/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar información</a>
+				<?php else : ?>
+					<a href="<?php echo site_url('/my-account/edit-account/?lang=en'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">edit information</a>
+				<?php endif; ?>
 			</div>
 			<div class="[ col s12 m6 ]">
 				<h5 class="[ text-center ][ margin-bottom ]">Badges</h5>
@@ -56,13 +62,31 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 		<div class="[ row ]">
 			<div class="[ col s12 ][ text-center ][ margin-bottom ]">
 				<?php if ( ! empty( $user_cursos ) ) : ?>
-		        	<h5>Mis cursos</h5>
+		        	<h5>
+			        	<?php if( 'es' == $lang ) : ?>
+							Mis cursos
+						<?php else : ?>
+							My courses
+						<?php endif; ?>
+					</h5>
 					<table class="woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table [ mis-cursos ]">
 						<thead>
 							<tr>
 								<th></th>
-								<th>Nombre del curso</th>
-								<th class="[ text-center ]">Progreso</th>
+								<th>
+									<?php if( 'es' == $lang ) : ?>
+										Nombre del curso
+									<?php else : ?>
+										Course
+									<?php endif; ?>
+								</th>
+								<th class="[ text-center ]">
+									<?php if( 'es' == $lang ) : ?>
+										Progreso
+									<?php else : ?>
+										Progress
+									<?php endif; ?>
+								</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -87,7 +111,13 @@ $user_cursos = get_user_cursos( get_current_user_id() );
 										</div>
 									</td>
 									<td class="[ text-right ]">
-										<a href="<?php echo $curso->get_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+										<a href="<?php echo $curso->get_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
+											<?php if( 'es' == $lang ) : ?>
+												ver curso
+											<?php else : ?>
+												see course
+											<?php endif; ?>
+										</a>
 									</td>
 								</tr>
 					       	<?php endforeach; ?>

@@ -64,7 +64,7 @@ foreach ( $options['social_networks'] as $key => $value ) {
 				$count = $this->get_count( $key, $url );
 				?>
 				<div class='apss-twitter apss-single-icon'>
-					<a rel='nofollow' <?php if($apss_link_open_option_value == 2){ ?> onclick="apss_open_in_popup_window(event, '<?php echo $link; ?>');" <?php } ?> title="<?php _e( 'Share on Twitter', 'accesspress-social-share' ); ?>" target='<?php echo $apss_link_open_option; ?>' href="<?php echo $link; ?>">
+					<a rel='nofollow' <?php if($apss_link_open_option_value == 2){ ?> onclick="apss_open_in_popup_window(event, '<?php echo $link; ?>');" href='javascript:void(0);' <?php }else{ ?> href="<?php echo $link; ?>" <?php } ?> title="<?php _e( 'Share on Twitter', 'accesspress-social-share' ); ?>" target='<?php echo $apss_link_open_option; ?>'>
 						<div class='apss-icon-block clearfix'>
 							<i class='fa fa-twitter'></i>
 							<span class='apss-social-text'><?php _e( 'Share on Twitter', 'accesspress-social-share' ); ?></span><span class='apss-share'><?php _e( 'Tweet', 'accesspress-social-share' ); ?></span>

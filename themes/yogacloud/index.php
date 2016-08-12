@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+	get_header();
+	$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+?>
 	<article class="[ main-banner ]">
 		<div class="[ relative ][ overflow-hidden width---100 ]">
 			<video class="[ center-full ][ min-width---100 min-height---100 ]" autoplay muted loop poster="<?php echo THEMEPATH; ?>images/video-poster.png">
@@ -11,15 +14,33 @@
 					<div class="[ row ]">
 						<div class="[ col s12 ]">
 							<h1 class="[ no-margin-top ]"><img class="[ logo ]" src="<?php echo THEMEPATH; ?>images/logo-vertical-light.png" alt="Logo yogacloud"></h1>
-							<h2 class="[ padding-sides no-margin ]">Vive la experiencia de cursos en línea.</h2>
-							<h2 class="[ padding-sides no-margin ]">Tú eliges la hora y el lugar, nosotros a los expertos.</h2>
+							<h2 class="[ padding-sides no-margin ]">
+								<?php if( 'es' == $lang ) : ?>
+									Vive la experiencia de cursos en línea.
+								<?php else : ?>
+									Live the experience: online courses in spanish.
+								<?php endif; ?>
+							</h2>
+							<h2 class="[ padding-sides no-margin ]">
+								<?php if( 'es' == $lang ) : ?>
+									Tú eliges la hora y el lugar, nosotros a los expertos.
+								<?php else : ?>
+									You choose the time and place, we give you the experts.
+								<?php endif; ?>
+							</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="[ relative ][ bottom--22 ][ text-center ]">
-			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">ver cursos</a>
+			<a href="#cursos" class="[ btn btn-rounded waves-effect waves-light ]">
+				<?php if( 'es' == $lang ) : ?>
+					ver cursos
+				<?php else : ?>
+					see course
+				<?php endif; ?>
+			</a>
 		</div>
 	</article>
 
@@ -36,6 +57,8 @@
 		    ),
 	   	);
 		$cursos_query = new WP_Query( $cursos_args );
+		$query_count = 1;
+		$post_count = $cursos_query->post_count;
 		if( $cursos_query->have_posts() ) : ?>
 		<section class="[ container ][  scrollspy ]" id="cursos">
 			<div class="[ row ]">
@@ -49,7 +72,7 @@
 					$curso = new YC_Curso( $post->ID );
 				?>
 
-					<article class="[ col s12 m6 ]">
+					<article class="[ col s12 m6 ] <?php if ($query_count == $post_count AND $query_count % 2 == 1 ) { echo '[ last-odd ]'; } ?>">
 						<div id="box-card" class="[ card ]">
 							<div class="[ row ]">
 								<div class="[ card-image ][ col s6 ]">
@@ -61,7 +84,11 @@
 										<?php endif; ?>
 												<!-- new -->
 												<?php if( $curso->is_new ) : ?>
-													<div id="promo" class="[ nuevo ]"></div>
+													<?php if( 'es' == $lang ) : ?>
+														<div id="promo" class="[ nuevo ]"></div>
+													<?php else : ?>
+														<div id="promo" class="[ nuevo promo-traduction ]"></div>
+													<?php endif; ?>
 												<?php endif; ?>
 
 												<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
@@ -78,19 +105,41 @@
 									</div>
 									<div class="[ relative ][ top--22 ][ text-center ]">
 										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">ver curso</a>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													ver curso
+												<?php else : ?>
+													see courses
+												<?php endif; ?>
+											</a>
 										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">próximamente</a>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													próximamente
+												<?php else : ?>
+													coming soon
+												<?php endif; ?>
+											</a>
 										<?php else : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">más info</a>
+											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
+												<?php if( 'es' == $lang ) : ?>
+													más info
+												<?php else : ?>
+													more info
+												<?php endif; ?>
+											</a>
 										<?php endif; ?>
 									</div>
 								</div>
 							</div>
 						</div>
 					</article>
-
-				<?php endwhile; ?>
+					<?php
+					    if ($query_count % 2 == 0) {
+					        echo '<div class="[ clearfix ]"></div>';
+					    }
+					?>
+				<?php $query_count++; endwhile; ?>
 
 			</div>
 		</section>
@@ -138,7 +187,13 @@
 	?>
 
 		<section id="testimonials" class="[ container ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Testimoniales</h5>
+			<h5 class="[ text-center ][ margin-bottom ]">
+				<?php if( 'es' == $lang ) : ?>
+					Testimoniales
+				<?php else : ?>
+					Testimonials
+				<?php endif; ?>
+			</h5>
 			<div class="slider testimonials">
 				<ul class="slides">
 					<?php while( $testimonials_query->have_posts() ) : $testimonials_query->the_post(); ?>
@@ -171,8 +226,20 @@
 		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
 			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
-					<h5>Regístrate y obtén lecciones gratis.</h5>
-					<a class="[ btn btn-rounded btn-light waves-effect waves-light ]" href="<?php echo site_url('/my-account/'); ?>">registrarme</a>
+					<h5>
+						<?php if( 'es' == $lang ) : ?>
+							Regístrate y obtén lecciones gratis.
+						<?php else : ?>
+							Sign up and get free lessons.
+						<?php endif; ?>
+					</h5>
+					<a class="[ btn btn-rounded btn-light waves-effect waves-light ]" href="<?php echo site_url('/my-account/'); ?>">
+						<?php if( 'es' == $lang ) : ?>
+							registrarme
+						<?php else : ?>
+							register
+						<?php endif; ?>
+					</a>
 				</div>
 			</div>
 		</section>

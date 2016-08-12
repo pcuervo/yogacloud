@@ -1,4 +1,8 @@
 <?php defined('ABSPATH') or die("No script kiddies please!"); ?>
+<p>Plugin configuration video </p>
+ <iframe width="560" height="315" src="https://www.youtube.com/embed/tAfiyOnoEZs" frameborder="0" allowfullscreen></iframe>
+
+<br />
 <p>Basically there are four main settings tabs that will help you to setup the plugin to work properly.</p>
 <dl>
     <dt><strong>Social Networks</strong></dt>
@@ -60,4 +64,5 @@
     <dd>
     <p><b>For now you can use shortcode [apss-share] and [apss-count] for the display of the social shares and counts only as well but in upcoming plugin updates this shortcode will be removed and use the new one. So we suggest to use only the new shortcodes.</b></p>
     </dd>
+
 </dl>

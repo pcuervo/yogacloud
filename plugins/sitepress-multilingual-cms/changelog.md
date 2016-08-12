@@ -1,3 +1,8 @@
+# 3.4.1.1
+ 
+## Fixes
+* [wpmltm-1487] Reduced automatic calls to ICanLocalize server to one per hour
+
 # 3.4.1
 
 ## Fixes

@@ -1,3 +1,6 @@
+<?php
+	$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -21,7 +24,7 @@
 			<meta name="og:url" content="<?php echo site_url(); ?>" />
 		<?php endif; ?>
 		<meta name="og:description" content="<?php bloginfo('description'); ?>" />
-		
+
 		<meta property="og:image" content="<?php echo THEMEPATH; ?>images/fb-share.jpg">
 		<meta property="og:image:width" content="210" />
 		<meta property="og:image:height" content="110" />
@@ -92,9 +95,13 @@
 		<header class="[ js-header ]">
 			<nav>
 				<div class="nav-wrapper [ container ]">
-					<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
-						<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
-					</a>
+					<?php if( 'es' == $lang ) : ?>
+						<a class="[ logo ]" href="<?php echo site_url('/'); ?>">
+					<?php else : ?>
+						<a class="[ logo ]" href="<?php echo site_url('/?lang=en'); ?>">
+					<?php endif; ?>
+							<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
+						</a>
 					<!-- Menu mobile -->
 					<div class="[ inline-block ][ float-right ][ hide-on-large-only ][ menu-mobile ]">
 						<!-- btn user menu -->
@@ -132,25 +139,60 @@
 								<div class="[ margin-bottom--xlarge ]">
 									<?php if ( is_user_logged_in() ){
 										$current_user = wp_get_current_user(); ?>
-
-										<h5 class="[ no-margin-bottom ] ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>"><?php echo $current_user->user_firstname; ?></a></h5>
+										<h5 class="[ no-margin-bottom ] ]">
+											<?php if( 'es' == $lang ) : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>"><?php echo $current_user->user_firstname; ?></a>
+											<?php else : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(site_url('my-account/?lang=en')) echo 'active'; ?>" href="<?php echo site_url('/my-account/?lang=en'); ?>"><?php echo $current_user->user_firstname; ?></a>
+											<?php endif; ?>
+										</h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
-										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Mis cursos</a></h5>
+										<h5 class="[ no-margin ]">
+											<?php if( 'es' == $lang ) : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Mis cursos</a>
+											<?php else : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ] <?php if(site_url('my-account/?lang=en')) echo 'active'; ?>" href="<?php echo site_url('/my-account/?lang=en'); ?>">My courses</a>
+											<?php endif; ?>
+										</h5>
 										<div class="divider [ width--50 ][ margin-auto ]"></div>
-										<h5 class="[ no-margin ]"><a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a></h5>
+										<h5 class="[ no-margin ]">
+											<?php if( 'es' == $lang ) : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/'); ?>">Salir</a>
+											<?php else : ?>
+												<a class="[ padding-vertical ][ block ][ width---100 ][ white-text ]" href="<?php echo site_url('/my-account/customer-logout/?lang=en'); ?>">Sing out</a>
+											<?php endif; ?>
+										</h5>
 									<?php } ?>
 									<?php if ( ! is_user_logged_in() ){ ?>
-										<h5 class="[ no-margin-bottom ]"><a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a></h5>
+										<h5 class="[ no-margin-bottom ]">
+											<?php if( 'es' == $lang ) : ?>
+												<a class="[ white-text ][ block ][width---100 ][ padding-vertical ] <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
+											<?php else : ?>
+												<a class="[ white-text ][ block ][width---100 ][ padding-vertical ] " href="<?php echo site_url('/my-account/?lang=en'); ?>">Login / Register</a> <!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
+											<?php endif; ?>
+										</h5>
 									<?php } ?>
 								</div>
 								<div class="[ footer-menu ]">
 									<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
-										<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+										<h5 class="white-text [ no-margin-top ]">
+											<?php if( 'es' == $lang ) : ?>
+												¿Necesitas ayuda?
+											<?php else : ?>
+												Need Help?
+											<?php endif; ?>
+										</h5>
 										<a href="tel:+525568404414" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
 										<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ margin-right ][ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 									</div>
 									<div>
-										<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+										<h5 class="white-text [ no-margin-top ]">
+											<?php if( 'es' == $lang ) : ?>
+												Seámos amigos
+											<?php else : ?>
+												Let’s be friends
+											<?php endif; ?>
+										</h5>
 										<a href="https://twitter.com/theyogacloud" target="_blank"  class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
 										<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
 										<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
@@ -172,7 +214,11 @@
 							<div class="[ bg-light ][ height--64 ]">
 								<div class="[ container ]">
 									<!-- header menu -->
-									<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
+									<?php if( 'es' == $lang ) : ?>
+										<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/'); ?>">
+									<?php else : ?>
+										<a class="[ block ][ float-left ][ logo ]" href="<?php echo site_url('/?lang=en'); ?>">
+									<?php endif; ?>
 										<img src="<?php echo THEMEPATH; ?>images/logos/cloud-primary.png" alt="Logo yogacloud">
 									</a>
 									<div class="[ inline-block ][ float-right ][ line-height--54 ]">
@@ -195,24 +241,36 @@
 								<div class="[ clearfix ]"></div>
 								<div class="[ margin-bottom--xlarge ]">
 									<h5 class="[ no-margin ]" id="cursos-nav">
-										<a class="[ white-text ][ block padding-vertical ] <?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
+										<?php if( 'es' == $lang ) : ?>
+											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/#cursos')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
+										<?php else : ?>
+											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+										<?php endif; ?>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
 									<h5 class="[ no-margin ]">
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
-									<?php // do_action('wpml_add_language_selector'); ?>
+									<?php //do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
 										<div class="[ border-bottom--light ][ padding-bottom margin-bottom ]">
-											<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+											<?php if( 'es' == $lang ) : ?>
+												<h5 class="white-text [ no-margin-top ]">¿Necesitas ayuda?</h5>
+											<?php else : ?>
+												<h5 class="white-text [ no-margin-top ]">Need Help?</h5>
+											<?php endif; ?>
 											<a href="tel:+525552555555" class="[ white-text ]"><i class="[ icon icon-phone icon--28 padding-sides--xsmall ]"></i></a>
 											<a href="#" class="[ white-text ][ js-contacto-email ]"><i class="[ margin-right ][ icon icon-email-fill icon--23 padding-sides--xsmall ]"></i></a>
 										</div>
 										<div>
-											<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+											<?php if( 'es' == $lang ) : ?>
+												<h5 class="white-text [ no-margin-top ]">Seámos amigos</h5>
+											<?php else : ?>
+												<h5 class="white-text [ no-margin-top ]">Let’s be friends</h5>
+											<?php endif; ?>
 											<a href="https://twitter.com/theyogacloud" target="_blank"  class="[ white-text ]"><i class="[ icon icon-twitter icon-medium padding-sides--xsmall ]"></i></a>
 											<a href="https://www.facebook.com/TheYogaCloud" target="_blank" class="[ white-text ]"><i class="[ icon icon-facebook icon-iconed padding-sides--xsmall ]"></i></a>
 											<a href="https://www.instagram.com/theyogacloud/" target="_blank" class="[ white-text ]"><i class="[ icon icon-instagram icon-iconed padding-sides--xsmall ]"></i></a>
@@ -226,31 +284,57 @@
 				<!-- menu desktop -->
 					<div class="[ menu-desktop ][ hide-on-med-and-down ]">
 						<?php if(is_front_page() ) { ?>
-							<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Cursos</a>
+
+							<?php if( 'es' == $lang ) : ?>
+								<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Cursos</a>
+							<?php else : ?>
+								<a class="<?php if(is_page('front-page#cursos')) echo 'active'; ?>" href="#cursos">Courses</a>
+							<?php endif; ?>
+
 						<?php } ?>
 						<?php if( ! is_front_page() ) { ?>
-							<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
+
+							<?php if( 'es' == $lang ) : ?>
+								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
+							<?php else : ?>
+								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+							<?php endif; ?>
+
 						<?php } ?>
 						<a class="" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 						<!-- Dropdown Structure -->
 						<?php if ( is_user_logged_in() ){ ?>
 							<!-- Dropdown Trigger -->
-							<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>" data-activates="dropdown-user">
-								<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-primary ][ line-height--52 ]"></i>
-								<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_firstname; ?></div>
-								<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
-							</a>
+							<?php if( 'es' == $lang ) : ?>
+								<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('my-account'); ?>" data-activates="dropdown-user">
+							<?php else : ?>
+								<a class="dropdown-button <?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('my-account/?lang=en'); ?>" data-activates="dropdown-user">
+							<?php endif; ?>
+									<i class="[ icon icon-user icon-small ][ no-margin-sides ][ color-primary ][ line-height--52 ]"></i>
+									<div class="[ overflow-hidden text-overflow--ellipsis white-space--nowrap inline-block middle ]"><?php echo $current_user->user_firstname; ?></div>
+									<i class="[ icon icon-angle-down icon-xsmall ][ color-primary ][ line-height--30 ][ no-margin-sides ]"></i>
+								</a>
 							<!-- Dropdown Structure -->
 							<ul id="dropdown-user" class="dropdown-content">
-								<li><a href="<?php echo site_url('/my-account/'); ?>" class="<?php if(is_page('my-account')) echo 'active'; ?>">Mis cursos</a></li>
+								<li>
+									<?php if( 'es' == $lang ) : ?>
+										<a href="<?php echo site_url('my-account'); ?>" class="<?php if(is_page('my-account')) echo 'active'; ?>">Mis cursos</a>
+									<?php else : ?>
+										<a href="<?php echo site_url('my-account/?lang=en'); ?>" class="<?php if(is_page('my-account')) echo 'active'; ?>">My courses</a>
+									<?php endif; ?>
+								</li>
 								<li><a href="<?php echo site_url('/my-account/customer-logout/'); ?>">Sign out</a></li>
 							</ul>
 						<?php } ?>
 						<?php if ( ! is_user_logged_in() ){ ?>
-							<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('/my-account/'); ?>">Ingresa / Registrate</a>
+							<?php if( 'es' == $lang ) : ?>
+								<a class="<?php if(is_page('my-account')) echo 'active'; ?>" href="<?php echo site_url('my-account'); ?>">Ingresa / Registrate</a>
+							<?php else : ?>
+								<a class="" href="<?php echo site_url('my-account/?lang=en'); ?>">Login / Register</a><!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
+							<?php endif; ?>
 						<?php } ?>
 						<!-- language -->
-						<?php // do_action('wpml_add_language_selector'); ?>
+						<?php //do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>

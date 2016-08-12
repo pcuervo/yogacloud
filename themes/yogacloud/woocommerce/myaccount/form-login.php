@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 
 <?php wc_print_notices(); ?>
@@ -36,19 +37,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="[ row ]">
 			<div class="[ col s12 ] ">
 				<div class="[ text-center ]">
-					<h4>¡Bienvenido!</h4>
-					<h5><?php _e( 'Ingresa en tu cuenta', 'woocommerce' ); ?></h5>
+					<h4>
+						<?php if( 'es' == $lang ) : ?>
+							¡Bienvenido!
+						<?php else : ?>
+							Welcome!
+						<?php endif; ?>
+					</h4>
+					<h5>
+						<?php if( 'es' == $lang ) : ?>
+							<?php _e( 'Ingresa en tu cuenta', 'woocommerce' ); ?>
+						<?php endif; ?>
+					</h5>
 				</div>
 				<form method="post" class="login [ no-padding ]">
 
 					<?php do_action( 'woocommerce_login_form_start' ); ?>
 
 					<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-						<label for="username"><?php _e( 'Nombre de usuario o email', 'woocommerce' ); ?> <span class="required">*</span></label>
+						<label for="username">
+							<?php if( 'es' == $lang ) : ?>
+								<?php _e( 'Nombre de usuario o email', 'woocommerce' ); ?>
+							<?php else : ?>
+								<?php _e( 'Username', 'woocommerce' ); ?>
+							<?php endif; ?>
+						<span class="required">*</span></label>
 						<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="username" value="<?php if ( ! empty( $_POST['username'] ) ) echo esc_attr( $_POST['username'] ); ?>" required data-parsley-required-message="Este campo es obligatorio."/>
 					</p>
 					<p class="woocommerce-FormRow woocommerce-FormRow--wide form-row form-row-wide">
-						<label for="password"><?php _e( 'Contraseña', 'woocommerce' ); ?> <span class="required">*</span></label>
+						<label for="password">
+							<?php if( 'es' == $lang ) : ?>
+								<?php _e( 'Contraseña', 'woocommerce' ); ?>
+							<?php else : ?>
+								<?php _e( 'Password', 'woocommerce' ); ?>
+							<?php endif; ?>
+						<span class="required">*</span></label>
 						<input class="woocommerce-Input woocommerce-Input--text input-text" type="password" name="password" id="password" required  data-parsley-required-message="Este campo es obligatorio."/>
 					</p>
 
@@ -56,14 +79,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<p class="form-row [ text-center ]">
 						<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
-						<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
+						<?php if( 'es' == $lang ) : ?>
+							<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Ingresar', 'woocommerce' ); ?>" />
+						<?php else : ?>
+							<input type="submit" class="[ woocommerce-Button button ][ margin-bottom ]" name="login" value="<?php esc_attr_e( 'Login', 'woocommerce' ); ?>" />
+						<?php endif; ?>
 						<br />
 						<br />
 						<input class="woocommerce-Input woocommerce-Input--checkbox" name="rememberme" type="checkbox" id="rememberme" value="forever" data-parsley-multiple="rememberme">
 						<label for="rememberme" class="[ text-center ]"><?php _e( 'Remember me', 'woocommerce' ); ?></label>
 					</p>
 					<p class="woocommerce-LostPassword lost_password [ text-center ]">
-						<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>"><?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?></a>
+						<a href="<?php echo esc_url( wp_lostpassword_url() ); ?>">
+							<?php if( 'es' == $lang ) : ?>
+								<?php _e( '¿Olvidaste tu contraseña?', 'woocommerce' ); ?>
+							<?php else : ?>
+								<?php _e( 'Lost your password?', 'woocommerce' ); ?>
+							<?php endif; ?>
+						</a>
 					</p>
 
 					<?php do_action( 'woocommerce_login_form_end' ); ?>
@@ -79,8 +112,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<div class="u-column2 col-2">
 		<div class="[ text-center ]">
-			<h4>¿Aún no tienes cuenta?</h4>
-			<h5><?php _e( 'Regístrate', 'woocommerce' ); ?></h5>
+			<h4>
+				<?php if( 'es' == $lang ) : ?>
+					¿Aún no tienes cuenta?
+				<?php else : ?>
+					No account yet?
+				<?php endif; ?>
+			</h4>
+			<h5>
+				<?php if( 'es' == $lang ) : ?>
+					<?php _e( 'Regístrate', 'woocommerce' ); ?>
+				<?php else : ?>
+					<?php _e( 'Sing up', 'woocommerce' ); ?>
+				<?php endif; ?>
+			</h5>
 		</div>
 
 		<form method="post" class="register [ no-padding ]">
