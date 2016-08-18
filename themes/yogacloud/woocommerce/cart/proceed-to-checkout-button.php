@@ -21,8 +21,15 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 
-<a href="<?php echo esc_url( wc_get_checkout_url() ) ;?>" class="[ btn-main-proceed ] checkout-button button alt wc-forward">
-	<?php echo __( 'Siguiente', 'woocommerce' ); ?>
-</a>
+<?php if( 'es' == $lang ) : ?>
+	<a href="<?php echo site_url('checkout'); ?>" class="[ btn-main-proceed ][ width--200 ][ text-center ] checkout-button button alt wc-forward">
+		<?php echo __( 'Pagar', 'woocommerce' ); ?>
+<?php else : ?>
+	<a href="<?php echo site_url('checkout/?lang=en'); ?>" class="[ btn-main-proceed ][ width--200 ][ text-center ] checkout-button button alt wc-forward">
+		<?php echo __( 'Checkout', 'woocommerce' ); ?>
+<?php endif; ?>
+	</a>

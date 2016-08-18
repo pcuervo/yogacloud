@@ -183,3 +183,27 @@ nav {
   overflow-x:hidden;
   text-align: center
 }
+
+//Nav productos
+
+.product-menu {
+  a {
+    color: #13C2AC!important;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 21px!important;
+    &:hover {
+      background-color:#13C2AC;
+      color: #fff!important;
+    }
+  }
+  .dropdown-button {
+    background-color: transparent;
+    padding-left: 10px;
+    box-shadow: none;
+  }
+  .dropdown-content {
+    margin-top: 45px;
+  }
+}

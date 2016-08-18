@@ -194,3 +194,17 @@ label[for=payment_method_paypal] { width: 100%; }
 .woocommerce #payment .terms, .woocommerce #payment .wc-terms-and-conditions { float: none; }
 .woocommerce #payment #place_order { margin-bottom: 20px; }
 
+//Single product
+.product_meta .sku_wrapper,
+.woocommerce-Tabs-panel--description h5,
+.related.products { display: none; }
+.quantity {
+	width: 80px;
+	float: left;
+	padding-right: 20px;
+}
+.quantity input {
+	background-color: #e8e8e8;
+	padding: 0 5px;
+	border: none;
+}

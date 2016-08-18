@@ -333,6 +333,11 @@
 								<a class="" href="<?php echo site_url('my-account/?lang=en'); ?>">Login / Register</a><!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
 							<?php endif; ?>
 						<?php } ?>
+						<?php if( 'es' == $lang ) : ?>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/#tienda'); ?>">Tienda</a>
+							<?php else : ?>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#tienda'); ?>">Store</a>
+							<?php endif; ?>
 						<!-- language -->
 						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
