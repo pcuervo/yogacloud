@@ -31,14 +31,10 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 		<div class="[ row ]">
 			<div class="[ col s12 m6 ][ text-center ][ border-right--primary ][ margin-bottom ]">
 				<i class="[ icon icon-user icon-iconed icon-xlarge ][ color-primary ]"></i>
-				<h5>
-					<?php
-						echo sprintf( esc_attr__( '%s%s%s', 'woocommerce' ), esc_html( $current_user->display_name ), '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' );
-					?>
-				</h5>
-				<?php if( 'es' == $lang ) : ?>
+				<h5><?php echo sprintf( esc_attr__( '%s%s%s', 'woocommerce' ), esc_html( $current_user->display_name ), '<a href="' . esc_url( wc_get_endpoint_url( 'customer-logout', '', wc_get_page_permalink( 'myaccount' ) ) ) . '">', '</a>' ); ?> </h5>
+				<?php if( 'es' == $lang ): ?>
 					<a href="<?php echo site_url('/my-account/edit-account/'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">editar información</a>
-				<?php else : ?>
+				<?php else: ?>
 					<a href="<?php echo site_url('/my-account/edit-account/?lang=en'); ?>" class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ btn-small ]">edit information</a>
 				<?php endif; ?>
 			</div>
