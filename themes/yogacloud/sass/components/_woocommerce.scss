@@ -214,7 +214,7 @@ label[for=payment_method_paypal] { width: 100%; }
 
 .title-product h3{
 	color: #fff;
-	padding: 20px 30px 20px 0;
+	padding: 10px 0;
 	font-size: 24px;
 	font-weight: 300;
 }
@@ -231,9 +231,8 @@ ul.products {
 			img { width: 100%; height: auto; }
 			.onsale { display: none; } /*position: absolute;*/
 			.size-gradient-product {
-				height: 100%; width: 100%;
+				height: 99%; width: 100%;
 				position: absolute; top: 0px;
-				z-index: 9999999;
 			}
 		}
 
@@ -247,3 +246,12 @@ ul.products {
 
 
 
+
+
+#cycle-1 div { width:100%; }
+#cycle-2 .cycle-slide { border:3px solid #fff; }
+#cycle-2 .cycle-slide-active { border:3px solid #004; }
+
+#slideshow-1,#slideshow-2 { width: 50%; max-width: 600px; margin: auto }
+#slideshow-2 { margin-top: 10px }
+.cycle-slideshow img { width: 100%; height: auto; display: block; }

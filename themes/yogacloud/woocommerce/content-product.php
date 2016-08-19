@@ -76,7 +76,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 					do_action( 'woocommerce_after_shop_loop_item_title' );
 				?>
 			</div>
-			<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ]">
+			<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom ][ hidden ]">
 				<?php
 				/**
 				 * woocommerce_after_shop_loop_item hook.

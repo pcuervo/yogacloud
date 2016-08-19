@@ -34,9 +34,11 @@ if ( ! woocommerce_products_will_display() )
 				<div class="[ col s12 ][ white-text text-center ]">
 					<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
 					<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
-					<div class="[ relative ][ top--22 ]">
-						<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
-					</div>
+					<?php if( ! is_page('productos') ) { ?>
+						<div class="[ relative ][ top--22 ]">
+							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
+						</div>
+					<?php } ?>
 				</div>
 			</div>
 		</div>
