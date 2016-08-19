@@ -334,9 +334,9 @@
 							<?php endif; ?>
 						<?php } ?>
 						<?php if( 'es' == $lang ) : ?>
-								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/#tienda'); ?>">Tienda</a>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda'); ?>">Tienda</a>
 							<?php else : ?>
-								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#tienda'); ?>">Store</a>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('tienda/?lang=en'); ?>">Store</a>
 							<?php endif; ?>
 						<!-- language -->
 						<?php do_action('wpml_add_language_selector'); ?>
