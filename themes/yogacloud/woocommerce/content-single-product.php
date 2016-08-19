@@ -39,12 +39,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		echo get_the_password_form();
 		return;
 	}
+	global $post, $product;
 ?>
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="[ row ][ margin-top--large ]">
 				<div class="[ col s12 m4 l6 ]">
 					<div class="images">
+						<?php if ( $product->is_on_sale() ) : ?>
+							<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale [ padding-left--small ][ color-primary ][ font-size--24 ]">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+						<?php endif; ?>
 						<div id="slideshow-1">
 							<div id="cycle-1" class="cycle-slideshow"
 							data-cycle-slides="> div"
