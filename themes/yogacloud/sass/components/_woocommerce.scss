@@ -244,14 +244,10 @@ ul.products {
 	}
 }
 
-
-
-
-
+//Cycle slider
 #cycle-1 div { width:100%; }
-#cycle-2 .cycle-slide { border:3px solid #fff; }
-#cycle-2 .cycle-slide-active { border:3px solid #004; }
-
-#slideshow-1,#slideshow-2 { width: 50%; max-width: 600px; margin: auto }
+#cycle-2 .cycle-slide { border:2px solid #fff; }
+#cycle-2 .cycle-slide-active { border:2px solid #13C2AC; }
+#slideshow-1,#slideshow-2 { width: 100%; margin: auto }
 #slideshow-2 { margin-top: 10px }
 .cycle-slideshow img { width: 100%; height: auto; display: block; }

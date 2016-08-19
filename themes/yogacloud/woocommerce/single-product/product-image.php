@@ -24,6 +24,49 @@ global $post, $product;
 ?>
 	<div class="[ col s12 m6 ]">
 		<div class="images">
+			<div id="slideshow-1">
+				<div id="cycle-1" class="cycle-slideshow"
+				data-cycle-slides="> div"
+				data-cycle-timeout="0"
+				data-cycle-prev="#slideshow-1 .cycle-prev"
+				data-cycle-next="#slideshow-1 .cycle-next"
+				data-cycle-caption="#slideshow-1 .custom-caption"
+				data-cycle-caption-template="Slide {{slideNum}} of {{slideCount}}"
+				data-cycle-fx="tileBlind"
+				>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda1.png" width=500 height=500></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda2.png" width=500 height=500></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda3.png" width=500 height=500></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda1.png" width=500 height=500></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda2.png" width=500 height=500></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda3.png" width=500 height=500></div>
+				</div>
+			</div>
+
+			<div id="slideshow-2">
+			<div id="cycle-2" class="cycle-slideshow"
+				data-cycle-slides="> div"
+				data-cycle-timeout="0"
+				data-cycle-prev="#slideshow-2 .cycle-prev"
+				data-cycle-next="#slideshow-2 .cycle-next"
+				data-cycle-caption="#slideshow-2 .custom-caption"
+				data-cycle-caption-template="Slide {{slideNum}} of {{slideCount}}"
+				data-cycle-fx="carousel"
+				data-cycle-carousel-visible="6"
+				data-cycle-carousel-fluid=true
+				data-allow-wrap="false"
+				>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda1.png" width=100 height=100></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda2.png" width=100 height=100></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda3.png" width=100 height=100></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda1.png" width=100 height=100></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda2.png" width=100 height=100></div>
+					<div><img src="<?php echo THEMEPATH; ?>images/tienda3.png" width=100 height=100></div>
+				</div>
+			</div>
+
+
+
 			<?php
 				if ( has_post_thumbnail() ) {
 					$attachment_count = count( $product->get_gallery_attachment_ids() );

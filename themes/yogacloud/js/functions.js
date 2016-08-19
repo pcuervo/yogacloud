@@ -83,7 +83,8 @@ var $=jQuery.noConflict();
             #PRODUCTOS TIENDA
         \*------------------------------------*/
         if( parseInt( isProduct ) ){
-
+            console.log('is product single');
+            thumbnailsCycle();
         }
 
         if( parseInt( isTienda ) ){
