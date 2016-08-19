@@ -37,7 +37,7 @@ $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'singl
 			) );
 			echo apply_filters( 'woocommerce_single_product_image_html',
 				sprintf(
-					'<div href="%s" itemprop="image" title="%s" data-rel="prettyPhoto' . $gallery . '">%s</div>',
+					'<div href="%s"  title="%s" data-rel="prettyPhoto' . $gallery . '">%s</div>',
 					esc_url( $props['url'] ),
 					esc_attr( $props['caption'] ),
 					$image

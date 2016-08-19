@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="[ row ][ margin-top--large ]">
-				<div class="[ col s12 m6 ]">
+				<div class="[ col s12 m4 l6 ]">
 					<div class="images">
 						<div id="slideshow-1">
 							<div id="cycle-1" class="cycle-slideshow"
@@ -84,7 +84,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 
-				<div class=" [ col s12 m6 ]">
+				<div class=" [ col s12 m8 l6 ]">
 
 					<div class="summary entry-summary">
 
