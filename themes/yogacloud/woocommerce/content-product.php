@@ -65,7 +65,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		</div>
 		<div class="[ box-product-price ][ text-center ]">
 			<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
-				COMPRAR -
+				VER MÁS
 				<?php
 					/**
 					 * woocommerce_after_shop_loop_item_title hook.
@@ -73,7 +73,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 					 * @hooked woocommerce_template_loop_rating - 5
 					 * @hooked woocommerce_template_loop_price - 10
 					 */
-					do_action( 'woocommerce_after_shop_loop_item_title' );
+					// do_action( 'woocommerce_after_shop_loop_item_title' );
 				?>
 			</div>
 			<div class="[ buttons-cart ]">
