@@ -256,3 +256,13 @@ ul.products {
 
 
 #slideshow-1 .onsale , #slideshow-2 .onsale { display: none; }
+
+.buttons-cart .added_to_cart.wc-forward {
+	display: block;
+	color: $primary-color!important;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+.buttons-cart .added_to_cart.wc-forward:hover { text-decoration: underline; }
