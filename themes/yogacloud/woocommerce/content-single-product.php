@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							data-cycle-next="#slideshow-1 .cycle-next"
 							data-cycle-caption="#slideshow-1 .custom-caption"
 							data-cycle-caption-template="Slide {{slideNum}} of {{slideCount}}"
-							data-cycle-fx="tileBlind" >
+							data-cycle-fx="scrollHorz" >
 								<?php
 									/**
 									 * woocommerce_before_single_product_summary hook.
