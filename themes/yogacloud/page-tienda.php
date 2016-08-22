@@ -16,6 +16,7 @@
 		</div>
 	</section>
 	<section class="[ container ][ text-center ][ product-menu ]">
+			<?php if (get_category('libros')->category_count > 0) echo "<a href=\"".get_bloginfo('home')."/category/news/\">Blog</a>"; ?>
 			<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
 			<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
 			<!-- Dropdown Trigger -->
