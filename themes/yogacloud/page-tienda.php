@@ -22,8 +22,8 @@
 		<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
 			<!-- Dropdown Structure -->
 			<ul id='salud-belleza' class='dropdown-content'>
-				<li><a href="<?php echo site_url('producto-categoria/aromaterapia'); ?>">Aromaterápia</a></li>
-				<li><a href="<?php echo site_url('producto-categoria/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
+				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/aromaterapia'); ?>">Aromaterápia</a></li>
+				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
 			</ul>
 		<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
 		<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
