@@ -16,18 +16,6 @@
 		</div>
 	</section>
 	<section class="[ container ][ text-center ][ product-menu ]">
-<?php
-
-$query = new WP_Query(array(
-    'post_type' => 'product',
-    'category' => 'ropa'
-));
-if( $query->have_posts() ){
-    echo 'we have posts';
-} else {
-    echo 'no posts found';
-}
-?>
 		<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
 		<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
 		<!-- Dropdown Trigger -->
