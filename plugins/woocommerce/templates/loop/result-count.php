@@ -27,7 +27,41 @@ global $wp_query;
 if ( ! woocommerce_products_will_display() )
 	return;
 ?>
-<p class="woocommerce-result-count">
+<section class="[ main-banner ][ box-btn ][ background-image ][ background-image--woman ]">
+	<div class="[ gradient-linear-opacity ]">
+		<div class="[ container ]">
+			<div class="[ row ]">
+				<div class="[ col s12 ][ white-text text-center ]">
+					<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
+					<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
+					<?php if( ! is_page('productos') ) { ?>
+						<div class="[ relative ][ top--22 ]">
+							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="[ container ][ text-center ][ product-menu ]">
+		<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
+		<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
+		<!-- Dropdown Trigger -->
+		<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
+			<!-- Dropdown Structure -->
+			<ul id='salud-belleza' class='dropdown-content'>
+				<li><a href="<?php echo site_url('producto-categoria/aromaterapia'); ?>">Aromaterápia</a></li>
+				<li><a href="<?php echo site_url('producto-categoria/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
+			</ul>
+		<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
+		<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
+		<a href="<?php echo site_url('producto-categoria/ropa'); ?>">Ropa</a>
+		<a href="<?php echo site_url('producto-categoria/yoga'); ?>">Yoga</a>
+		<a href="<?php echo site_url('producto-categoria/arte-y-decoracion'); ?>">Arte y Decoración</a>
+</section>
+
+<p class="woocommerce-result-count [ container ][ margin-bottom ]">
 	<?php
 	$paged    = max( 1, $wp_query->get( 'paged' ) );
 	$per_page = $wp_query->get( 'posts_per_page' );

@@ -83,7 +83,8 @@ var $=jQuery.noConflict();
             #PRODUCTOS TIENDA
         \*------------------------------------*/
         if( parseInt( isProduct ) ){
-
+            console.log('is product single');
+            thumbnailsCycle();
         }
 
         if( parseInt( isTienda ) ){
@@ -98,6 +99,11 @@ var $=jQuery.noConflict();
             $(window).resize(function() {
                 boxCard(); //Index y resultados
             });
+        }
+
+        if( parseInt( isPrueba ) ){
+            console.log('is prueba');
+            thumbnailsCycle();
         }
 
          /*------------------------------------*\
@@ -292,3 +298,18 @@ function getHeaderHeight(){
 function getFooterHeight(){
     return $('footer').outerHeight();
 }// getFooterHeight
+
+
+//Thumbnails
+function thumbnailsCycle(){
+    var slideshows = $('.cycle-slideshow').on('cycle-next cycle-prev', function(e, opts) {
+        // advance the other slideshow
+        slideshows.not(this).cycle('goto', opts.currSlide);
+    });
+
+    $('#cycle-2 .cycle-slide').click(function(){
+        console.log('click cycle slide');
+        var index = $('#cycle-2').data('cycle.API').getSlideIndex(this);
+        slideshows.cycle('goto', index);
+    });
+}

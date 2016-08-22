@@ -52,6 +52,17 @@ header{
 	div#lang_sel {
 		float: left;
 		li { width: auto; }
+		a.lang_sel_sel {
+			padding-left:($padding-size*2.2); padding-right:($padding-size/2);
+			background: url(images/world.png) #fff 10px no-repeat;
+			&:hover {
+				background: url(images/world-light.png) #fff 10px no-repeat;
+			}
+		}
+		& ul ul li a {
+			padding-left:($padding-size/2); padding-right:($padding-size/2);
+			margin-left: ($padding-size*1.9);
+		}
 		a.lang_sel_sel,
 		& ul ul li a{
 			background-color: $light-color!important;
@@ -59,14 +70,12 @@ header{
 			border: none;
 			font-size: 16px;
 			font-weight: lighter;
-			padding-left:($padding-size*2.2); padding-right:($padding-size/2);
 			line-height: 55px;
 			font-family: 'Open Sans', 'Roboto', sans-serif;
-			background: url(images/world.png) #fff 10px no-repeat;;
+
 			&:hover {
 				background-color: $primary-color!important;
 				color: $light-color!important;
-				background: url(images/world-light.png) #fff 10px no-repeat;
 			}
 		}
 		& ul ul { top: 55px; }
@@ -91,7 +100,11 @@ header{
 					padding-top: 0px; padding-bottom: 0px;
 					background-color: $primary-color!important;
 					color: $light-color!important;
-					background: url(images/world-light.png) #fff 10px no-repeat;
+					margin-left: 0px!important;
+					&::before{
+      					content: '/';
+      					margin-right: 13px;
+      				}
 				}
 			}
 

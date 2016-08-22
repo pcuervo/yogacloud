@@ -630,7 +630,7 @@ if ( ! function_exists( 'woocommerce_template_loop_add_to_cart' ) ) {
 				'class'    => implode( ' ', array_filter( array(
 						'button',
 						'product_type_' . $product->product_type,
-						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button' : '',
+						$product->is_purchasable() && $product->is_in_stock() ? 'add_to_cart_button [ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]' : '',
 						$product->supports( 'ajax_add_to_cart' ) ? 'ajax_add_to_cart' : ''
 				) ) )
 			);
