@@ -74,119 +74,116 @@
 
 		</div>
 	</section>
-	<section class="[ margin-bottom ][ container--on-med-and-up ]">
+	<section class="[ margin-bottom ]">
 		<article class="[ gradient-diagonal ][ padding ]">
-			<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las más mas exclusivas</h5>
-			<div class="[ row ][ margin-bottom ]">
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
-				</div>
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-				</div>
-			</div>
-			<div class="[ row ][ margin-bottom ]">
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-				</div>
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
-				</div>
-			</div>
-			<div class="[ row ][ margin-bottom ]">
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
-				</div>
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-				</div>
-			</div>
-			<div class="[ row ][ margin-bottom ]">
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
-				</div>
-				<div class="[ col s6 ][ padding-xsmall ][ height--90 ][ text-center ]">
-					<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
+			<div class="[ container ]">
+				<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las marcas más vendidas</h5>
+				<div class="[ row ]">
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
+					</div>
+					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
+					</div>
 				</div>
 			</div>
+
 		</article>
-
-		<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
-		<div class="[ row ]">
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+		<div class="[ container ]">
+			<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
+			<div class="[ row ]">
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
-			<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-				<div class="[ card-image ][ relative ]">
-					<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-							<span class="[ title-image ]">Título del producto</span>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+					<div class="[ card-image ][ relative ]">
+						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
+							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
+								<span class="[ title-image ]">Título del producto</span>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="[ relative ][ bottom--22 ][ text-center ]">
-					<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-				</div>
-			</article>
+					<div class="[ relative ][ bottom--22 ][ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
+					</div>
+				</article>
+			</div>
 		</div>
-
 	</section>
 
 <?php get_footer(); ?>
