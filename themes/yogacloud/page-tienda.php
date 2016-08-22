@@ -16,21 +16,32 @@
 		</div>
 	</section>
 	<section class="[ container ][ text-center ][ product-menu ]">
-			<?php if (get_category('libros')->category_count > 0) echo "<a href=\"".get_bloginfo('home')."/category/news/\">Blog</a>"; ?>
-			<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
-			<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
-			<!-- Dropdown Trigger -->
-			<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
-				<!-- Dropdown Structure -->
-				<ul id='salud-belleza' class='dropdown-content'>
-					<li><a href="<?php echo site_url('producto-categoria/aromaterapia'); ?>">Aromaterápia</a></li>
-					<li><a href="<?php echo site_url('producto-categoria/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
-				</ul>
-			<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
-			<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
-			<a href="<?php echo site_url('producto-categoria/ropa'); ?>">Ropa</a>
-			<a href="<?php echo site_url('producto-categoria/yoga'); ?>">Yoga</a>
-			<a href="<?php echo site_url('producto-categoria/arte-y-decoracion'); ?>">Arte y Decoración</a>
+<?php
+
+$query = new WP_Query(array(
+    'post_type' => 'product',
+    'category' => 'ropa'
+));
+if( $query->have_posts() ){
+    echo 'we have posts';
+} else {
+    echo 'no posts found';
+}
+?>
+		<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
+		<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
+		<!-- Dropdown Trigger -->
+		<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
+			<!-- Dropdown Structure -->
+			<ul id='salud-belleza' class='dropdown-content'>
+				<li><a href="<?php echo site_url('producto-categoria/aromaterapia'); ?>">Aromaterápia</a></li>
+				<li><a href="<?php echo site_url('producto-categoria/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
+			</ul>
+		<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
+		<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
+		<a href="<?php echo site_url('producto-categoria/ropa'); ?>">Ropa</a>
+		<a href="<?php echo site_url('producto-categoria/yoga'); ?>">Yoga</a>
+		<a href="<?php echo site_url('producto-categoria/arte-y-decoracion'); ?>">Arte y Decoración</a>
 	</section>
 	<section class="[ container ]">
 		<div class="[ row ][ no-margin ]">
