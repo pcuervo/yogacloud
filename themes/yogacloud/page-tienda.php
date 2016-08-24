@@ -15,22 +15,61 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="[ container ][ text-center ][ product-menu ]">
-		<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
-		<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
-		<!-- Dropdown Trigger -->
-		<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
-			<!-- Dropdown Structure -->
-			<ul id='salud-belleza' class='dropdown-content'>
-				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/aromaterapia'); ?>">Aromaterápia</a></li>
-				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
-			</ul>
-		<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
-		<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
-		<a href="<?php echo site_url('producto-categoria/ropa'); ?>">Ropa</a>
-		<a href="<?php echo site_url('producto-categoria/yoga'); ?>">Yoga</a>
-		<a href="<?php echo site_url('producto-categoria/arte-y-decoracion'); ?>">Arte y Decoración</a>
+		<?php
+		$taxonomy     = 'product_cat';
+		$orderby      = 'name';
+		$show_count   = 0;      // 1 for yes, 0 for no
+		$pad_counts   = 0;      // 1 for yes, 0 for no
+		$hierarchical = 1;      // 1 for yes, 0 for no
+		$title        = '';
+		$empty        = 0;
+
+		$args = array(
+		     'taxonomy'     => $taxonomy,
+		     'orderby'      => $orderby,
+		     'show_count'   => $show_count,
+		     'pad_counts'   => $pad_counts,
+		     'hierarchical' => $hierarchical,
+		     'title_li'     => $title,
+		     'hide_empty'   => $empty
+		);
+		$all_categories = get_categories( $args );
+		foreach ($all_categories as $cat) {
+			$hasChildren = get_term_children($cat->term_id, $taxonomy);
+			if($cat->category_parent == 0) {
+				$category_id = $cat->term_id;
+				if( $hasChildren ) {
+					echo '<a class="[ dropdown-button btn ]" href="#" data-activates="'.$cat->slug.'">'. $cat->name .'</a>';
+				} else {
+					echo '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';
+				}
+
+				$args2 = array(
+				    'taxonomy'     => $taxonomy,
+				    'child_of'     => 0,
+				    'parent'       => $category_id,
+				    'orderby'      => $orderby,
+				    'show_count'   => $show_count,
+				    'pad_counts'   => $pad_counts,
+				    'hierarchical' => $hierarchical,
+				    'title_li'     => $title,
+				    'hide_empty'   => $empty
+		        );
+		        $sub_cats = get_categories( $args2 );
+		        if($sub_cats) { ?>
+		        	<ul id="<?php echo $cat->slug; ?>" class="dropdown-content">
+		            <?php foreach($sub_cats as $sub_category) {
+						echo '<li><a href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a></li>';
+		            } ?>
+		            </ul>
+		        <?php }
+		    }
+		}
+		?>
 	</section>
+
 	<section class="[ container ]">
 		<div class="[ row ][ no-margin ]">
 			<article class="[ col s12 l6 ]">
@@ -79,30 +118,18 @@
 			<div class="[ container ]">
 				<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las marcas más vendidas</h5>
 				<div class="[ row ]">
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/adidas.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/nike.png" alt="marca exclusiva">
-					</div>
-					<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
-						<img class="[ max-width---100 max-height---100 ]" src="<?php echo THEMEPATH; ?>/images/logos/puma.png" alt="marca exclusiva">
-					</div>
+					<?php
+						$marcas_args = array(
+							'post_type' => 'marcas',
+							'posts_per_page' => '-1'
+						);
+						$marcas_query = new WP_Query( $marcas_args );
+						if( $marcas_query->have_posts() ) : while( $marcas_query->have_posts() ) : $marcas_query->the_post();
+					?>
+						<div class="[ col s6 m4 ][ padding-xsmall ][ height--90 ][ text-center ][ margin-bottom ]">
+							<?php the_post_thumbnail('full', array('class'=>'[ responsive-img ]')); ?>
+						</div>
+					<?php endwhile; endif; wp_reset_query(); ?>
 				</div>
 			</div>
 
@@ -110,7 +137,27 @@
 		<div class="[ container ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
 			<div class="[ row ]">
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
+
+				<?php
+					$args = array(
+						'post_type' => 'product',
+						'posts_per_page' => 6,
+						'meta_key' => 'total_sales',
+						'orderby' => 'meta_value_num',
+					);
+
+					$loop = new WP_Query( $args );
+					if ( $loop->have_posts() ) {
+						while ( $loop->have_posts() ) : $loop->the_post();
+						woocommerce_get_template_part( 'content', 'product' );
+						endwhile;
+					}
+
+					wp_reset_query();
+				?>
+
+
+				<!-- <article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
 					<div class="[ card-image ][ relative ]">
 						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
 							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
@@ -121,67 +168,7 @@
 					<div class="[ relative ][ bottom--22 ][ text-center ]">
 						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
 					</div>
-				</article>
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article>
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article>
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article>
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article>
-				<article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article>
+				</article> -->
 			</div>
 		</div>
 	</section>
