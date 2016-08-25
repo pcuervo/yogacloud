@@ -136,7 +136,7 @@
 		</article>
 		<div class="[ container ]">
 			<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
-			<div class="[ row ]">
+			<div class="[ row ][ popular-product ]">
 
 				<?php
 					$args = array(

@@ -269,3 +269,23 @@ ul.products {
 
 .buttons-cart .added_to_cart.wc-forward:hover { text-decoration: underline; }
 
+/*Tienda*/
+
+.popular-product {
+	li.type-product { display: initial; margin-bottom: 30px; }
+	.box-product {
+		position: relative;
+		margin-bottom: 30px;
+		.onsale { display: none; } /*position: absolute;*/
+		img { width: 100%; height: auto; }
+		.size-gradient-product {
+			height: 99%; width: 100%;
+			position: absolute; top: 0px;
+		}
+	}
+	.box-product-price{
+		position: absolute!important;
+		width: 100%;
+		bottom: 0px;
+	}
+}
