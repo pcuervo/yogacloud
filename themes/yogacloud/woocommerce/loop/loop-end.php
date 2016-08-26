@@ -18,6 +18,15 @@
 ?>
 	</ul>
 	<section>
+		<?php
+		global $wp_query;
+
+		$paged    = max( 1, $wp_query->get( 'paged' ) );
+		$per_page = $wp_query->get( 'posts_per_page' );
+		$total    = $wp_query->found_posts;
+		$first    = ( $per_page * $paged ) - $per_page + 1;
+		$last     = min( $total, $wp_query->get( 'posts_per_page' ) * $paged );
+		?>
 		<ul class="pagination [ text-center ]">
 			<li class="disabled"><a href="#!"><i class="[ icon icon-angle-left icon-xsmall ][ color-primary ][ line-height--30 ]"></i></a></li>
 			<li class="active"><a href="#!">1</a></li>
