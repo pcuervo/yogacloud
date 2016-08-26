@@ -70,49 +70,72 @@
 		?>
 	</section>
 
+	<?php
+		$promociones_args = array(
+			'post_type' => 'promociones',
+			'posts_per_page' => '3'
+		);
+		$promociones_query = new WP_Query( $promociones_args );
+		$promociones_count = 1;
+		$post_count = $promociones_query->post_count;
+		if( $promociones_query->have_posts() ) :
+	?>
+
 	<section class="[ container ]">
 		<div class="[ row ][ no-margin ]">
-			<article class="[ col s12 l6 ]">
-				<div class="[ card-image ][ relative ][ text-center ]">
-					<div class="[ background-image ][ height--440 ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-						<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical--xlarge ][ valign-wrapper ]">
-							<div class="[ valign ][ width---100 ]">
-								<h4 class="[ white-text ][ no-margin-top ]">Descuentos en calzado</h4>
-								<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--190 ][ valign ]">ver productos</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</article>
-			<div class="[ col s12 l6 ]">
-				<article>
-					<div class="[ card-image ][ relative ][ text-center ]">
-						<div class="[ background-image ][ height--210 ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">20% de descuento en mats</h4>
-									<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ]">ver productos</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-				<article>
-					<div class="[ card-image ][ relative ][ text-center ]">
-						<div  class="[ background-image ][ height--210 ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
-								<div class="[ valign ][ width---100 ]">
-									<h4 class="[ white-text ][ width---100 ][ no-margin-top ]">10% en toda la tienda con el código</h4>
-									<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded btn-light ]">yogclouder16</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</article>
-			</div>
 
+			<?php while( $promociones_query->have_posts() ) : $promociones_query->the_post();
+
+				$content = get_the_content();
+				$contentURL = wp_extract_urls( $content );
+
+				$bg_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+				if ( $promociones_count == 1 ) : ?>
+					<article class="[ col s12 m6 ]">
+						<div class="[ card-image ][ relative ][ text-center ]">
+							<div class="[ background-image ][ height--440 ]" style="background-image: url(<?php echo $bg_image; ?>)">
+								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical--xlarge ][ valign-wrapper ]">
+									<div class="[ valign ][ width---100 ]">
+										<h4 class="[ white-text ][ no-margin-top ]"><?php the_title(); ?></h4>
+										<a href="<?php echo $contentURL[0]; ?>" class="[ btn btn-rounded btn-light ][ margin-auto ][ width--190 ][ valign ]">ver más</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+				<?php endif; ?>
+
+				<?php if ( $promociones_count == 2 ) :
+					 echo '<div class="[ col s12 m6 ]">';
+				endif; ?>
+
+				<?php if ( $promociones_count != 1 ) : ?>
+					<article>
+						<div class="[ card-image ][ relative ][ text-center ]">
+							<div class="[ background-image ][ height--210 ]" style="background-image: url(<?php echo $bg_image; ?>)">
+								<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ][ padding-sides padding-vertical ][ valign-wrapper ]">
+									<div class="[ valign ][ width---100 ]">
+										<h4 class="[ white-text ][ width---100 ][ no-margin-top ]"><?php the_title(); ?></h4>
+										<a href="<?php echo $contentURL[0]; ?>" class="[ btn btn-rounded btn-light ]">ver más</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+				<?php endif; ?>
+
+				<?php if ($promociones_count == $post_count ) :
+					echo '</div>';
+				endif; ?>
+
+			<?php $promociones_count++; endwhile; ?>
 		</div>
 	</section>
+
+	<?php endif; ?>
+
 	<section class="[ margin-bottom ]">
 		<article class="[ gradient-diagonal ][ padding ]">
 			<div class="[ container ]">
@@ -155,20 +178,6 @@
 
 					wp_reset_query();
 				?>
-
-
-				<!-- <article id="box-card" class="[ col s12 m6 l4 productos ][ box-btn--middle ]">
-					<div class="[ card-image ][ relative ]">
-						<div class="[ bg-image--rectangle ][ width---100 ][ background-image ]" style="background-image: url(<?php echo THEMEPATH; ?>images/tienda2.png)">
-							<div class="[ gradient-linear-opacity--light-2 ][ width---100 height---100 ]">
-								<span class="[ title-image ]">Título del producto</span>
-							</div>
-						</div>
-					</div>
-					<div class="[ relative ][ bottom--22 ][ text-center ]">
-						<a class="[ btn btn-rounded ][ waves-effect waves-light ]">comprar - $900</a>
-					</div>
-				</article> -->
 			</div>
 		</div>
 	</section>
