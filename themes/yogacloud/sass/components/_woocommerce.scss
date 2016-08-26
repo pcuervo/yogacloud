@@ -242,6 +242,11 @@ ul.products {
 
 .variations select { display: block; background-color:#eee!important; }
 
+table.variations td.label {
+	display: inline-block;
+	margin-top: 10px;
+}
+
 //Cycle slider
 #cycle-1 div { width:100%; }
 #cycle-2 .cycle-slide { border:2px solid #fff; width: 20%!important; }
@@ -286,3 +291,5 @@ ul.products {
 		width: 100%;
 	}
 }
+
+
