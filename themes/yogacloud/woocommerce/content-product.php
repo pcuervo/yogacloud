@@ -27,7 +27,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ margin-bottom ]">
+<?php if ( is_page('tienda') ) { ?>
+	<div class="[ col s12 m6 ][ box-btn--middle ][ relative ][ margin-bottom ]">
+<?php } ?>
+<?php if ( ! is_page('tienda') ) { ?>
+	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ margin-bottom ]">
+<?php } ?>
 	<li <?php post_class(); ?>>
 		<div>
 			<?php
