@@ -45,20 +45,57 @@ if ( ! woocommerce_products_will_display() )
 	</div>
 </section>
 <section class="[ container ][ text-center ][ product-menu ]">
-		<a href="<?php echo site_url('producto-categoria/libros'); ?>">libros</a>
-		<a href="<?php echo site_url('producto-categoria/meditacion'); ?>">Meditación</a>
-		<!-- Dropdown Trigger -->
-		<a class='dropdown-button btn' href='#' data-activates='salud-belleza'>Salud y Belleza</a>
-			<!-- Dropdown Structure -->
-			<ul id='salud-belleza' class='dropdown-content'>
-				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/aromaterapia'); ?>">Aromaterápia</a></li>
-				<li><a href="<?php echo site_url('producto-categoria/salud-belleza/suplementos-alimenticios'); ?>">Suplementos alimenticios</a></li>
-			</ul>
-		<a href="<?php echo site_url('producto-categoria/musica'); ?>">Música</a>
-		<a href="<?php echo site_url('producto-categoria/joyeria'); ?>">Joyería</a>
-		<a href="<?php echo site_url('producto-categoria/ropa'); ?>">Ropa</a>
-		<a href="<?php echo site_url('producto-categoria/yoga'); ?>">Yoga</a>
-		<a href="<?php echo site_url('producto-categoria/arte-y-decoracion'); ?>">Arte y Decoración</a>
+	<?php
+	$taxonomy     = 'product_cat';
+	$orderby      = 'name';
+	$show_count   = 0;      // 1 for yes, 0 for no
+	$pad_counts   = 0;      // 1 for yes, 0 for no
+	$hierarchical = 1;      // 1 for yes, 0 for no
+	$title        = '';
+	$empty        = 0;
+
+	$args = array(
+	     'taxonomy'     => $taxonomy,
+	     'orderby'      => $orderby,
+	     'show_count'   => $show_count,
+	     'pad_counts'   => $pad_counts,
+	     'hierarchical' => $hierarchical,
+	     'title_li'     => $title,
+	     'hide_empty'   => $empty
+	);
+	$all_categories = get_categories( $args );
+	foreach ($all_categories as $cat) {
+		$hasChildren = get_term_children($cat->term_id, $taxonomy);
+		if($cat->category_parent == 0) {
+			$category_id = $cat->term_id;
+			if( $hasChildren ) {
+				echo '<a class="[ dropdown-button btn ]" href="#" data-activates="'.$cat->slug.'">'. $cat->name .'</a>';
+			} else {
+				echo '<a href="'. get_term_link($cat->slug, 'product_cat') .'">'. $cat->name .'</a>';
+			}
+
+			$args2 = array(
+			    'taxonomy'     => $taxonomy,
+			    'child_of'     => 0,
+			    'parent'       => $category_id,
+			    'orderby'      => $orderby,
+			    'show_count'   => $show_count,
+			    'pad_counts'   => $pad_counts,
+			    'hierarchical' => $hierarchical,
+			    'title_li'     => $title,
+			    'hide_empty'   => $empty
+	        );
+	        $sub_cats = get_categories( $args2 );
+	        if($sub_cats) { ?>
+	        	<ul id="<?php echo $cat->slug; ?>" class="dropdown-content">
+	            <?php foreach($sub_cats as $sub_category) {
+					echo '<li><a href="'. get_term_link($sub_category->slug, 'product_cat') .'">'. $sub_category->name .'</a></li>';
+	            } ?>
+	            </ul>
+	        <?php }
+	    }
+	}
+	?>
 </section>
 
 <p class="woocommerce-result-count [ container ][ margin-bottom ]">
