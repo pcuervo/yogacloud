@@ -27,13 +27,13 @@
 		$empty        = 1;
 
 		$args = array(
-		     'taxonomy'     => $taxonomy,
-		     'orderby'      => $orderby,
-		     'show_count'   => $show_count,
-		     'pad_counts'   => $pad_counts,
-		     'hierarchical' => $hierarchical,
-		     'title_li'     => $title,
-		     'hide_empty'   => $empty
+			'taxonomy'     => $taxonomy,
+			'orderby'      => $orderby,
+			'show_count'   => $show_count,
+			'pad_counts'   => $pad_counts,
+			'hierarchical' => $hierarchical,
+			'title_li'     => $title,
+			'hide_empty'   => $empty
 		);
 		$all_categories = get_categories( $args );
 		foreach ($all_categories as $cat) {
