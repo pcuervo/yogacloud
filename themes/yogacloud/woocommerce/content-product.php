@@ -27,7 +27,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ margin-bottom ]">
+<?php if ( is_page('tienda') ) { ?>
+	<div class="[ col s12 m6 ][ box-btn--middle ][ relative ][ margin-bottom ][ box-shadow ]">
+<?php } ?>
+<?php if ( ! is_page('tienda') ) { ?>
+	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ margin-bottom ][ box-shadow ]">
+<?php } ?>
 	<li <?php post_class(); ?>>
 		<div>
 			<?php
@@ -50,43 +55,44 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 				 */
 				do_action( 'woocommerce_before_shop_loop_item_title' );
 			?>
-			<div class="gradient-linear-opacity--light-2 size-gradient-product">
-				<div class="[ absolute ][ width---100 ][ text-center ][ title-product ]">
+		</div>
+		<div class="[ info-product ]">
+			<div class="[ text-center ][ title-product ][ valign-wrapper ]">
+				<?php
+					/**
+					 * woocommerce_shop_loop_item_title hook.
+					 *
+					 * @hooked woocommerce_template_loop_product_title - 10
+					 */
+					 do_action( 'woocommerce_shop_loop_item_title' );
+				 ?>
+			</div>
+			<div class="[ box-product-price ][ text-center ]">
+				<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
+					COMPRAR -
 					<?php
 						/**
-						 * woocommerce_shop_loop_item_title hook.
+						 * woocommerce_after_shop_loop_item_title hook.
 						 *
-						 * @hooked woocommerce_template_loop_product_title - 10
+						 * @hooked woocommerce_template_loop_rating - 5
+						 * @hooked woocommerce_template_loop_price - 10
 						 */
-						 do_action( 'woocommerce_shop_loop_item_title' );
-					 ?>
+						do_action( 'woocommerce_after_shop_loop_item_title' );
+					?>
+				</div>
+				<div class="[ buttons-cart ][ hidden ]">
+					<?php
+					/**
+					 * woocommerce_after_shop_loop_item hook.
+					 *
+					 * @hooked woocommerce_template_loop_product_link_close - 5
+					 * @hooked woocommerce_template_loop_add_to_cart - 10
+					 */
+					do_action( 'woocommerce_after_shop_loop_item' );
+					?>
 				</div>
 			</div>
 		</div>
-		<div class="[ box-product-price ][ text-center ]">
-			<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
-				COMPRAR -
-				<?php
-					/**
-					 * woocommerce_after_shop_loop_item_title hook.
-					 *
-					 * @hooked woocommerce_template_loop_rating - 5
-					 * @hooked woocommerce_template_loop_price - 10
-					 */
-					do_action( 'woocommerce_after_shop_loop_item_title' );
-				?>
-			</div>
-			<div class="[ buttons-cart ][ hidden ]">
-				<?php
-				/**
-				 * woocommerce_after_shop_loop_item hook.
-				 *
-				 * @hooked woocommerce_template_loop_product_link_close - 5
-				 * @hooked woocommerce_template_loop_add_to_cart - 10
-				 */
-				do_action( 'woocommerce_after_shop_loop_item' );
-				?>
-			</div>
-		</div>
+
 	</li>
 </div>
