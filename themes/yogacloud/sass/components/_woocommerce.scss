@@ -219,9 +219,6 @@ label[for=payment_method_paypal] { width: 100%; }
 	font-weight: 300;
 }
 
-
-
-
 ul.products {
 	a { color: #fff!important; }
 	a.woocommerce-LoopProduct-link {
@@ -230,18 +227,17 @@ ul.products {
 		.box-product {
 			img { width: 100%; height: auto; }
 			.onsale { display: none; } /*position: absolute;*/
-			.size-gradient-product {
-				height: 99%; width: 100%;
-				position: absolute; top: 0px;
-			}
 		}
+	}
+	.title-product h3 {
+		color: $dark-color!important;
+		margin-top: 0px; margin-bottom: 5px;
+	}
+}
 
-		/*.woocommerce-Price-amount.amount,
-		.woocommerce-Price-currencySymbol { position: absolute; }*/
-	}
-	.box-product-price {
-		position: relative; top: -25px;
-	}
+.box-shadow li {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	display:block;
 }
 
 .variations select { display: block; background-color:#eee!important; }
@@ -272,20 +268,21 @@ ul.products {
 /*Tienda*/
 
 .popular-product {
-	li.type-product { display: initial; margin-bottom: 30px; }
+	li.type-product { margin-bottom: 30px; }
 	.box-product {
 		position: relative;
-		margin-bottom: 30px;
 		.onsale { display: none; } /*position: absolute;*/
 		img { width: 100%; height: auto; }
-		.size-gradient-product {
-			height: 99%; width: 100%;
-			position: absolute; top: 0px;
-		}
 	}
-	.box-product-price{
-		position: absolute!important;
+}
+.info-product{
+	min-height: 127px;
+	.title-product {
+		min-height: 72px
+	}
+	.title-product h3 {
+		color: $dark-color!important;
+		margin-top: 0px; margin-bottom: 0px; padding: 10px;
 		width: 100%;
-		bottom: 0px;
 	}
 }
