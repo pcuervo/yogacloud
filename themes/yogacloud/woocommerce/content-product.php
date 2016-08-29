@@ -28,10 +28,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <?php if ( is_page('tienda') ) { ?>
-	<div class="[ col s12 m6 ][ box-btn--middle ][ relative ][ margin-bottom ][ box-shadow ]">
+	<div class="[ col s12 m6 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
 <?php } ?>
 <?php if ( ! is_page('tienda') ) { ?>
-	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ margin-bottom ][ box-shadow ]">
+	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
 <?php } ?>
 	<li <?php post_class(); ?>>
 		<div>
@@ -67,32 +67,36 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 					 do_action( 'woocommerce_shop_loop_item_title' );
 				 ?>
 			</div>
-			<div class="[ box-product-price ][ text-center ]">
-				<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
-					COMPRAR -
-					<?php
-						/**
-						 * woocommerce_after_shop_loop_item_title hook.
-						 *
-						 * @hooked woocommerce_template_loop_rating - 5
-						 * @hooked woocommerce_template_loop_price - 10
-						 */
-						do_action( 'woocommerce_after_shop_loop_item_title' );
-					?>
-				</div>
-				<div class="[ buttons-cart ][ hidden ]">
-					<?php
-					/**
-					 * woocommerce_after_shop_loop_item hook.
-					 *
-					 * @hooked woocommerce_template_loop_product_link_close - 5
-					 * @hooked woocommerce_template_loop_add_to_cart - 10
-					 */
-					do_action( 'woocommerce_after_shop_loop_item' );
-					?>
-				</div>
-			</div>
 		</div>
-
 	</li>
+	<?php if ( is_page('tienda') ) { ?>
+		<div class="[ box-product-price ][ text-center ][ relative top---55 ]">
+	<?php } ?>
+	<?php if ( ! is_page('tienda') ) { ?>
+		<div class="[ box-product-price ][ text-center ][ relative top---22 ]">
+	<?php } ?>
+		<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
+			VER -
+			<?php
+				/**
+				 * woocommerce_after_shop_loop_item_title hook.
+				 *
+				 * @hooked woocommerce_template_loop_rating - 5
+				 * @hooked woocommerce_template_loop_price - 10
+				 */
+				do_action( 'woocommerce_after_shop_loop_item_title' );
+			?>
+		</div>
+		<div class="[ buttons-cart ][ hidden ]">
+			<?php
+			/**
+			 * woocommerce_after_shop_loop_item hook.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_close - 5
+			 * @hooked woocommerce_template_loop_add_to_cart - 10
+			 */
+			do_action( 'woocommerce_after_shop_loop_item' );
+			?>
+		</div>
+	</div>
 </div>

@@ -273,23 +273,27 @@ table.variations td.label {
 /*Tienda*/
 
 .popular-product {
-	li.type-product { margin-bottom: 30px; }
+	li.type-product { margin-bottom: 30px; padding-bottom: 25px; }
 	.box-product {
 		position: relative;
 		.onsale { display: none; } /*position: absolute;*/
 		img { width: 100%; height: auto; }
 	}
 }
-.info-product{
-	min-height: 127px;
-	.title-product {
-		min-height: 72px
-	}
-	.title-product h3 {
-		color: $dark-color!important;
-		margin-top: 0px; margin-bottom: 0px; padding: 10px;
-		width: 100%;
+
+
+
+.content-product {
+	li.type-product { padding-bottom: 25px; }
+	.info-product{
+		min-height: 75px;
+		.title-product {
+			min-height: 72px
+		}
+		.title-product h3 {
+			color: $dark-color!important;
+			margin-top: 0px; margin-bottom: 0px; padding: 10px;
+			width: 100%;
+		}
 	}
 }
-
-
