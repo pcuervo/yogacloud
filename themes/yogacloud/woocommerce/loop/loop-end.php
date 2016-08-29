@@ -18,6 +18,9 @@
 ?>
 	</ul>
 	<section>
+		<?php
+
+		?>
 		<ul class="pagination [ text-center ]">
 			<li class="disabled"><a href="#!"><i class="[ icon icon-angle-left icon-xsmall ][ color-primary ][ line-height--30 ]"></i></a></li>
 			<li class="active"><a href="#!">1</a></li>
