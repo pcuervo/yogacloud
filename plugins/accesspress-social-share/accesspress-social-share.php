@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) or die( "No script kiddies please!" );
   Plugin name: Social Share WordPress Plugin - AccessPress Social Share
   Plugin URI: https://accesspressthemes.com/wordpress-plugins/accesspress-social-share/
   Description: A plugin to add various social media shares to a site with dynamic configuration options.
-  Version: 4.1.6
+  Version: 4.1.9
   Author: AccessPress Themes
   Author URI: http://accesspressthemes.com
   Text Domain: accesspress-social-share
@@ -30,7 +30,7 @@ if ( !defined( 'APSS_LANG_DIR' ) ) {
 }
 
 if ( !defined( 'APSS_VERSION' ) ) {
-	define( 'APSS_VERSION', '4.1.6' );
+	define( 'APSS_VERSION', '4.1.9' );
 }
 
 if ( !defined( 'APSS_TEXT_DOMAIN' ) ) {
@@ -153,9 +153,9 @@ if ( !class_exists( 'APSS_Class' ) ) {
 			$content = trim( strip_shortcodes( strip_tags( $post->post_content ) ) );
 
 			if ( strlen( $content ) >= 100 ) {
-				$excerpt = substr( $content, 0, 100 ) . '...';
+				$excerpt = urlencode(substr( $content, 0, 100 ) . '...');
 			} else {
-				$excerpt = $content;
+				$excerpt = urlencode($content);
 			}
 			$options = $this->apss_settings;
 			ob_start();
@@ -415,9 +415,9 @@ if ( !class_exists( 'APSS_Class' ) ) {
 				//for setting the counter transient in separate options value
 				$apss_social_counts_transients = get_option( APSS_COUNT_TRANSIENTS );
 				if ( false === $fb_transient_count ) {
-					$json_string    = $this->get_json_values( 'https://api.facebook.com/method/links.getStats?urls=' . $url . '&format=json' );
+					$json_string    = $this->get_json_values( 'https://graph.facebook.com/?id=' . $url );
 					$json           = json_decode( $json_string, true );
-					$facebook_count = isset( $json[0]['total_count'] ) ? intval( $json[0]['total_count'] ) : 0;
+					$facebook_count = isset( $json['share']['share_count'] ) ? intval( $json['share']['share_count'] ) : 0;
 					set_transient( $fb_transient, $facebook_count, $cache_period * HOUR_IN_SECONDS );
 					if ( !in_array( $fb_transient, $apss_social_counts_transients ) ) {
 						$apss_social_counts_transients[] = $fb_transient;
@@ -428,11 +428,94 @@ if ( !class_exists( 'APSS_Class' ) ) {
 				}
 				////////////////////////for transient ends ///////////////////////////
 			}else{
-				$json_string    = $this->get_json_values( 'https://api.facebook.com/method/links.getStats?urls=' . $url . '&format=json' );
+				$json_string    = $this->get_json_values( 'https://graph.facebook.com/?id=' . $url );
 				$json           = json_decode( $json_string, true );
-				$facebook_count = isset( $json[0]['total_count'] ) ? intval( $json[0]['total_count'] ) : 0;
+				$facebook_count = isset( $json['share']['share_count'] ) ? intval( $json['share']['share_count'] ) : 0;
 			}
 			return $facebook_count;
+		}
+
+		/**
+		* Get Facebook Access Token
+		* */
+		function get_fb_access_token(){
+		$apss_settings = $this->apss_settings;
+		$app_id = $apss_settings['api_configuration']['facebook']['app_id'];
+		$app_secret = $apss_settings['api_configuration']['facebook']['app_secret'];
+		$api_url = 'https://graph.facebook.com/';
+		$app_id= $apss_settings['api_configuration']['facebook']['app_id'];  // '1779750458903669' ; 
+		$app_secret = $apss_settings['api_configuration']['facebook']['app_secret']; // 'd9adea962115a185d6ab275b33a8fef8';
+		$url = sprintf(
+			'%soauth/access_token?client_id=%s&client_secret=%s&grant_type=client_credentials',
+			$api_url,
+			$app_id ,
+			$app_secret
+		);
+
+		$access_token = wp_remote_get( $url, array( 'timeout' => 60 ) );
+		if ( is_wp_error( $access_token ) || ( isset( $access_token['response']['code'] ) && 200 != $access_token['response']['code'] ) ) {
+			return '';
+		} else {
+			return sanitize_text_field( $access_token['body'] );
+		}
+		}
+
+		function new_get_fb($url){
+			$apss_settings = $this->apss_settings;
+
+			if(isset($apss_settings['api_configuration']['facebook']['app_id']) && $apss_settings['api_configuration']['facebook']['app_id'] !='' ){
+				$fb_app_id = $apss_settings['api_configuration']['facebook']['app_id'];
+			}
+
+			if(isset($apss_settings['api_configuration']['facebook']['app_secret']) && $apss_settings['api_configuration']['facebook']['app_secret'] !='' ){
+				$fb_app_secret = $apss_settings['api_configuration']['facebook']['app_id'];
+			}
+			
+			if(!isset($fb_app_id) || !isset($fb_app_secret)){
+					$facebook_count = self:: get_fb($url);
+					return $facebook_count;
+			}else{
+					$access_token = self:: get_fb_access_token();
+		            $api_url = 'https://graph.facebook.com/v2.6/';
+					$facebook_count = sprintf(
+						'%s?%s&id=%s',
+						$api_url,
+						$access_token,
+						$url
+					);
+
+					$apss_settings = $this->apss_settings;
+					if(!isset($apss_settings['enable_cache']) || $apss_settings['enable_cache'] == '1'){
+						////////////////////////for transient//////////////////////////////
+						$cache_period        = $apss_settings['cache_period'];
+						$fb_transient        = 'fb_' . md5( $url );
+						$fb_transient_count  = get_transient( $fb_transient );
+
+						//for setting the counter transient in separate options value
+						$apss_social_counts_transients = get_option( APSS_COUNT_TRANSIENTS );
+						if ( false === $fb_transient_count ) {
+							$json_string    = $this->get_json_values($facebook_count);
+							$json           = json_decode( $json_string, true );
+							$facebook_count = isset( $json['share']['share_count'] ) ? intval( $json['share']['share_count'] ) : 0;
+							set_transient( $fb_transient, $facebook_count, $cache_period * HOUR_IN_SECONDS );
+							if ( !in_array( $fb_transient, $apss_social_counts_transients ) ) {
+								$apss_social_counts_transients[] = $fb_transient;
+								update_option( APSS_COUNT_TRANSIENTS, $apss_social_counts_transients );
+							}
+						} else {
+							$facebook_count = $fb_transient_count;
+						}
+						////////////////////////for transient ends ///////////////////////////
+					}else{
+						$json_string    = $this->get_json_values($facebook_count);
+						$json           = json_decode( $json_string, true );
+						$facebook_count = isset( $json['share']['share_count'] ) ? intval( $json['share']['share_count'] ) : 0;
+					}
+					return $facebook_count;
+				
+			}
+
+
 		}
 
 		//for twitter url share count
@@ -620,7 +703,7 @@ if ( !class_exists( 'APSS_Class' ) ) {
 		function get_count( $profile_name, $url ) {
 			switch ( $profile_name ) {
 				case 'facebook':
-					$count = $this->get_fb( $url );
+					$count = $this->new_get_fb( $url );
 					break;
 
 				case 'twitter':

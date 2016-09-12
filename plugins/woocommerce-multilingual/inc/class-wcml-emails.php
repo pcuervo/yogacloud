@@ -63,8 +63,11 @@ class WCML_Emails{
         }
 
         add_filter( 'get_post_metadata', array( $this, 'filter_payment_method_string' ), 10, 4 );
-        add_filter( 'woocommerce_order_get_items', array( $this, 'filter_order_items' ), 10, 2 );
-        add_filter( 'woocommerce_order_items_meta_get_formatted', array( $this, 'filter_formatted_items' ), 10, 2 );
+
+        if( !isset( $_GET['post_type'] ) || $_GET['post_type'] != 'shop_order' ){
+            add_filter( 'woocommerce_order_get_items', array( $this, 'filter_order_items' ), 10, 2 );
+            add_filter( 'woocommerce_order_items_meta_get_formatted', array( $this, 'filter_formatted_items' ), 10, 2 );
+        }
     }
 
     function email_refresh_in_ajax(){
@@ -278,7 +281,7 @@ class WCML_Emails{
 
     function filter_formatted_items( $formatted_meta, $object ){
 
-        if(  $object->product->variation_id ){
+        if( $object->product->variation_id ){
 
             $current_prod_variation_id = apply_filters( 'translate_object_id', $object->product->variation_id, 'product_variation', false );
 
@@ -420,7 +423,7 @@ class WCML_Emails{
             $section_name = str_replace( '_settings', '', $section_name );
             if( isset( $_GET['section'] ) && $_GET['section'] == $section_name ){
 
-                $option_settings = get_option($emails_option);
+                $option_settings = get_option( $emails_option );
                 foreach ($option_settings as $setting_key => $setting_value) {
                     if ( in_array( $setting_key, $text_keys ) ) {
                         $input_name = str_replace( '_settings', '', $emails_option ).'_'.$setting_key;
@@ -448,7 +451,7 @@ class WCML_Emails{
                             if (input.length) {
                                 input.parent().append('<div class="translation_controls"></div>');
                                 input.parent().find('.translation_controls').append('<a href="<?php echo $st_page ?>" style="margin-left: 10px"><?php _e('translations', 'woocommerce-multilingual') ?></a>');
-                                jQuery('#<?php echo $emails_option.'_'.$setting_key.'_language_selector' ?>').appendTo(input.parent().find('.translation_controls'));
+                                jQuery('#<?php echo $emails_option.'_'.$setting_key.'_language_selector' ?>').prependTo(input.parent().find('.translation_controls'));
                             }
                         </script>
                     <?php }

@@ -7,9 +7,9 @@ Author URI: https://nazrulhassan.wordpress.com/
 Author: nazrulhassanmca
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=nazrulhassan@ymail.com&item_name=Donation+Stripe+Woocommerce+Addon
 Requires at least: WP 4.0  & WooCommerce 2.2+
-Tested up to: 4.4.3 & WooCommerce 2.6.2
-Stable tag: 1.0.7
-Version: 1.0.7
+Tested up to: 4.6 & WooCommerce 2.6.4
+Stable tag: 1.0.8
+Version: 1.0.8
 License: http://www.gnu.org/licenses/gpl-3.0.html
 
 
@@ -27,7 +27,7 @@ PCI compliance by: <a href="https://github.com/cimrie">Conner Imrie</a> and <a h
 3. Prerequisite visualized on screenshots.
 4. Adds Charde Id and Charge time to Order Note.
 5. This plugin can be customized easily.
-6. This plugin ships official <a href="https://github.com/stripe/stripe-php">Stripe® 3.9.2 Library</a>.
+6. This plugin ships official <a href="https://github.com/stripe/stripe-php">Stripe® 3.20.0 Library</a>.
 7. Single checkbox to set plugin in Sandbox/Live mode.
 8. This plugin does not store **Credit Card Details**
 9. This plugin uses <a href="https://stripe.com/docs/stripe.js">Stripe.js</a> to create tokens and charge the cards.
@@ -90,6 +90,10 @@ https://www.youtube.com/watch?v=yCMWGpOFKlA&feature=youtu.be
 
 
 == Changelog ==
+2016.08.16 - Version 1.0.8
+
+	1. Updated Stripe official library to 3.20.x
+	2. Added support for TLS 1.2 by stripe library update
 
 2016.06.05 - Version 1.0.7
 
