@@ -16,7 +16,7 @@
 			<?php echo $trailer_info['iframe']; ?>
 		</div>
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ hide-on-small-and-down ][ background-image ]" style="background-image: url(<?php echo $trailer_info['thumbnail']; ?>">
-			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]">
+			<div class="[  ][ height---100 ][ relative ]">
 				<div class="[ container relative ][ height---100 ] valign-wrapper">
 					<a id="play-button" class="[ valign ][ block ][ width--80 height--80 ][ margin-auto ][ btn btn-rounded ][ waves-effect waves-light ]">
 						<img class="[ center-full ]" src="<?php echo THEMEPATH; ?>icons/play-button.png" alt="play button">
@@ -28,7 +28,7 @@
 <?php else: ?>
 	<section id="video-whit-button" class="[ min-height--350 min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ background-image ]" style="background-image: url(<?php echo $url; ?>">
-			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]"></div>
+			<div class="[ height---100 ][ relative ]"></div>
 		</div>
 	</section>
 <?php endif; ?>
@@ -80,7 +80,13 @@
 		</div>
 	</article>
 	<div class="[ text-center ][ hidden ]">
-		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">regalar curso</a>
+		<a class="[ btn btn-rounded btn-primary-hollow waves-effect waves-light ][ text-center ]">
+			<?php if( 'es' == $lang ) : ?>
+				regalar curso
+			<?php else : ?>
+				give as a gift
+			<?php endif; ?>
+		</a>
 	</div>
 </section>
 <div class="[ container ]">

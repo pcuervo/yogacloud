@@ -32,9 +32,21 @@
 
 <div class="[ container ]">
 	<section>
-		<h4 class="[ text-center ]">Lecciones</h4>
+		<h4 class="[ text-center ]">
+			<?php if( 'es' == $lang ) : ?>
+				Lecciones
+			<?php else : ?>
+				Lessons
+			<?php endif; ?>
+		</h4>
 		<?php if( empty( $lecciones ) ) : ?>
-			<p class="[ text-center ]">Por el momento no hay lecciones en este módulo.</p>
+			<p class="[ text-center ]">
+				<?php if( 'es' == $lang ) : ?>
+					Por el momento no hay lecciones en este módulo.
+				<?php else : ?>
+					There are no lessons in this module at the time.
+				<?php endif; ?>
+			</p>
 		<?php else : ?>
 			<?php foreach ( $lecciones as $lesson ) : ?>
 				<div class="[ border-bottom--dark ]">
@@ -59,7 +71,13 @@
 	<section class="[ text-center ]">
 		<a href="<?php echo $curso->get_permalink() ?>" class="[ height--40 line-height--37 ][ btn btn-rounded ][ waves-effect waves-light ][ margin-right--xsmall ]">
 			<i class="[ no-margin-sides ][ hidden--large ][ icon icon-angle-left icon-xsmall ][ color-light ]"></i>
-			<span class="[ middle inline-block ]">ir a curso</span>
+			<span class="[ middle inline-block ]">
+				<?php if( 'es' == $lang ) : ?>
+					ir a curso
+				<?php else : ?>
+					go to course
+				<?php endif; ?>
+			</span>
 		</a>
 	</section>
 </div>

@@ -31,7 +31,7 @@ if ( ! $product->is_purchasable() ) {
 <?php
 	// Availability
 	$availability      = $product->get_availability();
-	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
+	$availability_html = empty( $availability['availability'] ) ? '' : '<p class="[ color-primary ][ font-size--18 ][ text-bold ] stock ' . esc_attr( $availability['class'] ) . '">' . esc_html( $availability['availability'] ) . '</p>';
 
 	echo apply_filters( 'woocommerce_stock_html', $availability_html, $availability['availability'], $product );
 ?>
@@ -55,7 +55,7 @@ if ( ! $product->is_purchasable() ) {
 
 	 	<input type="hidden" name="add-to-cart" value="<?php echo esc_attr( $product->id ); ?>" />
 
-	 	<button type="submit" class="[ btn btn-rounded waves-effect waves-light ][ margin-bottom ] single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+	 	<button type="submit" class="[ btn btn-rounded waves-effect waves-light ][ margin-bottom ][ float-left ] single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 	</form>

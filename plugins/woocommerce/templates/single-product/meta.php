@@ -26,6 +26,7 @@ $cat_count = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
 $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
 ?>
+<div class="[ clearfix ]"></div>
 <div class="product_meta">
 
 	<?php do_action( 'woocommerce_product_meta_start' ); ?>
@@ -43,3 +44,5 @@ $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 	<?php do_action( 'woocommerce_product_meta_end' ); ?>
 
 </div>
+
+<p class="[ color-primary ][ font-size--18 ][ text-bold ]">Entrega de 2 a 4 días hábiles</p>

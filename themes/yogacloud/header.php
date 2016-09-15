@@ -89,6 +89,7 @@
 			ga('create', 'UA-80727980-1', 'auto');
 			ga('send', 'pageview');
 		</script>
+
 	</head>
 
 	<body>
@@ -244,7 +245,7 @@
 										<?php if( 'es' == $lang ) : ?>
 											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/#cursos')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 										<?php else : ?>
-											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+											<a class="[ white-text ][ block padding-vertical ][ margin-top--small ] <?php if(site_url('/')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#cursos'); ?>">Courses</a>
 										<?php endif; ?>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
@@ -252,7 +253,7 @@
 										<a class="[ white-text ][ block padding-vertical ]" href="https://yogacloud.net/" target="_blank">Yoga online</a>
 									</h5>
 									<div class="divider [ width--50 ][ margin-auto ]"></div>
-									<?php //do_action('wpml_add_language_selector'); ?>
+									<?php do_action('wpml_add_language_selector'); ?>
 								</div>
 								<div class="[ container ]">
 									<div class="[ footer-menu ]">
@@ -297,7 +298,7 @@
 							<?php if( 'es' == $lang ) : ?>
 								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/#cursos'); ?>">Cursos</a>
 							<?php else : ?>
-								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('/?lang=en'); ?>">Courses</a>
+								<a class="<?php if(is_page('curso')) echo 'active'; ?>" href="<?php echo site_url('?lang=en#cursos'); ?>">Courses</a>
 							<?php endif; ?>
 
 						<?php } ?>
@@ -333,8 +334,13 @@
 								<a class="" href="<?php echo site_url('my-account/?lang=en'); ?>">Login / Register</a><!-- <?php if(site_url('my-account/?lang=en')) echo 'active'; ?> -->
 							<?php endif; ?>
 						<?php } ?>
+						<?php if( 'es' == $lang ) : ?>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda'); ?>">Tienda</a>
+							<?php else : ?>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('tienda/?lang=en'); ?>">Store</a>
+							<?php endif; ?>
 						<!-- language -->
-						<?php //do_action('wpml_add_language_selector'); ?>
+						<?php do_action('wpml_add_language_selector'); ?>
 					</div>
 				</div>
 			</nav>

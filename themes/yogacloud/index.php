@@ -38,7 +38,7 @@
 				<?php if( 'es' == $lang ) : ?>
 					ver cursos
 				<?php else : ?>
-					see course
+					see courses
 				<?php endif; ?>
 			</a>
 		</div>
@@ -73,66 +73,68 @@
 				?>
 
 					<article class="[ col s12 m6 ] <?php if ($query_count == $post_count AND $query_count % 2 == 1 ) { echo '[ last-odd ]'; } ?>">
-						<div id="box-card" class="[ card ]">
-							<div class="[ row ]">
-								<div class="[ card-image ][ col s6 ]">
-									<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
-										<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-											<div class="[ gradient-linear-opacity--gray ][ width---100 height---100 ][ relative ]">
-										<?php else : ?>
-											<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
-										<?php endif; ?>
-												<!-- new -->
-												<?php if( $curso->is_new ) : ?>
-													<?php if( 'es' == $lang ) : ?>
-														<div id="promo" class="[ nuevo ]"></div>
-													<?php else : ?>
-														<div id="promo" class="[ nuevo promo-traduction ]"></div>
+						<a href="<?php echo get_the_permalink() ?>">
+							<div id="box-card" class="[ card ]">
+								<div class="[ row ]">
+									<div class="[ card-image ][ col s6 ]">
+										<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
+											<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+												<div class="[ width---100 height---100 ][ relative ]">
+											<?php else : ?>
+												<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+											<?php endif; ?>
+													<!-- new -->
+													<?php if( $curso->is_new ) : ?>
+														<?php if( 'es' == $lang ) : ?>
+															<div id="promo" class="[ nuevo ]"></div>
+														<?php else : ?>
+															<div id="promo" class="[ nuevo promo-traduction ]"></div>
+														<?php endif; ?>
 													<?php endif; ?>
-												<?php endif; ?>
 
-												<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-													<a href="<?php echo get_the_permalink() ?>"><i class="[ icon icon-candado-cerrado icon-iconed ][ color-light ][ absolute bottom-10 ]"></i></a>
-												<?php endif; ?>
-											</div>
+													<?php if ( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+														<i class="[ icon icon-candado-cerrado icon-iconed ][ color-light ][ absolute bottom-10 ]"></i>
+													<?php endif; ?>
+												</div>
+										</div>
 									</div>
-								</div>
-								<div class="[ col s6 ]">
-									<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ]">
-										<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong><?php the_title(); ?></strong></h5>
-										<?php echo $curso->subtitle; ?>
-										<div class="[ gradient-text ]"></div>
-									</div>
-									<div class="[ relative ][ top--22 ][ text-center ]">
-										<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
-												<?php if( 'es' == $lang ) : ?>
-													ver curso
-												<?php else : ?>
-													see courses
-												<?php endif; ?>
-											</a>
-										<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded disabled waves-effect waves-light ]">
-												<?php if( 'es' == $lang ) : ?>
-													próximamente
-												<?php else : ?>
-													coming soon
-												<?php endif; ?>
-											</a>
-										<?php else : ?>
-											<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
-												<?php if( 'es' == $lang ) : ?>
-													más info
-												<?php else : ?>
-													more info
-												<?php endif; ?>
-											</a>
-										<?php endif; ?>
+									<div class="[ col s6 ]">
+										<div class="[ card-content ][ height-content ][ overflow-hidden ][ relative ][ color-dark ]">
+											<h5 class="[ card-title ][ no-margin margin-bottom ]"><strong class="[ color-dark ]"><?php the_title(); ?></strong></h5>
+											<?php echo $curso->subtitle; ?>
+											<div class="[ gradient-text ]"></div>
+										</div>
+										<div class="[ relative ][ top--22 ][ text-center ]">
+											<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
+													<?php if( 'es' == $lang ) : ?>
+														ver curso
+													<?php else : ?>
+														see courses
+													<?php endif; ?>
+												</a>
+											<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
+													<?php if( 'es' == $lang ) : ?>
+														próximamente
+													<?php else : ?>
+														coming soon
+													<?php endif; ?>
+												</a>
+											<?php else : ?>
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
+													<?php if( 'es' == $lang ) : ?>
+														más info
+													<?php else : ?>
+														more info
+													<?php endif; ?>
+												</a>
+											<?php endif; ?>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
+						</a>
 					</article>
 					<?php
 					    if ($query_count % 2 == 0) {
@@ -224,7 +226,7 @@
 	<?php if ( ! is_user_logged_in() ){ ?>
 
 		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
-			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
+			<div class="[ gradient-linear-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
 					<h5>
 						<?php if( 'es' == $lang ) : ?>
@@ -243,6 +245,7 @@
 				</div>
 			</div>
 		</section>
+		<div class="[ clearfix ]"></div>
 
 	<?php } ?>
 

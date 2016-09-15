@@ -24,6 +24,14 @@ $apss_share_settings['share_text']						= sanitize_text_field( $_POST['apss_shar
 $apss_share_settings['twitter_username']				= stripslashes_deep( $_POST['apss_share_settings']['twitter_username'] );
 $apss_share_settings['counter_enable_options']			= $_POST['apss_share_settings']['counter_enable_options'];
 $apss_share_settings['twitter_counter_api']				= $_POST['apss_share_settings']['twitter_counter_api'];
+
+$fb_app_id = isset( $_POST['apss_share_settings']['api_configuration']['facebook']['app_id'] ) ? $_POST['apss_share_settings']['api_configuration']['facebook']['app_id'] : '';
+$fb_app_secret = isset( $_POST['apss_share_settings']['api_configuration']['facebook']['app_secret'] ) ? $_POST['apss_share_settings']['api_configuration']['facebook']['app_secret'] : '';
+$apss_share_settings['api_configuration']['facebook'] =  array(
+														'app_id'=> $fb_app_id,
+														'app_secret'=>$fb_app_secret
+														);
+										
 $apss_share_settings['total_counter_enable_options']	= $_POST['apss_share_settings']['total_counter_enable_options'];
 $apss_share_settings['enable_cache']					= $_POST['apss_share_settings']['enable_cache'];
 $apss_share_settings['cache_period']					= is_numeric( $_POST['apss_share_settings']['cache_settings'] ) ? $_POST['apss_share_settings']['cache_settings'] : '24';
