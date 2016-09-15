@@ -141,7 +141,9 @@ function get_user_cursos( $user_id ) {
 
     while ( $course_query->have_posts() ) : $course_query->the_post();
     	$_product = get_product( $course_query->post->ID );
-    	if ( wc_customer_bought_product( $customer_email, $user_id,$_product->id ) ) {
+    	$en_id = icl_object_id( $_product->id, 'product', true, 'en');
+		$es_id = icl_object_id( $_product->id, 'product', true, 'es');
+    	if ( wc_customer_bought_product( $customer_email, $user_id, $en_id ) ||wc_customer_bought_product( $customer_email, $user_id, $es_id)  ) {
 			$curso = new YC_Curso( $course_query->post->ID );
 			array_push( $cursos, $curso );
     	}
@@ -152,7 +154,6 @@ function get_user_cursos( $user_id ) {
 /*------------------------------------*\
 	#AJAX FUNCTIONS
 \*------------------------------------*/
-
 
 
 
