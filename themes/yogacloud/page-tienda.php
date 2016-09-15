@@ -1,14 +1,35 @@
-<?php get_header(); the_post();  ?>
+<?php get_header(); the_post();
+	$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+?>
 
 	<section class="[ main-banner ][ box-btn ][ background-image ][ background-image--woman ]">
 		<div class="[ gradient-linear-opacity ]">
 			<div class="[ container ]">
 				<div class="[ row ]">
 					<div class="[ col s12 ][ white-text text-center ]">
-						<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
-						<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
+						<h1 class="[ padding-sides ]">
+							<?php if( 'es' == $lang ) : ?>
+								Yoga cloud tienda
+							<?php else : ?>
+								Yoga cloud store
+							<?php endif; ?>
+						</h1>
+						<h2 class="[ padding-sides ]">
+							<?php if( 'es' == $lang ) : ?>
+								Primum in nostrane potestate est quid meminerimus duo.
+							<?php else : ?>
+								Primum in nostrane potestate est quid meminerimus duo.
+							<?php endif; ?>
+						</h2>
 						<div class="[ relative ][ top--22 ]">
-							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
+								<?php if( 'es' == $lang ) : ?>
+									<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">
+									ver todos los productos
+								<?php else : ?>
+									<a href="<?php echo site_url('/productos/?lang=en'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">
+									see all products
+								<?php endif; ?>
+							</a>
 						</div>
 					</div>
 				</div>
@@ -139,7 +160,13 @@
 	<section class="[ margin-bottom ]">
 		<article class="[ gradient-diagonal ][ padding ]">
 			<div class="[ container ]">
-				<h5 class="[ text-center ][ white-text ][ margin-bottom ]">Las marcas más vendidas</h5>
+				<h5 class="[ text-center ][ white-text ][ margin-bottom ]">
+					<?php if( 'es' == $lang ) : ?>
+						Las marcas más vendidas
+					<?php else : ?>
+						The best-selling brands
+					<?php endif; ?>
+				</h5>
 				<div class="[ row ]">
 					<?php
 						$marcas_args = array(
@@ -158,7 +185,13 @@
 
 		</article>
 		<div class="[ container ]">
-			<h5 class="[ text-center ][ margin-bottom ]">Lo más vendido</h5>
+			<h5 class="[ text-center ][ margin-bottom ]">
+				<?php if( 'es' == $lang ) : ?>
+					Lo más vendido
+				<?php else : ?>
+					The most sold
+				<?php endif; ?>
+			</h5>
 			<div class="[ row ][ popular-product ]">
 
 				<?php

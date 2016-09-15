@@ -30,7 +30,7 @@ $tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 if ( ! empty( $tabs ) ) : ?>
 
-	<div class="woocommerce-tabs wc-tabs-wrapper">
+	<div class="woocommerce-tabs wc-tabs-wrapper[ margin-bottom--xlarge ]">
 		<ul class="tabs wc-tabs [ hidden ]">
 			<?php foreach ( $tabs as $key => $tab ) : ?>
 				<li class="<?php echo esc_attr( $key ); ?>_tab [ margin-right--small ]">

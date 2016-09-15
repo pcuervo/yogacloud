@@ -36,7 +36,13 @@ if ( ! woocommerce_products_will_display() )
 					<h2 class="[ padding-sides ]"> Primum in nostrane potestate est quid meminerimus duo.</h2>
 					<?php if( ! is_page('productos') ) { ?>
 						<div class="[ relative ][ top--22 ]">
-							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">ver todos los productos</a>
+							<a href="<?php echo site_url('/productos/'); ?>" class="[ btn btn-rounded ][ waves-effect waves-light ]">
+								<?php if( 'es' == $lang ) : ?>
+									ver todos los productos
+								<?php else : ?>
+									see all products
+								<?php endif; ?>
+							</a>
 						</div>
 					<?php } ?>
 				</div>

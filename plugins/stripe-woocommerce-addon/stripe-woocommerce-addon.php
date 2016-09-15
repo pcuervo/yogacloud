@@ -3,7 +3,7 @@
  * Plugin Name: Stripe WooCommerce Addon
  * Plugin URI: https://wordpress.org/plugins/stripe-woocommerce-addon/
  * Description: This plugin adds a payment option in WooCommerce for customers to pay with their Credit Cards Via Stripe.
- * Version: 1.0.7
+ * Version: 1.0.8
  * Author: Syed Nazrul Hassan
  * Author URI: https://nazrulhassan.wordpress.com/
  * Author Email: nazrulhassanmca@gmail.com
@@ -17,7 +17,7 @@ function stripe_init()
 
 	if(!class_exists('Stripe'))
 	{
-		include(plugin_dir_path( __FILE__ )."lib/Stripe.php");
+		include(plugin_dir_path( __FILE__ )."lib/init.php");
 	}
 	function add_stripe_gateway_class( $methods ) 
 	{
@@ -251,62 +251,62 @@ function stripe_init()
 
 
 public function get_description() {
-return apply_filters( 'woocommerce_gateway_description',wpautop(wptexturize(trim($this->stripe_description))), $this->id );
+	return apply_filters( 'woocommerce_gateway_description',wpautop(wptexturize(trim($this->stripe_description))), $this->id );
 }
 
 
 /*Is Avalaible*/
 public function is_available() {
-if ( ! in_array( get_woocommerce_currency(), apply_filters( 'stripe_woocommerce_supported_currencies', array( 'AED','ALL','ANG','ARS','AUD','AWG','BBD','BDT','BIF','BMD','BND','BOB','BRL','BSD','BWP','BZD','CAD','CHF','CLP','CNY','COP','CRC','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ETB','EUR','FJD','FKP','GBP','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','ISK','JMD','JPY','KES','KHR','KMF','KRW','KYD','KZT','LAK','LBP','LKR','LRD','MAD','MDL','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MYR','NAD','NGN','NIO','NOK','NPR','NZD','PAB','PKR','PLN','PYG','QAR','RUB','SAR','SBD','SCR','SEK','SGD','SHP','SLL','SOS','STD','SVC','SZL','THB','TOP','TTD','TWD','TZS','UAH','UGX','USD','UYU','UZS','VND','VUV','WST','XAF','XOF','XPF','YER','ZAR','AFN','AMD','AOA','AZN','BAM','BGN','CDF','GEL','KGS','LSL','MGA','MKD','MZN','RON','RSD','RWF','SRD','TJS','TRY','XCD','ZMW' ) ) ) ) 
-	{ return false; }
+	if ( ! in_array( get_woocommerce_currency(), apply_filters( 'stripe_woocommerce_supported_currencies', array( 'AED','ALL','ANG','ARS','AUD','AWG','BBD','BDT','BIF','BMD','BND','BOB','BRL','BSD','BWP','BZD','CAD','CHF','CLP','CNY','COP','CRC','CVE','CZK','DJF','DKK','DOP','DZD','EGP','ETB','EUR','FJD','FKP','GBP','GIP','GMD','GNF','GTQ','GYD','HKD','HNL','HRK','HTG','HUF','IDR','ILS','INR','ISK','JMD','JPY','KES','KHR','KMF','KRW','KYD','KZT','LAK','LBP','LKR','LRD','MAD','MDL','MNT','MOP','MRO','MUR','MVR','MWK','MXN','MYR','NAD','NGN','NIO','NOK','NPR','NZD','PAB','PKR','PLN','PYG','QAR','RUB','SAR','SBD','SCR','SEK','SGD','SHP','SLL','SOS','STD','SVC','SZL','THB','TOP','TTD','TWD','TZS','UAH','UGX','USD','UYU','UZS','VND','VUV','WST','XAF','XOF','XPF','YER','ZAR','AFN','AMD','AOA','AZN','BAM','BGN','CDF','GEL','KGS','LSL','MGA','MKD','MZN','RON','RSD','RWF','SRD','TJS','TRY','XCD','ZMW' ) ) ) ) 
+		{ return false; }
 
 
-if( 'yes'  == $this->stripe_sandbox && (empty($this->stripe_testpublickey) || empty($this->stripe_testsecretkey))) 
-	{ return false; }
+	if( 'yes'  == $this->stripe_sandbox && (empty($this->stripe_testpublickey) || empty($this->stripe_testsecretkey))) 
+		{ return false; }
 
-if( 'no'  == $this->stripe_sandbox && (empty($this->stripe_livepublickey) || empty($this->stripe_livesecretkey)))
-	{ return false; }
+	if( 'no'  == $this->stripe_sandbox && (empty($this->stripe_livepublickey) || empty($this->stripe_livesecretkey)))
+		{ return false; }
 
-return true;
+	return true;
 }
 /*end is availaible*/
 
 public function do_ssl_check()
 {
-if( 'yes'  != $this->stripe_sandbox && "no" == get_option( 'woocommerce_force_ssl_checkout' )  && "yes" == $this->enabled ) {
-	echo "<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>"; 
-}
+	if( 'yes'  != $this->stripe_sandbox && "no" == get_option( 'woocommerce_force_ssl_checkout' )  && "yes" == $this->enabled ) {
+		echo "<div class=\"error\"><p>". sprintf( __( "<strong>%s</strong> is enabled and WooCommerce is not forcing the SSL on your checkout page. Please ensure that you have a valid SSL certificate and that you are <a href=\"%s\">forcing the checkout pages to be secured.</a>" ), $this->method_title, admin_url( 'admin.php?page=wc-settings&tab=checkout' ) ) ."</p></div>"; 
+	}
 }
 
 
 public function load_stripe_scripts() {
 
-wp_enqueue_script( 'stripe', 'https://js.stripe.com/v2/', false, '2.0', true );
+	wp_enqueue_script( 'stripe', 'https://js.stripe.com/v2/', false, '2.0', true );
 
-wp_enqueue_script( 'stripewoojs', plugins_url( 'assets/js/stripewoo.js',  __FILE__  ), array( 'stripe', 'wc-credit-card-form' ), '', true );
+	wp_enqueue_script( 'stripewoojs', plugins_url( 'assets/js/stripewoo.js',  __FILE__  ), array( 'stripe', 'wc-credit-card-form' ), '', true );
 
-$stripe_array = array(
-	'stripe_publishablekey'    => $this->stripe_sandbox == 'yes' ? $this->stripe_testpublickey : $this->stripe_livepublickey);
+	$stripe_array = array(
+		'stripe_publishablekey'    => $this->stripe_sandbox == 'yes' ? $this->stripe_testpublickey : $this->stripe_livepublickey);
 
 
-if ( is_checkout_pay_page() ) {
-	$order_key = urldecode( $_GET['key'] );
-	$order_id  = absint( get_query_var( 'order-pay' ) );
-	$order     = new WC_Order( $order_id );
+	if ( is_checkout_pay_page() ) {
+		$order_key = urldecode( $_GET['key'] );
+		$order_id  = absint( get_query_var( 'order-pay' ) );
+		$order     = new WC_Order( $order_id );
 
-	if ( $order->id == $order_id && $order->order_key == $order_key ) {
-		$stripe_array['billing_name']      = $order->billing_first_name.' '.$order->billing_last_name;
-		$stripe_array['billing_address_1'] = $order->billing_address_1;
-		$stripe_array['billing_address_2'] = $order->billing_address_2;
-		$stripe_array['billing_city']      = $order->billing_city;
-		$stripe_array['billing_state']     = $order->billing_state;
-		$stripe_array['billing_postcode']  = $order->billing_postcode;
-		$stripe_array['billing_country']   = $order->billing_country;
+		if ( $order->id == $order_id && $order->order_key == $order_key ) {
+			$stripe_array['billing_name']      = $order->billing_first_name.' '.$order->billing_last_name;
+			$stripe_array['billing_address_1'] = $order->billing_address_1;
+			$stripe_array['billing_address_2'] = $order->billing_address_2;
+			$stripe_array['billing_city']      = $order->billing_city;
+			$stripe_array['billing_state']     = $order->billing_state;
+			$stripe_array['billing_postcode']  = $order->billing_postcode;
+			$stripe_array['billing_country']   = $order->billing_country;
+		}
 	}
-}
 
 
-wp_localize_script( 'stripewoojs', 'stripe_array', $stripe_array );
+	wp_localize_script( 'stripewoojs', 'stripe_array', $stripe_array );
 
 }
 
@@ -317,22 +317,22 @@ wp_localize_script( 'stripewoojs', 'stripe_array', $stripe_array );
                 //Function to check IP
 function get_client_ip() 
 {
-$ipaddress = '';
-if (getenv('HTTP_CLIENT_IP'))
-	$ipaddress = getenv('HTTP_CLIENT_IP');
-else if(getenv('HTTP_X_FORWARDED_FOR'))
-	$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-else if(getenv('HTTP_X_FORWARDED'))
-	$ipaddress = getenv('HTTP_X_FORWARDED');
-else if(getenv('HTTP_FORWARDED_FOR'))
-	$ipaddress = getenv('HTTP_FORWARDED_FOR');
-else if(getenv('HTTP_FORWARDED'))
-	$ipaddress = getenv('HTTP_FORWARDED');
-else if(getenv('REMOTE_ADDR'))
-	$ipaddress = getenv('REMOTE_ADDR');
-else
-	$ipaddress = '0.0.0.0';
-return $ipaddress;
+	$ipaddress = '';
+	if (getenv('HTTP_CLIENT_IP'))
+		$ipaddress = getenv('HTTP_CLIENT_IP');
+	else if(getenv('HTTP_X_FORWARDED_FOR'))
+		$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+	else if(getenv('HTTP_X_FORWARDED'))
+		$ipaddress = getenv('HTTP_X_FORWARDED');
+	else if(getenv('HTTP_FORWARDED_FOR'))
+		$ipaddress = getenv('HTTP_FORWARDED_FOR');
+	else if(getenv('HTTP_FORWARDED'))
+		$ipaddress = getenv('HTTP_FORWARDED');
+	else if(getenv('REMOTE_ADDR'))
+		$ipaddress = getenv('REMOTE_ADDR');
+	else
+		$ipaddress = '0.0.0.0';
+	return $ipaddress;
 }
 
                 //End of function to check IP
@@ -342,78 +342,79 @@ return $ipaddress;
 
 /*Get Icon*/
 public function get_icon() {
-$icon = '';
-if(is_array($this->stripe_cardtypes))
-{
-	foreach ( $this->stripe_cardtypes as $card_type ) {
+	$icon = '';
+	if(is_array($this->stripe_cardtypes))
+	{
+		foreach ( $this->stripe_cardtypes as $card_type ) {
 
-		if ( $url = $this->stripe_get_active_card_logo_url( $card_type ) ) {
+			if ( $url = $this->stripe_get_active_card_logo_url( $card_type ) ) {
 
-			$icon .= '<img width="40" src="'.esc_url( $url ).'" alt="'.esc_attr( strtolower( $card_type ) ).'" />';
+				$icon .= '<img width="40" src="'.esc_url( $url ).'" alt="'.esc_attr( strtolower( $card_type ) ).'" />';
+			}
 		}
 	}
-}
-else
-{
-	$icon .= '<img src="'.esc_url( plugins_url( 'images/stripe.png' , __FILE__ ) ).'" alt="Stripe Gateway" />';       
-}
+	else
+	{
+		$icon .= '<img src="'.esc_url( plugins_url( 'images/stripe.png' , __FILE__ ) ).'" alt="Stripe Gateway" />';       
+	}
 
-return apply_filters( 'woocommerce_stripe_icon', $icon, $this->id );
+	return apply_filters( 'woocommerce_stripe_icon', $icon, $this->id );
 }
 
 public function stripe_get_active_card_logo_url( $type ) {
 
-$image_type = strtolower( $type );
-return  WC_HTTPS::force_https_url( plugins_url( 'images/' . $image_type . '.png' , __FILE__ ) ); 
+	$image_type = strtolower( $type );
+	return  WC_HTTPS::force_https_url( plugins_url( 'images/' . $image_type . '.png' , __FILE__ ) ); 
 }
 
 
 
-     /*Start of credit card form */
-  		public function payment_fields() {
-			$this->form();
-		}
+/*Start of credit card form */
+public function payment_fields() {
+	echo apply_filters( 'wc_stripe_description', wpautop(wp_kses_post( wptexturize(trim($this->stripe_description) ) ) ) );
+	$this->form();
+}
 
-  		public function field_name( $name ) {
-		return $this->supports( 'tokenization' ) ? '' : ' name="' . esc_attr( $this->id . '-' . $name ) . '" ';
+public function field_name( $name ) {
+	return $this->supports( 'tokenization' ) ? '' : ' name="' . esc_attr( $this->id . '-' . $name ) . '" ';
+}
+
+public function form() {
+	wp_enqueue_script( 'wc-credit-card-form' );
+	$fields = array();
+	$cvc_field = '<p class="form-row form-row-last">
+	<label for="' . esc_attr( $this->id ) . '-card-cvc">' . __( 'Card Code', 'woocommerce' ) . ' <span class="required">*</span></label>
+	<input id="' . esc_attr( $this->id ) . '-card-cvc" class="input-text wc-credit-card-form-card-cvc" type="text" autocomplete="off" placeholder="' . esc_attr__( 'CVC', 'woocommerce' ) . '" ' . $this->field_name( 'card-cvc' ) . ' />
+</p>';
+$default_fields = array(
+	'card-number-field' => '<p class="form-row form-row-wide">
+	<label for="' . esc_attr( $this->id ) . '-card-number">' . __( 'Card Number', 'woocommerce' ) . ' <span class="required">*</span></label>
+	<input id="' . esc_attr( $this->id ) . '-card-number" class="input-text wc-credit-card-form-card-number" type="text" maxlength="20" autocomplete="off" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" ' . $this->field_name( 'card-number' ) . ' />
+</p>',
+'card-expiry-field' => '<p class="form-row form-row-first">
+<label for="' . esc_attr( $this->id ) . '-card-expiry">' . __( 'Expiry (MM/YY)', 'woocommerce' ) . ' <span class="required">*</span></label>
+<input id="' . esc_attr( $this->id ) . '-card-expiry" class="input-text wc-credit-card-form-card-expiry" type="text" autocomplete="off" placeholder="' . esc_attr__( 'MM / YY', 'woocommerce' ) . '" ' . $this->field_name( 'card-expiry' ) . ' />
+</p>',
+'card-cvc-field'  => $cvc_field
+);
+
+$fields = wp_parse_args( $fields, apply_filters( 'woocommerce_credit_card_form_fields', $default_fields, $this->id ) );
+?>
+
+<fieldset id="wc-<?php echo esc_attr( $this->id ); ?>-cc-form" class='wc-credit-card-form wc-payment-form'>
+	<?php do_action( 'woocommerce_credit_card_form_start', $this->id ); ?>
+	<?php
+	foreach ( $fields as $field ) {
+		echo $field;
 	}
+	?>
+	<?php do_action( 'woocommerce_credit_card_form_end', $this->id ); ?>
+	<div class="clear"></div>
+</fieldset>
+<?php
 
-  		public function form() {
-		wp_enqueue_script( 'wc-credit-card-form' );
-		$fields = array();
-		$cvc_field = '<p class="form-row form-row-last">
-			<label for="' . esc_attr( $this->id ) . '-card-cvc">' . __( 'Card Code', 'woocommerce' ) . ' <span class="required">*</span></label>
-			<input id="' . esc_attr( $this->id ) . '-card-cvc" class="input-text wc-credit-card-form-card-cvc" type="text" autocomplete="off" placeholder="' . esc_attr__( 'CVC', 'woocommerce' ) . '" ' . $this->field_name( 'card-cvc' ) . ' style="width:100px" />
-		</p>';
-		$default_fields = array(
-			'card-number-field' => '<p class="form-row form-row-wide">
-				<label for="' . esc_attr( $this->id ) . '-card-number">' . __( 'Card Number', 'woocommerce' ) . ' <span class="required">*</span></label>
-				<input id="' . esc_attr( $this->id ) . '-card-number" class="input-text wc-credit-card-form-card-number" type="text" maxlength="20" autocomplete="off" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" ' . $this->field_name( 'card-number' ) . ' />
-			</p>',
-			'card-expiry-field' => '<p class="form-row form-row-first">
-				<label for="' . esc_attr( $this->id ) . '-card-expiry">' . __( 'Expiry (MM/YY)', 'woocommerce' ) . ' <span class="required">*</span></label>
-				<input id="' . esc_attr( $this->id ) . '-card-expiry" class="input-text wc-credit-card-form-card-expiry" type="text" autocomplete="off" placeholder="' . esc_attr__( 'MM / YY', 'woocommerce' ) . '" ' . $this->field_name( 'card-expiry' ) . ' />
-			</p>',
-			'card-cvc-field'  => $cvc_field
-		);
-		
-		 $fields = wp_parse_args( $fields, apply_filters( 'woocommerce_credit_card_form_fields', $default_fields, $this->id ) );
-		?>
-
-		<fieldset id="wc-<?php echo esc_attr( $this->id ); ?>-cc-form" class='wc-credit-card-form wc-payment-form'>
-			<?php do_action( 'woocommerce_credit_card_form_start', $this->id ); ?>
-			<?php
-				foreach ( $fields as $field ) {
-					echo $field;
-				}
-			?>
-			<?php do_action( 'woocommerce_credit_card_form_end', $this->id ); ?>
-			<div class="clear"></div>
-		</fieldset>
-		<?php
-		
-	}
-  		/*End of credit card form*/
+}
+/*End of credit card form*/
 
 
 
@@ -489,6 +490,24 @@ return  WC_HTTPS::force_https_url( plugins_url( 'images/' . $image_type . '.png'
                 }
 
 
+                private function stripe_refund_total($wc_order, $refund_amount)
+                {
+                	
+                	$currency = '' != $wc_order->get_order_currency() ? $wc_order->get_order_currency() : get_woocommerce_currency() ;
+
+                	if(in_array($currency ,$this->stripe_zerocurrency ))
+                	{
+                		$refund_amount              = number_format($refund_amount,0,".","") ;
+                	}
+                	else
+                	{
+                		$refund_amount              = $refund_amount * 100 ;
+                	}
+
+                	return $refund_amount;
+                }
+
+
                 /*Process Payment*/
                 public function process_payment( $order_id )
                 {       
@@ -503,8 +522,8 @@ return  WC_HTTPS::force_https_url( plugins_url( 'images/' . $image_type . '.png'
 
 
          			// create customer for each order
-                	if(true == STRIPE_CUSTOMER)
-                	{
+                		if(true == STRIPE_CUSTOMER)
+                		{
                 			$cust = \Stripe\Customer::create(array(
                 				'source'        => $token_id,
                 				'email'         => $wc_order->billing_email,
@@ -598,7 +617,7 @@ return  WC_HTTPS::force_https_url( plugins_url( 'images/' . $image_type . '.png'
                 		$charge                 = \Stripe\Charge::retrieve($CHARGE_ID);
                 		$refund                 = $charge->refunds->create(
                 			array(
-                				'amount'        => $amount * 100 ,
+                				'amount'        => $this->stripe_refund_total($wc_order,$amount) ,
                 				'metadata'      => array('Order #'   => $order_id,
                 					'Refund reason' => $reason 
                 					),
@@ -642,10 +661,10 @@ add_action( 'plugins_loaded', 'stripe_init' );
 
 function stripe_woocommerce_addon_activate() {
 
-if(!function_exists('curl_exec'))
-{
-	wp_die( '<pre>This plugin requires PHP CURL library installled in order to be activated </pre>' );
-}
+	if(!function_exists('curl_exec'))
+	{
+		wp_die( '<pre>This plugin requires PHP CURL library installled in order to be activated </pre>' );
+	}
 }
 register_activation_hook( __FILE__, 'stripe_woocommerce_addon_activate' );
 /*Activation hook*/
@@ -654,30 +673,30 @@ register_activation_hook( __FILE__, 'stripe_woocommerce_addon_activate' );
 
 
 function stripe_woocommerce_addon_settings_link( $links ) {
-$settings_link = '<a href="admin.php?page=wc-settings&tab=checkout&section=wc_stripe_gateway">' . __( 'Settings' ) . '</a>';
-array_push( $links, $settings_link );
-return $links;
+	$settings_link = '<a href="admin.php?page=wc-settings&tab=checkout&section=wc_stripe_gateway">' . __( 'Settings' ) . '</a>';
+	array_push( $links, $settings_link );
+	return $links;
 }
-
+$plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin",'stripe_woocommerce_addon_settings_link' );
 /*Plugin Settings Link*/
 
 /*Capture Charge*/
 
 function stripe_capture_meta_box() {
-global $post;
-$chargestatus = get_post_meta( $post->ID, '_stripe_charge_status', true );
-if($chargestatus == 'charge_auth_only')
-{
-	add_meta_box(
-		'stripe_capture_chargeid',
-		__( 'Capture Charge', 'woocommerce' ),
-		'stripe_capture_meta_box_callback',
-		'shop_order',
-		'side',
-		'default'
-		);
-}
+	global $post;
+	$chargestatus = get_post_meta( $post->ID, '_stripe_charge_status', true );
+	if($chargestatus == 'charge_auth_only')
+	{
+		add_meta_box(
+			'stripe_capture_chargeid',
+			__( 'Capture Charge', 'woocommerce' ),
+			'stripe_capture_meta_box_callback',
+			'shop_order',
+			'side',
+			'default'
+			);
+	}
 }
 add_action( 'add_meta_boxes', 'stripe_capture_meta_box' );
 
@@ -685,54 +704,54 @@ add_action( 'add_meta_boxes', 'stripe_capture_meta_box' );
 function stripe_capture_meta_box_callback( $post ) {
 
         //charge_auth_only, charge_auth_captured, charge_auth_captured_later
-echo '<input type="checkbox" name="_stripe_capture_charge" value="1"/>&nbsp;Check & Save Order to Capture';
+	echo '<input type="checkbox" name="_stripe_capture_charge" value="1"/>&nbsp;Check & Save Order to Capture';
 }
 
 
 /*Execute charge on order save*/
 function stripe_capture_meta_box_action($order_id, $items )
 {
-if(isset($items['_stripe_capture_charge']) && (1 ==$items['_stripe_capture_charge']) ) 
-{
-	global $post;
-	$chargeid = get_post_meta( $post->ID, '_transaction_id', true );
-	if(class_exists('WC_Stripe_Gateway'))
+	if(isset($items['_stripe_capture_charge']) && (1 ==$items['_stripe_capture_charge']) ) 
 	{
-		$stripepg = new WC_Stripe_Gateway();
-
-		if('yes'  == $stripepg->stripe_sandbox  )
-			{ \Stripe\Stripe::setApiKey($stripepg->stripe_testsecretkey);  }
-		else
-			{ \Stripe\Stripe::setApiKey($stripepg->stripe_livesecretkey);  }
-
-	}
-
-	try
-	{
-		$wc_order = new WC_Order($order_id);
-		$capturecharge   = \Stripe\Charge::retrieve($chargeid);
-		$captureresponse = $capturecharge->capture();
-
-		if(true == $captureresponse->captured && true == $captureresponse->paid)
+		global $post;
+		$chargeid = get_post_meta( $post->ID, '_transaction_id', true );
+		if(class_exists('WC_Stripe_Gateway'))
 		{
+			$stripepg = new WC_Stripe_Gateway();
 
-			$timestamp = date('Y-m-d H:i:s A e', $captureresponse->created);
-			update_post_meta( $order_id, '_stripe_charge_status', 'charge_auth_captured_later');
-			$wc_order->add_order_note(__( 'Capture '.$captureresponse->status.' at '.$timestamp.'-with Charge ID='.$captureresponse->id.',Card='.$captureresponse->source->brand.' : '.$captureresponse->source->last4.' : '.$captureresponse->source->exp_month.'/'.$captureresponse->source->exp_year ,'woocommerce'));
+			if('yes'  == $stripepg->stripe_sandbox  )
+				{ \Stripe\Stripe::setApiKey($stripepg->stripe_testsecretkey);  }
+			else
+				{ \Stripe\Stripe::setApiKey($stripepg->stripe_livesecretkey);  }
 
 		}
-	}catch(Exception $e){
 
-		update_post_meta( $order_id, '_stripe_charge_status', 'charge_auth_expired');
-		$wc_order->add_order_note(__( $captureresponse->status.' '.$e->getMessage(),'woocommerce'));
-	}
+		try
+		{
+			$wc_order = new WC_Order($order_id);
+			$capturecharge   = \Stripe\Charge::retrieve($chargeid);
+			$captureresponse = $capturecharge->capture();
 
-	unset($wc_order);
+			if(true == $captureresponse->captured && true == $captureresponse->paid)
+			{
+
+				$timestamp = date('Y-m-d H:i:s A e', $captureresponse->created);
+				update_post_meta( $order_id, '_stripe_charge_status', 'charge_auth_captured_later');
+				$wc_order->add_order_note(__( 'Capture '.$captureresponse->status.' at '.$timestamp.'-with Charge ID='.$captureresponse->id.',Card='.$captureresponse->source->brand.' : '.$captureresponse->source->last4.' : '.$captureresponse->source->exp_month.'/'.$captureresponse->source->exp_year ,'woocommerce'));
+
+			}
+		}catch(Exception $e){
+
+			update_post_meta( $order_id, '_stripe_charge_status', 'charge_auth_expired');
+			$wc_order->add_order_note(__( $captureresponse->status.' '.$e->getMessage(),'woocommerce'));
+		}
+
+		unset($wc_order);
 
 
 
 
-}       
+	}       
 
 }
 add_action ("woocommerce_saved_order_items", "stripe_capture_meta_box_action", 10,2);
