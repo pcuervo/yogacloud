@@ -28,7 +28,7 @@
 <?php else: ?>
 	<section id="video-whit-button" class="[ min-height--350 min-height--500-l ][ no-margin ][ main-banner ][ white-text text-center ][ relative overflow-hidden ][ width---100 ][ max-height-screen_button ]" >
 		<div id="background-video" class="[ absolute top--0 width---100 height---100 ][ in-front ][ background-image ]" style="background-image: url(<?php echo $url; ?>">
-			<div class="[ gradient-linear-opacity ][ height---100 ][ relative ]"></div>
+			<div class="[ height---100 ][ relative ]"></div>
 		</div>
 	</section>
 <?php endif; ?>

@@ -32,7 +32,13 @@ if ( ! woocommerce_products_will_display() )
 		<div class="[ container ]">
 			<div class="[ row ]">
 				<div class="[ col s12 ][ white-text text-center ]">
-					<h1 class="[ padding-sides ]">Yoga cloud tienda</h1>
+					<h1 class="[ padding-sides ]">
+						<?php if( 'es' == $lang ) : ?>
+							Yoga cloud tienda
+						<?php else : ?>
+							Yoga cloud store
+						<?php endif; ?>
+					</h1>
 					<h2 class="[ padding-sides ]"><?php echo !empty($wp_query->query['product_cat']) ? $wp_query->query['product_cat']: '';?></h2>
 				</div>
 			</div>

@@ -76,7 +76,12 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 		<div class="[ box-product-price ][ text-center ][ relative top---22 ]">
 	<?php } ?>
 		<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
-			VER -
+			<?php if( 'es' == $lang ) : ?>
+				VER -
+			<?php else : ?>
+				SEE -
+			<?php endif; ?>
+
 			<?php
 				/**
 				 * woocommerce_after_shop_loop_item_title hook.
