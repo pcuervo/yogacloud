@@ -226,7 +226,7 @@
 	<?php if ( ! is_user_logged_in() ){ ?>
 
 		<section class="[ relative ][ no-margin-bottom ][ main-banner ][ background-image ][ background-image--paisaje ]">
-			<div class="[ gradient-diagonal-opacity ][ padding-vertical ]">
+			<div class="[ gradient-linear-opacity ][ padding-vertical ]">
 				<div class="[ white-text ][ text-center ][ padding ]">
 					<h5>
 						<?php if( 'es' == $lang ) : ?>
