@@ -1,38 +1,38 @@
 <?php
 /**
- * @package AdministradorDeCursosYC
+ * @package CursosRegaloYC
  */
 /*
-Plugin Name: Administrador de Cursos YogaCloud
-Description: Creación y gestión de lecciones, módulos y cursos para la plataforma YogaCloud.
-Version: 1.0.2
+Plugin Name: Cursos de Regalo YogaCloud
+Description: Regala un curso de la plataforma YogaCloud Cursos a un amigo.
+Version: 1.0.0
 Author: Miguel Cabral
 Author URI: http://pcuervo.com
 */
 
-if( ! defined( 'YC_CURSOS_PLUGIN_URL' ) ){
-	define( 'YC_CURSOS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+if( ! defined( 'YC_REGALOS_PLUGIN_URL' ) ){
+	define( 'YC_REGALOS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 }
-if( ! defined( 'YC_CURSOS_PLUGIN_DIR' ) ){
-	define( 'YC_CURSOS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+if( ! defined( 'YC_REGALOS_PLUGIN_DIR' ) ){
+	define( 'YC_REGALOS_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 }
-if ( ! defined( 'YC_CURSOS_PLUGIN_FILE' ) ) {
-	define( 'YC_CURSOS_PLUGIN_FILE', __FILE__ );
+if ( ! defined( 'YC_REGALOS_PLUGIN_FILE' ) ) {
+	define( 'YC_REGALOS_PLUGIN_FILE', __FILE__ );
 }
 
-register_activation_hook( YC_CURSOS_PLUGIN_FILE, array( 'Admin_Cursos_YC', 'install' ) );
-register_deactivation_hook( YC_CURSOS_PLUGIN_FILE, array( 'Admin_Cursos_YC', 'uninstall' ) );
-add_action( 'plugins_loaded', create_function( '', 'Admin_Cursos_YC::get();' ) );
+register_activation_hook( YC_REGALOS_PLUGIN_FILE, array( 'YC_Cursos_Regalo', 'install' ) );
+register_deactivation_hook( YC_REGALOS_PLUGIN_FILE, array( 'YC_Cursos_Regalo', 'uninstall' ) );
+add_action( 'plugins_loaded', create_function( '', 'YC_Cursos_Regalo::get();' ) );
 
-class Admin_Cursos_YC {
+class YC_Cursos_Regalo {
 
-	const YC_CURSOS_VERSION = '1.0.2';
+	const YC_REGALOS_VERSION = '1.0.2';
 
 	private static $instance = null;
 
 	/**
 	 * Get singleton instance of class
-	 * @return Admin_Cursos_YC instance
+	 * @return YC_Cursos_Regalo instance
 	 */
 	public static function get() {
 		if ( self::$instance == null ) {
@@ -51,12 +51,12 @@ class Admin_Cursos_YC {
 		$this->hooks();
 		$this->init();
 		// Check version for update
-		if( get_option( 'admin_curso_yc_version' ) != Admin_Cursos_YC::YC_CURSOS_VERSION  ){
+		if( get_option( 'admin_curso_yc_version' ) != YC_Cursos_Regalo::YC_REGALOS_VERSION  ){
 			$this->create_courses_teachers_table();
 			$this->create_courses_badges_table();
 			$this->create_user_badges_table();
-			update_option( 'admin_curso_yc_version', Admin_Cursos_YC::YC_CURSOS_VERSION );
-			error_log('Updating plugin "Administrador de Cursos YogaCloud" to version: ' . Admin_Cursos_YC::YC_CURSOS_VERSION );
+			update_option( 'admin_curso_yc_version', YC_Cursos_Regalo::YC_REGALOS_VERSION );
+			error_log('Updating plugin "Administrador de Cursos YogaCloud" to version: ' . YC_Cursos_Regalo::YC_REGALOS_VERSION );
 		}
 	}
 
@@ -64,7 +64,7 @@ class Admin_Cursos_YC {
 	 * Create required database tables.
 	 */
 	public static function install() {
-		$admin_cursos = Admin_Cursos_YC::get();
+		$admin_cursos = YC_Cursos_Regalo::get();
 		$admin_cursos->create_user_lesson_table();
 		$admin_cursos->create_courses_modules_table();
 		$admin_cursos->create_modules_lessons_table();
@@ -72,7 +72,7 @@ class Admin_Cursos_YC {
 		$admin_cursos->create_courses_teachers_table();
 		$admin_cursos->create_courses_badges_table();
 		$admin_cursos->create_user_badges_table();
-		add_option( 'admin_curso_yc_version', Admin_Cursos_YC::YC_CURSOS_VERSION );
+		add_option( 'admin_curso_yc_version', YC_Cursos_Regalo::YC_REGALOS_VERSION );
 	}
 
 	/**
@@ -90,8 +90,8 @@ class Admin_Cursos_YC {
 	 * Load required files for Wordpress Admin Panel and for Frontend.
 	 */
 	private function includes() {
-		require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-yc_curso.php' );
-		require_once( YC_CURSOS_PLUGIN_DIR . 'classes/class-yc_admin_cursos-settings.php' );
+		require_once( YC_REGALOS_PLUGIN_DIR . 'classes/class-yc_curso.php' );
+		require_once( YC_REGALOS_PLUGIN_DIR . 'classes/class-yc_admin_cursos-settings.php' );
 	}
 
 	/**
@@ -260,5 +260,5 @@ class Admin_Cursos_YC {
 	}// create_user_badges_table
 
 
-}// Admin_Cursos_YC
+}// YC_Cursos_Regalo
 

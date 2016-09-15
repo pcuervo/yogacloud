@@ -257,9 +257,12 @@ class YC_Curso {
 	public function was_bought_by_user( $user_id ){
 		if( 0 == $user_id ) return 0;
 
-        $current_user= wp_get_current_user();
-        $customer_email = $current_user->email;
-        if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
+        $current_user = wp_get_current_user();
+        $en_id = icl_object_id( $this->id, 'product', true, 'en');
+        $es_id = icl_object_id( $this->id, 'product', true, 'es');
+        $customer_email = $current_user->user_email;
+        if ( wc_customer_bought_product( $customer_email, $user_id, $es_id ) ) return true;
+        if ( wc_customer_bought_product( $customer_email, $user_id, $en_id ) ) return true;
 
 		return false;
 	}
