@@ -274,3 +274,17 @@ button.btn-floating {
 .button {
   text-transform: uppercase!important;
 }
+
+@media (max-width:420px ){
+  .btn.btn-text-large {
+    padding:0 0.7rem;
+    font-size: 12px;
+  }
+}
+@media (min-width:601px ) and (max-width:802px ){
+  .btn.btn-text-large {
+    padding:0 0.7rem;
+    font-size: 12px;
+  }
+}
+

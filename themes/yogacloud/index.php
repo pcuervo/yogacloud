@@ -104,7 +104,7 @@
 											<?php echo $curso->subtitle; ?>
 											<div class="[ gradient-text ]"></div>
 										</div>
-										<div class="[ relative ][ top--22 ][ text-center ]">
+										<div class="[ relative ][ top--22 left---75rem ][ text-center ]">
 											<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
 													<?php if( 'es' == $lang ) : ?>
@@ -114,7 +114,7 @@
 													<?php endif; ?>
 												</a>
 											<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn-text-large ][ btn btn-rounded btn-hollow waves-effect waves-light ]">
 													<?php if( 'es' == $lang ) : ?>
 														próximamente
 													<?php else : ?>
