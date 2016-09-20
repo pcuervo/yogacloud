@@ -26,8 +26,6 @@ global $wp_query;
 
 if ( ! woocommerce_products_will_display() )
 	return;
-
-$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 ?>
 <section class="[ main-banner ][ box-btn ][ background-image ][ background-image--woman ]">
 	<div class="[ gradient-linear-opacity ]">
