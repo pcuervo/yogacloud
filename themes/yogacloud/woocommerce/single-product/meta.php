@@ -25,6 +25,8 @@ global $post, $product;
 $cat_count = sizeof( get_the_terms( $post->ID, 'product_cat' ) );
 $tag_count = sizeof( get_the_terms( $post->ID, 'product_tag' ) );
 
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+
 ?>
 <div class="[ clearfix ]"></div>
 <div class="product_meta">

@@ -79,9 +79,9 @@
 									<div class="[ card-image ][ col s6 ]">
 										<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 											<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-												<div class="[ width---100 height---100 ][ relative ]">
+												<div class="[  ][ width---100 height---100 ][ relative ]">
 											<?php else : ?>
-												<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+												<div class="[  ][ width---100 height---100 ][ relative ]">
 											<?php endif; ?>
 													<!-- new -->
 													<?php if( $curso->is_new ) : ?>
