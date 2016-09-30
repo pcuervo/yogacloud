@@ -37,6 +37,7 @@ class YC_Curso {
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
+		$this->es_id			= icl_object_id( $course_id, 'product', true, 'es');
 		$this->permalink 		= get_permalink( $course_id );
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
@@ -56,12 +57,15 @@ class YC_Curso {
 		$modulos = array();
 
 		$modulos_results = $wpdb->get_results(
-			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->es_id . " ORDER BY position"
 			);
 		if( empty( $modulos_results ) ) return $modulos;
 
-		foreach ( $modulos_results as $key => $result ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
-
+		foreach ( $modulos_results as $key => $result ) {
+			if( 'es' == ICL_LANGUAGE_CODE ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
+			else $modulos[$key] = new YC_Modulo( array( 'id' => icl_object_id( $result->module_id, 'product', true, 'en') ) );
+			
+		}
 		return $modulos;
 	}
 
