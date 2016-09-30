@@ -79,9 +79,9 @@
 									<div class="[ card-image ][ col s6 ]">
 										<div class="[ bg-image--rectangle ][ width---1000 ][ background-image ]" style="background-image: url(<?php echo $image_url; ?>)">
 											<?php if( ! $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
-												<div class="[ width---100 height---100 ][ relative ]">
+												<div class="[  ][ width---100 height---100 ][ relative ]">
 											<?php else : ?>
-												<div class="[ gradient-linear-opacity--light ][ width---100 height---100 ][ relative ]">
+												<div class="[  ][ width---100 height---100 ][ relative ]">
 											<?php endif; ?>
 													<!-- new -->
 													<?php if( $curso->is_new ) : ?>
@@ -104,7 +104,7 @@
 											<?php echo $curso->subtitle; ?>
 											<div class="[ gradient-text ]"></div>
 										</div>
-										<div class="[ relative ][ top--22 ][ text-center ]">
+										<div class="[ relative ][ top--22 left---75rem ][ text-center ]">
 											<?php if ( $curso->was_bought_by_user( get_current_user_id() ) ) : ?>
 												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded waves-effect waves-light ]">
 													<?php if( 'es' == $lang ) : ?>
@@ -114,7 +114,7 @@
 													<?php endif; ?>
 												</a>
 											<?php elseif ( 'yes' ==  $curso->is_coming_soon ) : ?>
-												<a href="<?php echo get_the_permalink() ?>" class="[ btn btn-rounded btn-hollow waves-effect waves-light ]">
+												<a href="<?php echo get_the_permalink() ?>" class="[ btn-text-large ][ btn btn-rounded btn-hollow waves-effect waves-light ]">
 													<?php if( 'es' == $lang ) : ?>
 														próximamente
 													<?php else : ?>

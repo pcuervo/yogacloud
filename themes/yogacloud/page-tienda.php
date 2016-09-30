@@ -16,9 +16,9 @@
 						</h1>
 						<h2 class="[ padding-sides ]">
 							<?php if( 'es' == $lang ) : ?>
-								Primum in nostrane potestate est quid meminerimus duo.
+								Español Primum in nostrane potestate est quid meminerimus duo.
 							<?php else : ?>
-								Primum in nostrane potestate est quid meminerimus duo.
+								English Primum in nostrane potestate est quid meminerimus duo.
 							<?php endif; ?>
 						</h2>
 						<div class="[ relative ][ top--22 ]">
