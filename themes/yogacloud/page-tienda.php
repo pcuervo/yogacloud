@@ -59,6 +59,12 @@
 		$all_categories = get_categories( $args );
 		foreach ($all_categories as $cat) {
 			$hasChildren = get_term_children($cat->term_id, $taxonomy);
+
+			// echo '<pre>';
+			// 	print_r($cat);
+			// echo '</pre>';
+
+
 			if($cat->category_parent == 0) {
 				$category_id = $cat->term_id;
 				if( $hasChildren ) {
@@ -200,6 +206,14 @@
 						'posts_per_page' => 6,
 						'meta_key' => 'total_sales',
 						'orderby' => 'meta_value_num',
+						'tax_query' => array(
+					        array(
+					        	'operator' => 'NOT IN',
+					            'taxonomy' => 'product_type',
+					            'field'    => 'slug',
+					            'terms'    => 'simple_course'
+					        ),
+					    ),
 					);
 
 					$loop = new WP_Query( $args );

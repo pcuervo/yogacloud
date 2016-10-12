@@ -31,7 +31,7 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 ?>
 <?php if ( is_page('tienda') ) { ?>
-	<div class="[ col s12 m6 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
+	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
 <?php } ?>
 <?php if ( ! is_page('tienda') ) { ?>
 	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">

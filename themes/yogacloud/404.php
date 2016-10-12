@@ -5,9 +5,9 @@
 	<section class="[ text-center ][ container ]">
 		<h1 class="[ color-secondary ]">Error 404!</h1>
 		<?php if( 'es' == $lang ) : ?>
-			<h4 class="[ margin-bottom--xlarge ]">No se encontro la página que estás buscando</h4>
+			<h4 class="[ margin-bottom--xlarge ]">No se encontró la página que estás buscando</h4>
 		<?php else : ?>
-			<h4 class="[ margin-bottom--xlarge ]">Couldn`t find what you're looking for</h4>
+			<h4 class="[ margin-bottom--xlarge ]">Couldn't find what you're looking for</h4>
 		<?php endif; ?>
 		<h5>
 			<?php if( 'es' == $lang ) : ?>
