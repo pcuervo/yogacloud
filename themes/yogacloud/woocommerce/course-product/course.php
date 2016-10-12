@@ -39,6 +39,8 @@
 	</div>
 <?php endif; ?>
 
+<?php echo do_shortcode( '[gift_course_btn course_id=' . $product->id . ']' ); ?>
+
 <section class="[ container ]">
 	<h1 class="[ h2 ][ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
 	<h2 class="[ h4 ][ width---100 ][ text-center ]"><?php echo $curso->subtitle; ?></h2>
@@ -220,7 +222,12 @@
 								<?php $lesson_number = 1; ?>
 								<?php foreach ( $lecciones as $key => $lesson ) : ?>
 									<?php if( $curso->was_bought_by_user( get_current_user_id() ) || $lesson->is_free() ) : ?>
-										<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+										<?php if( 'es' == $lang ) : ?>
+											<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '?mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+										<?php else : ?>
+											<a class="[ color-dark ][ transition ][ waves-effect waves-light ] " href="<?php echo $lesson->permalink . '&mid=' . $modulo->id . '&cid=' . $curso->id ?>">
+										<?php endif; ?>
+										
 									<?php endif; ?>
 										<div class="[ course--module--lesson ][ color-dark ]">
 											<div class="[ width---80-m ][ inline-block ][ middle ][ padding-left ]">
