@@ -37,8 +37,9 @@ You can get the details instruction for creating facebook app <a href='http://de
             <li><i class="fa fa-check"></i>counter : You can enable or disable the share counter. To enable the share count use counter='1' and to disable it simply don't use counter parameter or use parameter counter='0'.</li>
             <li><i class="fa fa-check"></i>total_counter : You can enable or disable the total share counter. To enable the total share count use total_counter='1' and to disable it simply don't use total_counter parameter or use parameter total_counter='0'.</li>
             <li><i class="fa fa-check"></i>custom_share_link : You can enter the custom share link in case if the link provided by shortcode is not as per your need. To enable the custom share link use custom_share_link='custom link as per your need.'</li>
+            <li><i class='fa fa-check'></i>http_count: You can set this option if you have moved your site from HTTP to HTTPS to show the share counts from your old http site as well. Please note that the share count will fetch if your site has been moved from HTTP to HTTPS eg if your old site was http://example.com and you have moved your site to https://example.com. But please not that if you have changed other url parameters then the count will not work for example if your old page slug was http://example.com/sample-page and you have changed it to https://example.com/sample-page-1 then the share counts will not work for old url.</li>
         </ul>
-        <li><i class="fa fa-check"></i>Example 1.1: <code>[apss_share networks='facebook, twitter, pinterest' share_text='Share it' counter='1' total_counter='1']</code></li>
+        <li><i class="fa fa-check"></i>Example 1.1: <code>[apss_share networks='facebook, twitter, pinterest' share_text='Share it' counter='1' total_counter='1' http_count='1']</code></li>
     </ul>
     </p></dd>
     <dd>
@@ -64,6 +65,9 @@ You can get the details instruction for creating facebook app <a href='http://de
     </dd>
     <dd>
     <p><b>For now you can use shortcode [apss-share] and [apss-count] for the display of the social shares and counts only as well but in upcoming plugin updates this shortcode will be removed and use the new one. So we suggest to use only the new shortcodes.</b></p>
+    </dd>
+    <dd>
+        <p>For the complete documentation please visit:<br /> <a href='https://accesspressthemes.com/documentation/documentation-plugin-instruction-accesspress-social-share/' target="_blank">https://accesspressthemes.com/documentation/documentation-plugin-instruction-accesspress-social-share/</a> </p>
     </dd>
 
 </dl>
