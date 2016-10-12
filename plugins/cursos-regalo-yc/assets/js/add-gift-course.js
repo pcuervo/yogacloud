@@ -15,8 +15,8 @@ function addGiftToCheckout( courseId ){
             action:     'add_gift_to_cart',
             course_id:  courseId
         },
-        function( response ){
-            console.log( response );
+        function( checkout_url ){
+            window.location.replace( checkout_url );
         }
     );
 }

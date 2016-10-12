@@ -106,11 +106,14 @@ if ( ! class_exists( 'YC_Cursos_Regalo' ) ) {
 					sender_id INT NOT NULL,
 					course_id INT NOT NULL,
 					receiver_email VARCHAR(80) NOT NULL,
+					coupon_code VARCHAR(20) NOT NULL,
 					UNIQUE KEY id (id)
 				) $charset_collate;";
 
 				require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-				dbDelta( $sql );
+
+				$del = dbDelta( $sql );
+				var_dump( $del );
 			}
 		}// create_pending_gifts_table
 

@@ -39,7 +39,7 @@
 	</div>
 <?php endif; ?>
 
-<?php // echo do_shortcode( '[gift_course_btn course_id=' . $product->id . ']' ); ?>
+<?php echo do_shortcode( '[gift_course_btn course_id=' . $product->id . ']' ); ?>
 
 <section class="[ container ]">
 	<h1 class="[ h2 ][ width---100 ][ text-center ]"><?php echo $curso->get_name(); ?></h1>
