@@ -1,14 +1,14 @@
 <?php
 /**
  * Module Name: Protect
- * Module Description: Prevent and block malicious login attempts.
+ * Module Description: Prevent brute force attacks.
  * Sort Order: 1
  * Recommendation Order: 4
  * First Introduced: 3.4
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Recommended
- * Feature: Security
+ * Feature: Recommended, Performance-Security
  * Additional Search Queries: security, secure, protection, botnet, brute force, protect, login
  */
 

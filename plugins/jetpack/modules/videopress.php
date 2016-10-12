@@ -1,13 +1,12 @@
 <?php
 /**
  * Module Name: VideoPress
- * Module Description: Powerful, simple video hosting for WordPress
+ * Module Description: Upload and embed videos right on your site. (Subscription required.)
  * First Introduced: 2.5
  * Free: false
  * Requires Connection: Yes
  * Sort Order: 27
  * Module Tags: Photos and Videos
- * Feature: Writing
  * Additional Search Queries: video, videos, videopress
  */
 

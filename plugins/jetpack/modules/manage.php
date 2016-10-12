@@ -1,15 +1,15 @@
 <?php
 /**
  * Module Name: Manage
- * Module Description: Manage all of your sites from a centralized dashboard.
+ * Module Description: Manage all your sites from a centralized place, https://wordpress.com/sites.
  * Jumpstart Description: Helps you remotely manage plugins, turn on automated updates, and more from <a href="https://wordpress.com/plugins/" target="_blank">wordpress.com</a>.
  * Sort Order: 1
  * Recommendation Order: 3
  * First Introduced: 3.4
  * Requires Connection: Yes
- * Auto Activate: No
+ * Auto Activate: Yes
  * Module Tags: Centralized Management, Recommended
- * Feature: General, Jumpstart
+ * Feature: Recommended
  * Additional Search Queries: manage, management, remote
  */
 add_action( 'customize_register', 'add_wpcom_to_allowed_redirect_hosts' );

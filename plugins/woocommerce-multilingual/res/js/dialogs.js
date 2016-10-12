@@ -106,10 +106,6 @@ jQuery( function($){
 
         }
 
-        if( typeof WCML_Tooltip != 'undefined' ){
-            WCML_Tooltip.init();
-        }
-
         return false;
 
     }

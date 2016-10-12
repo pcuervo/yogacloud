@@ -1,10 +1,9 @@
 jQuery(document).ready(function(){
 
-    jQuery(document).on( 'change', '.wcml_currency_switcher', function(){
+    jQuery('.wcml_currency_switcher').on('change', function(){
         wcml_load_currency( jQuery(this).val() );
     });
-
-    jQuery(document).on( 'click', '.wcml_currency_switcher li', function(){
+    jQuery('.wcml_currency_switcher li').on('click', function(){
         if(jQuery(this).hasClass('wcml-active-currency')){
             return;
         }
@@ -35,7 +34,7 @@ function wcml_load_currency( currency ){
                 alert(response.error);
             }else{
                 jQuery('.wcml_currency_switcher').removeAttr('disabled');
-                if(typeof wcml_mc_settings.w3tc !== 'undefined'){
+                if(typeof wcml_mc_settings.w3tc != 'undefined '){
                     var original_url = window.location.href;
                     original_url = original_url.replace(/&wcmlc(\=[^&]*)?(?=&|$)|wcmlc(\=[^&]*)?(&|$)/, '');
                     original_url = original_url.replace(/\?$/, '');

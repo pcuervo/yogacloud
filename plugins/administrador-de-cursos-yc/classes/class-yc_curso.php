@@ -37,7 +37,6 @@ class YC_Curso {
 	 */
 	public function __construct( $course_id ) {
 		$this->id 				= $course_id;
-		$this->es_id			= icl_object_id( $course_id, 'product', true, 'es');
 		$this->permalink 		= get_permalink( $course_id );
  		$this->num_lessons 		= get_post_meta( $course_id, '_num_lessons', true );
 		$this->lessons_per_week = get_post_meta( $course_id, '_lessons_per_week', true );
@@ -57,15 +56,12 @@ class YC_Curso {
 		$modulos = array();
 
 		$modulos_results = $wpdb->get_results(
-			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->es_id . " ORDER BY position"
+			"SELECT module_id FROM " . $wpdb->prefix . "courses_modules WHERE course_id = " . $this->id . " ORDER BY position"
 			);
 		if( empty( $modulos_results ) ) return $modulos;
 
-		foreach ( $modulos_results as $key => $result ) {
-			if( 'es' == ICL_LANGUAGE_CODE ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
-			else $modulos[$key] = new YC_Modulo( array( 'id' => icl_object_id( $result->module_id, 'product', true, 'en') ) );
-			
-		}
+		foreach ( $modulos_results as $key => $result ) $modulos[$key] = new YC_Modulo( array( 'id' => $result->module_id ) );
+
 		return $modulos;
 	}
 
@@ -261,12 +257,9 @@ class YC_Curso {
 	public function was_bought_by_user( $user_id ){
 		if( 0 == $user_id ) return 0;
 
-        $current_user = wp_get_current_user();
-        $en_id = icl_object_id( $this->id, 'product', true, 'en');
-        $es_id = icl_object_id( $this->id, 'product', true, 'es');
-        $customer_email = $current_user->user_email;
-        if ( wc_customer_bought_product( $customer_email, $user_id, $es_id ) ) return true;
-        if ( wc_customer_bought_product( $customer_email, $user_id, $en_id ) ) return true;
+        $current_user= wp_get_current_user();
+        $customer_email = $current_user->email;
+        if ( wc_customer_bought_product( $customer_email, $user_id, $this->id ) ) return true;
 
 		return false;
 	}

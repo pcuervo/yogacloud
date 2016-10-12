@@ -212,7 +212,6 @@ pre {
   clear: both;
   background: #fff;
   border-left: 4px solid #fff;
-  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   margin: 5px 15px 2px;
   padding: 1px 12px; }
@@ -702,6 +701,3 @@ img.icl_als_iclflag {
 div.wpml-simple-lang-selector {
   float: none !important;
   display: inline-block !important; }
-
-#sso_information {
-  cursor: pointer; }

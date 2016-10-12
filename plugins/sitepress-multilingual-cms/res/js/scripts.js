@@ -220,6 +220,7 @@ jQuery(document).ready(function($){
 
 	update_icl_untranslated_blog_posts();
 	icl_untranslated_blog_posts.bind('click', update_icl_untranslated_blog_posts);
+
 });
 
 function fadeInAjxResp(spot, msg, err){

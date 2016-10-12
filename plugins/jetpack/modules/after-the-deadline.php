@@ -1,13 +1,12 @@
 <?php
 /**
  * Module Name: Spelling and Grammar
- * Module Description: Check your spelling, style, and grammar.
+ * Module Description: Check your spelling, style, and grammar with the After the Deadline proofreading service.
  * Sort Order: 6
  * First Introduced: 1.1
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Writing
- * Feature: Writing
  * Additional Search Queries: after the deadline, afterthedeadline, spell, spellchecker, spelling, grammar, proofreading, style, language, cliche
  */
 
@@ -49,7 +48,7 @@ if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
 		exit;
 	}
 	function AtD_update_setting( $user_id, $name, $value ) {
-		return update_user_meta( $user_id, $name, $value );
+		update_user_meta( $user_id, $name, $value );
 	}
 	function AtD_get_setting( $user_id, $name, $single = true ) {
 		return get_user_meta( $user_id, $name, $single );

@@ -92,23 +92,20 @@ function wpml_load_request_handler( $is_admin, $active_language_codes, $default_
 	}
 
 	$wpml_cookie = new WPML_Cookie();
-	$wp_api      = new WPML_WP_API();
-
 	if ( $is_admin === true ) {
 		$wpml_request_handler = new WPML_Backend_Request(
 			$wpml_url_converter,
 			$active_language_codes,
-			$default_language, $wpml_cookie,
-			$wp_api );
+			$default_language, $wpml_cookie );
 	} else {
+		global $pagenow;
+
 		$wpml_request_handler = new WPML_Frontend_Request(
 			$wpml_url_converter,
 			$active_language_codes,
 			$default_language, $wpml_cookie,
-			$wp_api );
+			$pagenow );
 	}
-
-	add_action( 'wpml_before_init', array( $wpml_request_handler, 'detect_user_switch_language' ) );
 
 	return $wpml_request_handler;
 }

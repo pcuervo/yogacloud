@@ -8,43 +8,41 @@
  */
 
 abstract class WPML_Element_Translation extends WPML_WPDB_User {
-	/** @var array[] $element_data */
-	protected $element_data = array();
+	/** @var string[] $element_langs */
+	protected $element_langs = array();
+	/** @var int[] $element_trids */
+	protected $element_trids = array();
+	/** @var string[] $element_source_langs */
+	protected $element_source_langs = array();
 	/** @var array[] $translations */
 	protected $translations = array();
 	/** @var array[] $trid_groups */
 	protected $trid_groups = array();
-	/** @var array[] $trid_groups */
-	protected $translation_ids_element = array();
 
-	/** @var int $type_prefix_length */
-	private $type_prefix_length;
 	/**
 	 * @param wpdb $wpdb
 	 */
 	public function __construct( &$wpdb ) {
 		parent::__construct( $wpdb );
-		$this->type_prefix_length = strlen( $this->get_type_prefix() );
 	}
 
 	protected abstract function get_element_join();
-	protected abstract function get_type_prefix();
 
 	/**
 	 * Clears the cached translations.
 	 */
 	public function reload() {
-		$this->element_data = array();
-
-		$this->translations            = array();
-		$this->trid_groups             = array();
-		$this->translation_ids_element = array();
+		$this->element_trids        = array();
+		$this->element_langs        = array();
+		$this->element_source_langs = array();
+		$this->translations         = array();
+		$this->trid_groups          = array();
 	}
 
 	public function get_element_trid( $element_id ) {
 
 		return $this->maybe_populate_cache ( $element_id )
-			? $this->element_data[ $element_id ]['trid'] : null;
+			? $this->element_trids[ $element_id ] : null;
 	}
 
 	/**
@@ -74,12 +72,12 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 	public function get_original_element( $element_id, $root = false ) {
 		$element_id  = (int) $element_id;
 		$source_lang = $this->maybe_populate_cache( $element_id )
-			? $this->element_data[ $element_id ]['source_lang'] : null;
+			? $this->element_source_langs[ $element_id ] : null;
 		$res         = $source_lang === null ? $element_id : null;
 		$res         = $res === null && ! $root ? $this->translations[ $element_id ][ $source_lang ] : $res;
 		if ( $res === null && $root ) {
 			foreach ( $this->translations[ $element_id ] as $trans_id ) {
-				if ( ! $this->element_data[ $trans_id ]['source_lang'] ) {
+				if ( ! $this->element_source_langs[ $trans_id ] ) {
 					$res = $trans_id;
 					break;
 				}
@@ -105,7 +103,7 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 		$result = null;
 
 		if ( $this->maybe_populate_cache( $element_id ) ) {
-			$result = $this->element_data[ $element_id ]['lang'];
+			$result = $this->element_langs[ $element_id ];
 		}
 
 		return $result;
@@ -122,9 +120,9 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 		if ( $element_id && $this->maybe_populate_cache( $element_id ) ) {
 			$result                       = new stdClass();
 			$result->element_id           = $element_id;
-			$result->trid                 = $this->element_data[ $element_id ]['trid'];
-			$result->language_code        = $this->element_data[ $element_id ]['lang'];
-			$result->source_language_code = $this->element_data[ $element_id ]['source_lang'];
+			$result->trid                 = $this->element_trids[ $element_id ];
+			$result->language_code        = $this->element_langs[ $element_id ];
+			$result->source_language_code = $this->element_source_langs[ $element_id ];
 		}
 
 		if ( $output == ARRAY_A ) {
@@ -139,36 +137,7 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 	public function get_source_lang_code( $element_id ) {
 
 		return $this->maybe_populate_cache ( $element_id )
-			? $this->element_data[ $element_id ]['source_lang'] : null;
-	}
-
-	public function get_type( $element_id ) {
-		return $this->maybe_populate_cache ( $element_id ) ? $this->element_data[ $element_id ]['type'] : null;
-	}
-
-	public function get_source_lang_from_translation_id( $translation_id ) {
-		$lang       = array( 'code' => null, 'found' => false );
-		$element_id = $this->get_element_from_translation_id( $translation_id );
-		if ( $element_id ) {
-			$lang['code']  = $this->get_source_lang_code( $element_id );
-			$lang['found'] = true;
-		}
-
-		return $lang;
-
-	}
-
-	public function get_translation_id( $element_id ) {
-		return $this->maybe_populate_cache ( $element_id )
-			? $this->element_data[ $element_id ][ 'translation_id' ] : null;
-	}
-
-	public function get_translations_ids() {
-		$translation_ids = array();
-		foreach( $this->element_data as $data ) {
-			$translation_ids[] = $data[ 'translation_id' ];
-		}
-		return $translation_ids;
+			? $this->element_source_langs[ $element_id ] : null;
 	}
 
 	public function get_element_translations( $element_id, $trid = false, $actual_translations_only = false ) {
@@ -185,27 +154,9 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 		return isset( $res ) ? $res : array();
 	}
 
-	public function get_element_from_translation_id( $translation_id ) {
-		return isset( $this->translation_ids_element[ $translation_id] ) ? $this->translation_ids_element[ $translation_id] : null;
-	}
-
-	public function get_trid_from_translation_id ( $translation_id ) {
-		$trid = null;
-		$element_id = $this->get_element_from_translation_id( $translation_id );
-		if ( $element_id ) {
-			$trid = $this->get_element_trid( $element_id );
-		}
-
-		return $trid;
-	}
-
-	public function get_trids() {
-		return array_keys( $this->trid_groups );
-	}
-
 	public function prefetch_ids( $element_ids ) {
 		$element_ids = (array) $element_ids;
-		$element_ids = array_diff( $element_ids, array_keys( $this->element_data ) );
+		$element_ids = array_diff( $element_ids, array_keys( $this->element_trids ) );
 		if ( (bool) $element_ids === false ) {
 			return;
 		}
@@ -224,7 +175,7 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 	 */
 	private function build_sql( $trid_snippet ) {
 
-		return "SELECT t.translation_id, t.element_id, t.language_code, t.source_language_code, t.trid, t.element_type
+		return "SELECT t.element_id, t.language_code, t.source_language_code, t.trid
 				    " . $this->get_element_join() . "
 				    JOIN {$this->wpdb->prefix}icl_translations tridt
 				      ON tridt.element_type = t.element_type
@@ -274,31 +225,24 @@ abstract class WPML_Element_Translation extends WPML_WPDB_User {
 	private function populate_cache( $elements ) {
 		$element_ids = array();
 		foreach ( $elements as $element ) {
-			$element_id                    = $element['element_id'];
-			$language_code                 = $element['language_code'];
-			$element_ids[ $language_code ] = $element_id;
-
-			$this->element_data[ $element_id ] = array(
-				'translation_id' => $element['translation_id'],
-				'trid'           => $element['trid'],
-				'lang'           => $language_code,
-				'source_lang'    => $element['source_language_code'],
-				'type'           => substr( $element['element_type'], $this->type_prefix_length )
-			);
-
-			$this->translation_ids_element[ $element['translation_id'] ] = $element_id;
+			$trans_id                                = $element[ 'element_id' ];
+			$trans_lang_code                         = $element[ 'language_code' ];
+			$element_ids[ $trans_lang_code ]         = $trans_id;
+			$this->element_trids[ $trans_id ]        = $element[ 'trid' ];
+			$this->element_langs[ $trans_id ]        = $trans_lang_code;
+			$this->element_source_langs[ $trans_id ] = $element[ 'source_language_code' ];
 		}
-		foreach ( $element_ids as $element_id ) {
-			$trid                                  = $this->element_data[ $element_id ]['trid'];
+		foreach ( $element_ids as $translation_id ) {
+			$trid                                  = $this->element_trids[ $translation_id ];
 			$this->trid_groups[ $trid ]            = $element_ids;
-			$this->translations[ $element_id ] = &$this->trid_groups[ $trid ];
+			$this->translations[ $translation_id ] = &$this->trid_groups[ $trid ];
 		}
 	}
 
 	private function filter_for_actual_trans( $element_id ) {
 		$res = $this->translations[ $element_id ];
 		foreach ( $res as $lang => $element ) {
-			if ( $this->element_data[ $element ]['source_lang'] !== $this->element_data[ $element_id ]['lang'] ) {
+			if ( $this->element_source_langs[ $element ] !== $this->element_langs[ $element_id ] ) {
 				unset( $res[ $lang ] );
 			}
 		}

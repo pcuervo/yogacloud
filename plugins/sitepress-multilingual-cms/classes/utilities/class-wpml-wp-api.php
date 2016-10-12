@@ -439,11 +439,6 @@ class WPML_WP_API {
 		return $pagenow === 'customize.php';
 	}
 
-	public function is_comments_post_page() {
-		global $pagenow;
-		return $pagenow === 'wp-comments-post.php';
-	}
-
 	/**
 	 * Wrapper for \is_feed that returns false if called before the loop
 	 *
@@ -682,17 +677,6 @@ class WPML_WP_API {
 	}
 
 	/**
-	 * Wrapper around PHP constant defined
-	 *
-	 * @param string $constant_name
-	 *
-	 * @return bool
-	 */
-	public function defined( $constant_name ) {
-		return defined( $constant_name );
-	}
-
-	/**
 	 * Wrapper around PHP constant lookup
 	 *
 	 * @param string $constant_name
@@ -701,7 +685,7 @@ class WPML_WP_API {
 	 */
 	public function constant( $constant_name ) {
 
-		return $this->defined( $constant_name ) ? constant( $constant_name ) : null;
+		return defined( $constant_name ) ? constant( $constant_name ) : null;
 	}
 
 	/**
@@ -1239,16 +1223,6 @@ class WPML_WP_API {
 			array_shift($debug_backtrace);
 		}
 		return $debug_backtrace;
-	}
-
-	/**
-	 * @return WP_Filesystem_Direct
-	 */
-	public function get_wp_filesystem_direct() {
-		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-base.php' );
-		require_once( ABSPATH . 'wp-admin/includes/class-wp-filesystem-direct.php' );
-
-		return new WP_Filesystem_Direct( null );
 	}
 
 }

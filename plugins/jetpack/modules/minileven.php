@@ -2,14 +2,14 @@
 
 /**
  * Module Name: Mobile Theme
- * Module Description: Optimize your site for smartphones and tablets.
+ * Module Description: Optimize your site with a mobile-friendly theme for smartphones.
  * Sort Order: 21
  * Recommendation Order: 11
  * First Introduced: 1.8
  * Requires Connection: No
  * Auto Activate: No
  * Module Tags: Appearance, Mobile, Recommended
- * Feature: Appearance
+ * Feature: Recommended
  * Additional Search Queries: mobile, theme, minileven
  */
 

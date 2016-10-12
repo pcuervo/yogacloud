@@ -6,7 +6,6 @@
 class WPML_Notice {
 	private $id;
 	private $text;
-	private $collapsed_text;
 	private $group = 'default';
 
 	private $actions            = array();
@@ -16,11 +15,13 @@ class WPML_Notice {
 	 */
 	private $css_class_types = array();
 	private $css_classes        = array();
+	private $dismiss_per_user   = false;
 	private $dismissible        = false;
 	private $exclude_from_pages = array();
+	private $hidden             = false;
 	private $hideable           = false;
-	private $collapsable = false;
 	private $restrict_to_pages  = array();
+	private $users           = array();
 
 	private $default_group_name = 'default';
 
@@ -62,13 +63,6 @@ class WPML_Notice {
 
 	public function can_be_hidden() {
 		return $this->hideable;
-	}
-
-	/**
-	 * @return bool
-	 */
-	public function can_be_collapsed() {
-		return $this->collapsable;
 	}
 
 	public function get_actions() {
@@ -123,13 +117,6 @@ class WPML_Notice {
 	}
 
 	/**
-	 * @return string
-	 */
-	public function get_collapsed_text() {
-		return $this->collapsed_text;
-	}
-
-	/**
 	 * Use this to set the look of the notice.
 	 * WordPress recognize these values:
 	 * - notice-error
@@ -165,20 +152,6 @@ class WPML_Notice {
 	 */
 	public function set_hideable( $hideable ) {
 		$this->hideable = $hideable;
-	}
-
-	/**
-	 * @param bool $collapsable
-	 */
-	public function set_collapsable( $collapsable ) {
-		$this->collapsable = $collapsable;
-	}
-
-	/**
-	 * @param string $collapsed_text
-	 */
-	public function set_collapsed_text( $collapsed_text ) {
-		$this->collapsed_text = $collapsed_text;
 	}
 
 	public function set_restrict_to_pages( array $pages ) {

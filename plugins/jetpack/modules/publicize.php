@@ -1,14 +1,14 @@
 <?php
 /**
  * Module Name: Publicize
- * Module Description: Automated social marketing.
+ * Module Description: Automatically promote content.
  * Sort Order: 10
  * Recommendation Order: 7
  * First Introduced: 2.0
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Social, Recommended
- * Feature: Engagement
+ * Feature: Recommended, Traffic
  * Additional Search Queries: facebook, twitter, google+, googleplus, google, path, tumblr, linkedin, social, tweet, connections, sharing
  */
 

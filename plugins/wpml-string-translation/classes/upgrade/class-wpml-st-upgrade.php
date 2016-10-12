@@ -31,7 +31,6 @@ class WPML_ST_Upgrade {
 	private function run_admin() {
 		$this->maybe_run( 'WPML_ST_Upgrade_Migrate_Originals' );
 		$this->maybe_run( 'WPML_ST_Upgrade_Db_Cache_Command' );
-		$this->maybe_run( 'WPML_ST_Upgrade_Display_Strings_Scan_Notices' );
 	}
 
 	private function run_ajax() {
@@ -86,16 +85,14 @@ class WPML_ST_Upgrade {
 	 * @return bool
 	 */
 	private function has_been_command_executed( $class ) {
-		$id = call_user_func( array( $class, 'get_command_id' ) );
-		return isset( $this->string_settings[ $id . '_has_run' ] );
+		return isset( $this->string_settings[ $class::get_commnand_id() . '_has_run' ] );
 	}
 
 	/**
 	 * @param string $class
 	 */
 	private function mark_command_as_executed( $class ) {
-		$id = call_user_func( array( $class, 'get_command_id' ) );
-		$this->string_settings[ $id . '_has_run' ] = true;
+		$this->string_settings[ $class::get_commnand_id() . '_has_run' ] = true;
 		$this->sitepress->set_setting( 'st', $this->string_settings, true );
 		wp_cache_flush();
 	}

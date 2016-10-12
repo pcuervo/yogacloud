@@ -49,10 +49,6 @@ class WCML_Multi_Currency{
      * @var WCML_Currency_Switcher
      */
     public $currency_switcher;
-	/**
-	 * @var WCML_Multi_Currency_Install
-	 */
-	public $install;
 
     public $W3TC = false;
 
@@ -66,13 +62,12 @@ class WCML_Multi_Currency{
 
         $this->woocommerce_wpml =& $woocommerce_wpml;
 
-        $this->install = new WCML_Multi_Currency_Install( $this, $woocommerce_wpml );
+        WCML_Multi_Currency_Install::set_up( $this, $woocommerce_wpml );
 
         $this->init_currencies();
 
-        $this->prices   = new WCML_Multi_Currency_Prices( $this );
-
         if( $this->_load_filters()) {
+            $this->prices   = new WCML_Multi_Currency_Prices( $this );
             $this->coupons  = new WCML_Multi_Currency_Coupons();
             $this->shipping = new WCML_Multi_Currency_Shipping( $this );
         }
@@ -81,6 +76,7 @@ class WCML_Multi_Currency{
         $this->admin_currency_selector  = new WCML_Admin_Currency_Selector();
         $this->custom_prices            = new WCML_Custom_Prices( $woocommerce_wpml );
         $this->currency_switcher        = new WCML_Currency_Switcher;
+
 
         if( defined('W3TC') ){
             $this->W3TC = new WCML_W3TC_Multi_Currency();
@@ -149,12 +145,6 @@ class WCML_Multi_Currency{
         global $sitepress;
 
         $this->currencies =& $this->woocommerce_wpml->settings['currency_options'];
-
-	    // Add default currency if missing (set when MC is off)
-	    $default_currency = get_option( 'woocommerce_currency' );
-	    if( !empty( $default_currency ) && !isset( $this->currencies[ $default_currency ] ) ){
-		    $this->currencies[ $default_currency ] = array();
-	    }
 
         $save_to_db = false;
 
@@ -226,7 +216,8 @@ class WCML_Multi_Currency{
         }
 
         // force disable multi-currency when the default currency is empty
-        if( empty( $default_currency ) ){
+        $wc_currency    = get_option('woocommerce_currency');
+        if(empty($wc_currency)){
             $this->woocommerce_wpml->settings['enable_multi_currency'] = WCML_MULTI_CURRENCIES_DISABLED;
         }
 

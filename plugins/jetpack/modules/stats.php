@@ -1,14 +1,14 @@
 <?php
 /**
  * Module Name: Site Stats
- * Module Description: Collect valuable traffic stats and insights.
+ * Module Description: Collect traffic stats and insights.
  * Sort Order: 1
  * Recommendation Order: 2
  * First Introduced: 1.1
  * Requires Connection: Yes
  * Auto Activate: Yes
  * Module Tags: Site Stats, Recommended
- * Feature: Engagement
+ * Feature: Recommended, Traffic
  * Additional Search Queries: statistics, tracking, analytics, views, traffic, stats
  */
 
@@ -181,9 +181,8 @@ function stats_footer() {
 function stats_get_options() {
 	$options = get_option( 'stats_options' );
 
-	if ( ! isset( $options['version'] ) || $options['version'] < STATS_VERSION ) {
+	if ( !isset( $options['version'] ) || $options['version'] < STATS_VERSION )
 		$options = stats_upgrade_options( $options );
-	}
 
 	return $options;
 }
@@ -205,11 +204,11 @@ function stats_set_option( $option, $value ) {
 
 	$options[$option] = $value;
 
-	return stats_set_options($options);
+	stats_set_options($options);
 }
 
 function stats_set_options($options) {
-	return update_option( 'stats_options', $options );
+	update_option( 'stats_options', $options );
 }
 
 function stats_upgrade_options( $options ) {
@@ -237,9 +236,7 @@ function stats_upgrade_options( $options ) {
 
 	$new_options['version'] = STATS_VERSION;
 
-	if ( !  stats_set_options( $new_options ) ) {
-		return false;
-	}
+	stats_set_options( $new_options );
 
 	stats_update_blog();
 
@@ -280,7 +277,7 @@ function stats_admin_menu() {
 		}
 	}
 
-	$hook = add_submenu_page( null, __( 'Site Stats', 'jetpack' ), __( 'Site Stats', 'jetpack' ), 'view_stats', 'stats', 'stats_reports_page' );
+	$hook = add_submenu_page( 'jetpack', __( 'Site Stats', 'jetpack' ), __( 'Site Stats', 'jetpack' ), 'view_stats', 'stats', 'stats_reports_page' );
 	add_action( "load-$hook", 'stats_reports_load' );
 }
 
@@ -359,8 +356,6 @@ function stats_reports_page( $main_chart_only = false ) {
 
 	$blog_id = stats_get_option( 'blog_id' );
 	$domain = Jetpack::build_raw_urls( get_home_url() );
-
-	JetpackTracking::record_user_event( 'wpa_page_view', array( 'path' => 'old_stats' ) );
 
 	if ( ! $main_chart_only && !isset( $_GET['noheader'] ) && empty( $_GET['nojs'] ) && empty( $_COOKIE['stnojs'] ) ) {
 		$nojs_url = add_query_arg( 'nojs', '1' );
