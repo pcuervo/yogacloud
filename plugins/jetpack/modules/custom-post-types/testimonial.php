@@ -54,10 +54,6 @@ class Jetpack_Testimonial {
 			return;
 		}
 
-		if ( ( ! defined( 'IS_WPCOM' ) || ! IS_WPCOM ) && ! Jetpack::is_module_active( 'custom-content-types' ) ) {
-			return;
-		}
-
 		// Enable Omnisearch for CPT.
 		if ( class_exists( 'Jetpack_Omnisearch_Posts' ) ) {
 			new Jetpack_Omnisearch_Posts( self::CUSTOM_POST_TYPE );

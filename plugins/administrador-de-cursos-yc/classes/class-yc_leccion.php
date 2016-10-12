@@ -137,6 +137,7 @@ class YC_Leccion {
 
 		if( ! isset( $vimeo_response['body']['embed'] ) ){
 			error_log( 'no jala dev' );
+			var_dump( $vimeo_response );
 			$lib = $this->get_vimeo_lib( 'stage' );
 			$vimeo_response = $lib->request('/me/videos/' . $video_vimeo_id . '?fields=embed.html,pictures.sizes' , array(), 'GET');
 		}

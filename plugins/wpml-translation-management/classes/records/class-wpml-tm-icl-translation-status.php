@@ -71,15 +71,10 @@ class WPML_TM_ICL_Translation_Status extends WPML_WPDB_User {
 	public function status() {
 
 		if ( $this->status_result === null ) {
-			$status = $this->tm_records->get_preloaded_translation_status( $this->translation_id, $this->rid );
-			if ( $status ) {
-				$this->status_result = $status->status;
-			} else {
-				$this->status_result = (int) $this->wpdb->get_var(
-					"SELECT status
-					 FROM {$this->wpdb->prefix}{$this->table} "
-					. $this->get_where() );
-			}
+			$this->status_result = (int) $this->wpdb->get_var(
+				"SELECT status
+				 FROM {$this->wpdb->prefix}{$this->table} "
+				. $this->get_where() );
 		}
 		return $this->status_result;
 	}

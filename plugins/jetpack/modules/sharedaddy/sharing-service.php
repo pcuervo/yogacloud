@@ -162,7 +162,7 @@ class Sharing_Service {
 			'currently_enabled' => $this->get_blog_services()
 		) );
 
-		return update_option( 'sharing-services', array( 'visible' => $visible, 'hidden' => $hidden ) );
+		update_option( 'sharing-services', array( 'visible' => $visible, 'hidden' => $hidden ) );
 	}
 
 	public function get_blog_services() {

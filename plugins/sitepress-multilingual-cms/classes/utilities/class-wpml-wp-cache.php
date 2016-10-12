@@ -37,8 +37,7 @@ class WPML_WP_Cache {
 		$current_key_index = wp_cache_get( 'current_key_index', $this->group );
 
 		if ( false === $current_key_index ) {
-			$current_key_index = 1;
-			wp_cache_set( 'current_key_index', $current_key_index, $this->group );
+			wp_cache_set( 'current_key_index', 1, $this->group );
 		}
 
 		return $key . $current_key_index;
