@@ -17,6 +17,7 @@
 	$badges = $curso->get_badges();
 
 	if ( ! $curso->was_bought_by_user( get_current_user_id() ) && ! $leccion->is_free() ){
+		error_log('we here?');
 		wp_redirect( $curso->get_permalink() );
 	}
 	get_header();
@@ -140,11 +141,10 @@
 						<?php endif; ?>
 					<?php echo $curso->get_name(); ?></h2>
 					<a href="<?php echo $curso->permalink; ?>" class="[ btn btn-rounded btn-hollow btn-small ][ waves-effect waves-light ]">
-
 						<?php if( 'es' == $lang ) : ?>
-							Lección completada
-						<?php else : ?>
 							ver curso
+						<?php else : ?>
+							Return to course
 						<?php endif; ?>
 					</a>
 				</div>
@@ -201,7 +201,9 @@
 				<?php else : ?>
 					<h3 class="[ white-text ][ ]"><strong>You have completed the course!</strong></h3>
 				<?php endif; ?>
-				<img src="<?php echo $badges[0]->thumb_url; ?>" alt="Badge curso">
+				<?php if( ! empty( $badges ) ) : ?>
+					<img src="<?php echo $badges[0]->thumb_url; ?>" alt="Badge curso">
+				<?php endif; ?>
 				<?php  echo do_shortcode('[show_rating]');  ?>
 			</div>
 		</div>
