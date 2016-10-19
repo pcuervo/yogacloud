@@ -20,10 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-	if( is_curso( $post->ID ) ){
-		wc_get_template( 'course-product/course.php' );
-		return;
-	}
+if( is_curso( $post->ID ) ){
+	wc_get_template( 'course-product/course.php' );
+	return;
+}
+
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 ?>
 
@@ -121,6 +123,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 
 					<meta itemprop="url" content="<?php the_permalink(); ?>" />
+
+					<!-- btn return -->
+					<div class="[ text-center ]">
+						<?php if( 'es' == $lang ) : ?>
+							<?php echo '<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>'; ?>
+						<?php else : ?>
+							<?php echo '<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="'.$_SERVER['HTTP_REFERER'].'">Return</a>'; ?>
+						<?php endif; ?>
+					</div>
 
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
