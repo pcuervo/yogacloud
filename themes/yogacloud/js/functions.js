@@ -106,6 +106,10 @@ var $=jQuery.noConflict();
             thumbnailsCycle();
         }
 
+        if ( $("#single_thumbnails").length > 0 ) {
+           $( "#slideshow-2" ).removeClass('hidden');
+        }
+
          /*------------------------------------*\
             #MY ACCOUNT
         \*------------------------------------*/

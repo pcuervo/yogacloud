@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="[ row ][ margin-top--large ]">
-				<div class="[ col s12 m6 ][ margin-bottom ]">
+				<div class="[ col s12 m6 ][ margin-bottom--large ]">
 					<div class="images">
 						<?php if ( $product->is_on_sale() ) : ?>
 							<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale [ padding-left--small ][ color-primary ][ font-size--24 ]">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div> <!-- cycle-1 -->
 						</div> <!-- slideshow-1 -->
 
-						<div id="slideshow-2">
+						<div id="slideshow-2" class="[ hidden ]">
 							<div id="cycle-2" class="cycle-slideshow"
 							data-cycle-slides="> div"
 							data-cycle-timeout="0"
