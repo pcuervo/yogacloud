@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 
-				<div class=" [ col s12 m6 ]">
+				<div class=" [ col s12 m6 ][ info-product ]">
 
 					<div class="summary entry-summary">
 
@@ -124,6 +124,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
+			<div class="[ col s12 ][ related-products ]">
+				<?php
+					/**
+					 * woocommerce_after_single_product_summary hook.
+					 *
+					 * @hooked woocommerce_output_product_data_tabs - 10
+					 * @hooked woocommerce_upsell_display - 15
+					 * @hooked woocommerce_output_related_products - 20
+					 */
+					do_action( 'woocommerce_after_single_product_summary' );
+				?>
+			</div>
+
 		</div> <!-- end row -->
 	<!-- </div> end container-->
 

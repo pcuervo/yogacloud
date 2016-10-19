@@ -85,6 +85,7 @@ var $=jQuery.noConflict();
         if( parseInt( isProduct ) ){
             console.log('is product single');
             thumbnailsCycle();
+            $(".info-product #tab-description").css("display", "block");
         }
 
         if( parseInt( isTienda ) ){

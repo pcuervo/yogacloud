@@ -16,6 +16,11 @@
  * @version     2.0.0
  */
 ?>
+<?php if ( is_product() ) { ?>
+	<div>
+<?php } ?>
+<?php if ( ! is_product() ) { ?>
+	<div class="[ container ]">
+<?php } ?>
 
-<div class="[ container ]">
 	<ul class="products [ row ]">
