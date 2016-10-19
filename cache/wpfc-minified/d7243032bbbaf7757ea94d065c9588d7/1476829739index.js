@@ -1,0 +1,2 @@
+// source --> http://localhost:8888/yogacloud/wp-content/plugins/woocommerce-multilingual/res/js/cart_widget.min.js?ver=3.8.5 
+jQuery(document).ready(function(a){try{wc_cart_fragments_params.ajax_url.toString()+"-wc_cart_hash";(""==sessionStorage.getItem("woocommerce_cart_hash")||1==actions.is_lang_switched||1==actions.is_currency_switched)&&sessionStorage.removeItem("wc_fragments")}catch(b){}});

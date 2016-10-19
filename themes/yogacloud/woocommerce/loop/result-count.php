@@ -39,7 +39,7 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 						<?php if( 'es' == $lang ) : ?>
 							Yoga cloud tienda
 						<?php else : ?>
-							Yoga cloud store
+							Yoga cloud delivery
 						<?php endif; ?>
 					</h1>
 					<h2 class="[ padding-sides ]"><?php echo !empty($wp_query->query['product_cat']) ? $wp_query->query['product_cat']: '';?></h2>

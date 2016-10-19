@@ -337,7 +337,7 @@
 						<?php if( 'es' == $lang ) : ?>
 								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('/tienda'); ?>">Tienda</a>
 							<?php else : ?>
-								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('tienda/?lang=en'); ?>">Store</a>
+								<a class="<?php if(is_page('tienda')) echo 'active'; ?>" href="<?php echo site_url('tienda/?lang=en'); ?>">Delivery</a>
 							<?php endif; ?>
 						<!-- language -->
 						<?php do_action('wpml_add_language_selector'); ?>

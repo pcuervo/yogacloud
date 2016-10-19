@@ -11,7 +11,7 @@
 							<?php if( 'es' == $lang ) : ?>
 								Yoga cloud tienda
 							<?php else : ?>
-								Yoga cloud store
+								Yoga cloud delivery
 							<?php endif; ?>
 						</h1>
 						<h2 class="[ padding-sides ]">
