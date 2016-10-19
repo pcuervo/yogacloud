@@ -26,6 +26,9 @@ global $product;
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
+
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
+
 ?>
 <?php if ( is_page('tienda') ) { ?>
 	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
