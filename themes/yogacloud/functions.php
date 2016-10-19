@@ -14,7 +14,6 @@ define( 'SITEURL', site_url('/') );
 
 
 
-
 /*------------------------------------*\
 	#SNIPPETS
 \*------------------------------------*/
@@ -109,8 +108,6 @@ function woocommerce_new_pass_redirect( $user ) {
   	wp_redirect( get_permalink( wc_get_page_id( 'myaccount' ) ) );
   	exit;
 }
-
-
 
 /*------------------------------------*\
 	#GET/SET FUNCTIONS
@@ -241,3 +238,28 @@ function save_customer_register( $user_id ) {
 //   );
 // }
 // add_action('admin_init', 'additional_admin_color_schemes');
+
+/*------------------------------------*\
+	#Hide options for Shop Manager
+\*------------------------------------*/
+
+function my_remove_menu_pages() {
+		remove_menu_page('edit.php'); // Entradas
+		remove_menu_page('edit.php?post_type=page'); // Páginas
+		remove_menu_page('edit-comments.php'); // Comentarios
+		remove_menu_page('edit.php?post_type=testimoniales'); // Testimoniales
+		remove_menu_page('edit.php?post_type=marcas'); // Marcas
+		remove_menu_page('gestionar_curso'); // Admin cursos
+}
+
+//User is shop manager?
+function is_shop_manager() {
+    $user = wp_get_current_user();
+    if ( isset( $user->roles[0] ) && $user->roles[0] == 'shop_manager' ) {
+        return true;    // when user is shop manager
+    }
+}
+
+if ( is_shop_manager() ) {
+    add_action('admin_menu', 'my_remove_menu_pages');
+}
