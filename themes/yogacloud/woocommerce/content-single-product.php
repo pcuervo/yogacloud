@@ -126,11 +126,13 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 					<!-- btn return -->
 					<div class="[ text-center ]">
-						<?php if( 'es' == $lang ) : ?>
-							<?php echo '<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="'.$_SERVER['HTTP_REFERER'].'">Regresar</a>'; ?>
-						<?php else : ?>
-							<?php echo '<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="'.$_SERVER['HTTP_REFERER'].'">Return</a>'; ?>
-						<?php endif; ?>
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="javascript:history.go(-1)">
+							<?php if( 'es' == $lang ) : ?>
+								Regresar
+							<?php else : ?>
+								Return
+							<?php endif; ?>
+						</a>
 					</div>
 
 				</div><!-- #product-<?php the_ID(); ?> -->
