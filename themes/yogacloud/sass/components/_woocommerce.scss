@@ -303,3 +303,12 @@ table.variations td.label {
 
 //Related products
 .info-product .woocommerce-tabs { display: block!important; }
+
+//Regalo
+.box-regalo {
+    padding: 5px 20px 15px;
+    background: #e5f5f3;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    .form-row { width: 100%!important; }
+}
