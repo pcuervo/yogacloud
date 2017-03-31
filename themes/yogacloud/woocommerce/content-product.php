@@ -30,10 +30,10 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 ?>
-<?php if ( is_page('tienda') ) { ?>
-	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
+<?php if ( is_product() ) { ?>
+	<div class="[ col s12 m6 l3 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
 <?php } ?>
-<?php if ( ! is_page('tienda') ) { ?>
+<?php if ( ! is_product() ) { ?>
 	<div class="[ col s12 m6 l4 ][ box-btn--middle ][ relative ][ box-shadow ][ content-product ]">
 <?php } ?>
 	<li <?php post_class(); ?>>
@@ -74,11 +74,13 @@ $lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 	</li>
 	<?php if ( is_page('tienda') ) { ?>
 		<div class="[ box-product-price ][ text-center ][ relative top---55 ]">
+			<div class="[ btn btn-rounded btn-delivery ][ waves-effect waves-light ][ margin-bottom--small ]">
 	<?php } ?>
 	<?php if ( ! is_page('tienda') ) { ?>
 		<div class="[ box-product-price ][ text-center ][ relative top---22 ]">
+			<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
 	<?php } ?>
-		<div class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]">
+
 			<?php if( 'es' == $lang ) : ?>
 				VER -
 			<?php else : ?>

@@ -4,13 +4,15 @@ Tags: social share counter, social share, social media share, social network sha
 Donate link: http://accesspressthemes.com/donation/
 Requires at least: 3.8
 Tested up to: 4.6
-Stable tag: 4.1.9
+Stable tag: 4.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Share your site urls in most popular social medias and show share counts on your website with various designs.
 
 == Description ==
+[Homepage](https://accesspressthemes.com/) | [Documentation](https://accesspressthemes.com/documentation/documentation-plugin-instruction-accesspress-social-share/) | [Support](https://accesspressthemes.com/support) | [Demo](http://demo.accesspressthemes.com/wordpress-plugins/accesspress-social-share/) | [Premium Version](https://accesspressthemes.com/wordpress-plugins/accesspress-social-pro/)
+
 <strong>AccessPress Social Share</strong> is a <strong>Free WordPress plugin</strong> to allow anyone easily share website content (page, posts, image, media) on major social media (Facebook, Twitter, Google+, Pinterest, LinkedIn and Digg ) by the use of the latest APIs on your website!
 
 A perfect plugin to make any content on your website social-share-friendly, and increase your social reach dramatically!
@@ -24,6 +26,10 @@ Just get it done in a few minutes!
 `For more options - more social media integration, more themes, floating
 sidebar options, widget options, more shortcode options. Pinterest pin
 it button for each images. Please upgrade to Premium version.`
+
+`Have you moved your site from HTTP to HTTPS and lost your share counts? 
+No worries! Now you can get your http site's share counts back using our 
+plugin.`
 
 = Free Features: =
 
@@ -135,6 +141,13 @@ Yes. You can use the AccessPress social share by using shortcode anywhere you wa
 6. Backend Miscellaneous Settings Section
 
 == Changelog ==
+= 4.2.1 =
+* Done the bug fixings for the slashes appearing in the plugin's miscelleneous settings.
+
+= 4.2.0 =
+* Done the addition of new feature to fetch the share counts from http site as well if site has been moved from HTTP to HTTPS.
+* Done the addition of documentation links in how to use section.
+
 = 4.1.9 =
 * Done the bug fixing for the theme 3 for the mobile displays.
 * Done the bug fixing for the content share for the linkedin.

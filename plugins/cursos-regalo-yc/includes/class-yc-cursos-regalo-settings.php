@@ -39,7 +39,7 @@ class YC_Cursos_Regalo_Settings {
 	 * Hooks
 	 */
 	private function hooks() {
-		
+
 		// Hooks for everyone!
 		add_action( 'wp_ajax_nopriv_add_gift_to_cart', array( $this, 'add_gift_to_cart' ) );
 		add_action( 'wp_ajax_add_gift_to_cart', array( $this, 'add_gift_to_cart' ) );
@@ -48,10 +48,10 @@ class YC_Cursos_Regalo_Settings {
 		// Admin hooks
 		if( is_admin() ){
 			return;
-		} 
+		}
 		// Frontend hooks
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_and_localize_scripts' ) );
-		add_action( 'init', array( $this, 'yc_cursos_init_shortcodes' ) );	
+		add_action( 'init', array( $this, 'yc_cursos_init_shortcodes' ) );
 		add_action( 'woocommerce_before_checkout_billing_form', array( $this, 'add_gift_form_checkout_fields_form' ) );
 		add_action('woocommerce_checkout_process', array( $this, 'send_gift_after_checkout') );
 	}
@@ -85,36 +85,37 @@ class YC_Cursos_Regalo_Settings {
 	 */
 	public function add_gift_form_checkout_fields_form( $checkout ){
 		if( ! $this->cart_has_gifts() ) return;
+		echo '<div class="box-regalo">';
+			echo '<p>' . __('Has elegido regalar este curso, por favor completa la información de tu amigo que recibirá el curso') . '</p>';
 
-		echo '<p>' . __('Has elegido regalar este curso, por favor completa la información de tu amigo que recibirá el curso') . '</p>';
+			woocommerce_form_field( 'gift_id', array(
+		        'type' 	=> 'text',
+		        'class'	=> array('hidden'),
+		        ), $this->get_gift_id_from_cart()
+		   	);
+		    woocommerce_form_field( 'friend_name', array(
+		        'type'          => 'text',
+		        'class'         => array('form-row-first'),
+		        'label'         => __('¿A quién le regalas el curso?'),
+		        'placeholder'   => __('Nombre de tu amigo'),
+		        ), $checkout->get_value( 'friend_name' )
+		   	);
 
-		woocommerce_form_field( 'gift_id', array(
-	        'type' 	=> 'text',
-	        'class'	=> array('hidden'), 
-	        ), $this->get_gift_id_from_cart()
-	   	);
-	    woocommerce_form_field( 'friend_name', array(
-	        'type'          => 'text',
-	        'class'         => array('form-row-first'),
-	        'label'         => __('¿A quién le regalas el curso?'),
-	        'placeholder'   => __('Nombre de tu amigo'),
-	        ), $checkout->get_value( 'friend_name' )
-	   	);
+		   	woocommerce_form_field( 'friend_email', array(
+		        'type'          => 'text',
+		        'class'         => array('form-row-last'),
+		        'label'         => __('Email'),
+		        'placeholder'   => __('@'),
+		        ), $checkout->get_value( 'friend_email' )
+		   	);
 
-	   	woocommerce_form_field( 'friend_email', array(
-	        'type'          => 'text',
-	        'class'         => array('form-row-last'),
-	        'label'         => __('Email'),
-	        'placeholder'   => __('@'),
-	        ), $checkout->get_value( 'friend_email' )
-	   	);
-
-	   	woocommerce_form_field( 'friend_msg', array(
-	        'type'          => 'textarea',
-	        'label'         => __('Mensaje'),
-	        'placeholder'   => __('Dedicatoria especial'),
-	        ), $checkout->get_value( 'friend_msg' )
-	   	);
+		   	woocommerce_form_field( 'friend_msg', array(
+		        'type'          => 'textarea',
+		        'label'         => __('Mensaje'),
+		        'placeholder'   => __('Dedicatoria especial'),
+		        ), $checkout->get_value( 'friend_msg' )
+		   	);
+	   	echo '</div>';
 	}// add_gift_form_checkout_fields_form
 
 	/**
@@ -140,7 +141,7 @@ class YC_Cursos_Regalo_Settings {
 	}
 
  	/**
-	* Add a course as gift to cart. 
+	* Add a course as gift to cart.
 	*/
 	public function send_gift_after_checkout(){
 		$gift = new YC_Gift_Course( $_POST['gift_id'], 0 );
@@ -153,18 +154,18 @@ class YC_Cursos_Regalo_Settings {
 	 * @return array filtered available email classes
 	 */
 	function add_gift_woocommerce_email( $email_classes ) {
-	 
+
 	    // include our custom email class
 	    require( YC_REGALOS_PLUGIN_DIR . 'includes/class-wc-gift-email.php' );
 	    $email_classes['WC_Gift_Email'] = new WC_Gift_Email();
-	 
+
 	    return $email_classes;
-	 
+
 	}
 
 	/*=============================================
 	=            #AJAX FUNCTIONS 		          =
-	=============================================*/	
+	=============================================*/
 
 	/**
 	* Send gift to friend.

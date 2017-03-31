@@ -85,6 +85,7 @@ var $=jQuery.noConflict();
         if( parseInt( isProduct ) ){
             console.log('is product single');
             thumbnailsCycle();
+            $(".info-product #tab-description").css("display", "block");
         }
 
         if( parseInt( isTienda ) ){
@@ -104,6 +105,10 @@ var $=jQuery.noConflict();
         if( parseInt( isPrueba ) ){
             console.log('is prueba');
             thumbnailsCycle();
+        }
+
+        if ( $("#single_thumbnails").length > 0 ) {
+           $( "#slideshow-2" ).removeClass('hidden');
         }
 
          /*------------------------------------*\

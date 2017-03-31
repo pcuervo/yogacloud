@@ -227,6 +227,23 @@
 							} ?> /><label for="total_counter_enable_options_y"><?php _e( 'Yes', 'accesspress-social-share' ); ?></label></div>
 							</div>
 
+							<div class='apss_cache_enable_opt'>
+								<h4><?php _e( 'Fetch the share counts from HTTP url as well? ', 'accesspress-social-share' ); ?> </h4>
+									<div class='misc-opt'>
+										<input type="radio" id='enable_http_count_yes' name="apss_share_settings[enable_http_count]" value="1" <?php if ( isset($options['enable_http_count']) && $options['enable_http_count'] == '1' ) { echo "checked='checked'"; } ?> />
+										<label for='enable_http_count_yes'><?php _e('Yes', 'accesspress-social-share'); ?></label>
+									</div>
+									<div class='misc-opt'>
+										<input type="radio" id='enable_http_count_no' name="apss_share_settings[enable_http_count]" value="0" <?php if ( isset($options['enable_http_count']) && $options['enable_http_count'] == '0' ) { echo "checked='checked'"; } ?> />
+										<label for='enable_http_count_no'><?php _e('No', 'accesspress-social-share'); ?></label>
+									</div>
+									<br />
+									<div class="apss_notes_cache_settings">
+										<?php _e( '<b>Note:</b> Please select this option if you have moved your site from HTTP to HTTPS', 'accesspress-social-share' ); ?>
+									</div>
+							</div>
+							<br />
+
 							<div class="apss-dialog-boxs clearfix">
 								<h4><?php _e( 'Social share link options:', 'accesspress-social-share' ); ?> </h4>
 								<div class="misc-opt"><input type="radio" id='dialog_box_options_1' name="apss_share_settings[dialog_box_options]" value="0" <?php if ( $options['dialog_box_options'] == '0' ) {

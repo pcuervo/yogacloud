@@ -29,6 +29,7 @@ $apss_share_settings['api_configuration']['facebook'] =  array(
                                                         'app_secret'=>''
                                                         );
 $apss_share_settings['total_counter_enable_options'] = '0';
+$apss_share_settings['enable_http_count'] = '0';
 $apss_share_settings['enable_cache'] = '1';
 $apss_share_settings['cache_period'] = '24';
 $apss_share_settings['apss_social_counts_transients'] = array();

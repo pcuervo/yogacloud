@@ -197,7 +197,9 @@ label[for=payment_method_paypal] { width: 100%; }
 //Single product
 .product_meta .sku_wrapper,
 .woocommerce-Tabs-panel--description h5,
-.related.products,
+//.related.products,
+.info-product .related.products,
+.related-products .woocommerce-tabs,
 .pp_hoverContainer,
 .pp_gallery { display: none!important; }
 .quantity {
@@ -252,7 +254,7 @@ table.variations td.label {
 #cycle-2 .cycle-slide { border:2px solid #fff; width: 20%!important; }
 #cycle-2 .cycle-slide-active { border:2px solid #13C2AC; }
 #slideshow-1,#slideshow-2 { width: 100%; margin: auto }
-#slideshow-2 { margin-top: 10px }
+#slideshow-2 { margin-top: 10px;}
 .cycle-slideshow img { width: 100%; height: auto; display: block; }
 
 .cycle-carousel-wrap { left: 0px!important; }
@@ -288,7 +290,8 @@ table.variations td.label {
 	.info-product{
 		min-height: 75px;
 		.title-product {
-			min-height: 72px
+			//min-height: 72px
+			min-height: 98px;
 		}
 		.title-product h3 {
 			color: $dark-color!important;
@@ -296,4 +299,16 @@ table.variations td.label {
 			width: 100%;
 		}
 	}
+}
+
+//Related products
+.info-product .woocommerce-tabs { display: block!important; }
+
+//Regalo
+.box-regalo {
+    padding: 5px 20px 15px;
+    background: #e5f5f3;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    .form-row { width: 100%!important; }
 }

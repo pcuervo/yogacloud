@@ -20,10 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-	if( is_curso( $post->ID ) ){
-		wc_get_template( 'course-product/course.php' );
-		return;
-	}
+if( is_curso( $post->ID ) ){
+	wc_get_template( 'course-product/course.php' );
+	return;
+}
+
+$lang = isset( $_GET['lang'] ) ? $_GET['lang'] : 'es';
 
 ?>
 
@@ -44,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="[ container ]" itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<div class="[ row ][ margin-top--large ]">
-				<div class="[ col s12 m6 ][ margin-bottom ]">
+				<div class="[ col s12 m6 ][ margin-bottom--large ]">
 					<div class="images">
 						<?php if ( $product->is_on_sale() ) : ?>
 							<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale [ padding-left--small ][ color-primary ][ font-size--24 ]">' . __( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
@@ -70,7 +72,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							</div> <!-- cycle-1 -->
 						</div> <!-- slideshow-1 -->
 
-						<div id="slideshow-2">
+						<div id="slideshow-2" class="[ hidden ]">
 							<div id="cycle-2" class="cycle-slideshow"
 							data-cycle-slides="> div"
 							data-cycle-timeout="0"
@@ -88,7 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div>
 
-				<div class=" [ col s12 m6 ]">
+				<div class=" [ col s12 m6 ][ info-product ]">
 
 					<div class="summary entry-summary">
 
@@ -122,8 +124,32 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
+					<!-- btn return -->
+					<div class="[ text-center ]">
+						<a class="[ btn btn-rounded ][ waves-effect waves-light ][ margin-bottom--small ]" href="javascript:history.go(-1)">
+							<?php if( 'es' == $lang ) : ?>
+								Regresar
+							<?php else : ?>
+								Return
+							<?php endif; ?>
+						</a>
+					</div>
+
 				</div><!-- #product-<?php the_ID(); ?> -->
 			</div><!-- end col -->
+			<div class="[ col s12 ][ related-products ]">
+				<?php
+					/**
+					 * woocommerce_after_single_product_summary hook.
+					 *
+					 * @hooked woocommerce_output_product_data_tabs - 10
+					 * @hooked woocommerce_upsell_display - 15
+					 * @hooked woocommerce_output_related_products - 20
+					 */
+					do_action( 'woocommerce_after_single_product_summary' );
+				?>
+			</div>
+
 		</div> <!-- end row -->
 	<!-- </div> end container-->
 
